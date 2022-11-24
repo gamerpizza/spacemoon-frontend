@@ -1,0 +1,22 @@
+.body {
+  background-image: url("/images/hero_bck.png");
+  opacity: 1;
+  background-repeat: no-repeat;
+  background-position: left top;
+  background-color: var(--color-white);
+  min-height: 830px;
+  height: 80vh;
+  background-size:cover;
+  background-size: 100% 80%;
+  max-height: calc(43.2vw);
+  transition: opacity 500ms ease-in-out 0s;
+  position: relative;
+  top: -150px;
+}
+
+
+
+.searchWrapper {
+  position: relative;
+  top: 100%;
+}
