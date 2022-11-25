@@ -1,0 +1,73 @@
+name: Blob storage website CI
+
+on:
+    push:
+        branches: [ main ]
+        
+permissions:
+      id-token: write
+      contents: read
+env:
+  GCS_BUCKET: spacemoon.com
+  GCP_WIP: projects/965665282297/locations/global/workloadIdentityPools/spacemoon-github-auth/providers/github
+  GCP_SERVICE_ACCOUNT: spacemoon-github-auth-gcs@global-pagoda-368419.iam.gserviceaccount.com
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+    
+    - name: Install
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Start
+      run: nohup npm start &
+
+    - name: Start
+      run: nohup npm start &
+    # Authenticate to GCP
+    - name: Authenticate to Google Cloud
+      id: auth
+      uses: google-github-actions/auth@v0
+      with:
+        workload_identity_provider: ${{env.GCP_WIP}}
+        service_account: ${{env.GCP_SERVICE_ACCOUNT}}
+        token_format: 'access_token'
+        access_token_lifetime: '300s'
+    # Setup GCP CLI gsutil/gcloud
+    - name: Set up Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+    # Setup Deploy to GS Bucket
+    - name: Deploy
+      run: |-
+        gsutil -m rsync -R . gs://${{env.GCS_BUCKET}}
+    
+
+  #   - name: Upload to blob storage
+  #     uses: azure/CLI@v1
+  #     with:
+  #       inlineScript: |
+  #           az storage blob upload-batch --account-name ecommerce101 --auth-mode key -d '$web' -s .
+  #   - name: Purge CDN endpoint
+  #     uses: azure/CLI@v1
+  #     with:
+  #       inlineScript: |
+  #          az cdn endpoint purge --content-paths  "/*" --profile-name "ecommerce" --name "ecommerce12" --resource-group "RG-Ecommerce"
+
+
+
+  # # Azure logout
+  #   - name: logout
+  #     run: |
+  #           az logout
+  #     if: always()
