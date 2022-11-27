@@ -2,8 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Products = (props: any) => {
-  console.log('PRODUCTS', props);
-
   return (
     <div>
       <section className='text-gray-600 body-font'>

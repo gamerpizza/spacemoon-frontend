@@ -10,8 +10,8 @@ interface IProps {
 }
 
 export const GooglePay = ({cart}: IProps) => {
-    const env: google.payments.api.Environment = 
-        process.env.NEXT_PUBLIC_ENV as google.payments.api.Environment 
+    const env: google.payments.api.Environment =
+        process.env.NEXT_PUBLIC_ENV as google.payments.api.Environment
         ?? "TEST"
     const apiVMajor = toNumber(process.env.NEXT_PUBLIC_GP_API_V)
     const apiVMinor = toNumber(process.env.NEXT_PUBLIC_GP_API_V_M)
@@ -121,7 +121,7 @@ export const GooglePay = ({cart}: IProps) => {
     } as google.payments.api.PaymentDataRequest
 
     return(
-        <GooglePayButton 
+        <GooglePayButton
             environment={env}
             buttonColor={"black"}
             paymentRequest={paymentRequest}
@@ -134,9 +134,6 @@ export const GooglePay = ({cart}: IProps) => {
                     },
                     paymentData: x,
                 }
-
-                console.log(paymentBody)
-
                 return PaymentAPI.googlePayCreateOrder(paymentBody)
                     .then(() => ({
                         transactionState: 'SUCCESS',

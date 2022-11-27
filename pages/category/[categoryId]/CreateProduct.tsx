@@ -1,5 +1,5 @@
 import { Formik, Field } from 'formik';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Product } from '../../../model/product';
 import { productSchema } from '../../../validations/productSchema';
@@ -7,8 +7,15 @@ import InputField from '../../../components/Fields/InputField';
 
 const CreateProduct = ({ product }: { product: Product }) => {
   const [errors, setErrors] = useState<any>();
+    const [token, setToken] = useState<any>();
+
   const router = useRouter();
-  const { id } = router.query
+  const { categoryId } = router.query
+
+  useEffect(() => {
+    setToken(JSON.parse(localStorage.getItem('data') || '')?.token.token.account.access_token)
+  },[])
+
   return (
     <>
       <Formik
@@ -16,13 +23,13 @@ const CreateProduct = ({ product }: { product: Product }) => {
         onSubmit={async (data: Product) => {
           try {
             const response = await fetch(
-              `http://localhost:8000/api/product/${id}/create`,
+              `http://localhost:8000/api/product/${categoryId}/create`,
               {
                 method: 'POST',
                 headers: {
                   Accept: 'application/json',
                   'Content-Type': 'text/plain',
-                  Authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJlS0t1R19ZQnlUbGdXMnNMM05ubzRxU0JidHliaFdib1VGOEprcHNYN1NBIn0.eyJleHAiOjE2NjkyNjgwNDcsImlhdCI6MTY2OTIzMjA0NywianRpIjoiYjk5YmUwMTItMDlmOS00MTIzLWJmMGEtYTI5MDZjZjEzNDRhIiwiaXNzIjoiaHR0cDovLzAuMC4wLjA6ODA4MS9yZWFsbXMvc3BhY2Vtb29uIiwiYXVkIjoiYWNjb3VudCIsInN1YiI6Ijk3OWIxOGIzLTc3NmQtNDNlZi1iNDEzLTIzMjFjYjAwMzU5OSIsInR5cCI6IkJlYXJlciIsImF6cCI6InVzbWFuIiwic2Vzc2lvbl9zdGF0ZSI6ImYxNWFjMTE2LTkxZGUtNGFkMi1iNmMxLWMxNTgyOTY2ZjY4NSIsImFjciI6IjEiLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsiZGVmYXVsdC1yb2xlcy1zcGFjZW1vb24iLCJvZmZsaW5lX2FjY2VzcyIsInVtYV9hdXRob3JpemF0aW9uIl19LCJyZXNvdXJjZV9hY2Nlc3MiOnsiYWNjb3VudCI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsIm1hbmFnZS1hY2NvdW50LWxpbmtzIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJwcm9maWxlIGVtYWlsIiwic2lkIjoiZjE1YWMxMTYtOTFkZS00YWQyLWI2YzEtYzE1ODI5NjZmNjg1IiwiZW1haWxfdmVyaWZpZWQiOnRydWUsIm5hbWUiOiJ1c21hbiBzaWRkaXF1ZSIsInByZWZlcnJlZF91c2VybmFtZSI6InVzbWFuIiwiZ2l2ZW5fbmFtZSI6InVzbWFuIiwiZmFtaWx5X25hbWUiOiJzaWRkaXF1ZSIsImVtYWlsIjoidXNpZGRpcXVlMDlAZ21haWwuY29tIn0.WTxgAkNqKTZOMLWqdccGLZapEaSgao0TlhokXKZctGNGabmdTnJCrf42hKsP1F8EMcrdiJ0LFKEyyWBA2OIM9is8_kGLcui6tE6ka6PPVUHR4ZiQSW-nlkTnnqlscZgq_hDziTqZV7MwzmtuJds7OVpyN8O-wMoH2glI42iXW7pwvfaedswyQT4lQHQb7r_lheM3Mc_TRGH9alwp2ScuojeefF7GbICbQH105mFZ5AG3lM8ktOhVjJYP6ArBROhC1lx80L4Qlt4wZ_y9AsFDP4Ycq5hzTzIMNe0S840lhABqkvzO6drfDp2-EOEmLhlMiAhasDtTuiO3qLso6cMEOg`,
+                  Authorization: `Bearer ${token}`,
                 },
                 body: JSON.stringify(data),
               },

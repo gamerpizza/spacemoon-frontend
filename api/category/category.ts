@@ -53,7 +53,6 @@ const getCategory = (id: number) =>
     },
   });
 const getAllCategories = () => {
-  console.log('url', `${fullUrl}${categoryRoute}/get/0/5`);
   fetch(`${fullUrl}${categoryRoute}/get/0/5`, {
     method: 'GET',
     headers: {

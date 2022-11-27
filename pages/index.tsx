@@ -35,16 +35,14 @@ export const getStaticProps = async () => {
 
 
   try {
-    const response = await fetch(`http://localhost:8000/api/category/get/0/2`, {
+    const response = await fetch(`http://localhost:8000/api/category/get/0/1000`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
         'Content-Type': 'text/plain',
       },
     });
-    console.log(response);
     const category: Category = await response.json();
-    console.log("index.js",category);
     return {
       props: {
         categories: category,

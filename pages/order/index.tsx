@@ -2,7 +2,6 @@ import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 const OrderSummary = ({ cart, subTotal }: any) => {
   const session = useSession();
-  console.log(session);
   return (
     <>
       <div className='flex justify-start item-start space-y-2 flex-col'>

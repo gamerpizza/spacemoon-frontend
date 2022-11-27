@@ -11,7 +11,7 @@ export const PayPal = ({ order }: IProps) => {
     order,
     paymentData: null,
   }
-  
+
   return (
     <PayPalScriptProvider
       options={{
@@ -27,7 +27,6 @@ export const PayPal = ({ order }: IProps) => {
           return PaymentAPI.paypalCreateOrder(paymentBody)
             .then((resp) => {
               const x = resp.json();
-              console.log(x);
               return x;
             })
             .then((order) => order.id);
@@ -35,7 +34,6 @@ export const PayPal = ({ order }: IProps) => {
         onApprove={(data, actions) => {
           return PaymentAPI.paypalCheckout(data.orderID)
             .then((resp) => resp.json())
-            .then((od) => console.log(od));
         }}
       />
     </PayPalScriptProvider>
