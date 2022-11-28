@@ -20,20 +20,21 @@ const LandingPage = (props:any) => {
 
   return (
     <>
-      <div className='bg-[url(/images/hero_bck.png)] bg-no-repeat relative lg:top-[-180px] sm:top-[-250px] h-screen  bg-[100%] bg-auto'>
+    <div>
+      <div className='bg-[url(/images/hero_bck.png)] bg-no-repeat relative lg:top-[-180px] sm:top-[-250px] h-screen bg-[100%] bg-cover'>
         <div className='grid grid-cols-3 h-full gap-4'>
-          <div className='col-span-full lg:col-span-2 md:col-span-2 lg:w-3/4 p-20 relative top-80'>
+          <div className='lg:w-3/4 p-20 relative top-80'>
             <h1 className='text-white text-4xl md:text-5xl lg:text-5xl items-center font-unica'> THE BEST PRODUCTS IN THE GALAXY.</h1>
             <button className='text-white font-thin border-white bg-gradient-to-r from-[rgba(255,255,255,0.4)] to-[rgba(255,255,255,0.1)] mt-4 pt-3 pb-3 pl-5 pr-5 rounded-lg '>Explore the Best Deals</button>
           </div>
         </div>
-
-        <div className='flex flex-col justify-center'>
+        </div>
+        <div className='flex flex-col h-auto justify-center'>
           <div className='m-auto w-[90%]'>
         <div className='flex justify-center'>
           <h1 className='text-4xl  pt-16 font-unica w-[80%] m-auto '> EXPLORE THE PRODUCTS BY CATEGORIES </h1>
         </div>
-        <div className='flex flex-row flex-wrap h-auto justify-center '>
+        <div className='flex flex-row flex-wrap justify-center '>
           <div className='bg-[url(/images/multiverse.png)] bg-no-repeat w-96 bg-contain h-[30rem] mt-14 p-8'>
             <h1 className='text-white text-2xl font-unica'> MULTIVERSE</h1>
                 <button className='text-white font-thin  mt-4 pt-3  rounded-lg '>
@@ -329,8 +330,6 @@ const LandingPage = (props:any) => {
           </div>
           </div>
         </div>
-
-      <Footer/>
       </div>
     </>
   );
