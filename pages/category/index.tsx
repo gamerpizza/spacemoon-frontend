@@ -93,9 +93,7 @@ const Categories = (props: any) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  console.log(`getStaticProps`);
   try {
-    console.log('api');
     const response = await fetch(`http:/localhost:8000/api/category/get/0/10`, {
       method: 'GET',
       headers: {
@@ -109,7 +107,6 @@ export const getStaticProps: GetStaticProps = async () => {
       props: { categories: categories },
     };
   } catch (error: any) {
-    console.log('here error', error);
 
     return {
       props: { errCode: 500 },

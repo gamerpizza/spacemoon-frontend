@@ -1,7 +1,6 @@
 import NextAuth from 'next-auth';
 import KeycloakProvider from 'next-auth/providers/keycloak';
 import type { Session, Awaitable } from 'next-auth/core/types';
-import { SessionData } from '../../../types/auth';
 
 export default NextAuth({
   providers: [
@@ -14,12 +13,11 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    jwt: async ({ token,user}) => {
-      console.log("executed", token, "user",user)
-      return token;
+    jwt: async ({account,token,user}) => {
+      return {account, token};
     },
-    session: (data: SessionData): Awaitable<Session> => {
-      return data.session;
+    session: (session:any) => {
+      return session;
     },
   },
 });

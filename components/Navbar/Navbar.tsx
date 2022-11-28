@@ -1,5 +1,5 @@
 import { useSession } from 'next-auth/react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { signIn, signOut } from 'next-auth/react';
@@ -11,10 +11,15 @@ import Category from '../Dropdowns/Category';
 import Languages from '../Dropdowns/Languages';
 
 export const Navbar = (props: any) => {
-  const session = useSession();
 
   const [cartClicked, setCartClicked] = useState(false);
+  const [isSignOut, setIsSignOut] = useState(false);
+  const session = useSession()
 
+   useEffect(() => {
+    if(!localStorage.getItem("data") && session.status === 'authenticated')
+      localStorage.setItem("data", JSON.stringify(session.data))
+  }, [session])
   const loggedInContent = (
     <>
       <a
@@ -27,6 +32,8 @@ export const Navbar = (props: any) => {
         onClick={(e) => {
           e.preventDefault();
           localStorage.removeItem('cart');
+          localStorage.removeItem('data');
+          setIsSignOut(true)
           signOut({ callbackUrl: '/' });
         }}
         className='flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700'
@@ -182,7 +189,6 @@ export const Navbar = (props: any) => {
       >
         Sign up
       </a>
-      {console.log("click", cartClicked)}
       <div>
         <div
           onClick={() => setCartClicked(!cartClicked)}
