@@ -2,19 +2,19 @@ import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { SessionData } from '../types/auth';
 import { useEffect, useState } from 'react';
+import { useSession } from 'next-auth/react';
 
 import { Product } from '../model/product';
-import { Footer } from '../components/Footer/Footer';
 
 import '../styles/globals.css';
 import { Navbar } from '../components/Navbar/Navbar';
 
 function MyApp({ Component, pageProps }: AppProps<SessionData>) {
-  console.log("app", pageProps);
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [searching, setSearching] = useState(false);
+
   useEffect(() => {
     try {
       if (localStorage.getItem('cart'))
@@ -28,16 +28,10 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
     localStorage.setItem('cart', JSON.stringify(newCart));
     let subtotal = 0;
     for (let i = 0; i < Object.keys(cart).length; i++) {
-      console.log(
-        'price',
-        newCart[Object.keys(cart)[i]].price,
-        newCart[Object.keys(cart)[i]].quantity,
-      );
       subtotal +=
         newCart[Object.keys(cart)[i]].price *
         newCart[Object.keys(cart)[i]].quantity;
     }
-    console.log(subtotal);
     setSubTotal(subtotal);
   };
 
@@ -49,7 +43,6 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
     name: string,
   ) => {
     let newCart: any = cart;
-    console.log(id);
 
     if (id in cart) newCart[id].quantity = newCart[id].quantity + 1;
     else newCart[id] = { product, price, quantity, name };

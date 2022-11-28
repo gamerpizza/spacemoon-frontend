@@ -11,7 +11,6 @@ const UpdateCategory = ({ category }: { category: Category }) => {
   return (
     <>
       <>
-        {console.log(category.name, 'sas')}
         <p className='text-gray-500 text-xs tracking-widest title-font mb-1'>
           {' '}
           {category.name}{' '}
@@ -80,7 +79,6 @@ const UpdateCategory = ({ category }: { category: Category }) => {
 
 export const getStaticProps = async (context: any) => {
   const id = context.params.categoryId
-  console.log(typeof id);
 
   try {
     const response = await fetch(`http://localhost:8000/api/category/${id}/get`, {
@@ -90,9 +88,7 @@ export const getStaticProps = async (context: any) => {
         'Content-Type': 'text/plain',
       },
     });
-    console.log(response);
     const category: Category = await response.json();
-    console.log(category);
     return {
       props: {
         category: category,

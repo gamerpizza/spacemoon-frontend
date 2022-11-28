@@ -7,7 +7,6 @@ const Checkout = ({ cart, subTotal }: any) => {
   return (
     <Formik
       onSubmit={async (data: any) => {
-        console.log(data);
         try {
           // const response = await CategoryAPI.createCategory(data);
           // setErrors('');

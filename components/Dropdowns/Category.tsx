@@ -3,7 +3,6 @@ import { useState } from 'react';
 
 const Category = (props:any) => {
   const [clicked, setClicked] = useState(false);
-  console.log("cater  ",props)
   return (
     <li>
       <button

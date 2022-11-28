@@ -9,7 +9,7 @@ interface IProps {
 }
 
 export const Stripe = ({ cart, currencySymbol }: IProps) => {
-  const paymentBody = { 
+  const paymentBody = {
     order: {
       cart: cart,
     },
@@ -24,7 +24,6 @@ export const Stripe = ({ cart, currencySymbol }: IProps) => {
           window.location.assign(url);
         }),
       )
-      .catch((err) => console.log(err));
 
   return (
     <>
