@@ -23,7 +23,7 @@ const SearchBar = (props: any) => {
             <button
               id='dropdown-button'
               data-dropdown-toggle='dropdown'
-              className='  flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-[12px] font-comfortaa  text-center text-gray-100 bg-[rgba(216,216,216,0.1)] border border-[#F5F8FA]  rounded-l-full hover:bg-[rgba(216,216,216,0.14)] focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600'
+              className={`flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-[12px] font-comfortaa  text-center bg-[rgba(216,216,216,0.1)] border border-[#F5F8FA]  rounded-l-full hover:bg-[rgba(216,216,216,0.14)] focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600 ${ props.yScroll > 722 || props.path !== '/' ? 'text-black border-[#1C1F22]': 'text-white border-[#F5F8FA]'}`}
               onClick = {() => setClicked(!clicked)}
             >
               {selectedCategory ? selectedCategory : 'All Categories'}
@@ -85,7 +85,7 @@ const SearchBar = (props: any) => {
              <input
               onChange={(e) => onSearchHandler(e)}
               type='text'
-              className='px-4 py-2 bg-[rgba(216,216,216,0.1)] xl:w-96 md:w-80 sm:w-48  text-white border border-[#F5F8FA] border-l-0 border-r-0 outline-none'
+              className={`px-4 py-2 bg-[rgba(216,216,216,0.1)] xl:w-96 md:w-80 sm:w-48  text-white border  border-l-0 border-r-0 outline-none ${ props.yScroll > 722 || props.path !== '/' ? 'border-[#1C1F22]': 'border-[#F5F8FA]'}`}
               placeholder='Search...'
             />
             <Link href='/search'>
@@ -94,10 +94,10 @@ const SearchBar = (props: any) => {
                   props.searchHandler(searchItem, categoryId);
 
                 }}
-                className='flex  bg-[rgba(216,216,216,0.1)] border border-[#F5F8FA] border-l-0 hover:bg-[rgba(216,216,216,0.14)] items-center justify-center px-4  rounded-full rounded-r-full rounded-l-none'
+                className={`flex  bg-[rgba(216,216,216,0.1)] border border-[#F5F8FA] border-l-0 hover:bg-[rgba(216,216,216,0.14)] items-center justify-center px-4  rounded-full rounded-r-full rounded-l-none ${ props.yScroll > 722 || props.path !== '/' ? 'border-[#1C1F22]': 'border-[#F5F8FA]'}`}
               >
                 <svg
-                  className='w-6 h-[41px] text-gray-100'
+                  className={`w-6 h-[41px]  ${ props.yScroll > 722 || props.path !== '/' ? 'text-gray-800': 'text-gray-100'}`}
                   fill='currentColor'
                   xmlns='http://www.w3.org/2000/svg'
                   viewBox='0 0 24 24'

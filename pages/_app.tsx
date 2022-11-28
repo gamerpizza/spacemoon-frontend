@@ -8,6 +8,7 @@ import { Product } from '../model/product';
 
 import '../styles/globals.css';
 import { Navbar } from '../components/Navbar/Navbar';
+import { Footer } from '../components/Footer/Footer';
 
 function MyApp({ Component, pageProps }: AppProps<SessionData>) {
   const [cart, setCart] = useState({});
@@ -111,7 +112,7 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
         subTotal={subTotal}
         {...pageProps}
       />
-
+      <Footer/>
       </SessionProvider>
   );
 }
