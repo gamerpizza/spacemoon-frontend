@@ -12,7 +12,7 @@ const Languages = () => {
         onClick={() => setLanguagesClicked(!languagesClicked)}
         id='mega-menu-icons-dropdown-button'
         data-dropdown-toggle='mega-menu-icons-dropdown'
-        className='flex justify-between items-center py-2 m-0 w-full font-medium font-comfortaa_regular text-white border-b border-gray-100  hover:bg-gray-50 md:hover:bg-transparent md:border-0  dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700'
+        className='flex justify-between items-center py-2 m-0 w-full font-medium font-unica text-white border-b border-gray-100  hover:bg-gray-50 md:hover:bg-transparent md:border-0  dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700'
       >
         ENG
         <svg

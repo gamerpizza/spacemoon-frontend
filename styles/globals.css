@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,16 +11,11 @@
 }
 
 @font-face {
-  font-family: "Comfortaa Bold";
-  src: url('../public/fonts/Comfortaa/static/Comfortaa-Bold.ttf');
+  font-family: 'Comfortaa';
+  src: url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
 }
 
 @font-face {
-  font-family: "Comfortaa Regular";
-  src: url('../public/fonts/Comfortaa/static/Comfortaa-Regular.ttf');
-}
-
-@font-face {
-  font-family: "Comfortaa Regular";
-  src: url('../public/fonts/Unica_One/UnicaOne-Regular.ttf');
+  font-family: 'Unica One';
+  src: url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 }
