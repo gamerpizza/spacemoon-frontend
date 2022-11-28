@@ -3,17 +3,16 @@ import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { signIn, signOut } from 'next-auth/react';
+
 import SearchBar from '../SearchBar/SearchBar';
 import whiteLogo from '../../public/images/logo_black.png';
 import shoppingCartIcon from '../../public/images/shopping-cart.svg';
 import Category from '../Dropdowns/Category';
 import Languages from '../Dropdowns/Languages';
-import { getToken } from "next-auth/jwt"
 
 export const Navbar = (props: any) => {
   const session = useSession();
 
-  console.log(session)
   const [cartClicked, setCartClicked] = useState(false);
 
   const loggedInContent = (
@@ -30,29 +29,13 @@ export const Navbar = (props: any) => {
           localStorage.removeItem('cart');
           signOut({ callbackUrl: '/' });
         }}
-        className='flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700'
+        className='flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700'
       >
         SIGN OUT
       </li>
-      <a
-        href='#'
-        className='text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800'
-      ></a>
 
-      <div className=''>
-        <div
-          onClick={() => setCartClicked(!cartClicked)}
-          className='text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300  rounded-lg  px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800'
-        >
-          <Image
-            src={shoppingCartIcon}
-            width={32}
-            height={32}
-            alt='Icon'
-            className='rounded-full'
-          />
-        </div>
-      </div>
+
+
 
       <div
         id='drawer-example'
@@ -218,42 +201,60 @@ export const Navbar = (props: any) => {
   );
 
   return (
-    <nav className='   sticky  top-0 z-10 backdrop-filter backdrop-blur-lg  border-b border-gray-200 px-2 md:px-4 py-0.5  '>
-      <div className=' flex justify-between flex-wrap items-center mx-auto max-w-screen-2xl'>
-        <div className='flex h-10 items-center md:order-1'>
+    <nav className='sticky top-0 z-10 backdrop-filter backdrop-blur-lg  border-b border-gray-200 px-2 md:px-4 py-0.5  '>
+      <div className=' flex flex-wrap items-center lg:justify-between sm:justify-around  lg:pt-0 max-w-screen-3xl'>
+        <div className='flex h-10 items-center sm:order-1'>
           <a href='/' className='flex items-center'>
             <span className='self-center text-xl font-semibold whitespace-nowrap dark:text-white'>
               <Image src={whiteLogo} width={150} height={10} alt='logo' />
             </span>
           </a>
         </div>
-        <div
-          id='mega-menu-icons'
-          className='hidden justify-between items-center w-full md:flex md:w-auto md:order-2 p-4'
-        >
-
-          <ul className='flex flex-col items-center mt-4 text-sm font-medium md:flex-row md:space-x-8 md:mt-0'>
-            <SearchBar
+        <div className='sm:order-3 lg:order-2 sm:pb-5 lg:pb-0'>
+        <SearchBar
               categories={props.pageProps}
               addToCart={props.addToCart}
               searchHandler={(searchItem: any, categoryId: any) =>
                 props.searchHandler(searchItem, categoryId)
               }
             />
+        </div>
+        <div
+          id='mega-menu-icons'
+          className=' justify-between items-center w-full sm:flex sm:w-auto sm:order-2 lg:order-3 p-4'
+        >
+
+          <ul className='flex flex-col items-center mt-4 text-sm font-medium sm:flex-row sm:space-x-8 sm:mt-0'>
+
             <Category categories = {props.pageProps}/>
-            <Languages />
-            { session.data ? <> {loggedInContent} </> : <> {notLoggedInContent} </> }
+
+            {/* <Languages /> */}
+
+              { session.data ? <> {loggedInContent} </> : <> {notLoggedInContent} </> }
+
+            <div
+              onClick={() => setCartClicked(!cartClicked)}
+              className='text-gray-800  rounded-lg  px-4 py-2 sm:px-5 sm:py-2.5 mr-1 sm:mr-2'
+            >
+              <Image
+                src={shoppingCartIcon}
+                width={32}
+                height={32}
+                alt='Icon'
+                className='rounded-full'
+              />
+            </div>
           <button
             data-collapse-toggle='mega-menu-icons'
             type='button'
-            className='inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
+            className='inline-flex items-center pt-2 pb-2 ml-0 text-sm text-white rounded-lg sm:hidden hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600'
             aria-controls='mega-menu-icons'
             aria-expanded='false'
           >
             <span className='sr-only'>Open main menu</span>
             <svg
               aria-hidden='true'
-              className='w-6 h-6'
+              className='w-9 h-8'
               fill='currentColor'
               viewBox='0 0 20 20'
               xmlns='http://www.w3.org/2000/svg'

@@ -35,7 +35,7 @@ export const getStaticProps = async () => {
 
 
   try {
-    const response = await fetch(`http://localhost:8000/api/category/get/0/2`, {
+    const response = await fetch(`http://localhost:8000/api/category/get/0/16`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',

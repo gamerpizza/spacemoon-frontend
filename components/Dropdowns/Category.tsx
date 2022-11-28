@@ -10,7 +10,7 @@ const Category = (props:any) => {
         onClick={() => setClicked(!clicked)}
         id='mega-menu-icons-dropdown-button'
         data-dropdown-toggle='mega-menu-icons-dropdown'
-        className='flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-comfortaa_regular text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:pl-8 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700'
+        className='flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica text-[#F5F8FA] border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:pl-8 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700'
       >
         CATEGORIES
         <svg
@@ -44,23 +44,8 @@ const Category = (props:any) => {
                 <li>
               <Link
                 href={`/category/${category.categoryId}`}
-                className='flex items-center text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group'
+                className='flex font-comfortaa text-[12px] text-[#1C1F22] items-center dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group'
               >
-                <span className='sr-only'>Blog</span>
-                <svg
-                  className='mr-2 w-4 h-4 text-gray-400 dark:text-gray-500 group-hover:text-blue-600 dark:group-hover:text-blue-500'
-                  aria-hidden='true'
-                  fill='currentColor'
-                  viewBox='0 0 20 20'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path
-                    fill-rule='evenodd'
-                    d='M2 5a2 2 0 012-2h8a2 2 0 012 2v10a2 2 0 002 2H4a2 2 0 01-2-2V5zm3 1h6v4H5V6zm6 6H5v2h6v-2z'
-                    clip-rule='evenodd'
-                  ></path>
-                  <path d='M15 7h1a2 2 0 012 2v5.5a1.5 1.5 0 01-3 0V7z'></path>
-                </svg>
                 {category.name}
               </Link>
             </li>
