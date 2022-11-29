@@ -4,7 +4,7 @@ interface IProps {
   children: ReactElement | ReactElement[];
 }
 
-const Wrapper = ({ children }: IProps, { addToCart }: any) => {
+const Wrapper = ({ children }: IProps) => {
   return (
     <>
       <div

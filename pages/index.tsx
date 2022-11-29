@@ -11,10 +11,10 @@ import { mockCart, mockOrder } from '../utils/mock';
 import { Footer } from '../components/Footer/Footer';
 
 const Home: NextPage = (props: any) => (
-  <Wrapper>
+  <Wrapper >
 
     <>
-      <LandingPage categories = {props.categories} addToCart={props.addToCart} />
+      <LandingPage addToCart={props.addToCart} />
       {/* <PayPal order={mockOrder} />
 
       <div style={{ width: '30%', marginLeft: '10px' }}>
@@ -30,10 +30,6 @@ const Home: NextPage = (props: any) => (
 );
 
 export const getStaticProps = async () => {
-
-
-
-
   try {
 
     const response = await fetch(`http://localhost:8000/api/category/get/0/1000`, {
@@ -44,6 +40,7 @@ export const getStaticProps = async () => {
       },
     });
     const category: Category = await response.json();
+
     return {
       props: {
         categories: category,

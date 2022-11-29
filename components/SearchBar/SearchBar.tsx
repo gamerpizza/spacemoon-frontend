@@ -63,7 +63,7 @@ const SearchBar = (props: any) => {
                 aria-labelledby='dropdown-button'
               >
 
-                {props.categories.categories && props.categories.categories.map((category:any) => {
+                {props?.categories?.categories && props.categories.categories.map((category:any) => {
                   return(
                     <li>
                   <button

@@ -12,7 +12,7 @@ import shoppingCartIcon from '../../public/images/shopping-cart.svg';
 import Category from '../Dropdowns/Category';
 
 export const Navbar = (props: any) => {
-
+  console.log("props", props)
   const [cartClicked, setCartClicked] = useState(false);
   const [isSignOut, setIsSignOut] = useState(false);
   const [yScroll, setYScroll] = useState(0)
@@ -38,11 +38,12 @@ export const Navbar = (props: any) => {
     if(!localStorage.getItem("data") && session.status === 'authenticated')
       localStorage.setItem("data", JSON.stringify(session.data))
   }, [session])
+
   const loggedInContent = (
     <>
       <a
         href='/profile'
-        className={`flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica no-underline text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${ props.yScroll > 722 || props.path !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
+        className={`flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica no-underline text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${ yScroll > 722 || router.pathname !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
       >
         PROFILE
       </a>
@@ -54,7 +55,7 @@ export const Navbar = (props: any) => {
           setIsSignOut(true)
           signOut({ callbackUrl: '/' });
         }}
-        className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${ props.yScroll > 722 || props.path !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
+        className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${ yScroll > 722 || router.pathname !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
       >
         SIGN OUT
       </li>
@@ -255,7 +256,7 @@ export const Navbar = (props: any) => {
 
           <ul className='flex flex-col items-center mt-4 text-sm font-medium sm:flex-row sm:space-x-8 sm:mt-0'>
 
-            <Category categories = {props.pageProps}/>
+            <Category yScroll = {yScroll} path = {router.pathname} categories = {props.pageProps}/>
 
             {/* <Languages /> */}
 

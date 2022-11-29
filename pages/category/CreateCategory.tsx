@@ -17,18 +17,24 @@ const CreateCategory = ({ category }: { category: Category }) => {
   return (
     <>
       <Formik
-        onSubmit={async (data: Category) => {
+        onSubmit={async (data:any) => {
           try {
+            console.log("data",data)
+            const formData = new FormData()
+            formData.append("name", data.name)
+            formData.append("products", data.products)
+            formData.append("createdBy", data.createdBy)
+            formData.append("image", data.image)
+            console.log("formData", formData)
             const response = await fetch(
               `http://localhost:8000/api/category/create`,
               {
                 method: 'POST',
                 headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'text/plain',
-                  Authorization: `Bearer ${token}`,
+                  'Content-Type': 'multipart/form-data ',
+                  'Authorization': `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+                body: formData,
               },
             );
             setErrors('');

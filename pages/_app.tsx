@@ -2,10 +2,8 @@ import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
 import { SessionData } from '../types/auth';
 import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
 
 import { Product } from '../model/product';
-
 import '../styles/globals.css';
 import { Navbar } from '../components/Navbar/Navbar';
 import { Footer } from '../components/Footer/Footer';
@@ -15,7 +13,7 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
   const [subTotal, setSubTotal] = useState(0);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [searching, setSearching] = useState(false);
-
+  console.log('app', pageProps);
   useEffect(() => {
     try {
       if (localStorage.getItem('cart'))
@@ -88,6 +86,7 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
       });
     }
   };
+  console.log('app', pageProps);
   return (
     <SessionProvider
       session={pageProps.session}
@@ -116,4 +115,5 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
       </SessionProvider>
   );
 }
+
 export default MyApp;
