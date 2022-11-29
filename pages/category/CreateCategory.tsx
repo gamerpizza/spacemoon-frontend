@@ -11,7 +11,8 @@ const CreateCategory = ({ category }: { category: Category }) => {
   const [errors, setErrors] = useState<any>();
   const [token, setToken] = useState<any>();
   useEffect(() => {
-    setToken(JSON.parse(localStorage.getItem('data') || '')?.token.token.account.access_token)
+    if(localStorage.getItem('data'))
+    setToken(JSON.parse(localStorage.getItem('data') || '')?.token.token.token.account.access_token)
   },[])
   const router = useRouter();
   return (
@@ -19,24 +20,22 @@ const CreateCategory = ({ category }: { category: Category }) => {
       <Formik
         onSubmit={async (data:any) => {
           try {
-            console.log("data",data)
             const formData = new FormData()
             formData.append("name", data.name)
             formData.append("products", data.products)
             formData.append("createdBy", data.createdBy)
             formData.append("image", data.image)
-            console.log("formData", formData)
-            const response = await fetch(
+            const response =await fetch(
               `http://localhost:8000/api/category/create`,
               {
                 method: 'POST',
                 headers: {
-                  'Content-Type': 'multipart/form-data ',
                   'Authorization': `Bearer ${token}`,
                 },
                 body: formData,
               },
             );
+            console.log("response", response)
             setErrors('');
             router.push('/category');
           } catch (error: any) {
@@ -106,6 +105,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
                       placeholder='Enter name'
                       className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                     />
+
                   </label>
                 </div>
               </div>

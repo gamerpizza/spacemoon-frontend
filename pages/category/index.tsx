@@ -32,7 +32,7 @@ const Categories = (props: any) => {
               <div key={category.categoryId}></div>
 
               {category.image && (
-                <Image src={category.image} alt='Category Image' />
+                <Image src={category.image} alt='Category Image' width={512} height={512}/>
               )}
 
               {category.products &&
@@ -94,7 +94,7 @@ const Categories = (props: any) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const response = await fetch(`http:/localhost:8000/api/category/get/0/10`, {
+    const response = await fetch(`http:/localhost:8000/api/category/get/0/100`, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
