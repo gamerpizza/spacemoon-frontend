@@ -60,7 +60,7 @@ const AccountInfo = (props:any) => {
         </div>
 
       </div>
-      <div className='md:w-[20%] min-w-[200px]'>
+      <div className='md:w-[20%] min-w-[250px]'>
         <div>
           <button className="hover:bg-[#A042E1] hover:text-white text-gray-600 font-comfortaa flex items-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-[12px] shadow">
             <AiOutlinePlus className='text-[20px]'/> &nbsp;LIst new Product
