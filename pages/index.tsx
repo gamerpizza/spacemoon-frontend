@@ -14,7 +14,7 @@ const Home: NextPage = (props: any) => (
   <Wrapper>
 
     <>
-      <LandingPage categories = {props.categories} addToCart={props.addToCart} />
+      <LandingPage addToCart={props.addToCart} />
       {/* <PayPal order={mockOrder} />
 
       <div style={{ width: '30%', marginLeft: '10px' }}>
@@ -28,12 +28,8 @@ const Home: NextPage = (props: any) => (
     </>
   </Wrapper>
 );
-
+console.log("here")
 export const getStaticProps = async () => {
-
-
-
-
   try {
 
     const response = await fetch(`http://localhost:8000/api/category/get/0/1000`, {

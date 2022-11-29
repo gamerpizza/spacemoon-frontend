@@ -9,13 +9,13 @@ import { Product } from '../model/product';
 import '../styles/globals.css';
 import { Navbar } from '../components/Navbar/Navbar';
 import { Footer } from '../components/Footer/Footer';
+import { Category } from '../model/category';
 
-function MyApp({ Component, pageProps }: AppProps<SessionData>) {
+function MyApp({ Component, pageProps, categories }: any) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [searching, setSearching] = useState(false);
-
   useEffect(() => {
     try {
       if (localStorage.getItem('cart'))
@@ -88,9 +88,10 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
       });
     }
   };
+  console.log('pageprops', pageProps)
   return (
     <SessionProvider
-      session={pageProps.session}
+      session={pageProps?.session}
       baseUrl='/realms/spacemoon/protocol/openid-connect/auth'
     >
       <Navbar
@@ -111,9 +112,37 @@ function MyApp({ Component, pageProps }: AppProps<SessionData>) {
         clearCart={clearCart}
         subTotal={subTotal}
         {...pageProps}
+        categories={categories}
       />
       <Footer/>
       </SessionProvider>
   );
 }
+MyApp.getInitialProps = async ({Component, ctx} : any) => {
+
+console.log("here")
+
+
+  try {
+
+    const response = await fetch(`http://localhost:8000/api/category/get/0/1000`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'text/plain',
+      },
+    });
+    const categories: Category = await response.json();
+    let pageProps = {}
+    if(Component.getInitialProps)
+      pageProps = await Component.getInitialProps(ctx)
+
+    return {pageProps, categories
+    };
+  } catch (error: any) {
+    return {
+      props: { errCode: 500, message: error },
+    };
+  }
+};
 export default MyApp;
