@@ -5,6 +5,7 @@ interface IProps {
 }
 
 const Wrapper = ({ children }: IProps, { addToCart }: any) => {
+  console.log("children",children)
   return (
     <>
       <div

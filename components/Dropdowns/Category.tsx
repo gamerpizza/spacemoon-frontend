@@ -38,7 +38,7 @@ const Category = (props:any) => {
 
         <div className='p-4 pb-0 text-gray-900 md:pb-4 dark:text-white'>
           <ul className='space-y-4'>
-            {props.categories.categories && props.categories.categories.map((category:any) => {
+            {props?.categories?.categories && props.categories.categories.map((category:any) => {
               return(
                 <li>
               <Link
