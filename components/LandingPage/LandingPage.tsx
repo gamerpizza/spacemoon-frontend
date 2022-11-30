@@ -331,6 +331,7 @@ const LandingPage = (props:any) => {
           </div>
         </div>
       </div>
+
     </>
   );
 };

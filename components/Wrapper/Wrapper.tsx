@@ -3,7 +3,6 @@ import { ReactElement, useEffect, useState } from 'react';
 interface IProps {
   children: ReactElement | ReactElement[];
 }
-
 const Wrapper = ({ children }: IProps) => {
   return (
     <>

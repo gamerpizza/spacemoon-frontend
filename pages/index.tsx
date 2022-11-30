@@ -29,28 +29,6 @@ const Home: NextPage = (props: any) => (
   </Wrapper>
 );
 
-export const getStaticProps = async () => {
-  try {
 
-    const response = await fetch(`http://localhost:8000/api/category/get/0/1000`, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'text/plain',
-      },
-    });
-    const category: Category = await response.json();
-
-    return {
-      props: {
-        categories: category,
-      },
-    };
-  } catch (error: any) {
-    return {
-      props: { errCode: 500, message: error },
-    };
-  }
-};
 
 export default Home;

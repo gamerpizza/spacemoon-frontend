@@ -55,7 +55,7 @@ export const Navbar = (props: any) => {
           setIsSignOut(true)
           signOut({ callbackUrl: '/' });
         }}
-        className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${ yScroll > 722 || router.pathname !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
+        className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica text-white border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${yScroll > 722 || router.pathname !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
       >
         SIGN OUT
       </li>
@@ -198,30 +198,17 @@ export const Navbar = (props: any) => {
           e.preventDefault();
           signIn('keycloak', { callbackUrl: '/' });
         }}
-        className={`text-white font-comfortaa_regular hover:bg-gray-800  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800 ${ props.yScroll > 722 || props.path !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
+        className={` font-unica hover:bg-gray-800  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-gray-800 ${ yScroll > 722 || router.pathname !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
       >
         LOGIN
       </a>
       <a
         href='#'
-        className={`text-white hover:bg-gray-800 font-comfortaa_regular  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 ${ props.yScroll > 722 || props.path !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
+        className={` hover:bg-gray-800 font-unica  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-blue-800 ${ yScroll > 722 || router.pathname !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
       >
         Sign up
       </a>
-      <div>
-        <div
-          onClick={() => setCartClicked(!cartClicked)}
-          className='text-gray-800 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300  rounded-lg  px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800'
-        >
-          <Image
-            src={shoppingCartIcon}
-            width={32}
-            height={32}
-            alt='Icon'
-            className='rounded-full'
-          />
-        </div>
-      </div>
+
     </>
   );
 
@@ -240,7 +227,7 @@ export const Navbar = (props: any) => {
         </div>
         <div className='sm:order-3 lg:order-2 sm:pb-5 lg:pb-0'>
         <SearchBar
-              categories={props.pageProps}
+              categories={props.categories}
               addToCart={props.addToCart}
               yScroll={yScroll}
               path={router.pathname}
@@ -255,8 +242,8 @@ export const Navbar = (props: any) => {
         >
 
           <ul className='flex flex-col items-center mt-4 text-sm font-medium sm:flex-row sm:space-x-8 sm:mt-0'>
+            <Category path={router.pathname} yScroll={yScroll} categories= {props.categories}/>
 
-            <Category yScroll = {yScroll} path = {router.pathname} categories = {props.pageProps}/>
 
             {/* <Languages /> */}
 
