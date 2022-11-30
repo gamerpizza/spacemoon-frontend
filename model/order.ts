@@ -1,4 +1,4 @@
-import { Cart } from './cart';
+import { Cart } from "./cart";
 
 export interface Order {
   orderId: string;
@@ -9,4 +9,4 @@ export interface Order {
   status: number;
 }
 
-export type OrderCart = Pick<Order, 'cart'> | Omit<Order, 'orderId'>;
+export type OrderCart = Pick<Order, "cart"> | Omit<Order, "orderId">;

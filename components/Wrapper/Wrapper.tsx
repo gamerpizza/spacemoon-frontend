@@ -1,18 +1,18 @@
-import { ReactElement, useEffect, useState } from 'react';
+import { ReactElement, useEffect, useState } from "react";
 
 interface IProps {
   children: ReactElement | ReactElement[];
 }
 
 const Wrapper = ({ children }: IProps, { addToCart }: any) => {
-  console.log("children",children)
+  console.log("children", children);
   return (
     <>
       <div
         style={{
-          height: '100%',
-          marginTop: '60px',
-          marginBottom: '40px',
+          height: "100%",
+          marginTop: "60px",
+          marginBottom: "40px",
         }}
       >
         {children}

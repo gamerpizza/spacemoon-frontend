@@ -1,14 +1,14 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
-import defaultImage from "../../public/images/default-image.jpg"
-import deleteIcon from "../../public/images/delete.svg"
+import defaultImage from "../../public/images/default-image.jpg";
+import deleteIcon from "../../public/images/delete.svg";
 
 const Cart = (props: any) => {
-  console.log("length", props.cart)
+  console.log("length", props.cart);
   return (
     <>
-      <div className="ml-20 mt-10 relative" >
+      <div className="ml-20 mt-10 relative">
         <div className="flex">
           <h1 className="font-unica text-3xl">SHOPPING CART</h1>
           <div className="flex justify-center items-center bg-[#F5F8FA] ml-4 p-2 pl-4 pr-4 rounded-full">
@@ -18,10 +18,7 @@ const Cart = (props: any) => {
           </div>
         </div>
         <div className="flex flex-wrap">
-          <div
-            className="flex-col  p-4  bg-white dark:bg-gray-800"
-
-          >
+          <div className="flex-col  p-4  bg-white dark:bg-gray-800">
             {props.cart &&
               Object.keys(props.cart).map((item) => {
                 return (
@@ -111,7 +108,7 @@ const Cart = (props: any) => {
 
                     <br />
                   </div>
-                )
+                );
               })}
           </div>
           <div className="2xl:ml-10 md:ml-12 h-80 flex justify-center items-center">
@@ -133,7 +130,7 @@ const Cart = (props: any) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;

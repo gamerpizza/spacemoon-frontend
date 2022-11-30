@@ -1,15 +1,15 @@
-import type { AppProps } from 'next/app';
-import { SessionProvider } from 'next-auth/react';
-import { SessionData } from '../types/auth';
-import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
+import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
+import { SessionData } from "../types/auth";
+import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
-import { Product } from '../model/product';
+import { Product } from "../model/product";
 
-import '../styles/globals.css';
-import { Navbar } from '../components/Navbar/Navbar';
-import { Footer } from '../components/Footer/Footer';
-import { Category } from '../model/category';
+import "../styles/globals.css";
+import { Navbar } from "../components/Navbar/Navbar";
+import { Footer } from "../components/Footer/Footer";
+import { Category } from "../model/category";
 
 function MyApp({ Component, pageProps, categories }: any) {
   const [cart, setCart] = useState({});
@@ -18,15 +18,15 @@ function MyApp({ Component, pageProps, categories }: any) {
   const [searching, setSearching] = useState(false);
   useEffect(() => {
     try {
-      if (localStorage.getItem('cart'))
-        setCart(JSON.parse(localStorage.getItem('cart') || '{}'));
+      if (localStorage.getItem("cart"))
+        setCart(JSON.parse(localStorage.getItem("cart") || "{}"));
     } catch (error) {
       localStorage.clear();
     }
   }, []);
 
   const saveCart = (newCart: any) => {
-    localStorage.setItem('cart', JSON.stringify(newCart));
+    localStorage.setItem("cart", JSON.stringify(newCart));
     let subtotal = 0;
     for (let i = 0; i < Object.keys(cart).length; i++) {
       subtotal +=
@@ -41,7 +41,7 @@ function MyApp({ Component, pageProps, categories }: any) {
     product: Product,
     quantity: number,
     price: number,
-    name: string,
+    name: string
   ) => {
     let newCart: any = cart;
 
@@ -68,18 +68,18 @@ function MyApp({ Component, pageProps, categories }: any) {
   };
 
   const searchHandler = async (searchValue: string, categoryId: number) => {
-    if(categoryId !== null){
+    if (categoryId !== null) {
       setSearching(true);
       setSearchResults([]);
       const response = await fetch(
         `http://localhost:8000/api/product/${categoryId}/get/0/1000`,
         {
-          method: 'GET',
+          method: "GET",
           headers: {
-            Accept: 'application/json',
-            'Content-Type': 'text/plain',
+            Accept: "application/json",
+            "Content-Type": "text/plain",
           },
-        },
+        }
       );
       const products: Product[] = await response.json();
       products.forEach((product: Product) => {
@@ -88,11 +88,11 @@ function MyApp({ Component, pageProps, categories }: any) {
       });
     }
   };
-  console.log('pageprops', pageProps)
+  console.log("pageprops", pageProps);
   return (
     <SessionProvider
       session={pageProps?.session}
-      baseUrl='/realms/spacemoon/protocol/openid-connect/auth'
+      baseUrl="/realms/spacemoon/protocol/openid-connect/auth"
     >
       <Navbar
         pageProps={pageProps}
@@ -115,31 +115,30 @@ function MyApp({ Component, pageProps, categories }: any) {
         {...pageProps}
         categories={categories}
       />
-      <Footer/>
-      </SessionProvider>
+      <Footer />
+    </SessionProvider>
   );
 }
-MyApp.getInitialProps = async ({Component, ctx} : any) => {
-
-console.log("here")
-
+MyApp.getInitialProps = async ({ Component, ctx }: any) => {
+  console.log("here");
 
   try {
-
-    const response = await fetch(`http://localhost:8000/api/category/get/0/1000`, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'text/plain',
-      },
-    });
+    const response = await fetch(
+      `http://localhost:8000/api/category/get/0/1000`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "text/plain",
+        },
+      }
+    );
     const categories: Category = await response.json();
-    let pageProps = {}
-    if(Component.getInitialProps)
-      pageProps = await Component.getInitialProps(ctx)
+    let pageProps = {};
+    if (Component.getInitialProps)
+      pageProps = await Component.getInitialProps(ctx);
 
-    return {pageProps, categories
-    };
+    return { pageProps, categories };
   } catch (error: any) {
     return {
       props: { errCode: 500, message: error },

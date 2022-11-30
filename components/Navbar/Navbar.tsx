@@ -1,44 +1,44 @@
-import { useSession } from "next-auth/react"
-import { useCallback, useEffect, useState } from "react"
-import Image from "next/image"
-import { signIn, signOut } from "next-auth/react"
-import { useRouter } from "next/router"
+import { useSession } from "next-auth/react";
+import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
+import { signIn, signOut } from "next-auth/react";
+import { useRouter } from "next/router";
 
-import SearchBar from "../SearchBar/SearchBar"
-import whiteLogo from "../../public/images/logo_black.png"
-import blackLogo from "../../public/images/bg_black_logo.png"
-import shoppingCartIcon from "../../public/images/shopping-cart.svg"
-import Category from "../Dropdowns/Category"
-import Cart from "../Cart/Cart"
+import SearchBar from "../SearchBar/SearchBar";
+import whiteLogo from "../../public/images/logo_black.png";
+import blackLogo from "../../public/images/bg_black_logo.png";
+import shoppingCartIcon from "../../public/images/shopping-cart.svg";
+import Category from "../Dropdowns/Category";
+import Cart from "../Cart/Cart";
 
 export const Navbar = (props: any) => {
-  const [cartClicked, setCartClicked] = useState(false)
-  const [isSignOut, setIsSignOut] = useState(false)
-  const [yScroll, setYScroll] = useState(0)
-  const session = useSession()
-  const router = useRouter()
+  const [cartClicked, setCartClicked] = useState(false);
+  const [isSignOut, setIsSignOut] = useState(false);
+  const [yScroll, setYScroll] = useState(0);
+  const session = useSession();
+  const router = useRouter();
 
   const handleNavigation = useCallback(
     (e: any) => {
-      const window = e.currentTarget
-      setYScroll(window.scrollY)
+      const window = e.currentTarget;
+      setYScroll(window.scrollY);
     },
     [yScroll]
-  )
+  );
 
   useEffect(() => {
-    setYScroll(window.scrollY)
-    window.addEventListener("scroll", handleNavigation)
+    setYScroll(window.scrollY);
+    window.addEventListener("scroll", handleNavigation);
 
     return () => {
-      window.removeEventListener("scroll", handleNavigation)
-    }
-  }, [handleNavigation])
+      window.removeEventListener("scroll", handleNavigation);
+    };
+  }, [handleNavigation]);
 
   useEffect(() => {
     if (!localStorage.getItem("data") && session.status === "authenticated")
-      localStorage.setItem("data", JSON.stringify(session.data))
-  }, [session])
+      localStorage.setItem("data", JSON.stringify(session.data));
+  }, [session]);
 
   const loggedInContent = (
     <>
@@ -54,13 +54,12 @@ export const Navbar = (props: any) => {
       </a>
       <li
         onClick={(e) => {
-          e.preventDefault()
-          localStorage.removeItem("cart")
-          localStorage.removeItem("data")
-          setIsSignOut(true)
-          signOut({ callbackUrl: "/" })
+          e.preventDefault();
+          localStorage.removeItem("cart");
+          localStorage.removeItem("data");
+          setIsSignOut(true);
+          signOut({ callbackUrl: "/" });
         }}
-
         className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica  border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
           yScroll > 722 || router.pathname !== "/"
             ? "text-[#1C1F22]"
@@ -75,15 +74,15 @@ export const Navbar = (props: any) => {
         setCartClicked={(clicked: boolean) => setCartClicked(clicked)}
       />
     </>
-  )
+  );
 
   const notLoggedInContent = (
     <>
       <a
         href="#"
         onClick={(e) => {
-          e.preventDefault()
-          signIn("keycloak", { callbackUrl: "/" })
+          e.preventDefault();
+          signIn("keycloak", { callbackUrl: "/" });
         }}
         className={` font-unica hover:bg-gray-800  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-gray-800 ${
           yScroll > 722 || router.pathname !== "/"
@@ -109,7 +108,7 @@ export const Navbar = (props: any) => {
         setCartClicked={(clicked: boolean) => setCartClicked(clicked)}
       />
     </>
-  )
+  );
 
   return (
     <nav
@@ -199,5 +198,5 @@ export const Navbar = (props: any) => {
         </div>
       </div>
     </nav>
-  )
-}
+  );
+};

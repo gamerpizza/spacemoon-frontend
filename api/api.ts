@@ -1,13 +1,13 @@
-import { toBoolean } from '../utils/envVariableUtils';
+import { toBoolean } from "../utils/envVariableUtils";
 
-let protocol = 'http';
+let protocol = "http";
 const base = process.env.NEXT_PUBLIC_SERVER_URL;
 const tls = process.env.NEXT_PUBLIC_SERVER_TLS;
 
 if (toBoolean(tls)) {
-  protocol += 's://';
+  protocol += "s://";
 } else {
-  protocol += '://';
+  protocol += "://";
 }
 
 export const fullUrl = protocol + base;

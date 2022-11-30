@@ -1,10 +1,10 @@
-import Link from "next/link"
-import Image from "next/image"
+import Link from "next/link";
+import Image from "next/image";
 
-import defaultImage from '../../public/images/default-image.jpg'
+import defaultImage from "../../public/images/default-image.jpg";
 
 const Cart = (props: any) => {
-  console.log("cart", props)
+  console.log("cart", props);
   return (
     <>
       <div
@@ -63,9 +63,13 @@ const Cart = (props: any) => {
                           <h3>
                             <p>{props.props.cart[item].name}</p>
                           </h3>
-                          <p className="ml-4 font-unica">${props.props.cart[item].price}</p>
+                          <p className="ml-4 font-unica">
+                            ${props.props.cart[item].price}
+                          </p>
                         </div>
-                        <p className="mt-1 text-sm font-comfortaa text-gray-500">Blue</p>
+                        <p className="mt-1 text-sm font-comfortaa text-gray-500">
+                          Blue
+                        </p>
                       </div>
                       <div className="flex font-comfortaa flex-1 items-end justify-start text-sm">
                         <div className="flex mr-2">
@@ -97,7 +101,7 @@ const Cart = (props: any) => {
 
                   <br />
                 </div>
-              )
+              );
             })}
           <div className="border-t border-gray-200 py-6 px-4 sm:px-6">
             <div className="flex justify-between text-base font-comfortaa text-gray-900">
@@ -132,7 +136,7 @@ const Cart = (props: any) => {
         </>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
