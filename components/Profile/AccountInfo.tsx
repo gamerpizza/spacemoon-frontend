@@ -7,20 +7,36 @@ import { BiPencil } from "react-icons/bi";
 import startIcon from '../../public/images/star.svg'
 
 const AccountInfo = (props:any) => {
+  const [files, setFiles] = useState(sourceImage.src);
+  const handleUploadClick = (e:any) => {
+    [...e.target.files].forEach((file) => {
+        var reader = new FileReader();
+        reader.onload = function (evt:any) {
+            setFiles(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+    });
+  };
   return (
     <div className='py-16 pl-16  flex justify-between w-full'>
       <div className='md:w-[20%] min-w-[180px]'>
         <div className='relative'>
-          <Image
-            src={sourceImage}
-            width={180}
-            height={180}
+          <img
+            src={files}
             alt='Icon'
-            className='rounded-lg'
+            className='rounded-lg w-[180px] h-[180px]'
           />
-          <button className="absolute ml-[40px] -mt-5 font-comfortaa bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-[12px] shadow">
-            Change
-          </button>
+            <label htmlFor="contained-button-file" className="absolute ml-[40px] -mt-5 font-comfortaa bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-[12px] shadow">
+              <input
+                  accept=".png,.jpg"
+                  id="contained-button-file"
+                  type="file"
+                  style={{ display: "none" }}
+                  onChange={handleUploadClick}
+              />
+                Change
+          </label>
+
         </div>
       </div>
       <div className='px-8 item-left w-full '>
