@@ -1,6 +1,6 @@
 import { useSession } from "next-auth/react";
-import ProfileSideBar from "../../components/Profile/ProfileSideBar";
-import AddAdress from "../../components/Profile/AddAdress";
+import ProfileSideBar from "../../../components/Profile/ProfileSideBar";
+import AddAdress from "../../../components/Profile/AddAdress";
 
 const Addresses = () => {
   const session = useSession();

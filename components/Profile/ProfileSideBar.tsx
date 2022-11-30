@@ -28,7 +28,7 @@ const SideBar = (props: any) => {
     },
     {
       name: "Addresses",
-      path: "/profile/Addresses",
+      path: "/profile/address",
     },
     {
       name: "Security",
