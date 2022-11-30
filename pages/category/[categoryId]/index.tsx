@@ -18,7 +18,7 @@ const UpdateCategory = (props:any) => {
   return (
     <>
       <div className="flex">
-      <div className=' fixed w-80  ml-24 mt-4'>
+      <div className=' w-80  ml-24 mt-4'>
           <SideBar />
           {props.categories &&
             props.categories.map((category: any) => {
