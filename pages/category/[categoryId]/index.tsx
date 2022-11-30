@@ -57,7 +57,10 @@ const UpdateCategory = (props:any) => {
           </div>
 
           <h1 className='font-unica text-2xl mt-8 mb-4 px-3'>PRICE RANGE</h1>
-          <input id="default-range" type="range" value="50" className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"></input>
+          <div className="relative">
+            <input type="range" value="25" className="w-full h-2 absolute bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"></input>
+            <input type="range" value="75" className="w-full h-2 absolute bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"></input>
+          </div>
           <p className='text-center mt-2 font-comfortaa_regular'>$0-$999+</p>
         </div>
         <div className="w-3/4">
