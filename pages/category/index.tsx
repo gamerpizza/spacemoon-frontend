@@ -1,13 +1,13 @@
 import { GetStaticProps } from 'next';
-import Image from 'next/image';
 import Link from 'next/link';
 import SideBar from '../../components/Categories/SideBar';
 import Products from '../../components/Products/Products';
 
 import { Category } from '../../model/category';
-import { Product } from '../../model/product';
+import { useState } from 'react';
 
 const Categories = (props: any) => {
+  const [values, setValues] = useState([0])
   const categories = props.categories
   console.log(categories)
   return (
@@ -54,7 +54,7 @@ const Categories = (props: any) => {
           </div>
 
           <h1 className='font-unica text-2xl mt-8 mb-4 px-3'>PRICE RANGE</h1>
-          <input id="default-range" type="range"  className="w-full h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"></input>
+
           <p className='text-center mt-2 font-comfortaa'>$0-$999+</p>
         </div>
 

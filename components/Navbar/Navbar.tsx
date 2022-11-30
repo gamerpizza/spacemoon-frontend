@@ -203,7 +203,7 @@ export const Navbar = (props: any) => {
       </a>
       <a
         href='#'
-        className={` hover:bg-gray-800 font-unica  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-blue-800 ${ yScroll > 722 || router.pathname ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
+        className={` hover:bg-gray-800 font-unica  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-blue-800 ${ yScroll > 722 || router.pathname !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
       >
         Sign up
       </a>
@@ -226,7 +226,7 @@ export const Navbar = (props: any) => {
         </div>
         <div className='sm:order-3 lg:order-2 sm:pb-5 lg:pb-0'>
         <SearchBar
-              categories={props.pageProps}
+              categories={props.categories}
               addToCart={props.addToCart}
               yScroll={yScroll}
               path={router.pathname}
@@ -242,7 +242,7 @@ export const Navbar = (props: any) => {
 
           <ul className='flex flex-col items-center mt-4 text-sm font-medium sm:flex-row sm:space-x-8 sm:mt-0'>
 
-            <Category categories = {props.pageProps}/>
+            <Category path={router.pathname} yScroll={yScroll} categories= {props.categories}/>
 
             {/* <Languages /> */}
 

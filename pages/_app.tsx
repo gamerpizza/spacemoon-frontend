@@ -102,6 +102,7 @@ function MyApp({ Component, pageProps, categories }: any) {
         clearCart={clearCart}
         subTotal={subTotal}
         searchHandler={searchHandler}
+        categories={categories}
       />
 
       <Component
