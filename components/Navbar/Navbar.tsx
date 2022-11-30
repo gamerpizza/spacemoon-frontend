@@ -60,6 +60,7 @@ export const Navbar = (props: any) => {
           setIsSignOut(true)
           signOut({ callbackUrl: "/" })
         }}
+
         className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica  border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
           yScroll > 722 || router.pathname !== "/"
             ? "text-[#1C1F22]"

@@ -114,8 +114,8 @@ const Cart = (props: any) => {
                 )
               })}
           </div>
-          <div className="2xl:ml-60 md:ml-20 h-80 flex justify-center items-center">
-            <div className="bg-[#F5F8FA] w-full p-12 rounded-xl">
+          <div className="2xl:ml-10 md:ml-12 h-80 flex justify-center items-center">
+            <div className="bg-[#F5F8FA] sm: w-[350px] md:w-[450px] lg:w-[500px] p-12   rounded-xl">
               <div className="flex justify-between">
                 <h1 className="text-xl font-comfortaa">Cart Subtotal</h1>
                 <h1 className="text-3xl font-unica">${props.subTotal}</h1>
