@@ -66,7 +66,7 @@ const UpdateCategory = (props:any) => {
         <div className="w-3/4">
 
         <div>
-          <Products categoryName={props.category.name} products={props.category.products} />
+          <Products props={props} categoryName={props.category.name} products={props.category.products} />
         </div>
 
         </div>
