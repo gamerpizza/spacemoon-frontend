@@ -5,6 +5,7 @@ import startIcon from "../../public/images/star.svg"
 import addIcon from "../../public/images/add.svg"
 
 const Products = (props: any) => {
+  console.log(props.props)
   return (
     <div>
 
@@ -36,7 +37,7 @@ const Products = (props: any) => {
                                 <button>
                                   <Image
                                     onClick={() =>
-                                      props.addToCart("2", "", 1, 250, "UNIGMA")
+                                      props.props.addToCart("2", "", 1, 250, "UNIGMA")
                                     }
                                     src={addIcon}
                                     alt={"Icon"}
