@@ -3,13 +3,14 @@ import { useState } from 'react';
 
 const Category = (props:any) => {
   const [clicked, setClicked] = useState(false);
+
   return (
     <li>
       <button
         onClick={() => setClicked(!clicked)}
         id='mega-menu-icons-dropdown-button'
         data-dropdown-toggle='mega-menu-icons-dropdown'
-        className={`flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica text-[#F5F8FA] border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:pl-8 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${ props.yScroll > 722 || props.path !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
+        className={`flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica  border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:pl-8 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${ props.yScroll > 722 || props.path !== '/' ? 'text-[#1C1F22]': 'text-[#F5F8FA]'}`}
       >
         CATEGORIES
         <svg
@@ -39,6 +40,7 @@ const Category = (props:any) => {
         <div className='p-4 pb-0 text-gray-900 md:pb-4 dark:text-white'>
           <ul className='space-y-4'>
             {props.categories && props.categories.map((category:any) => {
+              console.log(category.name)
               return(
                 <li>
               <Link
