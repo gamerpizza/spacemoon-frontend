@@ -1,18 +1,21 @@
 import { Formik, Field } from 'formik';
 import { useEffect, useState } from 'react';
-import { useSession } from 'next-auth/react';
 
 import { Category } from '../../model/category';
 import InputField from '../../components/Fields/InputField';
 import { categorySchema } from '../../validations/categorySchema';
 import { useRouter } from 'next/router';
 
+import { useRef } from 'react';
 const CreateCategory = ({ category }: { category: Category }) => {
   const [errors, setErrors] = useState<any>();
   const [token, setToken] = useState<any>();
+  const [image, setImage] = useState<any>()
+
+  const imageRef = useRef<any>();
   useEffect(() => {
     if(localStorage.getItem('data'))
-    setToken(JSON.parse(localStorage.getItem('data') || '')?.token.token.token.account.access_token)
+    setToken(JSON.parse(localStorage.getItem('data') || '')?.token.token.account.access_token)
   },[])
   const router = useRouter();
   return (
@@ -22,9 +25,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
           try {
             const formData = new FormData()
             formData.append("name", data.name)
-            formData.append("products", data.products)
-            formData.append("createdBy", data.createdBy)
-            formData.append("image", data.image)
+            formData.append("image", image)
             const response =await fetch(
               `http://localhost:8000/api/category/create`,
               {
@@ -35,7 +36,6 @@ const CreateCategory = ({ category }: { category: Category }) => {
                 body: formData,
               },
             );
-            console.log("response", response)
             setErrors('');
             router.push('/category');
           } catch (error: any) {
@@ -51,7 +51,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
         }}
       >
         {({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit}  encType="multipart/form-data" method="post">
             <div className='grid gap-6 mb-6 md:grid-cols-1 p-4'>
               <div className='mb-6'>
                 <label
@@ -102,6 +102,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
                       component={InputField}
                       type='file'
                       name='image'
+                      onChange={(e:any) => setImage(e.target.files[0])}
                       placeholder='Enter name'
                       className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                     />

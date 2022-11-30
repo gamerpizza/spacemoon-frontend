@@ -7,7 +7,8 @@ import InputField from '../../../components/Fields/InputField';
 
 const CreateProduct = ({ product }: { product: Product }) => {
   const [errors, setErrors] = useState<any>();
-    const [token, setToken] = useState<any>();
+  const [token, setToken] = useState<any>();
+  const [image, setImage] = useState<any>()
 
   const router = useRouter();
   const { categoryId } = router.query
@@ -21,17 +22,22 @@ const CreateProduct = ({ product }: { product: Product }) => {
       <Formik
         validationSchema={productSchema}
         onSubmit={async (data: Product) => {
+          const formData:any = new FormData();
+          formData.append("categoryId", categoryId)
+          formData.append("name", data.name)
+          formData.append("price", data.price)
+          formData.append("rating", data.rating)
+          formData.append("description", data.description)
+          formData.append("image", image)
           try {
-            const response = await fetch(
+             await fetch(
               `http://localhost:8000/api/product/${categoryId}/create`,
               {
                 method: 'POST',
                 headers: {
-                  Accept: 'application/json',
-                  'Content-Type': 'text/plain',
                   Authorization: `Bearer ${token}`,
                 },
-                body: JSON.stringify(data),
+                body: formData,
               },
             );
 
@@ -158,6 +164,7 @@ const CreateProduct = ({ product }: { product: Product }) => {
                       component={InputField}
                       type='file'
                       name='image'
+                      onChange={(e:any) => setImage(e.target.files[0])}
                       placeholder='Enter name'
                       className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                     />
