@@ -5,18 +5,19 @@ import startIcon from "../../public/images/star.svg";
 import addIcon from "../../public/images/add.svg";
 
 const Products = (props: any) => {
-  console.log(props.props);
   return (
     <div>
       <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">
-        <div className="m-auto w-[90%]">
+        <div className={`m-auto w-[${props.width}]`}>
+          {!props.hideCategoryName &&
           <div className="flex pl-12">
             <h1 className="text-3xl mb-4 font-unica w-[80%]">
               {props.categoryName}
             </h1>
             <br />
           </div>
-          <div className="flex flex-wrap gap-x-28 justify-center ">
+          }
+          <div className={`flex flex-wrap ${ props.gap? 'gap-x-28, justify-center' : 'gap-x-0, justify-start' }`}>
             {props.products.length > 0 ? (
               props.products.map((product: any) => {
                 return (

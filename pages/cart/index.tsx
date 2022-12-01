@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import Quantity from "../../components/Products/Quantity";
 
 import defaultImage from "../../public/images/default-image.jpg";
 import deleteIcon from "../../public/images/delete.svg";
 
 const Cart = (props: any) => {
-  console.log("length", props.cart);
   return (
     <>
       <div className="ml-20 mt-10 relative">
@@ -57,33 +57,8 @@ const Cart = (props: any) => {
                                   QUANTITY
                                 </p>
                               </div>
-                              <div className="flex">
-                                <div className="flex mr-2">
-                                  <button
-                                    onClick={() =>
-                                      props.addToCart(item, "", 1, 249, "usman")
-                                    }
-                                    type="button"
-                                    className="font-medium text-black w-5 h-5 bg-[#F5F8FA] hover:text-indigo-500"
-                                  >
-                                    +
-                                  </button>
-                                </div>
+                              <Quantity addToCart= {() => props.addToCart(item, "", 1, 249, "usman")} removeFromCart={() => props.removeFromCart(item)} quantity={props.cart[item].quantity}/>
 
-                                <p className="text-[#1C1F22] font-comfortaa">
-                                  {props.cart[item].quantity}
-                                </p>
-
-                                <div className="flex ml-2">
-                                  <button
-                                    onClick={() => props.removeFromCart(item)}
-                                    type="button"
-                                    className="font-medium text-black w-5 h-5 bg-[#F5F8FA] hover:text-indigo-500"
-                                  >
-                                    -
-                                  </button>
-                                </div>
-                              </div>
                             </div>
                             <div className="">
                               <button className="text-[#E62744] border-[#E62744] font-comfortaa text-sm rounded-lg w-auto border-[1px] p-2 flex">
