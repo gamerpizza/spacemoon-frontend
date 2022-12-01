@@ -4,7 +4,6 @@ import Image from "next/image";
 import defaultImage from "../../public/images/default-image.jpg";
 
 const Cart = (props: any) => {
-  console.log("cart", props);
   return (
     <>
       <div

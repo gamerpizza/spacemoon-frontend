@@ -13,7 +13,6 @@ const UpdateCategory = (props: any) => {
   const router = useRouter();
   const categories = router.query.categories;
   useEffect(() => {
-    console.log("car", props);
   }, []);
   return (
     <>
@@ -226,7 +225,6 @@ const UpdateCategory = (props: any) => {
 };
 
 export const getStaticProps = async (context: any) => {
-  console.log("conm", context);
   const id = context.params.categoryId;
 
   try {

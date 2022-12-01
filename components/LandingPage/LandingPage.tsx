@@ -4,18 +4,9 @@ import Image from "next/image";
 import arrowIcon from "../../public/images/right-arrow.png";
 import startIcon from "../../public/images/star.svg";
 import addIcon from "../../public/images/add.svg";
-import { Footer } from "../Footer/Footer";
 
 const LandingPage = (props: any) => {
   const router = useRouter();
-  let greeting =
-    router.locale === "en-US"
-      ? "Hello World"
-      : router.locale === "es"
-      ? "Hallo weit"
-      : router.locale === "fr"
-      ? "Bonjour le mande"
-      : "";
 
   return (
     <>

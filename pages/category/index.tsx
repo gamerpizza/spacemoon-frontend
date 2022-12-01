@@ -9,7 +9,6 @@ import { useState } from "react";
 const Categories = (props: any) => {
   const [values, setValues] = useState([0]);
   const categories = props.categories;
-  console.log(categories);
   return (
     <>
       <div className="flex">
@@ -201,7 +200,6 @@ const Categories = (props: any) => {
           {props.categories &&
             props.categories.map((category: Category) => {
               return (
-                console.log(category.products.length),
                 (
                   <>
                     <div key={category.categoryId}></div>
@@ -227,7 +225,6 @@ const Categories = (props: any) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    console.log("api");
     const response = await fetch(`http:/localhost:8000/api/category/get/0/10`, {
       method: "GET",
       headers: {
@@ -241,7 +238,6 @@ export const getStaticProps: GetStaticProps = async () => {
       props: { categories: categories },
     };
   } catch (error: any) {
-    console.log("here error", error);
 
     return {
       props: { errCode: 500 },

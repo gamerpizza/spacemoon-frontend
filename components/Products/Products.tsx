@@ -5,7 +5,6 @@ import startIcon from "../../public/images/star.svg";
 import addIcon from "../../public/images/add.svg";
 
 const Products = (props: any) => {
-  console.log(props.props);
   return (
     <div>
       <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">
