@@ -88,7 +88,6 @@ function MyApp({ Component, pageProps, categories }: any) {
       });
     }
   };
-  console.log("pageprops", pageProps);
   return (
     <SessionProvider
       session={pageProps?.session}
@@ -120,7 +119,6 @@ function MyApp({ Component, pageProps, categories }: any) {
   );
 }
 MyApp.getInitialProps = async ({ Component, ctx }: any) => {
-  console.log("here");
 
   try {
     const response = await fetch(

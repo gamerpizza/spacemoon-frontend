@@ -212,6 +212,8 @@ const Categories = (props: any) => {
                           products={
                             category.products.length > 0 && category.products
                           }
+                          width={'90%'}
+                          gap={false}
                         />
                       </div>
                     )}
