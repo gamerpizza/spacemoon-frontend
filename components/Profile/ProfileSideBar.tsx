@@ -6,7 +6,8 @@ const SideBar = (props: any) => {
   const router = useRouter();
   const checkPath = (path: string) => {
     return path === "/profile"
-      ? router.pathname === "/profile"
+      ? router.pathname === "/profile" ||
+        router.pathname === "/profile/NewProduct"
         ? true
         : false
       : router.pathname.includes(path)

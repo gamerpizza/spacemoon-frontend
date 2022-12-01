@@ -1,5 +1,7 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { Fragment } from "react";
+import Select from "./select/Select";
+
 import Link from "next/link";
 import Image from "next/image";
 import sourceImage from "../../public/images/default-image.jpg";
@@ -13,6 +15,79 @@ const NewProductAdd = (props: any) => {
   const [files, setFiles] = useState<any[]>([]);
   const [filters, setFilters] = useState<any[]>([]);
   const filterArray = [{ name: "color" }, { name: "material" }];
+  const categoryArray = [
+    {
+      label: "Select your Category",
+      value: "",
+      unavailable: true,
+    },
+    {
+      label: "Category-1",
+      value: "c-1",
+      unavailable: false,
+    },
+    {
+      label: "Category-2",
+      value: "c-2",
+      unavailable: false,
+    },
+  ];
+  const [category, setCategory] = useState(categoryArray[0]);
+  const subCategoryArray = [
+    {
+      label: "Select your Subcategory",
+      value: "",
+      unavailable: true,
+    },
+    {
+      label: "SubCategory-1",
+      value: "sc-1",
+      unavailable: false,
+    },
+    {
+      label: "SubCategory-2",
+      value: "sc-2",
+      unavailable: false,
+    },
+  ];
+  const [subCategory, setSubCategory] = useState(subCategoryArray[0]);
+  const quantityArray = [
+    {
+      label: "Select your Quantity",
+      value: "",
+      unavailable: true,
+    },
+    {
+      label: "Quantity-1",
+      value: "q-1",
+      unavailable: false,
+    },
+    {
+      label: "Quantity-2",
+      value: "q-2",
+      unavailable: false,
+    },
+  ];
+  const [quantity, setQuantity] = useState(quantityArray[0]);
+  const shipArray = [
+    {
+      label: "Select Country",
+      value: "",
+      unavailable: true,
+    },
+    {
+      label: "United States",
+      value: "US",
+      unavailable: false,
+    },
+    {
+      label: "Italy",
+      value: "it",
+      unavailable: false,
+    },
+  ];
+  const [ship, setShip] = useState(shipArray[0]);
+
   const classNames = (...classes: any[]) => {
     return classes.filter(Boolean).join(" ");
   };
@@ -107,21 +182,23 @@ const NewProductAdd = (props: any) => {
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Product Price
             </label>
-            <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-gray-600">
-              <option>Category - 1</option>
-              <option>Category - 2</option>
-              <option>Category - 3</option>
-            </select>
+            <Select
+              //className="flex-1"
+              options={categoryArray}
+              selectedOption={category}
+              handelChange={(event: any) => setCategory(event)}
+            />
           </div>
           <div className="max-w-[300px] w-full ml-5">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Product Subcategory
             </label>
-            <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-gray-600">
-              <option>SubCategory - 1</option>
-              <option>SubCategory - 2</option>
-              <option>SubCategory - 3</option>
-            </select>
+            <Select
+              //className="flex-1"
+              options={subCategoryArray}
+              selectedOption={subCategory}
+              handelChange={(event: any) => setSubCategory(event)}
+            />
           </div>
         </div>
         <div className="mt-12 flex">
@@ -129,20 +206,23 @@ const NewProductAdd = (props: any) => {
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Available Quantity
             </label>
-            <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-gray-600">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-            </select>
+            <Select
+              //className="flex-1"
+              options={quantityArray}
+              selectedOption={quantity}
+              handelChange={(event: any) => setQuantity(event)}
+            />
           </div>
           <div className="max-w-[300px] w-full ml-5">
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Ships from
             </label>
-            <select className="w-full p-2.5 text-gray-500 bg-white border rounded-md shadow-sm outline-none appearance-none focus:border-gray-600">
-              <option>USA</option>
-              <option>Italy</option>
-            </select>
+            <Select
+              //className="flex-1"
+              options={shipArray}
+              selectedOption={ship}
+              handelChange={(event: any) => setShip(event)}
+            />
           </div>
         </div>
         <div className="mt-12">
@@ -236,13 +316,14 @@ const NewProductAdd = (props: any) => {
             </div>
           );
         })}
-        <div className="mt-16"></div>
-        <button
-          type="button"
-          className="justify-center min-w-[300px] bg-gray-200 hover:bg-[#A042E1] hover:text-white text-gray-600 font-comfortaa inline-flex font-semibold py-2 px-4 rounded-lg shadow"
-        >
-          Save and List
-        </button>
+        <div className="mt-16">
+          <button
+            type="button"
+            className="justify-center min-w-[300px] bg-gray-200 hover:bg-[#A042E1] hover:text-white text-gray-600 font-comfortaa inline-flex font-semibold py-2 px-4 rounded-lg shadow"
+          >
+            Save and List
+          </button>
+        </div>
       </div>
     </div>
   );
