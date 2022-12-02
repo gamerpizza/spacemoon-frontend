@@ -47,7 +47,7 @@ const AddAdress = (props: any) => {
             Add New Address
           </label>
           <Link
-            href="/profile/address/NewAddress"
+            href="/profile/address/newaddress"
             className="w-[60px] h-[60px] rounded-lg border-2 border-gray-300 border-dashed flex items-center justify-center cursor-pointer"
           >
             <AiOutlinePlus className="text-[20px] text-gray-400" />

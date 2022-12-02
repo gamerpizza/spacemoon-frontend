@@ -92,7 +92,7 @@ const AccountInfo = (props: any) => {
       <div className="md:w-[20%] min-w-[250px]">
         <div>
           <Link
-            href="/profile/NewProduct"
+            href="/profile/newproduct"
             className="hover:bg-[#A042E1] hover:text-white text-gray-600 font-comfortaa inline-flex items-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-[12px] shadow"
           >
             <AiOutlinePlus className="text-[20px]" /> &nbsp;LIst new Product
