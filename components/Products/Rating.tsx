@@ -14,7 +14,7 @@ const Rating = () => {
         <p className="font-comfortaa ml-2">4.6</p>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Rating;
+export default Rating

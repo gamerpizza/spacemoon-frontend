@@ -6,7 +6,8 @@ const SideBar = (props: any) => {
   const router = useRouter();
   const checkPath = (path: string) => {
     return path === "/profile"
-      ? router.pathname === "/profile"
+      ? router.pathname === "/profile" ||
+        router.pathname === "/profile/NewProduct"
         ? true
         : false
       : router.pathname.includes(path)
@@ -28,7 +29,7 @@ const SideBar = (props: any) => {
     },
     {
       name: "Addresses",
-      path: "/profile/Addresses",
+      path: "/profile/address",
     },
     {
       name: "Security",

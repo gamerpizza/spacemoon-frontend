@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import sourceImage from "../../public/images/default-image.jpg";
 import { AiOutlinePlus } from "react-icons/ai";
-import { IoCloseSharp } from "react-icons/io5";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import { BiPencil } from "react-icons/bi";
 import startIcon from "../../public/images/star.svg";
 import { Menu, Transition } from "@headlessui/react";
@@ -28,8 +28,11 @@ const AddAdress = (props: any) => {
               <div className="flex justify-between max-w-[450px] w-full">
                 <p>{ele.title}</p>
                 <div className="flex">
-                  <button className="px-2 py-1 rounded-full border-2 border-gray-300 flex items-center justify-center cursor-pointer">
-                    <BiPencil className="text-[20px] text-gray-400" />
+                  <button className="px-2 py-1 rounded-full border-2 border-[#E1A933] flex items-center justify-center cursor-pointer">
+                    <BiPencil className="text-[20px] text-[#E1A933]" />
+                  </button>
+                  <button className="ml-2 px-2 py-1 rounded-full border-2 border-[#E62744] flex items-center justify-center cursor-pointer">
+                    <RiDeleteBin5Line className="text-[20px] text-[#E62744]" />
                   </button>
                 </div>
               </div>
@@ -44,7 +47,7 @@ const AddAdress = (props: any) => {
             Add New Address
           </label>
           <Link
-            href="/profile/NewAddress"
+            href="/profile/address/NewAddress"
             className="w-[60px] h-[60px] rounded-lg border-2 border-gray-300 border-dashed flex items-center justify-center cursor-pointer"
           >
             <AiOutlinePlus className="text-[20px] text-gray-400" />

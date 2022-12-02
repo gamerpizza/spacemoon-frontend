@@ -9,19 +9,16 @@ const Products = (props: any) => {
     <div>
       <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">
         <div className={`m-auto w-[${props.width}]`}>
-          {!props.hideCategoryName && (
-            <div className="flex pl-12">
-              <h1 className="text-3xl mb-4 font-unica w-[80%]">
-                {props.categoryName}
-              </h1>
-              <br />
-            </div>
-          )}
-          <div
-            className={`flex flex-wrap ${
-              props.gap ? "gap-x-28, justify-center" : "gap-x-0, justify-start"
-            }`}
-          >
+
+          {!props.hideCategoryName &&
+          <div className="flex pl-12">
+            <h1 className="text-3xl mb-4 font-unica w-[80%]">
+              {props.categoryName}
+            </h1>
+            <br />
+          </div>
+          }
+          <div className={`flex flex-wrap ${ props.gap? 'gap-x-28, justify-center' : 'gap-x-0, justify-start' }`}>
             {props.products.length > 0 ? (
               props.products.map((product: any) => {
                 return (

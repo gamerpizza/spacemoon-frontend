@@ -18,6 +18,7 @@ function MyApp({ Component, pageProps, categories }: any) {
   const [subTotal, setSubTotal] = useState(0);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [searching, setSearching] = useState(false);
+
   useEffect(() => {
     try {
       if (localStorage.getItem("cart"))
@@ -128,4 +129,5 @@ MyApp.getInitialProps = async ({ Component, ctx }: any) => {
     };
   }
 };
+
 export default MyApp;
