@@ -1,18 +1,18 @@
+import Image from "next/image";
+import { Formik, Field } from "formik";
 
-import Image from 'next/image';
-import { Formik, Field } from 'formik';
-import { checkoutSchema } from '../../validations/checkoutSchema';
-import defaultImage from '../../public/images/default-image.jpg';
-import InputField from '../../components/Fields/InputField';
-const Checkout = (props:any) => {
+import { checkoutSchema } from "../../validations/checkoutSchema";
+import defaultImage from "../../public/images/default-image.jpg";
+import InputField from "../../components/Fields/InputField";
+
+const Checkout = (props: any) => {
   return (
     <Formik
       onSubmit={async (data: any) => {
         try {
-          // const response = await CategoryAPI.createCategory(data);
-          // setErrors('');
+
         } catch (error: any) {
-          // setErrors(error.message);
+
         }
       }}
       validationSchema={checkoutSchema}
@@ -180,11 +180,11 @@ const Checkout = (props:any) => {
                   </div>
                 </form>
               </div>
-              <div className='flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5'>
-                <div className='pt-12 md:pt-0 2xl:ps-4'>
-                  <h2 className='text-xl font-bold'>Order Summary</h2>
-                  <div className='mt-8'>
-                    <div className='flex flex-col space-y-4'>
+              <div className="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
+                <div className="pt-12 md:pt-0 2xl:ps-4">
+                  <h2 className="text-xl font-bold">Order Summary</h2>
+                  <div className="mt-8">
+                    <div className="flex flex-col space-y-4">
                       {Object.keys(props.cart).map((item) => {
                         return (
                           <div key={item} className="flex space-x-4">
@@ -196,13 +196,13 @@ const Checkout = (props:any) => {
                               />
                             </div>
                             <div>
-                              <h2 className='text-xl font-bold'>
+                              <h2 className="text-xl font-bold">
                                 {props.cart[item].name}
                               </h2>
                               <p className="text-sm">
                                 Lorem ipsum dolor sit amet, tet
                               </p>
-                              <span className='text-red-600'>Price</span>
+                              <span className="text-red-600">Price</span>
                               {props.cart[item].price}
                             </div>
                             <div>
@@ -229,14 +229,15 @@ const Checkout = (props:any) => {
                   <div className="flex p-4 mt-4">
                     <h2 className="text-xl font-bold">ITEMS 2</h2>
                   </div>
-                  <div className='flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0'>
-                    Subtotal<span className='ml-2'>{props.subTotal}</span>
+                  <div className="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                    Subtotal<span className="ml-2">{props.subTotal}</span>
                   </div>
                   <div className="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
                     Shipping Tax<span className="ml-2">0</span>
                   </div>
-                  <div className='flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0'>
-                    Total<span className='ml-2'>{props.subTotal}</span>
+
+                  <div className="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                    Total<span className="ml-2">{props.subTotal}</span>
                   </div>
                 </div>
               </div>

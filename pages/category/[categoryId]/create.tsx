@@ -1,22 +1,32 @@
 import { Formik, Field } from "formik";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+
 import { Product } from "../../../model/product";
 import { productSchema } from "../../../validations/productSchema";
 import InputField from "../../../components/Fields/InputField";
+import ProductAPI from "../../../api/product/product";
+import Link from "next/link";
 
 const CreateProduct = ({ product }: { product: Product }) => {
   const [errors, setErrors] = useState<any>();
   const [token, setToken] = useState<any>();
-  const [image, setImage] = useState<any>()
+  const [image, setImage] = useState<any>();
+  const [disabled, setDisabled] = useState<any>(false);
+
   const router = useRouter();
   const { categoryId } = router.query;
 
   useEffect(() => {
+    if(localStorage.getItem("data"))
     setToken(
       JSON.parse(localStorage.getItem("data") || "")?.token.token.account
         .access_token
     );
+    else{
+      setErrors('Please Login to create a new product')
+      setDisabled(true)
+    }
   }, []);
 
   return (
@@ -24,28 +34,17 @@ const CreateProduct = ({ product }: { product: Product }) => {
       <Formik
         validationSchema={productSchema}
         onSubmit={async (data: Product) => {
-          const formData:any = new FormData();
-          formData.append("categoryId", categoryId)
-          formData.append("name", data.name)
-          formData.append("price", data.price)
-          formData.append("rating", data.rating)
-          formData.append("description", data.description)
-          formData.append("image", image)
+          const formData: any = new FormData();
+          formData.append("categoryId", categoryId);
+          formData.append("name", data.name);
+          formData.append("price", data.price);
+          formData.append("rating", data.rating);
+          formData.append("description", data.description);
+          formData.append("image", image);
           try {
-             await fetch(
-              `http://localhost:8000/api/product/${categoryId}/create`,
-              {
-                method: "POST",
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-                body: formData,
-              },
-
-            );
-
-            setErrors("");
+            const response = await ProductAPI.createProduct(categoryId, formData, token);
             router.push("/category");
+            setErrors("");
           } catch (error: any) {
             setErrors(error.message);
           }
@@ -165,17 +164,24 @@ const CreateProduct = ({ product }: { product: Product }) => {
                     </div>
                     <Field
                       component={InputField}
-                      type='file'
-                      name='image'
-                      onChange={(e:any) => setImage(e.target.files[0])}
-                      placeholder='Enter name'
-                      className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                      type="file"
+                      name="image"
+                      onChange={(e: any) => setImage(e.target.files[0])}
+                      placeholder="Enter name"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
                   </label>
                 </div>
               </div>
             </div>
-            <button type="submit"> Create Product </button>
+            <div className="mt-6">
+          <Link
+            href="/checkout"
+            className="flex items-center justify-center rounded-md border border-transparent bg-[#A042E1] px-6 py-3 text-base font-comfortaa text-white shadow-sm hover:bg-[#a45ed7]"
+          >
+            <button type="submit" disabled={disabled}> Create Product </button>
+          </Link>
+        </div>
             {errors}
           </form>
         )}

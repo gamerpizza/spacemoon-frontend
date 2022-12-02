@@ -1,18 +1,17 @@
 import { Formik, Field } from "formik";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
-
 
 import { Category } from "../../model/category";
 import InputField from "../../components/Fields/InputField";
 import { categorySchema } from "../../validations/categorySchema";
 import { useRouter } from "next/router";
 
-import { useRef } from 'react';
+import { useRef } from "react";
+import CategoryAPI from "../../api/category/category";
 const CreateCategory = ({ category }: { category: Category }) => {
   const [errors, setErrors] = useState<any>();
   const [token, setToken] = useState<any>();
-  const [image, setImage] = useState<any>()
+  const [image, setImage] = useState<any>();
 
   const imageRef = useRef<any>();
   useEffect(() => {
@@ -25,22 +24,12 @@ const CreateCategory = ({ category }: { category: Category }) => {
   return (
     <>
       <Formik
-        onSubmit={async (data:any) => {
+        onSubmit={async (data: any) => {
           try {
-            const formData = new FormData()
-            formData.append("name", data.name)
-            formData.append("image", image)
-            const response =await fetch(
-              `http://localhost:8000/api/category/create`,
-              {
-                method: "POST",
-                headers: {
-                  'Authorization': `Bearer ${token}`,
-                },
-                body: formData,
-              },
-
-            );
+            const formData = new FormData();
+            formData.append("name", data.name);
+            formData.append("image", image);
+            const response = await CategoryAPI.createCategory(formData, token);
             setErrors("");
             router.push("/category");
           } catch (error: any) {
@@ -56,10 +45,13 @@ const CreateCategory = ({ category }: { category: Category }) => {
         }}
       >
         {({ handleSubmit }) => (
-          <form onSubmit={handleSubmit}  encType="multipart/form-data" method="post">
-            <div className='grid gap-6 mb-6 md:grid-cols-1 p-4'>
-              <div className='mb-6'>
-
+          <form
+            onSubmit={handleSubmit}
+            encType="multipart/form-data"
+            method="post"
+          >
+            <div className="grid gap-6 mb-6 md:grid-cols-1 p-4">
+              <div className="mb-6">
                 <label
                   htmlFor="first_name"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -106,13 +98,12 @@ const CreateCategory = ({ category }: { category: Category }) => {
                     </div>
                     <Field
                       component={InputField}
-                      type='file'
-                      name='image'
-                      onChange={(e:any) => setImage(e.target.files[0])}
-                      placeholder='Enter name'
-                      className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                      type="file"
+                      name="image"
+                      onChange={(e: any) => setImage(e.target.files[0])}
+                      placeholder="Enter name"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     />
-
                   </label>
                 </div>
               </div>

@@ -1,6 +1,6 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import starIcon from "../../public/images/star.svg"
+import starIcon from "../../public/images/star.svg";
 
 const Rating = () => {
   return (

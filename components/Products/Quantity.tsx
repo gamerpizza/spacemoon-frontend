@@ -27,7 +27,9 @@ const Quantity = (props:any) => {
         </div>
       </div>
     </>
-  )
-}
 
-export default Quantity
+  );
+};
+
+export default Quantity;
+

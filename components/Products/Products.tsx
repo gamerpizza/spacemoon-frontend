@@ -9,6 +9,7 @@ const Products = (props: any) => {
     <div>
       <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">
         <div className={`m-auto w-[${props.width}]`}>
+
           {!props.hideCategoryName &&
           <div className="flex pl-12">
             <h1 className="text-3xl mb-4 font-unica w-[80%]">

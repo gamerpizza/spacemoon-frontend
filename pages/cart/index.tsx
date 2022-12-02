@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Link from "next/link";
-import Quantity from "../../components/Products/Quantity";
+
+import SubTotal from "../../components/Cart/SubTotal";
 
 import defaultImage from "../../public/images/default-image.jpg";
 import deleteIcon from "../../public/images/delete.svg";
@@ -57,8 +57,33 @@ const Cart = (props: any) => {
                                   QUANTITY
                                 </p>
                               </div>
-                              <Quantity addToCart= {() => props.addToCart(item, "", 1, 249, "usman")} removeFromCart={() => props.removeFromCart(item)} quantity={props.cart[item].quantity}/>
+                              <div className="flex">
+                                <div className="flex mr-2">
+                                  <button
+                                    onClick={() =>
+                                      props.addToCart(item, "", 1, 249, "usman")
+                                    }
+                                    type="button"
+                                    className="font-medium text-black w-5 h-5 bg-[#F5F8FA] hover:text-indigo-500"
+                                  >
+                                    +
+                                  </button>
+                                </div>
 
+                                <p className="text-[#1C1F22] font-comfortaa">
+                                  {props.cart[item].quantity}
+                                </p>
+
+                                <div className="flex ml-2">
+                                  <button
+                                    onClick={() => props.removeFromCart(item)}
+                                    type="button"
+                                    className="font-medium text-black w-5 h-5 bg-[#F5F8FA] hover:text-indigo-500"
+                                  >
+                                    -
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                             <div className="">
                               <button className="text-[#E62744] border-[#E62744] font-comfortaa text-sm rounded-lg w-auto border-[1px] p-2 flex">
@@ -86,20 +111,10 @@ const Cart = (props: any) => {
                 );
               })}
           </div>
+
           <div className="2xl:ml-10 md:ml-12 h-80 flex justify-center items-center">
             <div className="bg-[#F5F8FA] sm: w-[350px] md:w-[450px] lg:w-[500px] p-12   rounded-xl">
-              <div className="flex justify-between">
-                <h1 className="text-xl font-comfortaa">Cart Subtotal</h1>
-                <h1 className="text-3xl font-unica">${props.subTotal}</h1>
-              </div>
-              <div className="mt-6">
-                <Link
-                  href="/checkout"
-                  className="flex items-center justify-center rounded-md border border-transparent bg-[#A042E1] px-6 py-3 text-base font-comfortaa text-white shadow-sm hover:bg-[#a45ed7]"
-                >
-                  Proceed to Checkout
-                </Link>
-              </div>
+             <SubTotal subTotal = {props.subTotal} />
             </div>
           </div>
         </div>
