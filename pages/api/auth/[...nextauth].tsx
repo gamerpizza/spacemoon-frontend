@@ -1,6 +1,5 @@
 import NextAuth from "next-auth";
 import KeycloakProvider from "next-auth/providers/keycloak";
-import type { Session, Awaitable } from "next-auth/core/types";
 
 export default NextAuth({
   providers: [
@@ -13,7 +12,7 @@ export default NextAuth({
     }),
   ],
   callbacks: {
-    jwt: async ({ account, token, user }) => {
+    jwt: async ({ account, token }) => {
       return { account, token };
     },
     session: (session: any) => {

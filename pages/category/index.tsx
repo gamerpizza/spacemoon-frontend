@@ -192,7 +192,6 @@ const Categories = (props: any) => {
           </div>
 
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
-
           <p className="text-center mt-2 font-comfortaa">$0-$999+</p>
         </div>
 
@@ -210,6 +209,8 @@ const Categories = (props: any) => {
                           products={
                             category.products.length > 0 && category.products
                           }
+                          width={"90%"}
+                          gap={false}
                         />
                       </div>
                     )}
@@ -225,13 +226,17 @@ const Categories = (props: any) => {
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-    const response = await fetch(`http:/localhost:8000/api/category/get/0/10`, {
-      method: "GET",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "text/plain",
-      },
-    });
+
+    const response = await fetch(
+      `http:/localhost:8000/api/category/get/0/100`,
+      {
+        method: "GET",
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "text/plain",
+        },
+      }
+    );
     const categories: Category[] = await response.json();
 
     return {

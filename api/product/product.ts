@@ -4,22 +4,22 @@ import { fullUrl } from "../api";
 const productRoute = "/api/product"; // might have to change once the api is tested
 
 const ProductAPI = Object.freeze({
-  createProduct: (product: Product) => createProduct(product),
+  createProduct: (categoryId:any, formData:any, token:any) => createProduct(categoryId, formData, token),
   deleteProduct: (id: number) => deleteCategory(id),
   updateProduct: (id: number, product: Product) => updateProduct(id, product),
   getProduct: (id: number) => getProduct(id),
   getAllProducts: (id: number) => getAllProducts(id),
 });
 
-const createProduct = (product: Product) =>
-  fetch(`${fullUrl}${productRoute}/createProduct`, {
+
+const createProduct = (categoryId:string, formData:any, token:any) =>
+  fetch(`http://localhost:8000/api/product/${categoryId}/create`, {
     method: "POST",
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
     },
-    body: JSON.stringify(product),
-  });
+    body: formData,
+  })
 
 const updateProduct = (id: number, product: Product) =>
   fetch(`${fullUrl}${productRoute}/updateProduct/${id}`, {

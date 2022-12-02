@@ -88,7 +88,7 @@ function MyApp({ Component, pageProps, categories }: any) {
       });
     }
   };
-  console.log("pageprops", pageProps);
+
   return (
     <SessionProvider
       session={pageProps?.session}
@@ -119,9 +119,8 @@ function MyApp({ Component, pageProps, categories }: any) {
     </SessionProvider>
   );
 }
-MyApp.getInitialProps = async ({ Component, ctx }: any) => {
-  console.log("here");
 
+MyApp.getInitialProps = async ({ Component, ctx }: any) => {
   try {
     const response = await fetch(
       `http://localhost:8000/api/category/get/0/1000`,
