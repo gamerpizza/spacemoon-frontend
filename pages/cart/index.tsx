@@ -1,7 +1,6 @@
 import CartItem from "../../components/Cart/CartItem";
 import SubTotal from "../../components/Cart/SubTotal";
 const Cart = (props: any) => {
-  console.log("length", props.cart);
   return (
     <>
       <div className="ml-20 mt-10 relative">
