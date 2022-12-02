@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { Fragment } from "react";
-import Select from "./select/Select";
+import Select from "./element/Select";
 
 import Link from "next/link";
 import Image from "next/image";

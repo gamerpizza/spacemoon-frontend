@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { Listbox } from "@headlessui/react";
-import Select from "./select/Select";
+import Select from "./element/Select";
 
 import { Fragment } from "react";
 import Link from "next/link";
