@@ -1,5 +1,5 @@
-import { Account, Session, User } from 'next-auth';
-import { JWT } from 'next-auth/jwt';
+import { Account, Session, User } from "next-auth";
+import { JWT } from "next-auth/jwt";
 
 export interface JWTData {
   token: JWT;

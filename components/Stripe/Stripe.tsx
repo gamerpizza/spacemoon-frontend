@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import React from 'react';
-import PaymentAPI from '../../api/payment/payment';
-import { Cart } from '../../model/cart';
+import Image from "next/image";
+import React from "react";
+import PaymentAPI from "../../api/payment/payment";
+import { Cart } from "../../model/cart";
 
 interface IProps {
   cart: Cart;
@@ -14,33 +14,32 @@ export const Stripe = ({ cart, currencySymbol }: IProps) => {
       cart: cart,
     },
     paymentData: null,
-  }
+  };
 
   const stripeCreateOrder = () =>
-    PaymentAPI.stripeCreateOrder(paymentBody)
-      .then((resp) =>
-        resp.text().then((redirectUrl) => {
-          const url = redirectUrl.replaceAll('"', '');
-          window.location.assign(url);
-        }),
-      )
+    PaymentAPI.stripeCreateOrder(paymentBody).then((resp) =>
+      resp.text().then((redirectUrl) => {
+        const url = redirectUrl.replaceAll('"', "");
+        window.location.assign(url);
+      })
+    );
 
   return (
     <>
-      <section className='stripe'>
-        <h1 className='stripe-title'>Checkout with Stripe</h1>
+      <section className="stripe">
+        <h1 className="stripe-title">Checkout with Stripe</h1>
         {cart.products.map((p, k) => (
-          <div key={`product-${p.name}`} className='product'>
-            <div className='header'>
+          <div key={`product-${p.name}`} className="product">
+            <div className="header">
               <Image
                 src={p.image}
                 alt={p.name}
                 width={80}
                 height={100}
-                className='image'
+                className="image"
               />
-              <div className='main-info'>
-                <h4 className='name'>{p.name}</h4>
+              <div className="main-info">
+                <h4 className="name">{p.name}</h4>
                 <h5>
                   {currencySymbol}
                   {p.price}
@@ -51,8 +50,8 @@ export const Stripe = ({ cart, currencySymbol }: IProps) => {
           </div>
         ))}
         <button
-          className='btn btn-primary stripe-submit'
-          type='submit'
+          className="btn btn-primary stripe-submit"
+          type="submit"
           onClick={stripeCreateOrder}
         >
           Checkout

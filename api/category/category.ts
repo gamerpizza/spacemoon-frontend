@@ -1,7 +1,7 @@
-import { Category } from '../../model/category';
-import { fullUrl } from '../api';
+import { Category } from "../../model/category";
+import { fullUrl } from "../api";
 
-const categoryRoute = '/api/order';
+const categoryRoute = "/api/order";
 
 const CategoryAPI = Object.freeze({
   createCategory: (category: Category) => createCategory(category),
@@ -16,48 +16,48 @@ const CategoryAPI = Object.freeze({
 
 const createCategory = (category: Category) =>
   fetch(`${fullUrl}${categoryRoute}/createCategory`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(category),
   });
 
 const updateCategory = (id: number, category: Category) =>
   fetch(`${fullUrl}${categoryRoute}/updateCategory/${id}`, {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({ category: category, id: id }),
   });
 
 const deleteCategory = (id: number) =>
   fetch(`${fullUrl}${categoryRoute}/deleteCategory/${id}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'text/plain',
+      Accept: "application/json",
+      "Content-Type": "text/plain",
     },
     body: JSON.stringify({ id }),
   });
 
 const getCategory = (id: number) =>
   fetch(`${fullUrl}${categoryRoute}/${id}/get`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'text/plain',
+      Accept: "application/json",
+      "Content-Type": "text/plain",
     },
   });
 const getAllCategories = () => {
   fetch(`${fullUrl}${categoryRoute}/get/0/5`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'text/plain',
+      Accept: "application/json",
+      "Content-Type": "text/plain",
     },
   });
 };

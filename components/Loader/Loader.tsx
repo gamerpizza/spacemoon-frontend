@@ -1,4 +1,4 @@
-import { CircleLoader } from 'react-spinners';
+import { CircleLoader } from "react-spinners";
 
 interface IProps {
   text?: string;
@@ -6,8 +6,8 @@ interface IProps {
 
 export const Loader = ({ text }: IProps) => (
   <>
-    <div className='loader'>
-      <CircleLoader color='#36d7b7' />
+    <div className="loader">
+      <CircleLoader color="#36d7b7" />
       <div>{text}</div>
     </div>
     <style>{`

@@ -1,8 +1,8 @@
-import { Order, OrderCart } from '../../model/order';
-import { Payment } from '../../model/payment';
-import { fullUrl } from '../api';
+import { Order, OrderCart } from "../../model/order";
+import { Payment } from "../../model/payment";
+import { fullUrl } from "../api";
 
-export const paymentRoute = '/api/order';
+export const paymentRoute = "/api/order";
 
 const PaymentAPI = Object.freeze({
   paypalCreateOrder: (payment: Payment) => paypalCreateOrder(payment),
@@ -13,44 +13,42 @@ const PaymentAPI = Object.freeze({
 
 const paypalCreateOrder = (order: Payment) =>
   fetch(`${fullUrl}${paymentRoute}/paypal/createOrder`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(order),
   });
 
 const stripeCreateOrder = (order: Payment) =>
   fetch(`${fullUrl}${paymentRoute}/stripe/createOrder`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(order),
   });
 
-const googlePayCreateOrder = (order: Payment) => 
+const googlePayCreateOrder = (order: Payment) =>
   fetch(`${fullUrl}${paymentRoute}/googlePay/createOrder`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(order),
-  })
+  });
 
 const paypalCheckout = (id: string) =>
   fetch(`${fullUrl}${paymentRoute}/paypal/${id}/checkout`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'text/plain',
+      Accept: "application/json",
+      "Content-Type": "text/plain",
     },
     body: id,
   });
-
-
 
 export default PaymentAPI;

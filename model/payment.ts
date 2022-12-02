@@ -1,6 +1,6 @@
-import { OrderCart } from "./order"
+import { OrderCart } from "./order";
 
 export interface Payment {
-    order: OrderCart
-    paymentData: any
+  order: OrderCart;
+  paymentData: any;
 }
