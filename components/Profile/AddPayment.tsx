@@ -61,7 +61,7 @@ const AddPayment = (props: any) => {
               <img src="/images/Stripe_Logo.svg" alt="Google Pay" />
             </button>
             <Link
-              href="/profile/payment/newpayment"
+              href="/profile/payment/new"
               className="w-[200px] flex justify-center items-center p-3 bg-gray-100 hover:bg-gray-200 rounded-lg mr-8"
             >
               <CiCreditCard1 className="text-[20px] mr-2" />{" "}

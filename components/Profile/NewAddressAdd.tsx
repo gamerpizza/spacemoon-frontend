@@ -12,7 +12,7 @@ import { BiPencil } from "react-icons/bi";
 import startIcon from "../../public/images/star.svg";
 import { Menu, Transition } from "@headlessui/react";
 
-const NewProductAdd = (props: any) => {
+const NewAddressAdd = (props: any) => {
   const courtries = [
     {
       label: "Choose country",
@@ -60,7 +60,7 @@ const NewProductAdd = (props: any) => {
           <input
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Use 3-50 characters"
+            placeholder="First Name and Last Name"
             required
           />
         </div>
@@ -146,4 +146,4 @@ const NewProductAdd = (props: any) => {
   );
 };
 
-export default NewProductAdd;
+export default NewAddressAdd;

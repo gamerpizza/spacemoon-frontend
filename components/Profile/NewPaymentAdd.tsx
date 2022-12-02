@@ -102,8 +102,16 @@ const NewPaymentAdd = (props: any) => {
             />
           </div>
         </div>
-        <div className="mt-8">
-          <p className="font-unica text-[30px] py-5">bILLING ADDRESS</p>
+        <div className="mt-8 flex items-center">
+          <p className="font-unica text-[30px] py-5 mr-12">BILLING ADDRESS</p>
+          <label className="flex items-center">
+            <input
+              type="checkbox"
+              value=""
+              className="mr-2 w-4 h-4 accent-[#A042E1]"
+            />
+            The same as primary shipping address
+          </label>
         </div>
 
         <div className="mt-8">
@@ -113,7 +121,7 @@ const NewPaymentAdd = (props: any) => {
           <input
             type="text"
             className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Use 3-50 characters"
+            placeholder="First Name and Last Name"
             required
           />
         </div>
