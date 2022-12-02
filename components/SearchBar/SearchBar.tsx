@@ -61,6 +61,7 @@ const SearchBar = (props: any) => {
                   }
                 `}</style>
 
+
                 <ul
                   className=" py-1 text-sm text-gray-700 dark:text-gray-200"
                   aria-labelledby="dropdown-button"

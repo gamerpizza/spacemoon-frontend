@@ -26,6 +26,7 @@ const Home: NextPage = (props: any) => (
     </>
   </Wrapper>
 );
+
 // export const getStaticProps = async () => {
 //   try {
 

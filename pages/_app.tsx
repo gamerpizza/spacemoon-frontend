@@ -16,6 +16,7 @@ function MyApp({ Component, pageProps, categories }: any) {
   const [subTotal, setSubTotal] = useState(0);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
   const [searching, setSearching] = useState(false);
+
   useEffect(() => {
     try {
       if (localStorage.getItem("cart"))
@@ -88,6 +89,7 @@ function MyApp({ Component, pageProps, categories }: any) {
       });
     }
   };
+  
   return (
     <SessionProvider
       session={pageProps?.session}
@@ -118,6 +120,9 @@ function MyApp({ Component, pageProps, categories }: any) {
     </SessionProvider>
   );
 }
+
+
+
 MyApp.getInitialProps = async ({ Component, ctx }: any) => {
 
   try {
@@ -143,4 +148,5 @@ MyApp.getInitialProps = async ({ Component, ctx }: any) => {
     };
   }
 };
+
 export default MyApp;
