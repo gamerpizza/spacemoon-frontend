@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { Formik, Field } from "formik";
+
 import { checkoutSchema } from "../../validations/checkoutSchema";
 import defaultImage from "../../public/images/default-image.jpg";
 import InputField from "../../components/Fields/InputField";
+
 const Checkout = (props: any) => {
   return (
     <Formik
       onSubmit={async (data: any) => {
         try {
-          // const response = await CategoryAPI.createCategory(data);
-          // setErrors('');
+
         } catch (error: any) {
-          // setErrors(error.message);
+
         }
       }}
       validationSchema={checkoutSchema}

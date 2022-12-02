@@ -14,40 +14,9 @@ const Home: NextPage = (props: any) => (
   <Wrapper>
     <>
       <LandingPage addToCart={props.addToCart} />
-      {/* <PayPal order={mockOrder} />
-
-      <div style={{ width: '30%', marginLeft: '10px' }}>
-        <Stripe currencySymbol='$' cart={mockCart} />
-      </div>
-
-      <div style={{ width: '30%', marginLeft: '10px', marginTop: '10px' }}>
-        <GooglePay cart={mockCart}/>
-      </div> */}
     </>
   </Wrapper>
 );
-console.log("here");
-// export const getStaticProps = async () => {
-//   try {
 
-//     const response = await fetch(`http://localhost:8000/api/category/get/0/1000`, {
-//       method: 'GET',
-//       headers: {
-//         Accept: 'application/json',
-//         'Content-Type': 'text/plain',
-//       },
-//     });
-//     const category: Category = await response.json();
-//     return {
-//       props: {
-//         categories: category,
-//       },
-//     };
-//   } catch (error: any) {
-//     return {
-//       props: { errCode: 500, message: error },
-//     };
-//   }
-// };
 
 export default Home;

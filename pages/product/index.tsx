@@ -1,12 +1,12 @@
 import Image from "next/image";
 
 import Quantity from "../../components/Products/Quantity";
-
-import defaultImage from "../../public/images/default-image.jpg";
-import cartIcon from "../../public/images/cart.svg";
 import Products from "../../components/Products/Products";
 import { Category } from "../../model/category";
 import Rating from "../../components/Products/Rating";
+
+import defaultImage from "../../public/images/default-image.jpg";
+import cartIcon from "../../public/images/cart.svg";
 
 const Product = (props: any) => {
   return (

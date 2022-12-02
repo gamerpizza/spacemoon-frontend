@@ -10,6 +10,8 @@ import "../styles/globals.css";
 import { Navbar } from "../components/Navbar/Navbar";
 import { Footer } from "../components/Footer/Footer";
 import { Category } from "../model/category";
+import CategoryAPI from "../api/category/category";
+import ProductAPI from "../api/product/product";
 
 function MyApp({ Component, pageProps, categories }: any) {
   const [cart, setCart] = useState({});
@@ -71,16 +73,7 @@ function MyApp({ Component, pageProps, categories }: any) {
     if (categoryId !== null) {
       setSearching(true);
       setSearchResults([]);
-      const response = await fetch(
-        `http://localhost:8000/api/product/${categoryId}/get/0/1000`,
-        {
-          method: "GET",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "text/plain",
-          },
-        }
-      );
+      const response = await ProductAPI.getAllProducts(categoryId)
       const products: Product[] = await response.json();
       products.forEach((product: Product) => {
         if (product.name === searchValue)
@@ -122,16 +115,7 @@ function MyApp({ Component, pageProps, categories }: any) {
 
 MyApp.getInitialProps = async ({ Component, ctx }: any) => {
   try {
-    const response = await fetch(
-      `http://localhost:8000/api/category/get/0/1000`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "text/plain",
-        },
-      }
-    );
+    const response = await CategoryAPI.getAllCategories()
     const categories: Category = await response.json();
     let pageProps = {};
     if (Component.getInitialProps)

@@ -1,10 +1,11 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
+import { useState } from "react";
+
 import SideBar from "../../components/Categories/SideBar";
 import Products from "../../components/Products/Products";
-
 import { Category } from "../../model/category";
-import { useState } from "react";
+import CategoryAPI from "../../api/category/category";
 
 const Categories = (props: any) => {
   const [values, setValues] = useState([0]);
@@ -227,16 +228,7 @@ const Categories = (props: any) => {
 export const getStaticProps: GetStaticProps = async () => {
   try {
 
-    const response = await fetch(
-      `http:/localhost:8000/api/category/get/0/100`,
-      {
-        method: "GET",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "text/plain",
-        },
-      }
-    );
+    const response = await CategoryAPI.getAllCategories()
     const categories: Category[] = await response.json();
 
     return {

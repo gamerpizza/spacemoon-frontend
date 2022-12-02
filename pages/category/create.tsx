@@ -1,6 +1,5 @@
 import { Formik, Field } from "formik";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
 import { Category } from "../../model/category";
 import InputField from "../../components/Fields/InputField";
@@ -8,6 +7,7 @@ import { categorySchema } from "../../validations/categorySchema";
 import { useRouter } from "next/router";
 
 import { useRef } from "react";
+import CategoryAPI from "../../api/category/category";
 const CreateCategory = ({ category }: { category: Category }) => {
   const [errors, setErrors] = useState<any>();
   const [token, setToken] = useState<any>();
@@ -29,16 +29,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
             const formData = new FormData();
             formData.append("name", data.name);
             formData.append("image", image);
-            const response = await fetch(
-              `http://localhost:8000/api/category/create`,
-              {
-                method: "POST",
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-                body: formData,
-              }
-            );
+            const response = await CategoryAPI.createCategory(formData, token);
             setErrors("");
             router.push("/category");
           } catch (error: any) {
