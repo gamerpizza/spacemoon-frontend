@@ -6,13 +6,13 @@ import { Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import sourceImage from "../../public/images/default-image.jpg";
-import { AiOutlinePlus } from "react-icons/ai";
+import { CiCreditCard1 } from "react-icons/ci";
 import { IoCloseSharp } from "react-icons/io5";
 import { BiPencil } from "react-icons/bi";
 import startIcon from "../../public/images/star.svg";
 import { Menu, Transition } from "@headlessui/react";
 
-const NewAddressAdd = (props: any) => {
+const NewPaymentAdd = (props: any) => {
   const courtries = [
     {
       label: "Choose country",
@@ -39,21 +39,82 @@ const NewAddressAdd = (props: any) => {
     },
     {
       label: "Province-1",
-      value: "US",
+      value: "p-1",
       unavailable: false,
     },
     {
       label: "Province-2",
-      value: "it",
+      value: "p-2",
       unavailable: false,
     },
   ];
   const [province, setProvince] = useState(provinceArray[0]);
   return (
     <div className="p-16 w-full">
-      <p className="font-unica text-[30px] py-5">ADD NEW ADDRESS</p>
+      <p className="font-unica text-[30px] py-5">ADD CREDIT CARD</p>
       <div className="max-w-[900px] font-comfortaa">
         <div>
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Card Holder Name
+          </label>
+          <input
+            type="text"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="This is my full name"
+            required
+          />
+        </div>
+        <div className="mt-8">
+          <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+            Card Number
+          </label>
+          <div className="flex relative">
+            <input
+              type="text"
+              className="pl-10 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter card number"
+              required
+            />
+            <CiCreditCard1 className="text-[20px] mr-2 absolute left-2 top-2.5" />{" "}
+          </div>
+        </div>
+        <div className="mt-8 grid grid-cols-3 gap-8">
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              Expiry Date
+            </label>
+            <input
+              type="text"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="MM/YY"
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+              CVV
+            </label>
+            <input
+              type="text"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter 3 digits code"
+              required
+            />
+          </div>
+        </div>
+        <div className="mt-8 flex items-center">
+          <p className="font-unica text-[30px] py-5 mr-12">BILLING ADDRESS</p>
+          <label className="flex items-center">
+            <input
+              type="checkbox"
+              value=""
+              className="mr-2 w-4 h-4 accent-[#A042E1]"
+            />
+            The same as primary shipping address
+          </label>
+        </div>
+
+        <div className="mt-8">
           <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
             Full Name
           </label>
@@ -146,4 +207,4 @@ const NewAddressAdd = (props: any) => {
   );
 };
 
-export default NewAddressAdd;
+export default NewPaymentAdd;
