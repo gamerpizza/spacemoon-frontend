@@ -7,14 +7,60 @@ import Image from "next/image";
 import sourceImage from "../../public/images/default-image.jpg";
 import { AiOutlinePlus } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
-import { BiPencil } from "react-icons/bi";
+import { RiDeleteBin5Line } from "react-icons/ri";
 import startIcon from "../../public/images/star.svg";
 import { Menu, Transition } from "@headlessui/react";
+import {
+  DropDownList,
+  DropDownListChangeEvent,
+  DropDownListFilterChangeEvent,
+} from "@progress/kendo-react-dropdowns";
+import {
+  CompositeFilterDescriptor,
+  filterBy,
+  FilterDescriptor,
+} from "@progress/kendo-data-query";
 
 const NewProductAdd = (props: any) => {
   const [files, setFiles] = useState<any[]>([]);
   const [filters, setFilters] = useState<any[]>([]);
   const filterArray = [{ name: "color" }, { name: "material" }];
+  const allData = [
+    { id: 1, text: "Black" },
+    { id: 2, text: "White" },
+    { id: 3, text: "Gold" },
+  ];
+  const defaultItem = { text: "+ Add Option" };
+  const [data, setData] = useState(allData.slice());
+  const [selectedFillter, setSelectedFillter] = useState("");
+  const filterData = (filter: FilterDescriptor | CompositeFilterDescriptor) => {
+    const data = allData.slice();
+    return filterBy(data, filter);
+  };
+
+  const filterChange = (event: DropDownListFilterChangeEvent) => {
+    setData(filterData(event.filter));
+  };
+  const filterClick = (value: any, index: any) => {
+    let buffer = [...filters];
+    buffer[index].content.push(value.text);
+    setFilters(buffer);
+  };
+  const deleteFilter = (ind: any, index: any) => {
+    let buffer = [...filters];
+    buffer[ind].content.splice(index, 1);
+    setFilters(buffer);
+  };
+  const deleteFilters = (ind: any) => {
+    let buffer = [...filters];
+    buffer.splice(ind, 1);
+    setFilters(buffer);
+  };
+  const addFilter = (ele: string) => {
+    if (!filters.find((el) => el.name === ele))
+      setFilters([...filters, { name: ele, content: [] }]);
+  };
+
   const categoryArray = [
     {
       label: "Select your Category",
@@ -102,10 +148,6 @@ const NewProductAdd = (props: any) => {
       };
       reader.readAsDataURL(file);
     });
-  };
-  const addFilter = (ele: string) => {
-    if (!filters.find((el) => el.name === ele))
-      setFilters([...filters, { name: ele, content: ["black", "white"] }]);
   };
   return (
     <div className="p-16 w-full">
@@ -294,22 +336,41 @@ const NewProductAdd = (props: any) => {
                       <button className="rounded-[15px] bg-gray-100 hover:bg-gray-300 py-2 px-3">
                         {element}
                       </button>
-                      <IoCloseSharp className="bg-gray-200 hover:bg-gray-300 text-[30px] absolute -right-3 -top-3 rounded-full p-1.5" />
+                      <IoCloseSharp
+                        className="bg-gray-200 hover:bg-gray-300 text-[30px] absolute -right-3 -top-3 rounded-full p-1.5"
+                        onClick={() => {
+                          deleteFilter(ind, index);
+                        }}
+                      />
                     </div>
                   );
                 })}
                 <div className="flex">
-                  <div className="relative ml-2 ">
-                    <input
-                      type="text"
-                      className="pr-3 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                      placeholder="Add value"
-                    />
-                    <IoCloseSharp className="bg-gray-transparent text-[30px] absolute right-0 top-2 p-1.5 cursor-pointer" />
-                  </div>
-                  <button className="flex items-center text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm px-3 py-2.5 mr-2 ml-3 dark:bg-gray-800 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700">
-                    <AiOutlinePlus />
-                    &nbsp; Add option
+                  <style>{`
+                    .k-animation-container{
+                      font-family:Comfortaa;
+                      border-radius:15px;
+                    }
+                  `}</style>
+                  <DropDownList
+                    className="bg-white rounded-lg ml-3"
+                    style={{ width: "200px" }}
+                    data={data}
+                    textField="text"
+                    filterable={true}
+                    defaultItem={defaultItem}
+                    onFilterChange={filterChange}
+                    onChange={(event: DropDownListChangeEvent) => {
+                      filterClick(event.value, ind);
+                    }}
+                  />
+                  <button
+                    className="ml-2 px-2 py-1 rounded-full border-2 border-[#E62744] flex items-center justify-center cursor-pointer"
+                    onClick={() => {
+                      deleteFilters(ind);
+                    }}
+                  >
+                    <RiDeleteBin5Line className="text-[20px] text-[#E62744]" />
                   </button>
                 </div>
               </div>
