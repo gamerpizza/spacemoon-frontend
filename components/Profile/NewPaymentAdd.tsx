@@ -87,7 +87,6 @@ const NewPaymentAdd = (props: any) => {
               Expiry Date
             </label>
             <Datepicker
-              type="date"
               selectedDate={selectedDate}
               setSelectedDate={setSelectedDate}
             />

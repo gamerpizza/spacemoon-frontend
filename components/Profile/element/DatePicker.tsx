@@ -12,17 +12,13 @@ import {
 
 type DatepickerType = "date" | "month" | "year";
 
-export default function Datepicker({
-  pickerType,
-  selectedDate,
-  setSelectedDate,
-}: any) {
+export default function Datepicker({ selectedDate, setSelectedDate }: any) {
   const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   const [dayCount, setDayCount] = useState<Array<number>>([]);
   const [blankDays, setBlankDays] = useState<Array<number>>([]);
   const [showDatepicker, setShowDatepicker] = useState(false);
   const [datepickerHeaderDate, setDatepickerHeaderDate] = useState(new Date());
-  const [type, setType] = useState<DatepickerType>(pickerType);
+  const [type, setType] = useState<DatepickerType>("date");
 
   const decrement = () => {
     switch (type) {
