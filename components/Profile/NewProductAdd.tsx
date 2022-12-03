@@ -272,7 +272,7 @@ const NewProductAdd = (props: any) => {
             Product Filters
           </label>
           <span className="text-gray-400">
-            Use .png or .jpg format, max 7 photos, 25mb per photo
+            Add any additional filters you want to apply to your product
           </span>
           <div className="flex mt-2">
             <Menu
