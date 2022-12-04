@@ -13,7 +13,7 @@ const ProductAPI = Object.freeze({
 })
 
 const createProduct = (categoryId: string, formData: any, token: any) =>
-  fetch(`${fullUrl}/api/product/${categoryId}/create`, {
+  fetch(`${fullUrl}/product`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -51,7 +51,7 @@ const getAllProducts = (categoryId: number) =>
   })
 
 const getProducts = (categoryId: number) =>
-  fetch(`${fullUrl}/api/product/${categoryId}/get/0/1000`, {
+  fetch(`${fullUrl}/product`, {
     method: "GET",
     headers: {
       Accept: "application/json",

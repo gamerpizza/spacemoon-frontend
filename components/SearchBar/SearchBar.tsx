@@ -73,12 +73,12 @@ const SearchBar = (props: any) => {
                           <button
                             onClick={() => {
                               setCategoryId(category.categoryId);
-                              setSelectedCategory(category.name);
+                              setSelectedCategory(category[Object.keys(category)[0]].name);
                               setClicked(!clicked);
                             }}
                             className="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                           >
-                            {category.name}
+                            {category[Object.keys(category)[0]].name}
                           </button>
                         </li>
                       );

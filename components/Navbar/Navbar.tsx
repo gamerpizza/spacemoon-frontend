@@ -12,7 +12,6 @@ import Category from "../Dropdowns/Category";
 import Cart from "../Cart/Cart";
 
 export const Navbar = (props: any) => {
-
   const [cartClicked, setCartClicked] = useState(false);
   const [isSignOut, setIsSignOut] = useState(false);
   const [yScroll, setYScroll] = useState(0);
