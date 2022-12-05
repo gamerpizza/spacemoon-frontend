@@ -3,6 +3,8 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { BiPencil } from "react-icons/bi";
 
+import * as path from '../../constants/paths'
+
 const AddAdress = (props: any) => {
   const addressArray = [
     {
@@ -41,7 +43,7 @@ const AddAdress = (props: any) => {
             Add New Address
           </label>
           <Link
-            href="/profile/address/NewAddress"
+            href={`"/${path.PROFILE}/address/NewAddress"`}
             className="w-[60px] h-[60px] rounded-lg border-2 border-gray-300 border-dashed flex items-center justify-center cursor-pointer"
           >
             <AiOutlinePlus className="text-[20px] text-gray-400" />

@@ -6,6 +6,7 @@ import Products from "../../../components/Products/Products";
 import SideBar from "../../../components/Categories/SideBar";
 import Rating from "../../../components/Products/Rating";
 import CategoryAPI from "../../../api/category/category";
+import * as path from '../../../constants/paths'
 
 const UpdateCategory = (props: any) => {
 
@@ -23,7 +24,7 @@ const UpdateCategory = (props: any) => {
                 <>
                   <Link
                     href={{
-                      pathname: `/category/${category.categoryId}`,
+                      pathname: `${path.CATEGORIES}/${category.categoryId}`,
                       query: { categories: categories },
                     }}
                   >

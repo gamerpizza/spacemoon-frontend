@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 import defaultImage from "../../public/images/default-image.jpg";
+import * as path from '../../constants/paths'
 
 const Cart = (props: any) => {
   return (
@@ -120,7 +121,7 @@ const Cart = (props: any) => {
             </div>
             <div className="mt-6 flex justify-center text-center text-sm text-gray-500">
               <p>
-                <Link href="/cart">
+                <Link href={`${path.CART}`}>
                   <button
                     type="button"
                     className="font-comfortaa text-black hover:text-indigo-500"

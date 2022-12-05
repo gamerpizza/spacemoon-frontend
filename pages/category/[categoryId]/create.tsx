@@ -1,12 +1,13 @@
 import { Formik, Field } from "formik";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 import { Product } from "../../../model/product";
 import { productSchema } from "../../../validations/productSchema";
 import InputField from "../../../components/Fields/InputField";
 import ProductAPI from "../../../api/product/product";
-import Link from "next/link";
+import * as path from '../../../constants/paths'
 
 const CreateProduct = ({ product }: { product: Product }) => {
   const [errors, setErrors] = useState<any>();
@@ -43,7 +44,7 @@ const CreateProduct = ({ product }: { product: Product }) => {
           formData.append("image", image);
           try {
             const response = await ProductAPI.createProduct(categoryId, formData, token);
-            router.push("/category");
+            router.push(`${path.CATEGORIES}`);
             setErrors("");
           } catch (error: any) {
             setErrors(error.message);

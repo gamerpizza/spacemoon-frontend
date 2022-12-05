@@ -7,6 +7,7 @@ import Products from "../../components/Products/Products";
 import { Category } from "../../model/category";
 import CategoryAPI from "../../api/category/category";
 import Rating from "../../components/Products/Rating";
+import * as path from '../../constants/paths'
 
 const Categories = (props: any) => {
   const [values, setValues] = useState([0]);
@@ -23,7 +24,7 @@ const Categories = (props: any) => {
                 <>
                   <Link
                     href={{
-                      pathname: `/category/${category.categoryId}`,
+                      pathname: `${path.CATEGORIES}/${category.categoryId}`,
                       query: { categories: categories },
                     }}
                   >
