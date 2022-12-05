@@ -2,13 +2,13 @@
 import React from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { BiChevronDown } from "react-icons/bi";
-const Select = ({ options, selectedOption, handelChange }: any) => {
+const Select = ({ options, onChange, selectedOption}: any) => {
   return (
     <Listbox
       as="div"
       value={selectedOption}
       onChange={(event) => {
-        handelChange(event);
+        onChange(event);
       }}
     >
       {({ open }) => (
@@ -53,7 +53,7 @@ const Select = ({ options, selectedOption, handelChange }: any) => {
                               <div className="flex items-center">
                                 <span></span>
                                 <span
-                                  className={`flex items-center block truncate`}
+                                  className={`flex items-center truncate`}
                                 >
                                   {option.label}
                                 </span>

@@ -5,6 +5,8 @@ import startIcon from "../../public/images/star.svg";
 import addIcon from "../../public/images/add.svg";
 
 const Products = (props: any) => {
+  const arrayOfCategories = props.products && Object.entries(props.products).map((e) => ( { [e[0]]: e[1] } ))
+
   return (
     <div>
       <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">
@@ -19,11 +21,12 @@ const Products = (props: any) => {
           </div>
           }
           <div className={`flex flex-wrap ${ props.gap? 'gap-x-28, justify-center' : 'gap-x-0, justify-start' }`}>
-            {props.products.length > 0 ? (
-              props.products.map((product: any) => {
+            {arrayOfCategories && arrayOfCategories.length > 0 ? (
+              arrayOfCategories.map((product: any) => {
+
                 return (
                   <div
-                    key={product.productId}
+                    key={product[Object.keys(product)[0]].id}
                     className="lg:w-auto md:w-auto p-4 w-full"
                   >
                     <div className="">
@@ -49,12 +52,12 @@ const Products = (props: any) => {
                           </button>
                         </div>
                       </div>
-                      <p className="font-comfortaa">Name of Product</p>
+                      <p className="font-comfortaa">{product[Object.keys(product)[0]].name}</p>
                       <p className="font-thin font-comfortaa text-[#687B8B]">
                         Name of selling party
                       </p>
                       <p className="font-comforta text-xl text-[#1C1F22]">
-                        $ 8.45
+                        {product[Object.keys(product)[0]].price}
                       </p>
                     </div>
                   </div>

@@ -10,7 +10,7 @@ import { Category } from "../model/category";
 import CategoryAPI from "../api/category/category";
 import ProductAPI from "../api/product/product";
 
-function MyApp({ Component, pageProps, categories }: any) {
+function MyApp({ Component, pageProps, arrayOfCategories }: any) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
@@ -114,7 +114,7 @@ function MyApp({ Component, pageProps, categories }: any) {
         clearCart={clearCart}
         subTotal={subTotal}
         searchHandler={searchHandler}
-        categories={categories}
+        categories={arrayOfCategories}
       />
 
       <Component
@@ -126,7 +126,7 @@ function MyApp({ Component, pageProps, categories }: any) {
         clearCart={clearCart}
         subTotal={subTotal}
         {...pageProps}
-        categories={categories}
+        categories={arrayOfCategories}
       />
       <Footer />
     </SessionProvider>
@@ -137,11 +137,12 @@ MyApp.getInitialProps = async ({ Component, ctx }: any) => {
   try {
     const response = await CategoryAPI.getAllCategories()
     const categories: Category = await response.json();
+    const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
     let pageProps = {};
     if (Component.getInitialProps)
       pageProps = await Component.getInitialProps(ctx);
 
-    return { pageProps, categories };
+    return { pageProps, arrayOfCategories };
   } catch (error: any) {
     return {
       props: { errCode: 500, message: error },
