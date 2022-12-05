@@ -1,8 +1,5 @@
-import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
-import { SessionData } from "../types/auth";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
 import { Product } from "../model/product";
 
@@ -23,11 +20,23 @@ function MyApp({ Component, pageProps, categories }: any) {
     try {
       if (localStorage.getItem("cart"))
         setCart(JSON.parse(localStorage.getItem("cart") || "{}"));
+        calculateSubTotal()
     } catch (error) {
       localStorage.clear();
     }
+
   }, []);
 
+  const calculateSubTotal =  async () => {
+    const newCart = await JSON.parse(localStorage.getItem("cart") || "{}")
+    let subtotal = 0;
+    for (let i = 0; i < Object.keys(newCart).length; i++) {
+      subtotal +=
+        newCart[Object.keys(newCart)[i]].price *
+        newCart[Object.keys(newCart)[i]].quantity;
+    }
+    setSubTotal(subtotal);
+  }
   const saveCart = (newCart: any) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
     let subtotal = 0;

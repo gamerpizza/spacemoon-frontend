@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Logo from "../../public/images/logo_black.png";
 export const Footer = () => (
-  <footer className="bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover w-full text-gray-600 body-font p-8">
+  <footer className="bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover w-[100vw] text-gray-600 body-font p-8">
     <div className="flex flex-wrap ">
       <Image
         src={Logo}
