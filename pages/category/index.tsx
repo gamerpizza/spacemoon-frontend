@@ -7,6 +7,7 @@ import Products from "../../components/Products/Products";
 import { Category } from "../../model/category";
 import CategoryAPI from "../../api/category/category";
 import Rating from "../../components/Products/Rating";
+import PriceRange from "../../components/PriceRange/PriceRange";
 
 const Categories = (props: any) => {
   const [values, setValues] = useState([0]);
@@ -47,7 +48,7 @@ const Categories = (props: any) => {
             <Rating />
           </div>
 
-
+          <PriceRange />
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
           <p className="text-center mt-2 font-comfortaa">$0-$999+</p>
         </div>

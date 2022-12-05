@@ -1,1 +1,65 @@
-export {};
+import { useState } from "react";
+import { useRanger } from "react-ranger";
+
+const PriceRange = () => {
+  const [values, setValues] = useState([20, 80]);
+
+  const { getTrackProps, handles } = useRanger({
+    min: 0,
+    max: 100,
+    stepSize: 5,
+    values,
+    onChange: setValues
+  });
+
+  return (
+    <div className="App">
+      <h1>Multi-Range</h1>
+      <br />
+      <br />
+      <div
+        {...getTrackProps({
+          style: {
+            height: "3px",
+            background: "#A042E1",
+            boxShadow: "inset 0 1px 2px rgba(0,0,0,.6)",
+            borderRadius: "2px"
+          }
+        })}
+      >
+        {handles.map(({ getHandleProps }) => (
+          <button
+            {...getHandleProps({
+              style: {
+                width: "28px",
+                height: "28px",
+                outline: "none",
+                borderRadius: "100%",
+                background: "white",
+                border: "1px solid #A042E1",
+
+              }
+            })}
+          />
+        ))}
+      </div>
+      <br />
+      <br />
+      <br />
+      <pre
+        style={{
+          display: "inline-block",
+          textAlign: "left"
+        }}
+      >
+        <code>
+          {JSON.stringify({
+            values
+          })}
+        </code>
+      </pre>
+    </div>
+  );
+}
+
+export default PriceRange;
