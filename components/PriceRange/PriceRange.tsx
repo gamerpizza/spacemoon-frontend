@@ -2,11 +2,11 @@ import { useState } from "react";
 import { useRanger } from "react-ranger";
 
 const PriceRange = () => {
-  const [values, setValues] = useState([20, 80]);
+  const [values, setValues] = useState([1000, 5000]);
 
   const { getTrackProps, handles } = useRanger({
     min: 0,
-    max: 100,
+    max: 10000,
     stepSize: 5,
     values,
     onChange: setValues
@@ -14,7 +14,6 @@ const PriceRange = () => {
 
   return (
     <div className="App">
-      <h1>Multi-Range</h1>
       <br />
       <br />
       <div

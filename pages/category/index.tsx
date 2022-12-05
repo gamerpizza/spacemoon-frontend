@@ -12,6 +12,10 @@ import PriceRange from "../../components/PriceRange/PriceRange";
 const Categories = (props: any) => {
   const [values, setValues] = useState([0]);
   const categories = props.categories;
+
+  const clickedRating = (rating:any) => {
+    console.log(rating)
+  }
   return (
     <>
       <div className="flex">
@@ -39,18 +43,17 @@ const Categories = (props: any) => {
           <h1 className="font-unica text-2xl px-3 mt-8 mb-4">RATING</h1>
 
             <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={5} clickedRating={clickedRating}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={4} clickedRating={clickedRating}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={3} clickedRating={clickedRating}/>
           </div>
 
-          <PriceRange />
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
-          <p className="text-center mt-2 font-comfortaa">$0-$999+</p>
+          <PriceRange />
         </div>
 
         <div className="w-3/4">
