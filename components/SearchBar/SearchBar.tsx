@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Link from "next/link";
+
 import { Category } from "../../model/category";
 
 const SearchBar = (props: any) => {
