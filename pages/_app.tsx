@@ -48,6 +48,14 @@ function MyApp({ Component, pageProps, categories }: any) {
     setSubTotal(subtotal);
   };
 
+  const removeProductFromCart = (id: number) => {
+    let newCart: any = cart;
+
+    delete newCart[id];
+
+    setCart(newCart);
+    saveCart(newCart);
+  }
   const addToCart = (
     id: number,
     product: Product,
@@ -102,6 +110,7 @@ function MyApp({ Component, pageProps, categories }: any) {
         cart={cart}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
+        removeProductFromCart={removeProductFromCart}
         clearCart={clearCart}
         subTotal={subTotal}
         searchHandler={searchHandler}
@@ -113,6 +122,7 @@ function MyApp({ Component, pageProps, categories }: any) {
         cart={cart}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
+        removeProductFromCart={removeProductFromCart}
         clearCart={clearCart}
         subTotal={subTotal}
         {...pageProps}
