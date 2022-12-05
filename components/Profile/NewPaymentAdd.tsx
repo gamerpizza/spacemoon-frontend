@@ -1,6 +1,6 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import { Listbox } from "@headlessui/react";
-import Select from "./select/Select";
+import Select from "./element/Select";
 
 import { Fragment } from "react";
 import Link from "next/link";
@@ -11,7 +11,7 @@ import { IoCloseSharp } from "react-icons/io5";
 import { BiPencil } from "react-icons/bi";
 import startIcon from "../../public/images/star.svg";
 import { Menu, Transition } from "@headlessui/react";
-
+import Datepicker from "./element/DatePicker";
 const NewPaymentAdd = (props: any) => {
   const courtries = [
     {
@@ -48,7 +48,10 @@ const NewPaymentAdd = (props: any) => {
       unavailable: false,
     },
   ];
+  const [value, onChange] = useState(new Date());
   const [province, setProvince] = useState(provinceArray[0]);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+
   return (
     <div className="p-16 w-full">
       <p className="font-unica text-[30px] py-5">ADD CREDIT CARD</p>
@@ -83,11 +86,9 @@ const NewPaymentAdd = (props: any) => {
             <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
               Expiry Date
             </label>
-            <input
-              type="text"
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="MM/YY"
-              required
+            <Datepicker
+              selectedDate={selectedDate}
+              setSelectedDate={setSelectedDate}
             />
           </div>
           <div>
