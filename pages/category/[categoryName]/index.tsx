@@ -22,7 +22,7 @@ const UpdateCategory = (props: any) => {
                 <>
                   <Link
                     href={{
-                      pathname: `/category/${category.categoryId}`,
+                      pathname: `/category/${category.name}`,
                       query: { categories: categories },
                     }}
                   >
