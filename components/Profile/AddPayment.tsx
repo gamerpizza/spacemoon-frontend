@@ -1,13 +1,7 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import { Fragment } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import sourceImage from "../../public/images/default-image.jpg";
 import { CiCreditCard1 } from "react-icons/ci";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { BiPencil } from "react-icons/bi";
-import startIcon from "../../public/images/star.svg";
-import { Menu, Transition } from "@headlessui/react";
 
 const AddPayment = (props: any) => {
   const addressArray = [

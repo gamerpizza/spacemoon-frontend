@@ -10,10 +10,10 @@ const SubTotal = (props: any) => {
         </div>
         <div className="mt-6">
           <Link
-            href="/checkout"
+            href="/shipping_details"
             className="flex items-center justify-center rounded-md border border-transparent bg-[#A042E1] px-6 py-3 text-base font-comfortaa text-white shadow-sm hover:bg-[#a45ed7]"
           >
-            Proceed to Checkout
+            Proceed to Shipping Details
           </Link>
         </div>
       </div>
