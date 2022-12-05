@@ -45,7 +45,6 @@ const Category = (props: any) => {
           <ul className="space-y-4">
             {props?.categories &&
               props?.categories.map((category: any) => {
-                console.log(category.name);
                 return (
                   <li>
                     <Link

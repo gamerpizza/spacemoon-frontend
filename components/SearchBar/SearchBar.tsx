@@ -7,7 +7,6 @@ const SearchBar = (props: any) => {
   const [selectedCategory, setSelectedCategory] = useState();
   const [categoryId, setCategoryId] = useState();
   const [clicked, setClicked] = useState(false);
-  const [categories, setCategories] = useState<Category[]>([]);
 
   const onSearchHandler = (e: any) => {
     setSearchItem(e.target.value);

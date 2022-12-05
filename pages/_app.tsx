@@ -1,8 +1,5 @@
-import type { AppProps } from "next/app";
 import { SessionProvider } from "next-auth/react";
-import { SessionData } from "../types/auth";
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
 import { Product } from "../model/product";
 

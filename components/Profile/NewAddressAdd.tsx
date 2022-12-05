@@ -1,16 +1,6 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import { Listbox } from "@headlessui/react";
+import React, { useState } from "react";
 import Select from "./select/Select";
 
-import { Fragment } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import sourceImage from "../../public/images/default-image.jpg";
-import { AiOutlinePlus } from "react-icons/ai";
-import { IoCloseSharp } from "react-icons/io5";
-import { BiPencil } from "react-icons/bi";
-import startIcon from "../../public/images/star.svg";
-import { Menu, Transition } from "@headlessui/react";
 
 const NewProductAdd = (props: any) => {
   const courtries = [

@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 import startIcon from "../../public/images/star.svg";
 import addIcon from "../../public/images/add.svg";

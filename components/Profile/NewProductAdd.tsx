@@ -1,15 +1,10 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Fragment } from "react";
-import Select from "./select/Select";
-
-import Link from "next/link";
-import Image from "next/image";
-import sourceImage from "../../public/images/default-image.jpg";
 import { AiOutlinePlus } from "react-icons/ai";
 import { IoCloseSharp } from "react-icons/io5";
-import { BiPencil } from "react-icons/bi";
-import startIcon from "../../public/images/star.svg";
 import { Menu, Transition } from "@headlessui/react";
+
+import Select from "./select/Select";
 
 const NewProductAdd = (props: any) => {
   const [files, setFiles] = useState<any[]>([]);
@@ -288,7 +283,7 @@ const NewProductAdd = (props: any) => {
                 {ele.name}
               </label>
               <div className="flex">
-                {ele.content.map((element, index) => {
+                {ele.content.map((element: any, index: any) => {
                   return (
                     <div key={index} className="relative mx-2">
                       <button className="rounded-[15px] bg-gray-100 hover:bg-gray-300 py-2 px-3">

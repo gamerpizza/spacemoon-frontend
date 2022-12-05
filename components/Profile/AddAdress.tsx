@@ -1,13 +1,7 @@
-import React, { ReactElement, useEffect, useState } from "react";
-import { Fragment } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import sourceImage from "../../public/images/default-image.jpg";
 import { AiOutlinePlus } from "react-icons/ai";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { BiPencil } from "react-icons/bi";
-import startIcon from "../../public/images/star.svg";
-import { Menu, Transition } from "@headlessui/react";
 
 const AddAdress = (props: any) => {
   const addressArray = [
