@@ -7,7 +7,6 @@ import addIcon from "../../public/images/add.svg";
 const Products = (props: any) => {
   const arrayOfCategories = props.products && Object.entries(props.products).map((e) => ( { [e[0]]: e[1] } ))
 
-  {console.log("product products", arrayOfCategories)}
   return (
     <div>
       <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">

@@ -8,7 +8,6 @@ import Rating from "../../../components/Products/Rating";
 import CategoryAPI from "../../../api/category/category";
 
 const UpdateCategory = (props: any) => {
-  console.log("props in category", props)
   const router = useRouter();
   const categories = router.query.categories;
 
@@ -99,9 +98,7 @@ export const getStaticPaths = async () => {
 
     const categories = await response.json();
     const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
-    console.log("Array", arrayOfCategories)
     const names = arrayOfCategories.map((category: any) => category[Object.keys(category)[0]].name);
-    console.log("names", names)
     const paths = names.map((name: string) => ({
       params: {
         categoryName: name.toString(),

@@ -3,7 +3,6 @@ import { useState } from "react";
 
 const Category = (props: any) => {
   const [clicked, setClicked] = useState(false);
-  console.log(props)
   return (
     <li>
       <button
@@ -45,7 +44,6 @@ const Category = (props: any) => {
           <ul className="space-y-4">
             {props?.categories &&
               props?.categories.map((category: any) => {
-                console.log("car", category[Object.keys(category)[0]].name)
                 return (
                   <li>
                     <Link
