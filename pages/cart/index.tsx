@@ -86,7 +86,7 @@ const Cart = (props: any) => {
                               </div>
                             </div>
                             <div className="">
-                              <button className="text-[#E62744] border-[#E62744] font-comfortaa text-sm rounded-lg w-auto border-[1px] p-2 flex">
+                              <button onClick = {() => props.removeProductFromCart(item)} className="text-[#E62744] border-[#E62744] font-comfortaa text-sm rounded-lg w-auto border-[1px] p-2 flex">
                                 <Image
                                   src={deleteIcon}
                                   width={20}
