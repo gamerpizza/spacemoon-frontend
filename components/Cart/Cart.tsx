@@ -2,9 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 import defaultImage from "../../public/images/default-image.jpg";
-import * as path from '../../constants/paths'
+import * as path from "../../constants/paths";
 
-const Cart = (props: any) => {
+const Cart = ({cartClicked, setCartClicked, props}: any) => {
   return (
     <>
       <div
@@ -15,12 +15,12 @@ const Cart = (props: any) => {
       >
         <style jsx>{`
           .drawer {
-            display: ${props.cartClicked ? "flex" : "none"};
+            display: ${cartClicked ? "flex" : "none"};
           }
         `}</style>
         <>
           <button
-            onClick={() => props.setCartClicked(false)}
+            onClick={() => setCartClicked(false)}
             type="button"
             data-drawer-dismiss="drawer-example"
             aria-controls="drawer-example"
@@ -42,8 +42,8 @@ const Cart = (props: any) => {
             <span className="sr-only">Close menu</span>
           </button>
 
-          {props.props.cart &&
-            Object.keys(props.props.cart).map((item) => {
+          {props.cart &&
+            Object.keys(props.cart).map((item) => {
               return (
                 <div key={item}>
                   <li className="flex  py-6">
@@ -61,10 +61,10 @@ const Cart = (props: any) => {
                       <div>
                         <div className="flex justify-between text-base font-comfortaa text-gray-900">
                           <h3>
-                            <p>{props.props.cart[item].name}</p>
+                            <p>{props.cart[item].name}</p>
                           </h3>
                           <p className="ml-4 font-unica">
-                            ${props.props.cart[item].price}
+                            ${props.cart[item].price}
                           </p>
                         </div>
                         <p className="mt-1 text-sm font-comfortaa text-gray-500">
@@ -84,7 +84,7 @@ const Cart = (props: any) => {
                           </button>
                         </div>
                         <p className="text-[#1C1F22] font-comfortaa">
-                          {props.props.cart[item].quantity}
+                          {props.cart[item].quantity}
                         </p>
                         <div className="flex ml-2">
                           <button

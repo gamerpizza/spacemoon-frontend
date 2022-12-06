@@ -3,7 +3,7 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { RiDeleteBin5Line } from "react-icons/ri";
 import { BiPencil } from "react-icons/bi";
 
-import * as path from '../../constants/paths'
+import * as path from "../../constants/paths";
 
 const AddAdress = (props: any) => {
   const addressArray = [

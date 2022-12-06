@@ -6,26 +6,25 @@ import Products from "../../../components/Products/Products";
 import SideBar from "../../../components/Categories/SideBar";
 import Rating from "../../../components/Products/Rating";
 import CategoryAPI from "../../../api/category/category";
-import * as path from '../../../constants/paths'
+import * as path from "../../../constants/paths";
 
-const UpdateCategory = (props: any) => {
-
+const SingleCategory = ({categories, category, addToCart}: any) => {
   const router = useRouter();
-  const categories = router.query.categories;
+  const sideBarCategories = router.query.categories;
 
   return (
     <>
       <div className="flex">
         <div className=" w-80  ml-24 mt-4">
           <SideBar />
-          {props.categories &&
-            props.categories.map((category: any) => {
+          {categories &&
+            categories.map((category: any) => {
               return (
                 <>
                   <Link
                     href={{
                       pathname: `${path.CATEGORIES}/${category.categoryId}`,
-                      query: { categories: categories },
+                      query: { categories: sideBarCategories },
                     }}
                   >
                     <h1 className="text-[#1C1F22] font-comfortaa text-s px-3 mt-2 mb-2">
@@ -65,9 +64,9 @@ const UpdateCategory = (props: any) => {
         <div className="w-3/4">
           <div>
             <Products
-              props={props}
-              categoryName={props.category.name}
-              products={props.category.products}
+              addToCart={addToCart}
+              categoryName={category.name}
+              products={category.products}
             />
           </div>
         </div>
@@ -80,7 +79,7 @@ export const getStaticProps = async (context: any) => {
   const id = context.params.categoryId;
 
   try {
-    const response = await CategoryAPI.getCategory(id)
+    const response = await CategoryAPI.getCategory(id);
     const category: Category = await response.json();
     return {
       props: {
@@ -116,4 +115,4 @@ export const getStaticPaths = async () => {
   }
 };
 
-export default UpdateCategory;
+export default SingleCategory;

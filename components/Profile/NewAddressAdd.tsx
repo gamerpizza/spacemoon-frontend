@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Select from "./select/Select";
 
-
 const NewProductAdd = (props: any) => {
   const courtries = [
     {

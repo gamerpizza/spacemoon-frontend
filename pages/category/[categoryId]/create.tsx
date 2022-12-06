@@ -7,7 +7,7 @@ import { Product } from "../../../model/product";
 import { productSchema } from "../../../validations/productSchema";
 import InputField from "../../../components/Fields/InputField";
 import ProductAPI from "../../../api/product/product";
-import * as path from '../../../constants/paths'
+import * as path from "../../../constants/paths";
 
 const CreateProduct = ({ product }: { product: Product }) => {
   const [errors, setErrors] = useState<any>();
@@ -19,14 +19,14 @@ const CreateProduct = ({ product }: { product: Product }) => {
   const { categoryId } = router.query;
 
   useEffect(() => {
-    if(localStorage.getItem("data"))
-    setToken(
-      JSON.parse(localStorage.getItem("data") || "")?.token.token.account
-        .access_token
-    );
-    else{
-      setErrors('Please Login to create a new product')
-      setDisabled(true)
+    if (localStorage.getItem("data"))
+      setToken(
+        JSON.parse(localStorage.getItem("data") || "")?.token.token.account
+          .access_token
+      );
+    else {
+      setErrors("Please Login to create a new product");
+      setDisabled(true);
     }
   }, []);
 
@@ -43,7 +43,11 @@ const CreateProduct = ({ product }: { product: Product }) => {
           formData.append("description", data.description);
           formData.append("image", image);
           try {
-            const response = await ProductAPI.createProduct(categoryId, formData, token);
+            const response = await ProductAPI.createProduct(
+              categoryId,
+              formData,
+              token
+            );
             router.push(`${path.CATEGORIES}`);
             setErrors("");
           } catch (error: any) {
@@ -176,13 +180,16 @@ const CreateProduct = ({ product }: { product: Product }) => {
               </div>
             </div>
             <div className="mt-6">
-          <Link
-            href="/checkout"
-            className="flex items-center justify-center rounded-md border border-transparent bg-[#A042E1] px-6 py-3 text-base font-comfortaa text-white shadow-sm hover:bg-[#a45ed7]"
-          >
-            <button type="submit" disabled={disabled}> Create Product </button>
-          </Link>
-        </div>
+              <Link
+                href="/checkout"
+                className="flex items-center justify-center rounded-md border border-transparent bg-[#A042E1] px-6 py-3 text-base font-comfortaa text-white shadow-sm hover:bg-[#a45ed7]"
+              >
+                <button type="submit" disabled={disabled}>
+                  {" "}
+                  Create Product{" "}
+                </button>
+              </Link>
+            </div>
             {errors}
           </form>
         )}

@@ -13,7 +13,7 @@ import Cart from "../Cart/Cart";
 import * as path from "../../constants/paths";
 
 export const Navbar = (props: any) => {
-
+  console.log(props)
   const [cartClicked, setCartClicked] = useState(false);
   const [isSignOut, setIsSignOut] = useState(false);
   const [yScroll, setYScroll] = useState(0);

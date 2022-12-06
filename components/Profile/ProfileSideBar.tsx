@@ -2,12 +2,12 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { AiFillThunderbolt } from "react-icons/ai";
 
-import * as path from '../../constants/paths'
+import * as path from "../../constants/paths";
 
 const SideBar = (props: any) => {
   const router = useRouter();
   const checkPath = (path: any) => {
-    return path ===  `${path.PROFILE}`
+    return path === `${path.PROFILE}`
       ? router.pathname === `${path.PROFILE}` ||
         router.pathname === `${path.PROFILE}/NewProduct`
         ? true

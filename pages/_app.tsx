@@ -5,7 +5,7 @@ import { Product } from "../model/product";
 
 import "../styles/globals.css";
 import { Navbar } from "../components/Navbar/Navbar";
-import { Footer } from "../components/Footer/Footer";
+import  Footer  from "../components/Footer/Footer";
 import { Category } from "../model/category";
 import CategoryAPI from "../api/category/category";
 import ProductAPI from "../api/product/product";
@@ -85,6 +85,16 @@ function MyApp({ Component, pageProps, categories }: any) {
       session={pageProps?.session}
       baseUrl="/realms/spacemoon/protocol/openid-connect/auth"
     >
+      <Navbar
+        pageProps={pageProps}
+        cart={cart}
+        addToCart={addToCart}
+        removeFromCart={removeFromCart}
+        clearCart={clearCart}
+        subTotal={subTotal}
+        searchHandler={searchHandler}
+        categories={categories}
+      />
 
       <Component
         searchResults={searchResults}
@@ -96,6 +106,7 @@ function MyApp({ Component, pageProps, categories }: any) {
         {...pageProps}
         categories={categories}
       />
+      <Footer />
     </SessionProvider>
   );
 }

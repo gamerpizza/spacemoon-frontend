@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 
-import * as path from '../../constants/paths'
+import * as path from "../../constants/paths";
 
 const Category = (props: any) => {
   const [clicked, setClicked] = useState(false);
