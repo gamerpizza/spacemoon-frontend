@@ -4,7 +4,8 @@ import Image from "next/image"
 import InputField from "../../components/Fields/InputField"
 import { loginSchema } from "../../validations/loginSchema"
 
-import sideBackGround from "../../public/images/sidetile_bck.png"
+import logo from "../../public/images/logo_black.png"
+
 const Login = () => {
   return (
     <>
@@ -23,12 +24,12 @@ const Login = () => {
         {({ handleSubmit }) => (
           <div className=" h-full">
             <div className="flex items-center flex-wrap h-full g-6 text-gray-800">
-              <div className="md:hidden lg:block lg:w-1/2  mb-12 md:mb-0">
-                <Image
-                  src={sideBackGround}
-                  className="w-min-[100%] w-[640px] h-[100vh]"
-                  alt="Phone image"
-                />
+
+              <div className=" bg-[url(/images/sidetile_bck.png)] bg-cover bg-no-repeat bg-[65%] md:hidden lg:block  w-[640px] h-[100vh]  mb-12 md:mb-0">
+                <div className="mt-[160px] ml-[80px]">
+                    <Image src={logo} width={200} height={200} alt="logo"></Image>
+                    <h1 className="font-unica mt-[50px] text-[60px] uppercase text-white drop-shadow-[rgba(245,248,250,0.5)]" >The best products in the galaxy </h1>
+                  </div>
               </div>
               <div className="md:w-full lg:w-1/2 h-[780px] flex flex-col items-center">
                 <div className="w-[480px] flex flex-col items-center">
