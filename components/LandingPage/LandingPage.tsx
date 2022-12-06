@@ -28,18 +28,18 @@ const LandingPage = (props: any) => {
         </div>
 
         <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">
-          <div className="m-auto w-[90%]">
+          <div className="m-auto">
             <div className="flex justify-center">
-              <h1 className="text-3xl mb-4 font-unica w-[80%] m-auto">
+              <h1 className="text-3xl mb-4 font-unica w-[95%] m-auto">
                 STARNIGHT
               </h1>
               <br />
             </div>
-            <div className="flex flex-wrap gap-x-28 justify-center ">
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem] items-end">
+            <div className="flex flex-wrap gap-x-6 justify-center ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
                   <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
                       <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
@@ -57,26 +57,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa">Name of Product</p>
-                <p className="font-thin font-comfortaa text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+             <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -87,26 +85,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -117,26 +113,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -147,36 +141,36 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-20">
-          <div className="m-auto w-[90%]">
+          <div className="m-auto">
             <div className="flex justify-center">
-              <h1 className="text-3xl mb-4 font-unica w-[80%] m-auto">
+              <h1 className="text-3xl mb-4 font-unica w-[95%] m-auto">
                 STARNIGHT
               </h1>
               <br />
             </div>
-            <div className="flex flex-wrap gap-x-28 justify-center ">
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem] items-end">
+            <div className="flex flex-wrap gap-x-6 justify-center ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
                   <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
                       <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -187,26 +181,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa">Name of Product</p>
-                <p className="font-thin font-comfortaa text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -217,26 +209,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -247,26 +237,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -277,36 +265,36 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
             </div>
           </div>
         </div>
 
         <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-20 mb-20">
-          <div className="m-auto w-[90%]">
+          <div className="m-auto ">
             <div className="flex justify-center">
-              <h1 className="text-3xl mb-4 font-unica w-[80%] m-auto">
+              <h1 className="text-3xl mb-4 font-unica w-[95%] m-auto">
                 STARNIGHT
               </h1>
               <br />
             </div>
-            <div className="flex flex-wrap gap-x-28 justify-center ">
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem] items-end">
+            <div className="flex flex-wrap gap-x-6 justify-center ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
                   <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
                       <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -317,26 +305,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa">Name of Product</p>
-                <p className="font-thin font-comfortaa text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -347,26 +333,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -377,26 +361,24 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
 
-              <div className="">
-                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem]">
-                  <div className="flex justify-between h-[90%] mr-1 ml-1 items-end">
-                    <div className="flex bg-[#F5F8FA] ">
+              <div className="h-[380px]">
+                <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover bg-center h-[260px] w-[360px] items-end">
+                  <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
+                    <div className="flex bg-[#F5F8FA]">
                       <Image src={startIcon} alt={"Icon"} />
-                      <p className="ml-2 font-comfortaa_bold text-[14px]">
-                        4.6
-                      </p>
+                      <p className="ml-2 font-comfortaa text-[14px]">4.6</p>
                     </div>
                     <button>
                       <Image
                         onClick={() =>
-                          props.addToCart("1", "", 1, 250, "STARNIGHT")
+                          props.addToCart("2", "", 1, 250, "UNIGMA")
                         }
                         src={addIcon}
                         alt={"Icon"}
@@ -407,11 +389,11 @@ const LandingPage = (props: any) => {
                     </button>
                   </div>
                 </div>
-                <p className="font-comfortaa_regular">Name of Product</p>
-                <p className="font-thin font-comfortaa_regular text-[#687B8B]">
+                <p className="font-comfortaa mt-[20px]">Name of Product</p>
+                <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-unica text-xl text-[#1C1F22]">$ 8.45</p>
+                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">$ 8.45</p>
               </div>
             </div>
           </div>
