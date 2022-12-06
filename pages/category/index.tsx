@@ -1,42 +1,40 @@
 import { GetStaticProps } from "next";
 import Link from "next/link";
-import { useState } from "react";
 
+import { Category } from "../../model/category";
 import SideBar from "../../components/Categories/SideBar";
 import Products from "../../components/Products/Products";
-import { Category } from "../../model/category";
 import CategoryAPI from "../../api/category/category";
 import Rating from "../../components/Products/Rating";
 import PriceRange from "../../components/PriceRange/PriceRange";
+import { useState } from "react";
+import Wrapper from "../../components/Wrapper/Wrapper";
+import * as path from '.../../../constants/paths'
 
-const Categories = (props: any) => {
-  const [values, setValues] = useState([0]);
+const Categories = ({props}: any) => {
   const categories = props.categories;
 
   const clickedRating = (rating:any) => {
     console.log(rating)
   }
   return (
-    <>
+    <Wrapper>
       <div className="flex">
         <div className="w-80  ml-24 mt-4">
           <SideBar />
-
-          {props.categories &&
-            props.categories.map((category: any) => {
+          {categories &&
+            categories.map((category: any) => {
               return (
-                <>
-                  <Link
-                    href={{
-                      pathname: `/category/${category.categoryId}`,
-                      query: { categories: categories },
-                    }}
-                  >
-                    <h1 className="text-[#1C1F22] font-comfortaa text-s px-3 mt-2 mb-2">
-                      {category.name}
-                    </h1>
-                  </Link>
-                </>
+                <Link
+                  href={{
+                    pathname: `${path.CATEGORIES}/${category.categoryId}`,
+                    query: { categories: categories },
+                  }}
+                >
+                  <h1 className="text-[#1C1F22] font-comfortaa text-s px-3 mt-2 mb-2">
+                    {category.name}
+                  </h1>
+                </Link>
               );
             })}
 
@@ -57,45 +55,41 @@ const Categories = (props: any) => {
         </div>
 
         <div className="w-3/4">
-          {props.categories &&
-            props.categories.map((category: Category) => {
+          {categories &&
+            categories.map((category: Category) => {
               return (
-                (
-                  <>
-                    <div key={category.categoryId}></div>
-                    {category.products.length > 0 && (
-                      <div>
-                        <Products
-                          categoryName={category.name}
-                          products={
-                            category.products.length > 0 && category.products
-                          }
-                          width={"90%"}
-                          gap={false}
-                        />
-                      </div>
-                    )}
-                  </>
-                )
+                <>
+                  <div key={category.categoryId}></div>
+                  {category.products.length > 0 && (
+                    <div>
+                      <Products
+                        categoryName={category.name}
+                        products={
+                          category.products.length > 0 && category.products
+                        }
+                        width={"90%"}
+                        gap={false}
+                      />
+                    </div>
+                  )}
+                </>
               );
             })}
         </div>
       </div>
-    </>
+    </Wrapper>
   );
 };
 
 export const getStaticProps: GetStaticProps = async () => {
   try {
-
-    const response = await CategoryAPI.getAllCategories()
+    const response = await CategoryAPI.getAllCategories();
     const categories: Category[] = await response.json();
 
     return {
       props: { categories: categories },
     };
   } catch (error: any) {
-
     return {
       props: { errCode: 500 },
     };

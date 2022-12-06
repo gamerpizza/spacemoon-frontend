@@ -9,6 +9,8 @@ import InputField from "../Fields/InputField"
 import Select from "./select/Select"
 import { productSchema } from "../../validations/productSchema"
 
+import Select from "./select/Select";
+
 const NewProductAdd = (props: any) => {
 
   const [image, setImage] = useState<any[]>([])

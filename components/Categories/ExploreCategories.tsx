@@ -5,6 +5,7 @@ import arrowIcon from "../../public/images/right-arrow.png";
 const ExploreCategories = () => {
   return (
     <>
+
       <div className="m-auto">
         <div className="flex justify-center">
           <h1 className="text-4xl  pt-16 font-unica w-[99%] ">
@@ -44,6 +45,7 @@ const ExploreCategories = () => {
                   </div>
                 </button>
               </div>
+
 
               <div className="bg-[url(/images/magia.png)] bg-no-repeat bg-contain h-[260px] w-[500px] p-8">
                 <h1 className="text-white text-2xl font-unica">LU</h1>

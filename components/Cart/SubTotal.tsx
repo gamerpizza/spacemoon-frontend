@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 
 const SubTotal = (props: any) => {
   return (
@@ -18,7 +18,7 @@ const SubTotal = (props: any) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default SubTotal
+export default SubTotal;

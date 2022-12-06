@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { useState } from "react";
 
+import * as path from "../../constants/paths";
+
 const Category = (props: any) => {
   const [clicked, setClicked] = useState(false);
   return (
@@ -47,7 +49,7 @@ const Category = (props: any) => {
                 return (
                   <li>
                     <Link
-                      href={`/category/${category[Object.keys(category)[0]].name}`}
+                      href={`/${path.CATEGORIES}/${category.categoryId}`}
                       className="flex font-comfortaa text-[12px] text-[#1C1F22] items-center dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
                     >
                       {category[Object.keys(category)[0]].name}

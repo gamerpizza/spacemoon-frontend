@@ -1,13 +1,14 @@
 import { Formik, Field } from "formik";
 import { useEffect, useState } from "react";
+import { useRef } from "react";
+import { useRouter } from "next/router";
 
 import { Category } from "../../model/category";
 import InputField from "../../components/Fields/InputField";
 import { categorySchema } from "../../validations/categorySchema";
-import { useRouter } from "next/router";
-
-import { useRef } from "react";
 import CategoryAPI from "../../api/category/category";
+import * as path from "../../constants/paths";
+
 const CreateCategory = ({ category }: { category: Category }) => {
   const [errors, setErrors] = useState<any>();
   const [token, setToken] = useState<any>();
@@ -31,7 +32,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
             formData.append("image", image);
             const response = await CategoryAPI.createCategory(formData, token);
             setErrors("");
-            router.push("/category");
+            router.push(`${path.CATEGORIES}`);
           } catch (error: any) {
             setErrors(error.message);
           }

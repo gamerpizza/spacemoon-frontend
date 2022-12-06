@@ -7,6 +7,7 @@ import SideBar from "../../../components/Categories/SideBar";
 import Rating from "../../../components/Products/Rating";
 import CategoryAPI from "../../../api/category/category";
 import * as path from "../../../constants/paths";
+import React from "react";
 
 const SingleCategory = ({categories, category, addToCart}: any) => {
   const router = useRouter();
@@ -23,7 +24,7 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
                 <>
                   <Link
                     href={{
-                      pathname: `${path.CATEGORIES}/${category.name}`,
+                      pathname: `${path.CATEGORIES}/${category.categoryId}`,
                       query: { categories: sideBarCategories },
                     }}
                   >
@@ -76,10 +77,10 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
 };
 
 export const getStaticProps = async (context: any) => {
-  const name = context.params.categoryName;
+  const id = context.params.categoryId;
 
   try {
-    const response = await CategoryAPI.getCategory(name);
+    const response = await CategoryAPI.getCategory(id);
     const category: Category = await response.json();
     return {
       props: {
@@ -98,11 +99,10 @@ export const getStaticPaths = async () => {
     const response = await CategoryAPI.getAllCategories();
 
     const categories = await response.json();
-    const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
-    const names = arrayOfCategories.map((category: any) => category[Object.keys(category)[0]].name);
-    const paths = names.map((name: string) => ({
+    const ids = categories.map((category: any) => category.categoryId);
+    const paths = ids.map((id: number) => ({
       params: {
-        categoryName: name.toString(),
+        categoryId: id.toString(),
       },
     }));
     return {

@@ -1,9 +1,9 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import Quantity from "../Products/Quantity"
+import Quantity from "../Products/Quantity";
 
-import defaultImage from "../../public/images/default-image.jpg"
-import deleteIcon from "../../public/images/delete.svg"
+import defaultImage from "../../public/images/default-image.jpg";
+import deleteIcon from "../../public/images/delete.svg";
 
 const CartItem = (props: any) => {
   return (
@@ -69,7 +69,7 @@ const CartItem = (props: any) => {
         </div>
       </li>
     </>
-  )
-}
+  );
+};
 
-export default CartItem
+export default CartItem;

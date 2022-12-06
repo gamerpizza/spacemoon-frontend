@@ -14,7 +14,7 @@ const Rating = (props:any) => {
         </button>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Rating
+export default Rating;

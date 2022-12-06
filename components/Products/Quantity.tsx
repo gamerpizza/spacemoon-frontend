@@ -1,4 +1,4 @@
-const Quantity = (props:any) => {
+const Quantity = (props: any) => {
   return (
     <>
       <div className="flex">
@@ -27,9 +27,7 @@ const Quantity = (props:any) => {
         </div>
       </div>
     </>
-
   );
 };
 
 export default Quantity;
-
