@@ -2,11 +2,11 @@ import { fullUrl } from "../api"
 
 
 const AuthAPI = Object.freeze({
-  createCategory: (data: any) =>
-  createCategory(data)
+  login: (data: any) =>
+  login(data)
 })
 
-const createCategory = (data: any) =>
+const login = (data: any) =>
   fetch(`${fullUrl}/login`, {
     method: "POST",
     body: data,
