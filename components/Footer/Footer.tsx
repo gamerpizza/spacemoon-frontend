@@ -1,9 +1,11 @@
 import Image from "next/image";
-
+import { useRouter } from "next/router";
 import Logo from "../../public/images/logo_black.png";
 
-export const Footer = () => (
-  <footer className="bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover w-full text-gray-600 body-font p-8">
+const Footer = () => {
+  const router = useRouter()
+  return (
+  <footer className={`bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover  w-full text-gray-600 body-font p-8 ${router.pathname !== '/' ? "absolute bottom-0" : ""}`}>
     <div className="flex flex-wrap ">
       <Image
         src={Logo}
@@ -57,4 +59,8 @@ export const Footer = () => (
       <p className="mr-5 font-comfortaa_bold text-base">Prohibited Items</p>
     </div>
   </footer>
-);
+  )
+}
+
+
+export default Footer;

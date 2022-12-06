@@ -8,20 +8,19 @@ import { Category } from "../../model/category";
 import CategoryAPI from "../../api/category/category";
 import Rating from "../../components/Products/Rating";
 import * as path from '../../constants/paths'
+import Wrapper from "../../components/Wrapper/Wrapper";
 
 const Categories = (props: any) => {
   const [values, setValues] = useState([0]);
   const categories = props.categories;
   return (
-    <>
+    <Wrapper>
       <div className="flex">
         <div className="w-80  ml-24 mt-4">
           <SideBar />
-
           {props.categories &&
             props.categories.map((category: any) => {
               return (
-                <>
                   <Link
                     href={{
                       pathname: `${path.CATEGORIES}/${category.categoryId}`,
@@ -32,7 +31,6 @@ const Categories = (props: any) => {
                       {category.name}
                     </h1>
                   </Link>
-                </>
               );
             })}
 
@@ -78,8 +76,7 @@ const Categories = (props: any) => {
             })}
         </div>
       </div>
-    </>
-  );
+</Wrapper>  );
 };
 
 export const getStaticProps: GetStaticProps = async () => {

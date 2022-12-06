@@ -85,16 +85,6 @@ function MyApp({ Component, pageProps, categories }: any) {
       session={pageProps?.session}
       baseUrl="/realms/spacemoon/protocol/openid-connect/auth"
     >
-      <Navbar
-        pageProps={pageProps}
-        cart={cart}
-        addToCart={addToCart}
-        removeFromCart={removeFromCart}
-        clearCart={clearCart}
-        subTotal={subTotal}
-        searchHandler={searchHandler}
-        categories={categories}
-      />
 
       <Component
         searchResults={searchResults}
@@ -106,7 +96,6 @@ function MyApp({ Component, pageProps, categories }: any) {
         {...pageProps}
         categories={categories}
       />
-      <Footer />
     </SessionProvider>
   );
 }
