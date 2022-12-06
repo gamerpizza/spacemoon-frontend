@@ -6,11 +6,17 @@ import SideBar from "../../components/Categories/SideBar";
 import Products from "../../components/Products/Products";
 import CategoryAPI from "../../api/category/category";
 import Rating from "../../components/Products/Rating";
+import PriceRange from "../../components/PriceRange/PriceRange";
+import { useState } from "react";
 import Wrapper from "../../components/Wrapper/Wrapper";
-import * as path from "../../constants/paths";
+import * as path from '.../../../constants/paths'
 
-const Categories = ({categories}: any) => {
+const Categories = ({props}: any) => {
+  const categories = props.categories;
 
+  const clickedRating = (rating:any) => {
+    console.log(rating)
+  }
   return (
     <Wrapper>
       <div className="flex">
@@ -33,19 +39,19 @@ const Categories = ({categories}: any) => {
             })}
 
           <h1 className="font-unica text-2xl px-3 mt-8 mb-4">RATING</h1>
-          <div className="flex items-center px-3 mb-2">
-            <Rating />
+
+            <div className="flex items-center px-3 mb-2">
+            <Rating stars={5} clickedRating={clickedRating}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={4} clickedRating={clickedRating}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={3} clickedRating={clickedRating}/>
           </div>
 
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
-          <p className="text-center mt-2 font-comfortaa">$0-$999+</p>
-
+          <PriceRange />
         </div>
 
         <div className="w-3/4">

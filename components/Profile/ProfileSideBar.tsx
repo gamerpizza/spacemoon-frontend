@@ -23,7 +23,7 @@ const SideBar = (props: any) => {
     },
     {
       name: "Billing and payment",
-      path: "#",
+      path: "/profile/payment",
     },
     {
       name: "My Products",

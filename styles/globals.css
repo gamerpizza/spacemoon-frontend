@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Unica+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+@import url('https://kendo.cdn.telerik.com/themes/5.10.0/default/default-purple.css');
 
 @tailwind base;
 @tailwind components;

@@ -5,10 +5,10 @@ import SubTotal from "../../components/Cart/SubTotal";
 import defaultImage from "../../public/images/default-image.jpg";
 import deleteIcon from "../../public/images/delete.svg";
 
-const Cart = ({cart, addToCart, removeFromCart, subTotal} :any) => {
+const Cart = ({cart, addToCart, removeFromCart, subTotal, removeProductFromCart} :any) => {
   return (
     <>
-      <div className="ml-20 mt-10 relative">
+      <div className="ml-20 mt-10 relative mb-56">
         <div className="flex">
           <h1 className="font-unica text-3xl">SHOPPING CART</h1>
           <div className="flex justify-center items-center bg-[#F5F8FA] ml-4 p-2 pl-4 pr-4 rounded-full">
@@ -86,7 +86,7 @@ const Cart = ({cart, addToCart, removeFromCart, subTotal} :any) => {
                               </div>
                             </div>
                             <div className="">
-                              <button className="text-[#E62744] border-[#E62744] font-comfortaa text-sm rounded-lg w-auto border-[1px] p-2 flex">
+                              <button onClick = {() => removeProductFromCart(item)} className="text-[#E62744] border-[#E62744] font-comfortaa text-sm rounded-lg w-auto border-[1px] p-2 flex">
                                 <Image
                                   src={deleteIcon}
                                   width={20}

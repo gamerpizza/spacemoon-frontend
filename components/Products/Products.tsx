@@ -25,7 +25,7 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, g
               products.map((product: any) => {
                 return (
                   <div
-                    key={product.productId}
+                    key={product[Object.keys(product)[0]].id}
                     className="lg:w-auto md:w-auto p-4 w-full"
                   >
                     <div className="">
@@ -51,12 +51,12 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, g
                           </button>
                         </div>
                       </div>
-                      <p className="font-comfortaa">Name of Product</p>
+                      <p className="font-comfortaa">{product[Object.keys(product)[0]].name}</p>
                       <p className="font-thin font-comfortaa text-[#687B8B]">
                         Name of selling party
                       </p>
                       <p className="font-comforta text-xl text-[#1C1F22]">
-                        $ 8.45
+                        {product[Object.keys(product)[0]].price}
                       </p>
                     </div>
                   </div>

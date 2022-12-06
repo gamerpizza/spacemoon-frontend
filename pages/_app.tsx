@@ -10,7 +10,7 @@ import { Category } from "../model/category";
 import CategoryAPI from "../api/category/category";
 import ProductAPI from "../api/product/product";
 
-function MyApp({ Component, pageProps, categories }: any) {
+function MyApp({ Component, pageProps, arrayOfCategories }: any) {
   const [cart, setCart] = useState({});
   const [subTotal, setSubTotal] = useState(0);
   const [searchResults, setSearchResults] = useState<Product[]>([]);
@@ -20,11 +20,23 @@ function MyApp({ Component, pageProps, categories }: any) {
     try {
       if (localStorage.getItem("cart"))
         setCart(JSON.parse(localStorage.getItem("cart") || "{}"));
+        calculateSubTotal()
     } catch (error) {
       localStorage.clear();
     }
+
   }, []);
 
+  const calculateSubTotal =  async () => {
+    const newCart = await JSON.parse(localStorage.getItem("cart") || "{}")
+    let subtotal = 0;
+    for (let i = 0; i < Object.keys(newCart).length; i++) {
+      subtotal +=
+        newCart[Object.keys(newCart)[i]].price *
+        newCart[Object.keys(newCart)[i]].quantity;
+    }
+    setSubTotal(subtotal);
+  }
   const saveCart = (newCart: any) => {
     localStorage.setItem("cart", JSON.stringify(newCart));
     let subtotal = 0;
@@ -36,6 +48,14 @@ function MyApp({ Component, pageProps, categories }: any) {
     setSubTotal(subtotal);
   };
 
+  const removeProductFromCart = (id: number) => {
+    let newCart: any = cart;
+
+    delete newCart[id];
+
+    setCart(newCart);
+    saveCart(newCart);
+  }
   const addToCart = (
     id: number,
     product: Product,
@@ -90,10 +110,11 @@ function MyApp({ Component, pageProps, categories }: any) {
         cart={cart}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
+        removeProductFromCart={removeProductFromCart}
         clearCart={clearCart}
         subTotal={subTotal}
         searchHandler={searchHandler}
-        categories={categories}
+        categories={arrayOfCategories}
       />
 
       <Component
@@ -101,10 +122,11 @@ function MyApp({ Component, pageProps, categories }: any) {
         cart={cart}
         addToCart={addToCart}
         removeFromCart={removeFromCart}
+        removeProductFromCart={removeProductFromCart}
         clearCart={clearCart}
         subTotal={subTotal}
         {...pageProps}
-        categories={categories}
+        categories={arrayOfCategories}
       />
       <Footer />
     </SessionProvider>
@@ -115,11 +137,12 @@ MyApp.getInitialProps = async ({ Component, ctx }: any) => {
   try {
     const response = await CategoryAPI.getAllCategories()
     const categories: Category = await response.json();
+    const arrayOfCategories = Object.entries(categories).map((e) => ( { [e[0]]: e[1] } ))
     let pageProps = {};
     if (Component.getInitialProps)
       pageProps = await Component.getInitialProps(ctx);
 
-    return { pageProps, categories };
+    return { pageProps, arrayOfCategories };
   } catch (error: any) {
     return {
       props: { errCode: 500, message: error },
