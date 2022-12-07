@@ -6,15 +6,21 @@ import { Menu, Transition } from "@headlessui/react"
 import { Field, Formik } from "formik"
 
 import InputField from "../Fields/InputField"
-import Select from "./select/Select"
+import Select from "./element/Select"
 import { productSchema } from "../../validations/productSchema"
+import ProductAPI from "../../api/product/product"
 
 const NewProductAdd = (props: any) => {
 
   const [image, setImage] = useState<any[]>([])
   const [filters, setFilters] = useState<any[]>([])
+  const [token, setToken] = useState<any>()
   const filterArray = [{ name: "color" }, { name: "material" }]
-
+  useEffect(() => {
+    setToken(
+      '~170RLQ8NDOt1IH8x0Oyt2x8qklOkafPqNW5o7ufCn'
+    );
+  }, []);
   const categoryArray = props.props.categories.map((category:any) => {
     return {
       label: category[Object.keys(category)[0]].name,
@@ -93,15 +99,16 @@ const NewProductAdd = (props: any) => {
   return (
     <Formik
       onSubmit={async (data: any) => {
-        console.log("Data",data)
         try {
-          const formData = new FormData()
-          formData.append("name", data.name)
-        } catch (error: any) {}
+          const response = await ProductAPI.createProduct( data, token);
+          const jsonResponse = await response?.json();
+          const productResponse = await ProductAPI.addProductToCategory(jsonResponse?.id, data.category, token)
+        } catch (error: any) {
+          console.error("error" , error)
+        }
       }}
       validationSchema={productSchema}
       initialValues={{
-          categoryId: "63742e2ce8cd8d0648d50e1f",
           name: "",
           price: 0,
           rating: 0,
@@ -143,7 +150,7 @@ const NewProductAdd = (props: any) => {
                   placeholder="Write a description of your product, max 200 characters"
                 />
               </div>
-              <div className="max-w-[300px] mt-12">
+             {/*  <div className="max-w-[300px] mt-12">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Product Price
                 </label>
@@ -151,11 +158,11 @@ const NewProductAdd = (props: any) => {
                 <Field
                   component={InputField}
                   type="text"
-                  name="price"
+
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 pl-8"
                   placeholder="Add numerical value"
                 />
-              </div>
+              </div> */}
               <div className="mt-12">
                 <label className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
                   Product Image
@@ -188,8 +195,8 @@ const NewProductAdd = (props: any) => {
                    <Select
                     options={categoryArray}
                     onChange={(value:any) => {
-                      setFieldValue('sub', value.value)
-                      setSubCategory(value)
+                      setFieldValue('category', value.value)
+                      setCategory(value)
                     }}
                     selectedOption={category}
                   />

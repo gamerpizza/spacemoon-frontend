@@ -63,7 +63,7 @@ const Categories = (props: any) => {
                 (
                   <>
                     <div key={category.categoryId}></div>
-                    {category.products.length > 0 && (
+                    {category.products?.length > 0 && (
                       <div>
                         <Products
                           categoryName={category.name}

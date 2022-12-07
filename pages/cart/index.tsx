@@ -6,7 +6,6 @@ import defaultImage from "../../public/images/default-image.jpg";
 import deleteIcon from "../../public/images/delete.svg";
 
 const Cart = (props:any) => {
-  console.log("cart", props)
   return (
     <>
       <div className="ml-20 mt-10 relative mb-56">

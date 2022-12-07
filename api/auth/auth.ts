@@ -8,8 +8,13 @@ const AuthAPI = Object.freeze({
 
 const login = (data: any) =>
   fetch(`${fullUrl}/login`, {
+
     method: "POST",
-    body: data,
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      username: "admin",
+      password: "sp4c3m00n!"
+    }),
   })
 
 
