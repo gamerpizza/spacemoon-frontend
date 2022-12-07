@@ -10,8 +10,8 @@ import PriceRange from "../../components/PriceRange/PriceRange";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import * as path from "../../constants/paths"
 
-const Categories = ({props}: any) => {
-  const categories = props.categories;
+const Categories = (props: any) => {
+  const categories = props?.categories;
 
   const clickedRating = (rating:any) => {
     console.log(rating)
@@ -26,12 +26,12 @@ const Categories = ({props}: any) => {
               return (
                 <Link
                   href={{
-                    pathname: `${path.CATEGORIES}/${category.categoryId}`,
+                    pathname: `${path.CATEGORIES}/${category[Object.keys(category)[0]].name}`,
                     query: { categories: categories },
                   }}
                 >
                   <h1 className="text-[#1C1F22] font-comfortaa text-s px-3 mt-2 mb-2">
-                    {category.name}
+                    {category[Object.keys(category)[0]].name}
                   </h1>
                 </Link>
               );
@@ -55,16 +55,17 @@ const Categories = ({props}: any) => {
 
         <div className="w-3/4">
           {categories &&
-            categories.map((category: Category) => {
+            categories.map((category: any) => {
+              console.log("Cat", category[Object.keys(category)[0]]);
               return (
                 <>
                   <div key={category.categoryId}></div>
-                  {category.products.length > 0 && (
+                  {Object.keys(category) !== null && (
                     <div>
                       <Products
                         categoryName={category.name}
                         products={
-                          category.products.length > 0 && category.products
+                          category[Object.keys(category)[0]].products !== null ? category[Object.keys(category)[0]].products : []
                         }
                         width={"90%"}
                         gap={false}

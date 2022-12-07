@@ -7,11 +7,11 @@ import SideBar from "../../../components/Categories/SideBar";
 import Rating from "../../../components/Products/Rating";
 import CategoryAPI from "../../../api/category/category";
 import * as path from "../../../constants/paths";
+import PriceRange from "../../../components/PriceRange/PriceRange";
 
 const SingleCategory = ({categories, category, addToCart}: any) => {
   const router = useRouter();
   const sideBarCategories = router.query.categories;
-
   return (
     <>
       <div className="flex">
@@ -19,16 +19,17 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           <SideBar />
           {categories &&
             categories.map((category: any) => {
+              console.log('car',category[Object.keys(category)[0]].products)
               return (
                 <>
                   <Link
                     href={{
-                      pathname: `${path.CATEGORIES}/${category.name}`,
+                      pathname: `${path.CATEGORIES}/${category[Object.keys(category)[0]].name}`,
                       query: { categories: sideBarCategories },
                     }}
                   >
                     <h1 className="text-[#1C1F22] font-comfortaa text-s px-3 mt-2 mb-2">
-                      {category.name}
+                      {category[Object.keys(category)[0]].name}
                     </h1>
                   </Link>
                 </>
@@ -37,36 +38,27 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
 
           <h1 className="font-unica text-2xl px-3 mt-8 mb-4">RATING</h1>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={5}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={4}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={3}/>
           </div>
 
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
-          <div className="relative">
-            <input
-              type="range"
-              value="25"
-              className="w-full h-2 absolute bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-            ></input>
-            <input
-              type="range"
-              value="75"
-              className="w-full h-2 absolute bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-            ></input>
-          </div>
+          <PriceRange />
           <p className="text-center mt-2 font-comfortaa_regular">$0-$999+</p>
         </div>
         <div className="w-3/4">
           <div>
             <Products
               addToCart={addToCart}
-              categoryName={category.name}
-              products={category.products}
+              categoryName={category[Object.keys(category)[0]].name}
+              products={
+                category.products
+              }
             />
           </div>
         </div>

@@ -7,17 +7,22 @@ import { loginSchema } from "../../validations/loginSchema"
 import logo from "../../public/images/logo_black.png"
 import AuthAPI from "../../api/auth/auth"
 import { useState } from "react"
+import {  useRouter } from "next/router"
 
 const Login = () => {
   const [error, setError] = useState()
+  const router=useRouter()
   return (
     <>
       <Formik
         onSubmit={async (data: any) => {
           try {
-            const response = await AuthAPI.login(JSON.stringify(data))
-            const jsonResponse = await response.json()
-            localStorage.setItem('token', JSON.stringify(jsonResponse.token))
+            const response = await  AuthAPI.login(data)
+            const textResponse = await response.text()
+            const extractedToken = textResponse.split(" ")
+
+            localStorage.setItem('token', JSON.stringify(extractedToken[1]))
+            router.push('/')
           } catch (error: any) {
             setError(error.message)
           }

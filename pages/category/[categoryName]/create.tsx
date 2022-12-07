@@ -21,8 +21,7 @@ const CreateProduct = ({ product }: { product: Product }) => {
   useEffect(() => {
     if (localStorage.getItem("data"))
       setToken(
-        JSON.parse(localStorage.getItem("data") || "")?.token.token.account
-          .access_token
+        JSON.parse(localStorage.getItem("token") || "")
       );
     else {
       setErrors("Please Login to create a new product");
@@ -34,7 +33,7 @@ const CreateProduct = ({ product }: { product: Product }) => {
     <>
       <Formik
         validationSchema={productSchema}
-        onSubmit={async (data: Product) => {
+        onSubmit={async (data: any) => {
           const formData: any = new FormData();
           formData.append("categoryId", categoryId);
           formData.append("name", data.name);
@@ -42,12 +41,14 @@ const CreateProduct = ({ product }: { product: Product }) => {
           formData.append("rating", data.rating);
           formData.append("description", data.description);
           formData.append("image", image);
+          console.log("token", token)
           try {
             const response = await ProductAPI.createProduct(
-              categoryId,
-              formData,
+              data,
               token
             );
+            const json = await response.json();
+            const product = await ProductAPI.addProductToCategory(json.id, data.name, token)
             router.push(`${path.CATEGORIES}`);
             setErrors("");
           } catch (error: any) {
@@ -55,7 +56,6 @@ const CreateProduct = ({ product }: { product: Product }) => {
           }
         }}
         initialValues={{
-          categoryId: "63742e2ce8cd8d0648d50e1f",
           name: "",
           price: 0,
           rating: 0,

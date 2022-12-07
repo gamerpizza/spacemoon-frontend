@@ -6,16 +6,14 @@ const AuthAPI = Object.freeze({
   login(data)
 })
 
-const login = (data: any) =>
-  fetch(`${fullUrl}/login`, {
+const login = (data: any) => {
+  const credentials = btoa(`${data.username}:${data.password}`)
+return fetch(`${fullUrl}/login`, {
 
-    method: "POST",
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      username: "admin",
-      password: "sp4c3m00n!"
-    }),
+    method: "GET",
+     headers: {
+                Authorization: `Basic ${credentials}`
+            },
   })
-
-
+}
 export default AuthAPI
