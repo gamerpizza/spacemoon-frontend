@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <footer
       className={`bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover  w-full text-gray-600 body-font p-8 ${
-        router.pathname !== "/" ? "absolute bottom-0" : ""
+        router.pathname !== ("/"  && "auth/login" && "auth/register")? "absolute bottom-0" : ""
       }`}
     >
       <div className="flex flex-wrap ">
