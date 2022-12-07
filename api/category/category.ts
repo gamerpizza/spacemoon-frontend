@@ -19,8 +19,8 @@ const createCategory = (formData: any, token: any) =>
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    body: formData,
-  });
+    body: JSON.stringify(formData),
+  })
 
 const updateCategory = (id: number, category: Category) =>
   fetch(`${fullUrl}${categoryRoute}/updateCategory/${id}`, {

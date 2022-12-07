@@ -7,9 +7,8 @@ import Products from "../../components/Products/Products";
 import CategoryAPI from "../../api/category/category";
 import Rating from "../../components/Products/Rating";
 import PriceRange from "../../components/PriceRange/PriceRange";
-import { useState } from "react";
 import Wrapper from "../../components/Wrapper/Wrapper";
-import * as path from '.../../../constants/paths'
+import * as path from "../../constants/paths"
 
 const Categories = ({props}: any) => {
   const categories = props.categories;
@@ -73,6 +72,9 @@ const Categories = ({props}: any) => {
                     </div>
                   )}
                 </>
+
+
+
               );
             })}
         </div>

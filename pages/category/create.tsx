@@ -17,8 +17,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
   const imageRef = useRef<any>();
   useEffect(() => {
     setToken(
-      JSON.parse(localStorage.getItem("data") || "")?.token.token.account
-        .access_token
+      'Om8QPpC~hg8iw1qxCEj0_sqfZjl1hLT-pdMo3hla0-'
     );
   }, []);
   const router = useRouter();
@@ -30,7 +29,7 @@ const CreateCategory = ({ category }: { category: Category }) => {
             const formData = new FormData();
             formData.append("name", data.name);
             formData.append("image", image);
-            const response = await CategoryAPI.createCategory(formData, token);
+            const response = await CategoryAPI.createCategory(data, token);
             setErrors("");
             router.push(`${path.CATEGORIES}`);
           } catch (error: any) {
@@ -40,9 +39,6 @@ const CreateCategory = ({ category }: { category: Category }) => {
         validationSchema={categorySchema}
         initialValues={{
           name: "",
-          products: [],
-          createdBy: "",
-          image: "",
         }}
       >
         {({ handleSubmit }) => (

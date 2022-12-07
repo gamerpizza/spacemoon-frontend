@@ -5,24 +5,33 @@ import InputField from "../../components/Fields/InputField"
 import { loginSchema } from "../../validations/loginSchema"
 
 import logo from "../../public/images/logo_black.png"
+import AuthAPI from "../../api/auth/auth"
+import { useState } from "react"
 
 const Login = () => {
+  const [error, setError] = useState()
   return (
     <>
       <Formik
         onSubmit={async (data: any) => {
           try {
-          } catch (error: any) {}
+            const response = await AuthAPI.login(JSON.stringify(data))
+            const jsonResponse = await response.json()
+            localStorage.setItem('token', JSON.stringify(jsonResponse.token))
+          } catch (error: any) {
+            setError(error.message)
+          }
         }}
         validationSchema={loginSchema}
         initialValues={{
-          email: "",
+          username: "",
           password: "",
-          createdBy: "",
         }}
       >
         {({ handleSubmit }) => (
-          <div className=" h-full">
+
+
+
             <div className="flex items-center flex-wrap h-full g-6 text-gray-800">
 
               <div className=" bg-[url(/images/sidetile_bck.png)] bg-cover bg-no-repeat bg-[65%] md:hidden lg:block  w-[640px] h-[100vh]  mb-12 md:mb-0">
@@ -58,12 +67,12 @@ const Login = () => {
                     <p className="text-center font-semibold mx-4 mb-0">OR</p>
                   </div>
                   </div>
-                <form onSubmit={handleSubmit} className=" w-[480px]">
+                   <form onSubmit={handleSubmit} className=" w-[480px]">
                   <div className="mb-[40px]">
                     <label className="font-comfortaa">Email</label>
                     <Field
                       component={InputField}
-                      name="email"
+                      name="username"
                       type="text"
                       className="form-control border-[#1C1F22] font-comfortaa block w-full px-4 py-2 text-xl font-normal text-gray-700  bg-[#F5F8FA] bg-clip-padding border border-solid  rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       placeholder="Email address"
@@ -74,12 +83,13 @@ const Login = () => {
                     <label className="font-comfortaa">Password</label>
                     <Field
                       component={InputField}
-                      name="passwordinput"
+                      name="password"
                       type="password"
                       className="form-control border-[#1C1F22] font-comfortaa block w-full px-4 py-2 text-xl font-normal bg-[#F5F8FA] text-gray-700  bg-clip-padding border border-solid rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       placeholder="Password"
                     />
                   </div>
+
 
                   <div className="flex justify-between items-center mb-[60px]">
                     <div className="form-group form-check">
@@ -107,15 +117,17 @@ const Login = () => {
                   >
                     Sign in
                   </button>
-
+                  </form>
                   <div className="flex items-center my-4 before:flex-1 before:border-t before:border-white before:mt-0.5 after:flex-1 after:border-t after:border-white after:mt-0.5">
                     <p className="text-center font-comfortaa mx-4 mb-0">Dont have an account?</p>
                     <span className="font-comfortaa text-[#A042E1]">SIGN UP</span>
                   </div>
-                </form>
+              {error}
               </div>
+
             </div>
-          </div>
+
+
         )}
       </Formik>
     </>
