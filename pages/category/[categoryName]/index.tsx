@@ -12,6 +12,7 @@ import PriceRange from "../../../components/PriceRange/PriceRange";
 const SingleCategory = ({categories, category, addToCart}: any) => {
   const router = useRouter();
   const sideBarCategories = router.query.categories;
+
   return (
     <>
       <div className="flex">
@@ -49,16 +50,17 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
 
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
           <PriceRange />
+
           <p className="text-center mt-2 font-comfortaa_regular">$0-$999+</p>
         </div>
         <div className="w-3/4">
           <div>
             <Products
               addToCart={addToCart}
-              categoryName={category[Object.keys(category)[0]].name}
-              products={
-                category.products
-              }
+
+              categoryName={category.name}
+              products={category.products !== null && category.products}
+
             />
           </div>
         </div>

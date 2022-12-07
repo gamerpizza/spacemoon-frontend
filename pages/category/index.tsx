@@ -10,8 +10,11 @@ import PriceRange from "../../components/PriceRange/PriceRange";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import * as path from "../../constants/paths"
 
-const DisplayCategories = (props: any) => {
-  const categories = props?.categories;
+
+const Categories = (props: any) => {
+  console.log("props", props)
+  const categories = props.categories;
+
 
   const clickedRating = (rating:any) => {
     console.log(rating)
@@ -56,11 +59,11 @@ const DisplayCategories = (props: any) => {
         <div className="w-3/4">
           {categories &&
             categories.map((category: any) => {
-              console.log("Cat", category[Object.keys(category)[0]]);
+
               return (
                 <>
                   <div key={category.categoryId}></div>
-                  {Object.keys(category) !== null && (
+                  {Object.keys(category).length > 0 && (
                     <div>
                       <Products
                         categoryName={category.name}
@@ -99,4 +102,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-export default DisplayCategories;
+export default Categories;
