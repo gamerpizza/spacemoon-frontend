@@ -12,7 +12,7 @@ import PriceRange from "../../../components/PriceRange/PriceRange";
 const SingleCategory = ({categories, category, addToCart}: any) => {
   const router = useRouter();
   const sideBarCategories = router.query.categories;
-  console.log("cat",categories, category, addToCart)
+
   return (
     <>
       <div className="flex">
@@ -20,6 +20,7 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           <SideBar />
           {categories &&
             categories.map((category: any) => {
+              console.log('car',category[Object.keys(category)[0]].products)
               return (
                 <>
                   <Link
@@ -38,13 +39,13 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
 
           <h1 className="font-unica text-2xl px-3 mt-8 mb-4">RATING</h1>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={5}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={4}/>
           </div>
           <div className="flex items-center px-3 mb-2">
-            <Rating />
+            <Rating stars={3}/>
           </div>
 
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
@@ -56,8 +57,10 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           <div>
             <Products
               addToCart={addToCart}
+
               categoryName={category.name}
               products={category.products !== null && category.products}
+
             />
           </div>
         </div>
@@ -71,10 +74,10 @@ export const getStaticProps = async (context: any) => {
 
   try {
     const response = await CategoryAPI.getCategory(name);
-    const category: Category = await response.json();
+    const singleCategory: Category = await response.json();
     return {
       props: {
-        category: category,
+        category: singleCategory,
       },
     };
   } catch (error: any) {

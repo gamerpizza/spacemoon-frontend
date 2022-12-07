@@ -19,7 +19,7 @@ const NewProductAdd = (props: any) => {
   const filterArray = [{ name: "color" }, { name: "material" }]
   useEffect(() => {
     setToken(
-      '~170RLQ8NDOt1IH8x0Oyt2x8qklOkafPqNW5o7ufCn'
+      JSON.parse(localStorage.getItem('token') || '')
     );
   }, []);
   const categoryArray = props.props.categories.map((category:any) => {
@@ -103,7 +103,9 @@ const NewProductAdd = (props: any) => {
         try {
           const response = await ProductAPI.createProduct( data, token);
           const jsonResponse = await response?.json();
-          const productResponse = await ProductAPI.addProductToCategory(jsonResponse?.id, data.category, token)
+          console.log(jsonResponse?.id, data.category, token)
+          const productResponse = await ProductAPI.addProductToCategory(jsonResponse, data.category, token)
+          console.log(await productResponse.json())
         } catch (error: any) {
           console.error("error" , error)
         }

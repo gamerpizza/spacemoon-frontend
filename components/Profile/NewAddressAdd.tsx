@@ -1,11 +1,8 @@
 import React, { useState } from "react"
 import { Formik, Field } from "formik"
-import React, { ReactElement, useEffect, useState } from "react";
-import { Listbox } from "@headlessui/react";
 import Select from "./element/Select";
 
 import InputField from "../Fields/InputField"
-import Select from "./select/Select"
 import { shippingDetailsSchema } from "../../validations/shippingDetailsSchema"
 import { Router, useRouter } from "next/router"
 

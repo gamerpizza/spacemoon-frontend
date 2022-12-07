@@ -10,9 +10,11 @@ import PriceRange from "../../components/PriceRange/PriceRange";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import * as path from "../../constants/paths"
 
+
 const Categories = (props: any) => {
   console.log("props", props)
   const categories = props.categories;
+
 
   const clickedRating = (rating:any) => {
     console.log(rating)
@@ -57,6 +59,7 @@ const Categories = (props: any) => {
         <div className="w-3/4">
           {categories &&
             categories.map((category: any) => {
+
               return (
                 <>
                   <div key={category.categoryId}></div>
@@ -65,7 +68,7 @@ const Categories = (props: any) => {
                       <Products
                         categoryName={category.name}
                         products={
-                         category[Object.keys(category)[0]].products !== null && category[Object.keys(category)[0]].products
+                          category[Object.keys(category)[0]].products !== null ? category[Object.keys(category)[0]].products : []
                         }
                         width={"90%"}
                         gap={false}

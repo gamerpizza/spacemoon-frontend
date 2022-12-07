@@ -57,9 +57,9 @@ export const Navbar = (props: any) => {
         onClick={(e) => {
           e.preventDefault();
           localStorage.removeItem("cart");
-          localStorage.removeItem("data");
+          localStorage.removeItem("token");
           setIsSignOut(true);
-          signOut({ callbackUrl: "/" });
+          router.push('/auth/login')
         }}
         className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica  border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
           yScroll > 722 || router.pathname !== "/"
@@ -83,7 +83,7 @@ export const Navbar = (props: any) => {
         href="#"
         onClick={(e) => {
           e.preventDefault();
-          signIn("keycloak", { callbackUrl: "/" });
+          router.push('/auth/login')
         }}
         className={` font-unica hover:bg-gray-800  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-gray-800 ${
           yScroll > 722 || router.pathname !== "/"

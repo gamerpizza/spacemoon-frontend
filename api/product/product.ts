@@ -22,13 +22,13 @@ const createProduct = ( formData: any, token: any) => {
     body: JSON.stringify(formData),
   })
   }
-  const addProductToCategory = (id:any,name: string, token:any) => {
-    fetch(`${fullUrl}/category?name=${name}`,{
-      method: "POST",
+  const addProductToCategory = (data:any,name: string, token:any) => {
+    return fetch(`${fullUrl}/category?name=${name}`,{
+      method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify({id:id}),
+      body: JSON.stringify(data),
     })
   }
 const updateProduct = (id: number, product: Product) =>

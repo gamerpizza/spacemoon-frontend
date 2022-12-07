@@ -246,21 +246,22 @@ const Product = (props: any) => {
           <div>
             <h1 className="font-unica text-2xl">PEOPLE ALSO BOUGHT</h1>
             {props.categories &&
-              props.categories.slice(0, 2).map((category: Category) => {
+              props.categories.slice(0, 2).map((category: any) => {
                 return (
                   <>
                     <div key={category.categoryId}></div>
-                    {category.products.length > 0 && (
+                      {Object.keys(category) !== null && (
+                    <div>
                       <Products
                         categoryName={category.name}
                         products={
-                          category.products.length > 0 &&
-                          category.products.slice(0, 5)
+                          category[Object.keys(category)[0]].products !== null ? category[Object.keys(category)[0]].products : []
                         }
-                        hideCategoryName={true}
-                        width={"100%"}
+                        width={"90%"}
+                        gap={false}
                       />
-                    )}
+                    </div>
+                  )}
                   </>
                 );
               })}

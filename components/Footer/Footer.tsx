@@ -50,7 +50,7 @@ const Footer = () => {
           className=" mr-5"
         ></Image>
         <Image
-          src="/images/twitter.svg"
+          src="/images/pinterest.svg"
           width={39}
           height={39}
           alt="twitter"
