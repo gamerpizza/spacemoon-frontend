@@ -16,7 +16,8 @@ const Login = () => {
         onSubmit={async (data: any) => {
           try {
             const response = await AuthAPI.login(JSON.stringify(data))
-            console.log(response)
+            const jsonResponse = await response.json()
+            localStorage.setItem('token', JSON.stringify(jsonResponse.token))
           } catch (error: any) {
             setError(error.message)
           }
