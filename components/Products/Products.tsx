@@ -4,6 +4,7 @@ import startIcon from "../../public/images/star.svg";
 import addIcon from "../../public/images/add.svg";
 
 const Products = ({addToCart, hideCategoryName, categoryName, products, width, gap}: any) => {
+  console.log("products",products);
   return (
     <div>
       <div className="flex flex-wrap sm:justify-center 2xl:justify-between mt-10">
@@ -21,8 +22,8 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, g
               gap ? "gap-x-28, justify-center" : "gap-x-0, justify-start"
             }`}
           >
-            {products.length > 0 ? (
-              products.map((product: any) => {
+            {products  ? (
+              Object.keys(products).map((product: any) => {
                 return (
                   <div
                     key={product[Object.keys(product)[0]].id}

@@ -7,11 +7,12 @@ import SideBar from "../../../components/Categories/SideBar";
 import Rating from "../../../components/Products/Rating";
 import CategoryAPI from "../../../api/category/category";
 import * as path from "../../../constants/paths";
+import PriceRange from "../../../components/PriceRange/PriceRange";
 
 const SingleCategory = ({categories, category, addToCart}: any) => {
   const router = useRouter();
   const sideBarCategories = router.query.categories;
-
+  console.log("cat",categories, category, addToCart)
   return (
     <>
       <div className="flex">
@@ -23,12 +24,12 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
                 <>
                   <Link
                     href={{
-                      pathname: `${path.CATEGORIES}/${category.name}`,
+                      pathname: `${path.CATEGORIES}/${category[Object.keys(category)[0]].name}`,
                       query: { categories: sideBarCategories },
                     }}
                   >
                     <h1 className="text-[#1C1F22] font-comfortaa text-s px-3 mt-2 mb-2">
-                      {category.name}
+                      {category[Object.keys(category)[0]].name}
                     </h1>
                   </Link>
                 </>
@@ -47,18 +48,8 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           </div>
 
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
-          <div className="relative">
-            <input
-              type="range"
-              value="25"
-              className="w-full h-2 absolute bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-            ></input>
-            <input
-              type="range"
-              value="75"
-              className="w-full h-2 absolute bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
-            ></input>
-          </div>
+          <PriceRange />
+
           <p className="text-center mt-2 font-comfortaa_regular">$0-$999+</p>
         </div>
         <div className="w-3/4">
@@ -66,7 +57,7 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
             <Products
               addToCart={addToCart}
               categoryName={category.name}
-              products={category.products}
+              products={category.products !== null && category.products}
             />
           </div>
         </div>
