@@ -1,13 +1,15 @@
-import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { AiFillThunderbolt } from "react-icons/ai";
+
+import * as path from "../../constants/paths";
 
 const SideBar = (props: any) => {
   const router = useRouter();
-  const checkPath = (path: string) => {
-    return path === "/profile"
-      ? router.pathname === "/profile" ||
-        router.pathname === "/profile/NewProduct"
+  const checkPath = (path: any) => {
+    return path === `${path.PROFILE}`
+      ? router.pathname === `${path.PROFILE}` ||
+        router.pathname === `${path.PROFILE}/NewProduct`
         ? true
         : false
       : router.pathname.includes(path)
@@ -17,7 +19,7 @@ const SideBar = (props: any) => {
   const profileArray = [
     {
       name: "Account Information",
-      path: "/profile",
+      path: `${path.PROFILE}`,
     },
     {
       name: "Billing and payment",
@@ -29,7 +31,7 @@ const SideBar = (props: any) => {
     },
     {
       name: "Addresses",
-      path: "/profile/address",
+      path: `${path.PROFILE}/address`,
     },
     {
       name: "Security",
@@ -45,7 +47,7 @@ const SideBar = (props: any) => {
       <div className="overflow-y-auto py-4 px-3">
         <ul className="space-y-2">
           <li className="flex items-center border-b-2 border-black pb-3">
-            <Link href="/" className="font-comfortaa">
+            <Link href={`${path.HOMEPAGE}`} className="font-comfortaa">
               Home
             </Link>
             &nbsp;
@@ -66,7 +68,7 @@ const SideBar = (props: any) => {
               />
             </svg>
             &nbsp;
-            <Link href="/" className="font-comfortaa">
+            <Link href={`${path.PROFILE}`} className="font-comfortaa">
               Profile
             </Link>
           </li>

@@ -1,7 +1,7 @@
-import { Product } from "../../model/product"
-import { fullUrl } from "../api"
+import { Product } from "../../model/product";
+import { fullUrl } from "../api";
 
-const productRoute = "/api/product" // might have to change once the api is tested
+const productRoute = "/api/product"; // might have to change once the api is tested
 
 const ProductAPI = Object.freeze({
   createProduct: ( formData: any, token: any) =>
@@ -11,7 +11,7 @@ const ProductAPI = Object.freeze({
   updateProduct: (id: number, product: Product) => updateProduct(id, product),
   getProduct: (id: number) => getProducts(id),
   getAllProducts: (id: number) => getAllProducts(id),
-})
+});
 
 const createProduct = ( formData: any, token: any) => {
   return  fetch(`${fullUrl}/product`, {
@@ -39,7 +39,7 @@ const updateProduct = (id: number, product: Product) =>
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ product: product, id: id }),
-  })
+  });
 
 const deleteCategory = (id: number) =>
   fetch(`${fullUrl}${productRoute}/deleteProduct/${id}`, {
@@ -49,7 +49,7 @@ const deleteCategory = (id: number) =>
       "Content-Type": "text/plain",
     },
     body: JSON.stringify({ id }),
-  })
+  });
 
 const getAllProducts = (categoryId: number) =>
   fetch(`${fullUrl}${productRoute}/${categoryId}/get/0/20`, {
@@ -58,7 +58,7 @@ const getAllProducts = (categoryId: number) =>
       Accept: "application/json",
       "Content-Type": "text/plain",
     },
-  })
+  });
 
 const getProducts = (categoryId: number) =>
   fetch(`${fullUrl}/product`, {
@@ -67,6 +67,6 @@ const getProducts = (categoryId: number) =>
       Accept: "application/json",
       "Content-Type": "text/plain",
     },
-  })
+  });
 
-export default ProductAPI
+export default ProductAPI;

@@ -1,14 +1,11 @@
 import { useState } from "react";
 import Link from "next/link";
 
-import { Category } from "../../model/category";
-
 const SearchBar = (props: any) => {
   const [searchItem, setSearchItem] = useState();
   const [selectedCategory, setSelectedCategory] = useState();
   const [categoryId, setCategoryId] = useState();
   const [clicked, setClicked] = useState(false);
-  const [categories, setCategories] = useState<Category[]>([]);
 
   const onSearchHandler = (e: any) => {
     setSearchItem(e.target.value);
@@ -61,7 +58,6 @@ const SearchBar = (props: any) => {
                     display: ${clicked ? "flex" : "none"};
                   }
                 `}</style>
-
 
                 <ul
                   className=" py-1 text-sm text-gray-700 dark:text-gray-200"

@@ -1,5 +1,6 @@
-import { ReactElement, useEffect, useState } from "react";
-
+import { ReactElement } from "react";
+import Footer from "../Footer/Footer";
+import { Navbar } from "../Navbar/Navbar";
 interface IProps {
   children: ReactElement | ReactElement[];
 }
@@ -7,15 +8,9 @@ interface IProps {
 const Wrapper = ({ children }: IProps) => {
   return (
     <>
-      <div
-        style={{
-          height: "100%",
-          marginTop: "60px",
-          marginBottom: "40px",
-        }}
-      >
-        {children}
-      </div>
+
+      {children}
+
     </>
   );
 };

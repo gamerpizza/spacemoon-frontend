@@ -5,7 +5,7 @@ import { Product } from "../model/product";
 
 import "../styles/globals.css";
 import { Navbar } from "../components/Navbar/Navbar";
-import { Footer } from "../components/Footer/Footer";
+import  Footer  from "../components/Footer/Footer";
 import { Category } from "../model/category";
 import CategoryAPI from "../api/category/category";
 import ProductAPI from "../api/product/product";

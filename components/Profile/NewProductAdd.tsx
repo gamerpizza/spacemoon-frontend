@@ -10,6 +10,7 @@ import Select from "./element/Select"
 import { productSchema } from "../../validations/productSchema"
 import ProductAPI from "../../api/product/product"
 
+
 const NewProductAdd = (props: any) => {
 
   const [image, setImage] = useState<any[]>([])

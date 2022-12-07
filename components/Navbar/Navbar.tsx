@@ -10,6 +10,7 @@ import blackLogo from "../../public/images/bg_black_logo.png";
 import shoppingCartIcon from "../../public/images/shopping-cart.svg";
 import Category from "../Dropdowns/Category";
 import Cart from "../Cart/Cart";
+import * as path from "../../constants/paths";
 
 export const Navbar = (props: any) => {
   const [cartClicked, setCartClicked] = useState(false);
@@ -43,7 +44,7 @@ export const Navbar = (props: any) => {
   const loggedInContent = (
     <>
       <a
-        href="/profile"
+        href={`${path.PROFILE}`}
         className={`flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica no-underline border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
           yScroll > 722 || router.pathname !== "/"
             ? "text-[#1C1F22]"
@@ -112,11 +113,13 @@ export const Navbar = (props: any) => {
 
   return (
     <nav
-      className={`sticky top-0 z-10  border-b border-gray-200 px-2 md:px-4 py-0.5 ${
+      className={`sticky top-0 z-10  border-b border-gray-200 px-2 md:px-4 py-0.5
+      ${
         yScroll > 722 || router.pathname !== "/"
           ? "bg-[#F5F8FA]"
           : "backdrop-filter backdrop-blur-lg"
-      } `}
+      }
+      ${router.pathname === ("/auth/login" || "/auth/register") ? "hidden" : "block"}`}
     >
       <div className=" flex flex-wrap items-center lg:justify-between sm:justify-around  lg:pt-0 max-w-screen-3xl">
         <div className="flex h-10 items-center sm:order-1">

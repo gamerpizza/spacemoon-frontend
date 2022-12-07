@@ -1,7 +1,7 @@
-import { Category } from "../../model/category"
-import { fullUrl } from "../api"
+import { Category } from "../../model/category";
+import { fullUrl } from "../api";
 
-const categoryRoute = "/api/order"
+const categoryRoute = "/api/order";
 
 const CategoryAPI = Object.freeze({
   createCategory: (formData: any, token: any) =>
@@ -30,7 +30,7 @@ const updateCategory = (id: number, category: Category) =>
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ category: category, id: id }),
-  })
+  });
 
 const deleteCategory = (id: number) =>
   fetch(`${fullUrl}${categoryRoute}/deleteCategory/${id}`, {
@@ -40,7 +40,7 @@ const deleteCategory = (id: number) =>
       "Content-Type": "text/plain",
     },
     body: JSON.stringify({ id }),
-  })
+  });
 
 const getCategory = (name: string) =>
   fetch(`${fullUrl}/category?name=${name}
@@ -50,7 +50,7 @@ const getCategory = (name: string) =>
       Accept: "application/json",
       "Content-Type": "text/plain",
     },
-  })
+  });
 const getAllCategories = () => {
   return fetch(`${fullUrl}/category`, {
     method: "GET",
@@ -58,6 +58,6 @@ const getAllCategories = () => {
       Accept: "application/json",
       "Content-Type": "text/plain",
     },
-  })
-}
-export default CategoryAPI
+  });
+};
+export default CategoryAPI;

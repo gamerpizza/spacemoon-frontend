@@ -1,9 +1,9 @@
 import Products from "../../components/Products/Products";
 
-const Search = (props: any) => {
+const Search = ({addToCart, searchResults}:any) => {
   return (
     <>
-      <Products addToCart={props.addToCart} products={props.searchResults} />
+      <Products addToCart={addToCart} products={searchResults} />
     </>
   );
 };
