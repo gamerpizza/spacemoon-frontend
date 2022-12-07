@@ -10,7 +10,7 @@ import PriceRange from "../../components/PriceRange/PriceRange";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import * as path from "../../constants/paths"
 
-const Categories = (props: any) => {
+const DisplayCategories = (props: any) => {
   const categories = props?.categories;
 
   const clickedRating = (rating:any) => {
@@ -99,4 +99,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-export default Categories;
+export default DisplayCategories;
