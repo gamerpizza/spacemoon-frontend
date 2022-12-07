@@ -11,7 +11,7 @@ const Footer = () => {
       className={`bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover  w-full text-gray-600 body-font p-8 ${
         router.pathname !== "/"? "absolute bottom-0" : ""
       }
-      ${router.pathname === "/auth/login" || "/auth/register" ? "hidden" : "block"}`}
+      ${router.pathname === ("/auth/login" || "/auth/register") ? "hidden" : "block"}`}
     >
       <div className="flex flex-wrap ">
         <Image
