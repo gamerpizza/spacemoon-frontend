@@ -9,7 +9,7 @@ import CategoryAPI from "../../../api/category/category";
 import * as path from "../../../constants/paths";
 import PriceRange from "../../../components/PriceRange/PriceRange";
 
-const SingleCategory = ({categories, category, addToCart}: any) => {
+const SingleCategory = ({categories, singleCategory, addToCart}: any) => {
   const router = useRouter();
   const sideBarCategories = router.query.categories;
   return (
@@ -55,9 +55,9 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           <div>
             <Products
               addToCart={addToCart}
-              categoryName={category[Object.keys(category)[0]].name}
+              categoryName={singleCategory[Object.keys(singleCategory)[0]].name}
               products={
-                category.products
+                singleCategory.products
               }
             />
           </div>
@@ -72,10 +72,10 @@ export const getStaticProps = async (context: any) => {
 
   try {
     const response = await CategoryAPI.getCategory(name);
-    const category: Category = await response.json();
+    const singleCategory: Category = await response.json();
     return {
       props: {
-        category: category,
+        singleCategory: singleCategory,
       },
     };
   } catch (error: any) {
