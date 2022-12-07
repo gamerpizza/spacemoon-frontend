@@ -113,11 +113,13 @@ export const Navbar = (props: any) => {
 
   return (
     <nav
-      className={`sticky top-0 z-10  border-b border-gray-200 px-2 md:px-4 py-0.5 ${
+      className={`sticky top-0 z-10  border-b border-gray-200 px-2 md:px-4 py-0.5
+      ${
         yScroll > 722 || router.pathname !== "/"
           ? "bg-[#F5F8FA]"
           : "backdrop-filter backdrop-blur-lg"
-      } `}
+      }
+      ${router.pathname === "/auth/login" || "/auth/register" ? "hidden" : "block"}`}
     >
       <div className=" flex flex-wrap items-center lg:justify-between sm:justify-around  lg:pt-0 max-w-screen-3xl">
         <div className="flex h-10 items-center sm:order-1">
