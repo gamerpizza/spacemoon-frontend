@@ -12,7 +12,6 @@ import PriceRange from "../../../components/PriceRange/PriceRange";
 const SingleCategory = ({categories, category, addToCart}: any) => {
   const router = useRouter();
   const sideBarCategories = router.query.categories;
-
   return (
     <>
       <div className="flex">
@@ -20,10 +19,10 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           <SideBar />
           {categories &&
             categories.map((category: any) => {
-              console.log('car',category[Object.keys(category)[0]].products)
               return (
                 <>
-                  <Link
+                {`${path.CATEGORIES}/${router.query.categoryName}` !== `${path.CATEGORIES}/${category[Object.keys(category)[0]].name}` ?
+                   <Link
                     href={{
                       pathname: `${path.CATEGORIES}/${category[Object.keys(category)[0]].name}`,
                       query: { categories: sideBarCategories },
@@ -33,6 +32,12 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
                       {category[Object.keys(category)[0]].name}
                     </h1>
                   </Link>
+                :
+                <h1 className="text-[#A042E1] font-comfortaa cursor-pointer text-s px-3 mt-2 mb-2">
+                  {category[Object.keys(category)[0]].name}
+                </h1>
+                }
+
                 </>
               );
             })}
