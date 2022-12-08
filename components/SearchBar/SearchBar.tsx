@@ -85,12 +85,12 @@ const SearchBar = (props: any) => {
               <input
                 onChange={(e) => onSearchHandler(e)}
                 type="text"
-                className={`px-4 py-2 bg-[rgba(216,216,216,0.1)] xl:w-[500px]  md:w-80 sm:w-48  text-white border  border-l-1 rounded-l-full border-r-0 outline-none ${
+                className={`px-4 py-2 bg-[rgba(216,216,216,0.1)] placeholder:font-comfortaa xl:w-[500px]  md:w-80 sm:w-48  text-white border  border-l-1 rounded-l-full border-r-0 outline-none ${
                   (props.yScroll > 722 || props.path !== "/")
                     ? "border-[#1C1F22] text-[#1C1F22]"
                     : "border-[#F5F8FA] text-[#F5F8FA]"
                 }`}
-                placeholder="Search..."
+                placeholder="Search for anything"
               />
               <Link href="/search">
                 <button

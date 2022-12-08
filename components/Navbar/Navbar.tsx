@@ -68,7 +68,11 @@ export const Navbar = (props: any) => {
           SIGN OUT
         </button>
       </Link>
-      <hr className="border-[1px] h-10 bg-[#F5F8FA]"/>
+      <hr className={`border-[1px] h-10
+      ${yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
+            ? "bg-[#1C1F22]"
+            : "bg-[#F5F8FA]"
+        }`}/>
       <Link
         href={`${path.PROFILE}`}
         className={`flex justify-between items-center ml-[50px] pr-4 pl-3 w-full text-[16px] font-unica no-underline border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
@@ -153,7 +157,7 @@ export const Navbar = (props: any) => {
         </div>
         <div
           id="mega-menu-icons"
-          className=" justify-between items-center w-full sm:flex sm:w-auto sm:order-2 lg:order-3 p-4"
+          className=" justify-between items-center w-full sm:flex sm:w-auto sm:order-2 lg:order-3 p-3"
         >
           <ul className="flex flex-col items-center mt-4 text-sm font-medium sm:flex-row sm:space-x-8 sm:mt-0">
             <Category

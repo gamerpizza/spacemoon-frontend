@@ -16,8 +16,8 @@ const LandingPage = (props: any) => {
       <div>
         <div className="bg-[url(/images/hero_bck.png)] bg-no-repeat relative lg:top-[-180px] sm:top-[-250px] h-screen bg-[100%] bg-cover">
           <div className="">
-            <div className=" w-[600px] p-20 relative top-80">
-              <h1 className={`text-[#F5F8FA] text-4xl md:text-5xl lg:text-5xl items-center font-unica ${styles.textShadow}`}>
+            <div className=" w-[550px]  h-[146px] p-20 relative top-80">
+              <h1 className={`text-[#F5F8FA] tracking-normal  leading-[73px] text-[62px] md:text-5xl lg:text-5xl items-center font-unica ${styles.textShadow}`}>
                 THE BEST PRODUCTS IN THE GALAXY.
               </h1>
               <button className="text-white font-thin border-white bg-gradient-to-r from-[rgba(255,255,255,0.4)] to-[rgba(255,255,255,0.1)] mt-4 pt-3 pb-3 pl-5 pr-5 rounded-lg ">
@@ -67,8 +67,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-[30px] text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -97,8 +97,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -127,8 +127,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -157,8 +157,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
             </div>
@@ -199,8 +199,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -229,8 +229,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -259,8 +259,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -289,8 +289,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
             </div>
@@ -331,8 +331,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -361,8 +361,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -391,8 +391,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
 
@@ -421,8 +421,8 @@ const LandingPage = (props: any) => {
                 <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                   Name of selling party
                 </p>
-                <p className="font-comforta text-xl text-[#1C1F22] mt-[12px]">
-                  $ 8.45
+                <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['45'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                  $8.
                 </p>
               </div>
             </div>
