@@ -9,7 +9,7 @@ const ExploreCategories = () => {
       <div className="m-auto">
         <div className="flex justify-center">
           <h1 className="text-4xl  pt-16 font-unica w-[99%] ">
-            EXPLORE THE PRODUCTS BY CATEGORIES{" "}
+            EXPLORE THE PRODUCTS BY CATEGORIES
           </h1>
         </div>
         <div className="flex flex-row flex-wrap justify-center ">
@@ -17,7 +17,7 @@ const ExploreCategories = () => {
             <h1 className="text-white text-2xl font-unica"> MULTIVERSE</h1>
             <button className="text-white font-thin  mt-4 pt-3  rounded-lg ">
               <div className="flex">
-                <p> Explore the best deals </p>
+                <p className="text-[#F5F8FA] font-comfortaa text-[16px]"> Explore the best deals </p>
                 <Image
                   src={arrowIcon}
                   height={20}
@@ -34,7 +34,7 @@ const ExploreCategories = () => {
                 <h1 className="text-white text-2xl font-unica">AWARA</h1>
                 <button className="text-white font-thin border-white bg-gradient-to-r from-[rgba(255,255,255,0.4)] to-[rgba(255,255,255,0.1)] mt-4 pt-3 pb-3 pl-5 pr-5 rounded-lg ">
                   <div className="flex">
-                    <p>Check it out</p>
+                    <p className="text-[#F5F8FA] font-comfortaa text-[14px]">Check it out</p>
                     <Image
                       src={arrowIcon}
                       height={20}
@@ -51,7 +51,7 @@ const ExploreCategories = () => {
                 <h1 className="text-white text-2xl font-unica">LU</h1>
                 <button className="text-white font-thin border-white bg-gradient-to-r from-[rgba(255,255,255,0.4)] to-[rgba(255,255,255,0.1)] mt-4 pt-3 pb-3 pl-5 pr-5 rounded-lg ">
                   <div className="flex">
-                    <p>Check it out</p>
+                    <p className="text-[#F5F8FA] font-comfortaa text-[14px]">Check it out</p>
                     <Image
                       src={arrowIcon}
                       height={20}
@@ -68,7 +68,7 @@ const ExploreCategories = () => {
                 <h1 className="text-white text-2xl font-unica">ASTRO</h1>
                 <button className="text-white font-thin border-white bg-gradient-to-r from-[rgba(255,255,255,0.4)] to-[rgba(255,255,255,0.1)] mt-4 pt-3 pb-3 pl-5 pr-5 rounded-lg ">
                   <div className="flex">
-                    <p>Check it out</p>
+                    <p className="text-[#F5F8FA] font-comfortaa text-[14px]">Check it out</p>
                     <Image
                       src={arrowIcon}
                       height={20}
@@ -84,7 +84,7 @@ const ExploreCategories = () => {
                 <h1 className="text-white text-2xl font-unica">MAGNA</h1>
                 <button className="text-white font-thin border-white bg-gradient-to-r from-[rgba(255,255,255,0.4)] to-[rgba(255,255,255,0.1)] mt-4 pt-3 pb-3 pl-5 pr-5 rounded-lg ">
                   <div className="flex">
-                    <p>Check it out</p>
+                    <p className="text-[#F5F8FA] font-comfortaa text-[14px]">Check it out</p>
                     <Image
                       src={arrowIcon}
                       height={20}

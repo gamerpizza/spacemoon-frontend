@@ -20,7 +20,6 @@ const Login = () => {
             const response = await  AuthAPI.login(data)
             const textResponse = await response.text()
             const extractedToken = textResponse.split(" ")
-
             localStorage.setItem('token', JSON.stringify(extractedToken[1]))
             router.push('/')
           } catch (error: any) {

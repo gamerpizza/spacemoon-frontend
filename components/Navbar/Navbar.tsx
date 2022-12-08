@@ -1,8 +1,8 @@
 import { useSession } from "next-auth/react";
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import { signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import SearchBar from "../SearchBar/SearchBar";
 import whiteLogo from "../../public/images/logo_black.png";
@@ -12,10 +12,13 @@ import Category from "../Dropdowns/Category";
 import Cart from "../Cart/Cart";
 import * as path from "../../constants/paths";
 
+import profileIcon from '../../public/images/profile.svg'
+
 export const Navbar = (props: any) => {
   const [cartClicked, setCartClicked] = useState(false);
   const [isSignOut, setIsSignOut] = useState(false);
   const [yScroll, setYScroll] = useState(0);
+
   const session = useSession();
   const router = useRouter();
 
@@ -28,47 +31,54 @@ export const Navbar = (props: any) => {
   );
 
   useEffect(() => {
+
     setYScroll(window.scrollY);
     window.addEventListener("scroll", handleNavigation);
 
     return () => {
       window.removeEventListener("scroll", handleNavigation);
     };
+
   }, [handleNavigation]);
 
   useEffect(() => {
-    if (!localStorage.getItem("data") && session.status === "authenticated")
-      localStorage.setItem("data", JSON.stringify(session.data));
+
+    if(localStorage.getItem("token"))
+      setIsSignOut(false);
+
   }, [session]);
 
   const loggedInContent = (
     <>
-      <a
+      <Link
+        href={`${path.LOGIN}`}
+        className={`flex justify-between items-center py-2 pr-4 pl-3  w-full text-[16px] font-unica  border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
+          yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
+            ? "text-[#1C1F22] hover:text-[#636464]"
+            : "text-[#F5F8FA] hover:text-[#1C1F22]"
+        }`}
+      >
+        <button
+          onClick={(e) => {
+            localStorage.removeItem("cart");
+            localStorage.removeItem("token");
+            setIsSignOut(true);
+          }
+        }>
+          SIGN OUT
+        </button>
+      </Link>
+      <hr className="border-[1px] h-10 bg-[#F5F8FA]"/>
+      <Link
         href={`${path.PROFILE}`}
-        className={`flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica no-underline border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
-          yScroll > 722 || router.pathname !== "/"
-            ? "text-[#1C1F22]"
-            : "text-[#F5F8FA]"
+        className={`flex justify-between items-center ml-[50px] pr-4 pl-3 w-full text-[16px] font-unica no-underline border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
+          yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
+            ? "text-[#1C1F22] hover:text-[#636464]"
+            : "text-[#F5F8FA] hover:text-[#1C1F22]"
         }`}
       >
-        PROFILE
-      </a>
-      <li
-        onClick={(e) => {
-          e.preventDefault();
-          localStorage.removeItem("cart");
-          localStorage.removeItem("token");
-          setIsSignOut(true);
-          router.push('/auth/login')
-        }}
-        className={`flex justify-between items-center py-2 pr-4 pl-3  w-full font-medium font-unica  border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0 px-4 md:px-5 md:p-0 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
-          yScroll > 722 || router.pathname !== "/"
-            ? "text-[#1C1F22]"
-            : "text-[#F5F8FA]"
-        }`}
-      >
-        SIGN OUT
-      </li>
+        <Image src={profileIcon} alt="profile icon" className="rounded-full w-8"></Image>
+      </Link>
       <Cart
         props={props}
         cartClicked={cartClicked}
@@ -79,30 +89,27 @@ export const Navbar = (props: any) => {
 
   const notLoggedInContent = (
     <>
-      <a
-        href="#"
-        onClick={(e) => {
-          e.preventDefault();
-          router.push('/auth/login')
-        }}
-        className={` font-unica hover:bg-gray-800  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-gray-800 ${
-          yScroll > 722 || router.pathname !== "/"
-            ? "text-[#1C1F22]"
-            : "text-[#F5F8FA]"
+      <Link
+        href={`${path.LOGIN}`}
+        className={` font-unica hover:text-black text-[16px] rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:text-black ${
+          yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
+            ? "text-[#1C1F22] hover:text-[#636464]"
+            : "text-[#F5F8FA] hover:text-[#1C1F22]"
         }`}
       >
         LOGIN
-      </a>
-      <a
+      </Link>
+      <Link
         href="#"
-        className={` hover:bg-gray-800 font-unica  font-medium rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:outline-none dark:focus:ring-blue-800 ${
-          yScroll > 722 || router.pathname !== "/"
-            ? "text-[#1C1F22]"
-            : "text-[#F5F8FA]"
+        className={` hover:text-black font-unica text-[16px] rounded-lg text-sm px-4 py-2 md:px-5 md:py-2.5 mr-1 md:mr-2  focus:text-black dark:focus:ring-blue-800 ${
+          yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
+            ? "text-[#1C1F22] hover:text-[#636464]"
+            : "text-[#F5F8FA] hover:text-[#1C1F22]"
         }`}
       >
         Sign up
-      </a>
+      </Link>
+      <hr className="border-[1px] h-10 bg-[#F5F8FA]"/>
       <Cart
         props={props}
         cartClicked={cartClicked}
@@ -113,19 +120,19 @@ export const Navbar = (props: any) => {
 
   return (
     <nav
-      className={`sticky top-0 z-10  border-b border-gray-200 px-2 md:px-4 py-0.5
+      className={`sticky top-0 z-10  border-b border-gray-200 px-20 py-0.5
       ${
-        yScroll > 722 || router.pathname !== "/"
+        yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
           ? "bg-[#F5F8FA]"
           : "backdrop-filter backdrop-blur-lg"
       }
-      ${router.pathname === ("/auth/login" || "/auth/register") ? "hidden" : "block"}`}
+      ${router.pathname === (`${path.LOGIN}` || `${path.REGISTER}`) ? "hidden" : "block"}`}
     >
       <div className=" flex flex-wrap items-center lg:justify-between sm:justify-around  lg:pt-0 max-w-screen-3xl">
         <div className="flex h-10 items-center sm:order-1">
           <a href="/" className="flex items-center">
             <span className="self-center text-xl font-semibold whitespace-nowrap dark:text-white">
-              {yScroll < 722 && router.pathname === "/" ? (
+              {yScroll < 722 && router.pathname === `${path.HOMEPAGE}` ? (
                 <Image src={whiteLogo} width={140} height={10} alt="logo" />
               ) : (
                 <Image src={blackLogo} width={150} height={10} alt="logo" />
@@ -157,7 +164,7 @@ export const Navbar = (props: any) => {
 
             {/* <Languages /> */}
 
-            {session.data ? (
+            {!isSignOut ? (
               <> {loggedInContent} </>
             ) : (
               <> {notLoggedInContent} </>
@@ -172,7 +179,7 @@ export const Navbar = (props: any) => {
                 width={32}
                 height={32}
                 alt="Icon"
-                className="rounded-full"
+                className="rounded-full  cursor-pointer"
               />
             </div>
             <button
@@ -185,7 +192,7 @@ export const Navbar = (props: any) => {
               <span className="sr-only">Open main menu</span>
               <svg
                 aria-hidden="true"
-                className="w-9 h-8"
+                className="w-9 h-8 hover:bg-gray-800"
                 fill="currentColor"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
