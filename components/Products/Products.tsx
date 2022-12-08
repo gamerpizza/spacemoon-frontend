@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import startIcon from "../../public/images/star.svg";
+import startIcon from "../../public/images/star.png";
 import addIcon from "../../public/images/add.svg";
 
 const Products = ({addToCart, hideCategoryName, categoryName, products, width, gap}: any) => {
@@ -31,12 +31,12 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, g
                     key={products[product].id}
                     className="lg:w-auto md:w-auto p-4 w-full"
                   >
-                    <div className="">
-                      <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-contain h-64 w-[15rem] items-end">
+                    <div className="rounded-xl">
+                      <div className="bg-[url(/images/default-image.jpg)] bg-no-repeat bg-cover h-[220px] bg-center w-[271px] items-end rounded-xl">
                         <div className="flex justify-between h-[90%] mr-2 ml-2 items-end">
-                          <div className="flex bg-[#F5F8FA] ">
-                            <Image src={startIcon} alt={"Icon"} />
-                            <p className="ml-2 font-comfortaa text-[14px]">
+                          <div className="flex items-center justify-center bg-[#F5F8FA] w-[62px] h-[34px] ">
+                            <Image src={startIcon} alt={"Icon"} width={16} height={16}/>
+                            <p className="ml-2 font-comfortaa text-[12px] text-[#1C1F22]">
                               4.6
                             </p>
                           </div>
@@ -48,18 +48,18 @@ const Products = ({addToCart, hideCategoryName, categoryName, products, width, g
                               src={addIcon}
                               alt={"Icon"}
                               className="rounded-full"
-                              width={20}
-                              height={20}
+                              width={40}
+                              height={40}
                             />
                           </button>
                         </div>
                       </div>
-                      <p className="font-comfortaa">{products[product].name}</p>
-                      <p className="font-thin font-comfortaa text-[#687B8B]">
+                      <p className="font-comfortaa mt-[20px]">{products[product].name}</p>
+                      <p className="font-thin font-comfortaa text-[#687B8B] mt-[12px]">
                         Name of selling party
                       </p>
-                      <p className="font-comforta text-xl text-[#1C1F22]">
-                        ${products[product].price}
+                      <p className="font-unica text-[30px] text-[#1C1F22] mt-[12px] after:content-['0'] after:text-[16px] after:absolute after:mt-2 after:font-unica ">
+                        ${products[product].price}.
                       </p>
                     </div>
                   </div>

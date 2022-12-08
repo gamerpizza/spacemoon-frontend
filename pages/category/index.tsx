@@ -17,7 +17,7 @@ const DisplayCategories = (props: any) => {
     console.log(rating)
   }
   return (
-    <Wrapper>
+
       <div className="flex">
         <div className="w-80  ml-24 mt-4">
           <SideBar />
@@ -48,9 +48,17 @@ const DisplayCategories = (props: any) => {
           <div className="flex items-center px-3 mb-2">
             <Rating stars={3} clickedRating={clickedRating}/>
           </div>
+          <div className="flex items-center px-3 mb-2">
+            <Rating stars={2} clickedRating={clickedRating}/>
+          </div>
+          <div className="flex items-center px-3 mb-2">
+            <Rating stars={1} clickedRating={clickedRating}/>
+          </div>
 
           <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
           <PriceRange />
+          <p className="text-center mt-6 font-comfortaa text-[#1C1F22]">$0 - $999+</p>
+
         </div>
 
         <div className="w-3/4">
@@ -80,7 +88,6 @@ const DisplayCategories = (props: any) => {
             }) : <p className="mt-16 ml-10 font-comfortaa"> No Products are available </p>}
         </div>
       </div>
-    </Wrapper>
   );
 };
 

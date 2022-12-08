@@ -11,10 +11,10 @@ const Category = (props: any) => {
         onClick={() => setClicked(!clicked)}
         id="mega-menu-icons-dropdown-button"
         data-dropdown-toggle="mega-menu-icons-dropdown"
-        className={`flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium font-unica  border-b border-gray-100 md:w-auto hover:bg-gray-50 md:hover:bg-transparent md:border-0  md:pl-8 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
+        className={`flex justify-between items-center py-2 pr-4 pl-3 w-full text-[16px] font-unica  border-b border-gray-100 md:w-auto hover:text-black md:hover:bg-transparent md:border-0  md:pl-8 dark:text-gray-400 dark:hover:bg-gray-700 md:dark:hover:bg-transparent dark:border-gray-700 ${
           props.yScroll > 722 || props.path !== "/"
-            ? "text-[#1C1F22]"
-            : "text-[#F5F8FA]"
+            ? "text-[#1C1F22] hover:text-[#636464]"
+            : "text-[#F5F8FA] hover:text-black"
         }`}
       >
         INFINITY
@@ -50,7 +50,7 @@ const Category = (props: any) => {
                   <li>
                     <Link
                       href={`/${path.CATEGORIES}/${category[Object.keys(category)[0]].name}`}
-                      className="flex font-comfortaa text-[12px] text-[#1C1F22] items-center dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                      className="flex font-comfortaa text-[12px] text-[#1C1F22] items-center dark:text-gray-400 hover:text-[#A042E1] focus:text-[#A042E1] group"
                     >
                       {category[Object.keys(category)[0]].name}
                     </Link>

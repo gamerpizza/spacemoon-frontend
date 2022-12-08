@@ -9,7 +9,7 @@ const Cart = ({cartClicked, setCartClicked, props}: any) => {
     <>
       <div
         id="drawer-example"
-        className="flex-col drawer fixed right-0 top-[90px] z-40 h-screen p-4 overflow-y-auto shadow-2xl bg-white w-80 dark:bg-gray-800"
+        className="flex-col drawer  fixed right-0 top-[90px] z-40 h-screen p-4 overflow-y-auto shadow-2xl bg-white w-80 dark:bg-gray-800"
         tab-index={-1}
         aria-labelledby="drawer-label"
       >
@@ -24,11 +24,11 @@ const Cart = ({cartClicked, setCartClicked, props}: any) => {
             type="button"
             data-drawer-dismiss="drawer-example"
             aria-controls="drawer-example"
-            className="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+            className="text-gray-400 bg-transparent hover:bg-gray-800  rounded-lg text-sm p-1.5 absolute top-2.5 right-2.5 inline-flex items-center"
           >
             <svg
               aria-hidden="true"
-              className="w-5 h-5"
+              className="w-5 h-6  "
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

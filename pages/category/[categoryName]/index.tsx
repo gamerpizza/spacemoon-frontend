@@ -47,11 +47,17 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           <div className="flex items-center px-3 mb-2">
             <Rating stars={3}/>
           </div>
+          <div className="flex items-center px-3 mb-2">
+            <Rating stars={2}/>
+          </div>
+          <div className="flex items-center px-3 mb-2">
+            <Rating stars={1} />
+          </div>
 
-          <h1 className="font-unica text-2xl mt-8 mb-4 px-3">PRICE RANGE</h1>
+          <h1 className="font-unica text-2xl mt-8 mb-0 px-3">PRICE RANGE</h1>
           <PriceRange />
 
-          <p className="text-center mt-2 font-comfortaa_regular">$0-$999+</p>
+          <p className="text-center mt-6 font-comfortaa text-[#1C1F22]">$0 - $999+</p>
         </div>
         <div className="w-3/4">
           <div>

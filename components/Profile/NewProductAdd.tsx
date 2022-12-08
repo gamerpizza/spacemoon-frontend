@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from "react"
+import React, {  useEffect, useState } from "react"
 import { Fragment } from "react"
 import { AiOutlinePlus } from "react-icons/ai"
 import { IoCloseSharp } from "react-icons/io5"
@@ -9,7 +9,7 @@ import InputField from "../Fields/InputField"
 import Select from "./element/Select"
 import { productSchema } from "../../validations/productSchema"
 import ProductAPI from "../../api/product/product"
-import { Router, useRouter } from "next/router"
+import {  useRouter } from "next/router"
 
 
 const NewProductAdd = (props: any) => {
@@ -103,6 +103,7 @@ const NewProductAdd = (props: any) => {
       setFilters([...filters, { name: ele, content: ["black", "white"] }])
   }
   return (
+
     <Formik
       onSubmit={async (data: any) => {
         try {
