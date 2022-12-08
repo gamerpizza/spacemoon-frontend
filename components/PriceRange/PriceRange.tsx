@@ -52,9 +52,9 @@ const PriceRange = () => {
         }}
       >
         <code>
-          {JSON.stringify({
+          {/* {JSON.stringify({
             values
-          })}
+          })} */}
         </code>
       </pre>
     </div>

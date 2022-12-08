@@ -57,7 +57,7 @@ const SingleCategory = ({categories, category, addToCart}: any) => {
           <div>
             <Products
               addToCart={addToCart}
-
+              hideCategoryName={true}
               categoryName={category.name}
               products={category.products !== null && category.products}
 

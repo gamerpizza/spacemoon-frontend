@@ -9,6 +9,7 @@ import InputField from "../Fields/InputField"
 import Select from "./element/Select"
 import { productSchema } from "../../validations/productSchema"
 import ProductAPI from "../../api/product/product"
+import { Router, useRouter } from "next/router"
 
 
 const NewProductAdd = (props: any) => {
@@ -16,6 +17,10 @@ const NewProductAdd = (props: any) => {
   const [image, setImage] = useState<any[]>([])
   const [filters, setFilters] = useState<any[]>([])
   const [token, setToken] = useState<any>()
+  const [errorType, setErrorType] = useState()
+  const [errorMsg, setErrorMsg] = useState()
+  const router = useRouter()
+
   const filterArray = [{ name: "color" }, { name: "material" }]
   useEffect(() => {
     setToken(
@@ -103,11 +108,11 @@ const NewProductAdd = (props: any) => {
         try {
           const response = await ProductAPI.createProduct( data, token);
           const jsonResponse = await response?.json();
-          console.log(jsonResponse?.id, data.category, token)
           const productResponse = await ProductAPI.addProductToCategory(jsonResponse, data.category, token)
-          console.log(await productResponse.json())
+          router.push('/category')
         } catch (error: any) {
-          console.error("error" , error)
+          setErrorMsg(error.message)
+          setErrorType(error.name)
         }
       }}
       validationSchema={productSchema}
@@ -341,6 +346,12 @@ const NewProductAdd = (props: any) => {
               </div>
             </div>
           </div>
+          {errorType || errorMsg ?
+          <div>
+          <p className="font-comfortaa">Error Type: <span className="text-[#571414]">{errorType}</span></p>
+          <p className="font-comfortaa">Error Message: <span className="text-[#571414]">{errorMsg}</span></p>
+          </div>
+          : ''}
         </form>
       )}
     </Formik>
