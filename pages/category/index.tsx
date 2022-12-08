@@ -10,11 +10,8 @@ import PriceRange from "../../components/PriceRange/PriceRange";
 import Wrapper from "../../components/Wrapper/Wrapper";
 import * as path from "../../constants/paths"
 
-
-const Categories = (props: any) => {
-  console.log("props", props)
-  const categories = props.categories;
-
+const DisplayCategories = (props: any) => {
+  const categories = props?.categories;
 
   const clickedRating = (rating:any) => {
     console.log(rating)
@@ -24,7 +21,7 @@ const Categories = (props: any) => {
       <div className="flex">
         <div className="w-80  ml-24 mt-4">
           <SideBar />
-          {categories &&
+          {categories ?
             categories.map((category: any) => {
               return (
                 <Link
@@ -38,7 +35,7 @@ const Categories = (props: any) => {
                   </h1>
                 </Link>
               );
-            })}
+            }) : <p className="font-comfortaa text-[12px] ml-4"> No categories are available </p>}
 
           <h1 className="font-unica text-2xl px-3 mt-8 mb-4">RATING</h1>
 
@@ -57,13 +54,13 @@ const Categories = (props: any) => {
         </div>
 
         <div className="w-3/4">
-          {categories &&
+          {categories ?
             categories.map((category: any) => {
-
+              console.log("Cat", category[Object.keys(category)[0]]);
               return (
                 <>
                   <div key={category.categoryId}></div>
-                  {Object.keys(category).length > 0 && (
+                  {Object.keys(category) !== null && (
                     <div>
                       <Products
                         categoryName={category.name}
@@ -80,7 +77,7 @@ const Categories = (props: any) => {
 
 
               );
-            })}
+            }) : <p className="mt-16 ml-10 font-comfortaa"> No Products are available </p>}
         </div>
       </div>
     </Wrapper>
@@ -102,4 +99,4 @@ export const getStaticProps: GetStaticProps = async () => {
   }
 };
 
-export default Categories;
+export default DisplayCategories;

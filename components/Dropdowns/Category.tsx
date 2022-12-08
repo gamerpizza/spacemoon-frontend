@@ -17,7 +17,7 @@ const Category = (props: any) => {
             : "text-[#F5F8FA]"
         }`}
       >
-        CATEGORIES
+        INFINITY
         <svg
           aria-hidden="true"
           className="ml-1 w-5 h-5 md:w-4 md:h-4"
@@ -44,7 +44,7 @@ const Category = (props: any) => {
 
         <div className="p-4 pb-0 text-gray-900 md:pb-4 dark:text-white">
           <ul className="space-y-4">
-            {props?.categories &&
+            {props?.categories ?
               props?.categories.map((category: any) => {
                 return (
                   <li>
@@ -56,7 +56,7 @@ const Category = (props: any) => {
                     </Link>
                   </li>
                 );
-              })}
+              }): <p className="font-comfortaa text-[12px]"> No Categories are avaible </p>}
           </ul>
         </div>
       </div>

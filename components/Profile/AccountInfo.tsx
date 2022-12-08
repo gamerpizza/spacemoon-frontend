@@ -95,7 +95,8 @@ const AccountInfo = (props: any) => {
             href="/profile/new"
             className="hover:bg-[#A042E1] hover:text-white text-gray-600 font-comfortaa inline-flex items-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 rounded-[12px] shadow"
           >
-            <AiOutlinePlus className="text-[20px]" /> &nbsp;LIst new Product
+            <AiOutlinePlus className="text-[20px]" /> &nbsp;
+            <button type="button">List new Product</button>
           </Link>
         </div>
         <div>
