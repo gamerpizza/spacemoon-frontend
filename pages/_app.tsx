@@ -105,6 +105,7 @@ function MyApp({ Component, pageProps, arrayOfCategories }: any) {
       session={pageProps?.session}
       baseUrl="/realms/spacemoon/protocol/openid-connect/auth"
     >
+    <div className="mb-20">
       <Navbar
         pageProps={pageProps}
         cart={cart}
@@ -116,7 +117,7 @@ function MyApp({ Component, pageProps, arrayOfCategories }: any) {
         searchHandler={searchHandler}
         categories={arrayOfCategories}
       />
-
+    </div>
       <Component
         searchResults={searchResults}
         cart={cart}

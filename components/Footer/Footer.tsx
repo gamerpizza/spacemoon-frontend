@@ -5,12 +5,9 @@ import Logo from "../../public/images/logo_black.png";
 
 const Footer = () => {
   const router = useRouter();
-  console.log(router.pathname)
   return (
     <footer
-      className={`bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover  w-full text-gray-600 body-font p-8 ${
-        router.pathname !== "/"? "absolute bottom-0" : ""
-      }
+      className={`bg-[url(/images/foother_bck.png)] bg-no-repeat  bg-[100%] bg-auto bg-cover  w-full text-gray-600 body-font p-8 mt-[120px]
       ${router.pathname === ("/auth/login" || "/auth/register") ? "hidden" : "block"}`}
     >
       <div className="flex flex-wrap ">

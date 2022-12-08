@@ -18,7 +18,7 @@ const AccountInfo = (props: any) => {
     });
   };
   return (
-    <div className="py-16 pl-16  flex justify-between w-full">
+    <div className="pt-16 pl-16  flex justify-between w-full">
       <div className="md:w-[20%] min-w-[180px]">
         <div className="relative">
           <img

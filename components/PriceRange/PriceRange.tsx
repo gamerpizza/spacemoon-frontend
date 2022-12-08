@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useRanger } from "react-ranger";
 
 const PriceRange = () => {
-  const [values, setValues] = useState([1000, 5000]);
+  const [values, setValues] = useState([1000, 9000]);
 
   const { getTrackProps, handles } = useRanger({
     min: 0,
@@ -13,16 +13,15 @@ const PriceRange = () => {
   });
 
   return (
-    <div className="App">
-      <br />
-      <br />
+    <div className="h-6">
+      <br/>
       <div
         {...getTrackProps({
           style: {
             height: "3px",
             background: "#A042E1",
             boxShadow: "inset 0 1px 2px rgba(0,0,0,.6)",
-            borderRadius: "2px"
+            borderRadius: "1px"
           }
         })}
       >

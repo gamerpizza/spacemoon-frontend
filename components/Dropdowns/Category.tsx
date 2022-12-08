@@ -50,7 +50,7 @@ const Category = (props: any) => {
                   <li>
                     <Link
                       href={`/${path.CATEGORIES}/${category[Object.keys(category)[0]].name}`}
-                      className="flex font-comfortaa text-[12px] text-[#1C1F22] items-center dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-500 group"
+                      className="flex font-comfortaa text-[12px] text-[#1C1F22] items-center dark:text-gray-400 hover:text-[#A042E1] focus:text-[#A042E1] group"
                     >
                       {category[Object.keys(category)[0]].name}
                     </Link>

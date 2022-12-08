@@ -124,7 +124,7 @@ export const Navbar = (props: any) => {
 
   return (
     <nav
-      className={`sticky top-0 z-10  border-b border-gray-200 px-20 py-0.5
+      className={`absolute w-full top-0 z-10  border-b border-gray-200 px-20 py-0.5
       ${
         yScroll > 722 || router.pathname !== `${path.HOMEPAGE}`
           ? "bg-[#F5F8FA]"

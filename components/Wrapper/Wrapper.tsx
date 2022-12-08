@@ -8,9 +8,7 @@ interface IProps {
 const Wrapper = ({ children }: IProps) => {
   return (
     <>
-
       {children}
-
     </>
   );
 };
