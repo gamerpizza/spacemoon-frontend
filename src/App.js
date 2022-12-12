@@ -1,5 +1,5 @@
 import './App.css';
-import Header from  './Header';
+import Header from './header/Header';
 import Dashboard from "./dashboard/Dashboard";
 
 function App() {

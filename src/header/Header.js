@@ -1,7 +1,9 @@
+import {SearchBar} from "./SearchBar";
+
 function Header() {
     return <header className="Header">
         <p>SPACEMOON</p>
-        <span className="Search"><input type="text" className="SearchBar" placeholder="Search Products"/></span>
+        <SearchBar/>
         <p>User Menu</p>
     </header>;
 }
