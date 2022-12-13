@@ -1,3 +1,5 @@
+import './Dashboard.css'
+
 function SideMenu() {
     return <aside className="Aside">
         <p>Side Menu</p>
@@ -18,8 +20,11 @@ function Items() {
 
 function Dashboard() {
     return <div className="Dashboard">
-        <SideMenu/>
-        <Items/>
+
+            <SideMenu/>
+            <Items/>
+
+
     </div>;
 }
 

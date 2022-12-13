@@ -1,10 +1,14 @@
+import './Header.css'
 import {SearchBar} from "./SearchBar";
 
 function Header() {
     return <header className="Header">
-        <p>SPACEMOON</p>
-        <SearchBar/>
-        <p>User Menu</p>
+        <div className="Container">
+            <p>SPACEMOON</p>
+            <SearchBar/>
+            <p>User Menu</p>
+        </div>
+
     </header>;
 }
 

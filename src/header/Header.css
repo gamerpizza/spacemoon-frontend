@@ -1,0 +1,30 @@
+.Header {
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  z-index: 99;
+  border-bottom: 1px #999 solid;
+  padding: 5px;
+}
+.Header .Container {
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+}
+
+.SearchBar {
+  border-radius: 20px;
+  width: 25vw;
+  padding: 10px;
+  background-color: #ddd;
+  border: 1px #ccc solid;
+}
+
+.SearchBar:focus {
+  border: none;
+}
+
+/*# sourceMappingURL=Header.css.map */

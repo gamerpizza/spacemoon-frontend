@@ -1,0 +1,13 @@
+.Dashboard {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  position: relative;
+  top: 3em;
+  max-width: 1150px;
+  margin: auto;
+}
+
+.Items li {
+  height: 30vh;
+  text-align: center;
+}
