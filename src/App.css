@@ -1,3 +1,7 @@
+.App{
+    max-width: 1150px;
+}
+
 .Header{
     display: flex;
     justify-content: space-around;
