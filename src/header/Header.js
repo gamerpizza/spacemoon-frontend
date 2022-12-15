@@ -12,7 +12,7 @@ function Header({user = "", handleLogin = ()=>{}}) {
         <div className="Container">
             <p>SPACEMOON</p>
             <SearchBar/>
-            {user?<p>User Menu</p>:<div><button className="LoginButton" onClick={toggleLogin}>Login</button></div>}
+            {user?<p>User Menu</p>:<div><button className="LoginButton Button" onClick={toggleLogin}>Login</button></div>}
         </div>
 
     </header>;

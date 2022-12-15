@@ -1,39 +1,21 @@
-.LoginModal {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  display: flex;
-  flex-direction: column;
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  z-index: 99;
-}
-.LoginModal form {
-  position: relative;
-  margin: auto;
-  max-width: 300px;
-  max-height: 300px;
-  padding: 3em;
-  background-color: #fff;
-  color: #000;
-  border-radius: 4px;
-}
-.LoginModal form input {
-  margin: 10px 2px;
-}
-.LoginModal .CloseButton {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0.6em;
-  right: 0.8em;
-  background-color: #fff;
-  color: #000;
+.Button {
   border: none;
+  background-color: rgb(254, 44, 85);
+  color: rgb(255, 255, 255);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 16px;
   font-weight: 700;
-  font-size: 1.2em;
+}
+.Button:hover {
+  background-color: rgb(204, 34, 65);
+}
+.Button:active {
+  background-color: black;
+}
+
+.WrongInput {
+  border: 1px solid crimson;
 }
 
 /*# sourceMappingURL=App.css.map */

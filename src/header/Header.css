@@ -27,20 +27,4 @@
   border: none;
 }
 
-.LoginButton {
-  border: none;
-  background-color: rgb(254, 44, 85);
-  color: rgb(255, 255, 255);
-  border-radius: 4px;
-  padding: 6px 8px;
-  font-size: 16px;
-  font-weight: 700;
-}
-.LoginButton:hover {
-  background-color: rgb(204, 34, 65);
-}
-.LoginButton:active {
-  background-color: black;
-}
-
 /*# sourceMappingURL=Header.css.map */
