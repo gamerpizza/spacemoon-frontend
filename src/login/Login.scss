@@ -30,13 +30,23 @@
     border-radius: 4px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 3em 3em 1em 2em;
+    //grid-template-rows: 3em 3em 1em 2em;
     & input{
       margin: 10px 2px;
     }
     & label{
       text-align: center;
       line-height: 3em;
+    }
+    & .LoginErrorMessage{
+      grid-column-start: 1;
+      grid-column-end: 3;
+      text-align: center;
+      color: crimson;
+      display: none;
+      &.Show{
+        display: block;
+      }
     }
   }
 

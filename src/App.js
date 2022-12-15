@@ -13,15 +13,16 @@ function App() {
         setLoginIsShown(!loginIsShown);
     }
 
-    function getUserCredential(user, token){
+    function loginUser(user, token){
         console.log(user+":"+token)
         setUser(user)
         setToken(token)
+        toggleLogin()
     }
 
     return (
         <div className="App">
-            <Login shown={loginIsShown} closeFunction={toggleLogin} onLogin={getUserCredential}/>
+            <Login shown={loginIsShown} closeFunction={toggleLogin} onLogin={loginUser}/>
             <Header user={user} handleLogin={toggleLogin}/>
             <Dashboard/>
         </div>

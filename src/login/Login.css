@@ -29,7 +29,6 @@
   border-radius: 4px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3em 3em 1em 2em;
 }
 .LoginModal form input {
   margin: 10px 2px;
@@ -37,6 +36,16 @@
 .LoginModal form label {
   text-align: center;
   line-height: 3em;
+}
+.LoginModal form .LoginErrorMessage {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  text-align: center;
+  color: crimson;
+  display: none;
+}
+.LoginModal form .LoginErrorMessage.Show {
+  display: block;
 }
 .LoginModal .CloseButton {
   width: 20px;
