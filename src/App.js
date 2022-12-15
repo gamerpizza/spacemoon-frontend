@@ -1,7 +1,7 @@
 import './App.css';
 import Header from './header/Header';
 import Dashboard from "./dashboard/Dashboard";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {Login} from "./login/Login";
 
 function App() {
@@ -13,12 +13,24 @@ function App() {
         setLoginIsShown(!loginIsShown);
     }
 
-    function loginUser(user, token){
-        console.log(user+":"+token)
+    function loginUser(user, t){
+        console.log(user+":"+t)
         setUser(user)
-        setToken(token)
+        setToken(t)
+        localStorage.setItem("user", JSON.stringify({user: user, token: t}))
         toggleLogin()
     }
+
+    useEffect(() => {
+        let usr = localStorage.getItem("user")
+        if (usr !== null){
+            console.log(usr)
+            setUser(JSON.parse(localStorage.getItem("user")).user)
+            setToken(JSON.parse(localStorage.getItem("user")).token)
+        }
+    }, [])
+
+
 
     return (
         <div className="App">
