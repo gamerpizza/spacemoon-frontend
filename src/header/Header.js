@@ -2,17 +2,16 @@ import './Header.css'
 import {SearchBar} from "./SearchBar";
 import * as PropTypes from "prop-types";
 
-function Header({user = "", handleLogin = ()=>{}}) {
-    const toggleLogin = () => {
-        console.log("CLICK")
-        console.log(handleLogin)
-        handleLogin()
-    }
+function UserMenu({handleLogout = () => {}}) {
+    return <div><button className="Button White">+ Add Product</button> <button className="Button White" onClick={handleLogout}>Logout</button></div>;
+}
+
+function Header({user = "", handleLogin = ()=>{}, handleLogout = ()=>{}}) {
     return <header className="Header">
         <div className="Container">
             <p>SPACEMOON</p>
             <SearchBar/>
-            {user?<p>User Menu</p>:<div><button className="LoginButton Button" onClick={toggleLogin}>Login</button></div>}
+            {user?<UserMenu handleLogout={handleLogout}/>:<div><button className="LoginButton Button" onClick={handleLogin}>Login</button></div>}
         </div>
 
     </header>;

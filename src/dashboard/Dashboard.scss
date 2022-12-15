@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   position: relative;
-  top: 3em;
+  top: 4em;
   max-width: 1150px;
   margin: auto;
 }
@@ -10,4 +10,18 @@
 .Items li {
   height: 30vh;
   text-align: center;
+}
+
+.Aside{
+  position: fixed;
+  border-right: 1px #ccc solid;
+  height: 100%;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  width: 100%;
+}
+
+.Main{
+  grid-column-start: 2;
+  grid-column-end: 3;
 }

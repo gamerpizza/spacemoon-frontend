@@ -13,7 +13,22 @@
   &:active{
     background-color: black;
   }
+
+  &.White{
+    background-color: white;
+    border: black 1px solid;
+    color: black;
+    &:hover{
+      background-color: #ccc;
+    }
+    &:active{
+      background-color: black;
+      color: white;
+    }
+  }
 }
+
+
 
 .WrongInput{
   border: 1px solid crimson;
