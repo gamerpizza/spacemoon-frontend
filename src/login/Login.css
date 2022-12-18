@@ -41,7 +41,7 @@
   grid-column-start: 1;
   grid-column-end: 3;
   text-align: center;
-  color: crimson;
+  color: rgb(70, 90, 190);
   display: none;
 }
 .LoginModal form .LoginErrorMessage.Show {

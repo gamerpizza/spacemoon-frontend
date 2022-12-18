@@ -26,7 +26,7 @@ function Items() {
         <ul className="Items">
             {Object.entries(items).map(([k,v]) =>
                 {return <li key={k}>
-                    <span className={"PostAuthor"}>{v.author}</span>
+                    <button className={"PostAuthor"}>{v.author}</button>
                     <span className={"PostCaption"}>{v.caption}</span>
                 </li>})
             }

@@ -15,15 +15,19 @@
   border-bottom: dotted 2px #ccc;
   padding: 1em;
 }
-.Items li span.PostAuthor {
+.Items li .PostAuthor {
   font-weight: bolder;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   align-self: flex-start;
   font-size: 0.8em;
+  border: none;
+  background-color: #eee;
+  padding: 3px 7px;
+  color: rgb(50, 70, 170);
 }
 .Items li span.PostCaption {
   font-weight: bolder;
-  margin-bottom: 5px;
+  margin-bottom: 7px;
   font-size: 1.2em;
 }
 
