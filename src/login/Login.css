@@ -47,23 +47,8 @@
 .LoginModal form .LoginErrorMessage.Show {
   display: block;
 }
-.LoginModal .CloseButton {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0.6em;
-  right: 0.8em;
-  background-color: #fff;
-  color: #888;
-  border: none;
-  font-weight: 700;
-  font-size: 1.2em;
-}
-.LoginModal .CloseButton:hover {
-  color: #444;
-}
-.LoginModal .CloseButton:active {
-  color: black;
+.LoginModal form p {
+  grid-column: 1/span 2;
 }
 
 /*# sourceMappingURL=Login.css.map */

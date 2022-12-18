@@ -6,12 +6,18 @@
   padding: 6px 8px;
   font-size: 16px;
   font-weight: 700;
+  margin: 3px !important;
+  min-width: 40px;
+  text-align: center;
 }
 .Button:hover {
   background-color: rgb(204, 34, 65);
 }
 .Button:active {
   background-color: black;
+}
+.Button:disabled {
+  background-color: #888888;
 }
 .Button.White {
   background-color: white;
@@ -25,9 +31,36 @@
   background-color: black;
   color: white;
 }
+.Button.Big {
+  height: 48px;
+}
+
+.CloseButton {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0.6em;
+  right: 0.8em;
+  background-color: #fff;
+  color: #888;
+  border: none;
+  font-weight: 700;
+  font-size: 1.2em;
+  margin: 0;
+}
+.CloseButton:hover {
+  color: #444;
+}
+.CloseButton:active {
+  color: black;
+}
 
 .WrongInput {
   border: 1px solid crimson;
+}
+
+.Disappear {
+  display: none;
 }
 
 /*# sourceMappingURL=App.css.map */

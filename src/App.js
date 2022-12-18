@@ -3,6 +3,7 @@ import Header from './header/Header';
 import Dashboard from "./dashboard/Dashboard";
 import {useEffect, useState} from "react";
 import {Login} from "./login/Login";
+import {AddPost} from "./addProduct/addPost";
 
 const userStorageKey = "user";
 
@@ -10,6 +11,7 @@ function App() {
     const [user, setUser] = useState('');
     const [token, setToken] = useState('');
     const [loginIsShown, setLoginIsShown] = useState(false);
+    const [newPostIsShown, setNewPostIsShown] = useState(false);
 
     function toggleLogin (){
         setLoginIsShown(!loginIsShown);
@@ -29,6 +31,10 @@ function App() {
         setToken("")
     }
 
+    function toggleNewPost(){
+        setNewPostIsShown(!newPostIsShown)
+    }
+
     useEffect(() => {
         let usr = localStorage.getItem(userStorageKey)
         if (usr !== null){
@@ -41,8 +47,9 @@ function App() {
     return (
         <div className="App">
             <Login shown={loginIsShown} closeFunction={toggleLogin} onLogin={loginUser}/>
-            <Header user={user} handleLogin={toggleLogin} handleLogout={logOut}/>
-            <Dashboard/>
+            <AddPost  shown={newPostIsShown} onClose={toggleNewPost}/>
+            <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut} handleNewPos={toggleNewPost}/>
+            <Dashboard user={user} token={token}/>
         </div>
     );
 }

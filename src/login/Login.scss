@@ -48,24 +48,8 @@
         display: block;
       }
     }
-  }
-
-  & .CloseButton{
-    width: 20px;
-    height: 20px;
-    position: absolute;
-    top: .6em;
-    right: .8em;
-    background-color: #fff;
-    color:#888;
-    border: none;
-    font-weight: 700;
-    font-size: 1.2em;
-    &:hover{
-      color: #444;
-    }
-    &:active{
-      color: black;
+    & p{
+      grid-column: 1 /span 2;
     }
   }
 }

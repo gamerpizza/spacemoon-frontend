@@ -2,16 +2,24 @@ import './Header.css'
 import {SearchBar} from "./SearchBar";
 import * as PropTypes from "prop-types";
 
-function UserMenu({handleLogout = () => {}}) {
-    return <div><button className="Button White">+ Add Product</button> <button className="Button White" onClick={handleLogout}>Logout</button></div>;
+function UserMenu({handleLogout = () => {}, handleNewPost = () => {}}) {
+    return <div>
+        <button className="Button White" onClick={handleNewPost}>+</button>
+        <button className="Button White" onClick={handleLogout}>Logout</button>
+    </div>;
 }
 
-function Header({user = "", handleLogin = ()=>{}, handleLogout = ()=>{}}) {
+function Header({user = "", token = "", handleLogin = ()=>{}, handleLogout = ()=>{}, handleNewPos: handleNewPost = () => {
+}}) {
     return <header className="Header">
         <div className="Container">
             <p>SPACEMOON</p>
             <SearchBar/>
-            {user?<UserMenu handleLogout={handleLogout}/>:<div><button className="LoginButton Button" onClick={handleLogin}>Login</button></div>}
+            {user&&token?
+                <UserMenu handleLogout={handleLogout} handleNewPost={handleNewPost}/>:
+                <div>
+                    <button className="LoginButton Button" onClick={handleLogin}>Login</button>
+                </div>}
         </div>
 
     </header>;

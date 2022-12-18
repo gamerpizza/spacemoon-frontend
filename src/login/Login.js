@@ -8,29 +8,21 @@ function LoginForm({onClose, onLoggedIn}) {
     const [userInputIsWrong, setUserInputIsWrong] = useState(false)
     const [passInputIsWrong, setPassInputIsWrong] = useState(false)
     const [invalidCredentials, setInvalidCredentials] = useState(false)
-    const tryToLogin = () => {
+    const [isSignUp, setIsSignup] = useState(false)
+
+    const loginOrSignup = () => {
         let stop = false
         stop = validateUser();
         if (stop) return;
         stop = validatePassword();
         if (stop) return;
 
-        fetch('http://34.172.187.156:1234/login', {
-            method: "GET",
-            headers: {"Authorization": "Basic " + window.btoa(username + ":" + password)}
-        })
-            .then(response => {
-                if (response.status === 401){
-                    setInvalidCredentials(true)
-                    return ""
-                }
-                return response.text()
-            }).then(r => {
-            let token = r.replace("token: ", "")
-            if (token.trim() !== ""){
-                onLoggedIn(username, token)
-            }
-        });
+        if (isSignUp){
+            signUp();
+        } else {
+            login();
+        }
+
 
         function validateUser() {
             if (username.trim() === "") {
@@ -41,7 +33,6 @@ function LoginForm({onClose, onLoggedIn}) {
                 return false
             }
         }
-
         function validatePassword() {
             if (password.trim() === "") {
                 setPassInputIsWrong(true)
@@ -51,6 +42,40 @@ function LoginForm({onClose, onLoggedIn}) {
                 return false
             }
         }
+        function login() {
+            fetch('http://34.172.187.156:1234/login', {
+                method: "GET",
+                headers: {"Authorization": "Basic " + window.btoa(username + ":" + password)}
+            })
+                .then(response => {
+                    if (response.status === 401) {
+                        setInvalidCredentials(true)
+                        return ""
+                    }
+                    return response.text()
+                }).then(r => {
+                let token = r.replace("token: ", "")
+                if (token.trim() !== "") {
+                    onLoggedIn(username, token)
+                }
+            });
+        }
+        function signUp() {
+            fetch('http://34.172.187.156:1234/login', {
+                method: "POST",
+                body: "", //TODO
+            }).then(response => {
+                if (response.status !== 204) {
+                    alert("could not create user");
+                    return;
+                }
+                login();
+            })
+        }
+    }
+
+    function toggleSignUp() {
+        setIsSignup(!isSignUp)
     }
 
     return (
@@ -67,8 +92,16 @@ function LoginForm({onClose, onLoggedIn}) {
                        onChange={(event) => {
                            setPassword(event.target.value)
                        }} className={passInputIsWrong ? "WrongInput" : ""}/>
-                <p className={invalidCredentials?"LoginErrorMessage Show":"LoginErrorMessage"} >Invalid Username/Password</p>
-                <button type="button" className="Button LoginSendButton" onClick={tryToLogin}>Login</button>
+                <p className={invalidCredentials ? "LoginErrorMessage Show" : "LoginErrorMessage"}>Invalid
+                    Username/Password</p>
+                <p>
+                    {isSignUp ? "Already have an account?" : "Want to create an account?"}
+                    <button type={"button"}
+                            className={"Button White"} onClick={toggleSignUp}>{isSignUp ? "Log In" : "Sign up"}</button>
+                </p>
+                <button type="button"
+                        className="Button LoginSendButton Big"
+                        onClick={loginOrSignup}>{isSignUp ? "Sign Up" : "Login"}</button>
             </form>
         </div>
     );
