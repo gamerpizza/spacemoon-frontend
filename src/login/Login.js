@@ -1,6 +1,7 @@
 import "./Login.css"
 import * as PropTypes from "prop-types";
 import {useState} from "react";
+import {Host} from "../BackEnd";
 
 function LoginForm({onClose, onLoggedIn}) {
     const [username, setUsername] = useState("")
@@ -43,7 +44,7 @@ function LoginForm({onClose, onLoggedIn}) {
             }
         }
         function login() {
-            fetch('34.172.187.156:1234/login', {
+            fetch(Host + '/login', {
                 method: "GET",
                 headers: {"Authorization": "Basic " + window.btoa(username + ":" + password)}
             })
@@ -61,8 +62,9 @@ function LoginForm({onClose, onLoggedIn}) {
             });
         }
         function signUp() {
+            console.log(Host)
             let user = {user_name: username, password: password}
-            fetch('34.172.187.156:1234/login', {
+            fetch(Host + '/login', {
                 method: "POST",
                 body: JSON.stringify(user), //TODO
             }).then(response => {

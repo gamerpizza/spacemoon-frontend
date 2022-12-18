@@ -47,7 +47,7 @@ function App() {
     return (
         <div className="App">
             <Login shown={loginIsShown} closeFunction={toggleLogin} onLogin={loginUser}/>
-            <AddPost  shown={newPostIsShown} onClose={toggleNewPost}/>
+            <AddPost  shown={newPostIsShown} onClose={toggleNewPost} userToken={token}/>
             <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut} handleNewPos={toggleNewPost}/>
             <Dashboard user={user} token={token}/>
         </div>

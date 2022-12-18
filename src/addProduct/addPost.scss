@@ -35,6 +35,13 @@
     & input {
       grid-column: 1 / span 2;
       padding: 7px 5px;
+      font-size: 1.25em;
+      border: solid 2px #ccc;
+      border-radius: 4px;
+      &:focus{
+        outline: none;
+        border-color: #888888;
+      }
     }
 
     & label {
