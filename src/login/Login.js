@@ -68,8 +68,8 @@ function LoginForm({onClose, onLoggedIn}) {
                 method: "POST",
                 body: JSON.stringify(user), //TODO
             }).then(response => {
-                if (response.status !== 204) {
-                    alert("could not create user");
+                if (response.status < 200 && response.status > 299) {
+                    alert("could not create user" + response.status);
                     return;
                 }
                 login();
