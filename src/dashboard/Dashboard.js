@@ -24,7 +24,12 @@ function Items() {
 
     return <main className="Main">
         <ul className="Items">
-            {Object.entries(items).map(([k,v]) => {return <li key={k}><span className={"Author"}>{v.author}</span><span>{v.caption}</span></li>})}
+            {Object.entries(items).map(([k,v]) =>
+                {return <li key={k}>
+                    <span className={"PostAuthor"}>{v.author}</span>
+                    <span className={"PostCaption"}>{v.caption}</span>
+                </li>})
+            }
         </ul>
     </main>;
 }
