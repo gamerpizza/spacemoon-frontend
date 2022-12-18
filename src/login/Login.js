@@ -61,9 +61,10 @@ function LoginForm({onClose, onLoggedIn}) {
             });
         }
         function signUp() {
+            let user = {user_name: username, password: password}
             fetch('http://34.172.187.156:1234/login', {
                 method: "POST",
-                body: "", //TODO
+                body: JSON.stringify(user), //TODO
             }).then(response => {
                 if (response.status !== 204) {
                     alert("could not create user");
