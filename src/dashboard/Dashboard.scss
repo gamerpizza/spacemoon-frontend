@@ -7,10 +7,21 @@
   margin: auto;
 }
 
-.Items li {
-  height: 30vh;
-  text-align: center;
+.Items{
+  li {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-bottom: solid 2px #ccc;
+    padding: 1em;
+    & span.Author{
+      font-weight: bolder;
+    }
+
+  }
 }
+
 
 .Aside{
   position: fixed;

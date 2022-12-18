@@ -8,8 +8,15 @@
 }
 
 .Items li {
-  height: 30vh;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-bottom: solid 2px #ccc;
+  padding: 1em;
+}
+.Items li span.Author {
+  font-weight: bolder;
 }
 
 .Aside {

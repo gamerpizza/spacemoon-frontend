@@ -66,7 +66,7 @@ function LoginForm({onClose, onLoggedIn}) {
             let user = {user_name: username, password: password}
             fetch(Host + '/login', {
                 method: "POST",
-                body: JSON.stringify(user), //TODO
+                body: JSON.stringify(user),
             }).then(response => {
                 if (response.status < 200 && response.status > 299) {
                     alert("could not create user" + response.status);

@@ -15,7 +15,6 @@ export function AddPost({shown = false, userToken = "", onClose = () => {}}) {
             headers: {"Authorization": bearerToken},
             body: JSON.stringify(post),
         }).then(r => {
-            return
         }).then(r => {
             setCaption("")
             setIsReady(false)
@@ -44,7 +43,8 @@ export function AddPost({shown = false, userToken = "", onClose = () => {}}) {
                                placeholder={"write a caption for your post"} value={caption} onChange={changeCaption}/>
                     </fieldset>
                     <label htmlFor="product-image" className="Button">Select file</label>
-                    <input type="file" id="product-image" className={"Disappear"} name="product-image"/>
+                    <input type="file" id="product-image" className={"Disappear"} name="product-image"
+                           accept={"video/*,image/*"} multiple={true}/>
                     <button type={"button"} className="Button Big White" onClick={onClose} >Discard</button>
                     <button type={"button"} className="Button Big" disabled={!isReady} onClick={post}>Post</button>
                 </form>

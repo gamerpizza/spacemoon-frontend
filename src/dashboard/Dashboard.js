@@ -1,4 +1,6 @@
 import './Dashboard.css'
+import {useEffect, useState} from "react";
+import {Host} from "../BackEnd";
 
 function SideMenu() {
     return <aside className="Aside">
@@ -7,13 +9,22 @@ function SideMenu() {
 }
 
 function Items() {
+    const [items, setItems] = useState({});
+
+    useEffect(() => {
+        fetch(Host + "/posts", {
+            method: "GET",
+        }).then(r => {
+            return r.json();
+        }).then(r => {
+            console.dir(r)
+            setItems(r);
+        });
+    },[]);
+
     return <main className="Main">
         <ul className="Items">
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-            <li>Item 5</li>
+            {Object.entries(items).map(([k,v]) => {return <li key={k}><span className={"Author"}>{v.author}</span><span>{v.caption}</span></li>})}
         </ul>
     </main>;
 }
