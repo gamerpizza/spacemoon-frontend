@@ -20,7 +20,7 @@ function Items() {
             console.dir(r)
             setItems(r);
         });
-    },[]);
+    },[items]);
 
     return <main className="Main">
         <ul className="Items">
