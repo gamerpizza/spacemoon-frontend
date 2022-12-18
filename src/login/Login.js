@@ -43,7 +43,7 @@ function LoginForm({onClose, onLoggedIn}) {
             }
         }
         function login() {
-            fetch('http://34.172.187.156:1234/login', {
+            fetch('34.172.187.156:1234/login', {
                 method: "GET",
                 headers: {"Authorization": "Basic " + window.btoa(username + ":" + password)}
             })
@@ -62,7 +62,7 @@ function LoginForm({onClose, onLoggedIn}) {
         }
         function signUp() {
             let user = {user_name: username, password: password}
-            fetch('https://34.172.187.156:1234/login', {
+            fetch('34.172.187.156:1234/login', {
                 method: "POST",
                 body: JSON.stringify(user), //TODO
             }).then(response => {
