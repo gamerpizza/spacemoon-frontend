@@ -62,7 +62,7 @@ function LoginForm({onClose, onLoggedIn}) {
         }
         function signUp() {
             let user = {user_name: username, password: password}
-            fetch('http://34.172.187.156:1234/login', {
+            fetch('https://34.172.187.156:1234/login', {
                 method: "POST",
                 body: JSON.stringify(user), //TODO
             }).then(response => {
