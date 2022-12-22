@@ -14,6 +14,12 @@
   align-items: center;
   margin: auto;
 }
+.Header .HeaderLogo {
+  color: rgb(220, 90, 200);
+  font-weight: bolder;
+  font-size: 1.5em;
+  font-family: serif;
+}
 
 .SearchBar {
   border-radius: 20px;
