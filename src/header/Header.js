@@ -9,12 +9,14 @@ function UserMenu({handleLogout = () => {}, handleNewPost = () => {}}) {
     </div>;
 }
 
-function Header({user = "", token = "", handleLogin = ()=>{}, handleLogout = ()=>{}, handleNewPos: handleNewPost = () => {
-}}) {
+function Header({user = "", token = "", handleLogin = ()=>{}, handleLogout = ()=>{},
+                    handleNewPost = () => {},
+                    onSearch= (filter) => {},
+}) {
     return <header className="Header">
         <div className="Container">
             <p>SPACEMOON</p>
-            <SearchBar/>
+            <SearchBar onChange={onSearch}/>
             {user&&token?
                 <UserMenu handleLogout={handleLogout} handleNewPost={handleNewPost}/>:
                 <div>

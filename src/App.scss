@@ -1,5 +1,9 @@
 @import "./Colors.scss";
 
+body{
+  font-size: small;
+}
+
 .Button{
   border: none;
   background-color: $accent-color-brighter;

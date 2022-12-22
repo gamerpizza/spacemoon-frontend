@@ -23,16 +23,20 @@
       font-weight: bolder;
       margin-bottom: 10px;
       align-self: flex-start;
-      font-size: .8em;
+      font-size: 1em;
       border: none;
       background-color: $almost-white;
       padding: 3px 7px;
       color: $accent-color;
+      border-radius: 4px;
+      &:before{
+        content: "@";
+      }
     }
     span.PostCaption{
-      font-weight: bolder;
       margin-bottom: 7px;
-      font-size: 1.2em;
+      font-size: 1em;
+      text-align: left;
     }
   }
 }

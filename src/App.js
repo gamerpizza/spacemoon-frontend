@@ -12,6 +12,7 @@ function App() {
     const [token, setToken] = useState('');
     const [loginIsShown, setLoginIsShown] = useState(false);
     const [newPostIsShown, setNewPostIsShown] = useState(false);
+    const [filter, setFilter] = useState("")
 
     function toggleLogin (){
         setLoginIsShown(!loginIsShown);
@@ -38,18 +39,24 @@ function App() {
     useEffect(() => {
         let usr = localStorage.getItem(userStorageKey)
         if (usr !== null){
-            console.log(usr)
+            console.log(filter)
             setUser(JSON.parse(localStorage.getItem(userStorageKey)).user)
             setToken(JSON.parse(localStorage.getItem(userStorageKey)).token)
         }
-    }, [])
+    }, [filter])
+
+    function filterBySearch({target}) {
+        setFilter(target.value)
+    }
 
     return (
         <div className="App">
             <Login shown={loginIsShown} closeFunction={toggleLogin} onLogin={loginUser}/>
             <AddPost  shown={newPostIsShown} onClose={toggleNewPost} userToken={token}/>
-            <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut} handleNewPos={toggleNewPost}/>
-            <Dashboard user={user} token={token}/>
+            <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut}
+                    handleNewPost={toggleNewPost} onSearch={filterBySearch}
+            />
+            <Dashboard filterString={filter}/>
         </div>
     );
 }

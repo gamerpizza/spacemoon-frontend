@@ -2,25 +2,37 @@ import {useEffect, useState} from "react";
 import {Host} from "../BackEnd";
 import * as PropTypes from "prop-types";
 
-export function Items() {
+export function Items({filterString}) {
     const [items, setItems] = useState({});
 
     //Constantly reloading, should limit?
     useEffect(function fetchPosts(){
-        fetch(Host + "/posts", {
-            method: "GET",
-        }).then(r => {
-            return r.json();
-        }).then(r => {
-            setItems(r);
-        });
-    }, [items]);
+        if (Object.entries(items).length === 0) {
+            performFetch();
+        } else {
+            setTimeout(performFetch, 20000)
+        }
+        function performFetch() {
+            fetch(Host + "/posts", {
+                method: "GET",
+            }).then(r => {
+                return r.json();
+            }).then(r => {
+                setItems(r);
+            });
+        }
+    }, [items, filterString]);
 
     return <main className="Main">
         <ul className="Items">
-            {Object.entries(items).map(([k, item]) => {
-                return <Post item={item} key={item.id}/>
-            })
+            {Object.entries(items)
+                .filter(([k, item]) => {
+                    return item.author.toLowerCase().includes(filterString.toLowerCase())
+                        || item.caption.toLowerCase().includes(filterString.toLowerCase())
+                })
+                .map(([k, item]) => {
+                    return <Post item={item} key={item.id}/>
+                })
             }
         </ul>
     </main>;

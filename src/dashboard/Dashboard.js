@@ -7,10 +7,10 @@ function SideMenu() {
     </aside>;
 }
 
-function Dashboard() {
+function Dashboard({filterString}) {
     return <div className="Dashboard">
             <SideMenu/>
-            <Items/>
+            <Items filterString={filterString}/>
     </div>;
 }
 

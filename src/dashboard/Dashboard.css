@@ -21,16 +21,20 @@
   font-weight: bolder;
   margin-bottom: 10px;
   align-self: flex-start;
-  font-size: 0.8em;
+  font-size: 1em;
   border: none;
   background-color: #eee;
   padding: 3px 7px;
   color: rgb(50, 70, 170);
+  border-radius: 4px;
+}
+.Items li .PostAuthor:before {
+  content: "@";
 }
 .Items li span.PostCaption {
-  font-weight: bolder;
   margin-bottom: 7px;
-  font-size: 1.2em;
+  font-size: 1em;
+  text-align: left;
 }
 
 .Aside {

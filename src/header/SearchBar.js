@@ -1,7 +1,11 @@
-import {Component} from "react";
+import * as PropTypes from "prop-types";
 
-export class SearchBar extends Component {
-    render() {
-        return <span className="Search"><input type="text" className="SearchBar" placeholder="Search Products"/></span>;
-    }
+export function SearchBar({onChange}) {
+    return <span className="Search">
+        <input type="text" className="SearchBar" placeholder="Search Products"
+                                           onChange={onChange}/>
+    </span>;
 }
+
+SearchBar.propTypes = {onChange: PropTypes.any};
+
