@@ -75,7 +75,7 @@ function FileLoader({onChange, files}) {
     return (<>
         <label htmlFor="product-image" className="Button">Select files</label>
         <input type="file" id="product-image" className={"Disappear"} name="media"
-                  accept={"image/jpeg"} multiple={true} onChange={onChange}/>
+                  accept={"image/*"} multiple={true} onChange={onChange}/>
         {files.length>0
             ?<ul className={"PostFilesList"}>{fileList}</ul>
             :<></>}

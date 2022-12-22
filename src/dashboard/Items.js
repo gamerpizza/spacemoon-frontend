@@ -6,16 +6,15 @@ export function Items() {
     const [items, setItems] = useState({});
 
     //Constantly reloading, should limit?
-    useEffect(() => {
+    useEffect(function fetchPosts(){
         fetch(Host + "/posts", {
             method: "GET",
         }).then(r => {
             return r.json();
         }).then(r => {
-            console.dir(r)
             setItems(r);
         });
-    }, []);
+    }, [items]);
 
     return <main className="Main">
         <ul className="Items">
