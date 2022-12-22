@@ -5,7 +5,8 @@ function SideMenu() {
     return <aside className="Aside">
         <ul>
             <li>
-                <button>Liked Posts</button>
+                <button
+                className={"AsideButtonHome"}>Home</button>
             </li>
         </ul>
     </aside>;

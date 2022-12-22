@@ -17,11 +17,6 @@
     width: available;
     li{
       display: block;
-      &:before{
-        content: "🌒";
-        margin-right: 3px;
-        font-size: 1.5em;
-      }
       button{
         font-size: 1.5em;
         font-weight: bolder;
@@ -29,7 +24,12 @@
         background-color: rgba(0,0,0,0);
       }
     }
-
+    .AsideButtonHome{
+      &:before{
+        content: "🌎";
+        margin-right: 3px;
+      }
+    }
   }
 }
 

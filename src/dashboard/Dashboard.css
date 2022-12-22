@@ -19,16 +19,15 @@
 .Dashboard .Aside li {
   display: block;
 }
-.Dashboard .Aside li:before {
-  content: "🌒";
-  margin-right: 3px;
-  font-size: 1.5em;
-}
 .Dashboard .Aside li button {
   font-size: 1.5em;
   font-weight: bolder;
   border: none;
   background-color: rgba(0, 0, 0, 0);
+}
+.Dashboard .Aside .AsideButtonHome:before {
+  content: "🌎";
+  margin-right: 3px;
 }
 
 .Main {
