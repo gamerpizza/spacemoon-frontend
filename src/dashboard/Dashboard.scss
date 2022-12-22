@@ -9,6 +9,28 @@
   top: 4em;
   max-width: 1150px;
   margin: auto;
+  .Aside{
+    border-right: 1px #ccc solid;
+    height: 100%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: available;
+    li{
+      display: block;
+      &:before{
+        content: "🌒";
+        margin-right: 3px;
+        font-size: 1.5em;
+      }
+      button{
+        font-size: 1.5em;
+        font-weight: bolder;
+        border: none;
+        background-color: rgba(0,0,0,0);
+      }
+    }
+
+  }
 }
 
 .Items{
@@ -42,13 +64,7 @@
 }
 
 
-.Aside{
-  border-right: 1px #ccc solid;
-  height: 100%;
-  grid-column-start: 1;
-  grid-column-end: 2;
-  width: available;
-}
+
 
 .Main{
   grid-column-start: 2;

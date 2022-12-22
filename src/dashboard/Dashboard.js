@@ -3,7 +3,11 @@ import {Items} from "./items/Items";
 
 function SideMenu() {
     return <aside className="Aside">
-        <p>Side Menu</p>
+        <ul>
+            <li>
+                <button>Liked Posts</button>
+            </li>
+        </ul>
     </aside>;
 }
 

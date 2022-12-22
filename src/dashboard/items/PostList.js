@@ -1,47 +1,40 @@
 import "./PostList.css"
-import {PostImages} from "./PostImages";
 import * as PropTypes from "prop-types";
-import {useState} from "react";
+import {Post} from "./Post";
 
 export function PostList({items, filterString}) {
     return <ul className="Items PostList">
         {Object.entries(items)
-            .filter(([k, item]) => {
-                return item.author.toLowerCase().includes(filterString.toLowerCase())
-                    || item.caption.toLowerCase().includes(filterString.toLowerCase())
-            })
+            .filter(filterByString)
+            .sort(CompareByDateDescending)
             .map(([k, item]) => {
                 return <Post item={item} key={item.id}/>
             })
         }
     </ul>;
+
+    function filterByString([k, item]) {
+        return item.author.toLowerCase().includes(filterString.toLowerCase())
+            || item.caption.toLowerCase().includes(filterString.toLowerCase())
+    }
+
+    function CompareByDateDescending([k1, item1], [k2, item2]) {
+        let createdA = Date.parse(item1.created);
+        let createdB = Date.parse(item2.created);
+        if (createdA > createdB) return -1
+        if (createdA < createdB) return 1
+        return 0
+    }
+
 }
-
-function PostMenu() {
-    return <button className={"PostMenu"}>...</button>;
-}
-
-function Post({item}) {
-    const [liked, setLiked] = useState(false)
-    function toggleLiked(){setLiked(!liked)}
-
-    return <li>
-        <button className={"PostAuthor"}>{item.author}</button>
-        <PostMenu/>
-        <span className={"PostCaption"}>{item.caption}</span>
-        <PostImages urls={item.urls}/>
-        <div className={"PostButtons"}>
-            <button type={"button"} className={"PostCommentsButton"}>👾</button>
-            <button className={"PostLikeButton"} type={"button"} onClick={toggleLiked}>{liked?<>🌒</>:<>🌍</>}</button>
-        </div>
-
-    </li>;
-}
-
 
 PostList.propTypes = {
     items: PropTypes.shape({}),
     filterString: PropTypes.string,
 };
 
-Post.propTypes = {v: PropTypes.any};
+
+
+
+
+
