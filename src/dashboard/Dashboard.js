@@ -1,5 +1,5 @@
 import './Dashboard.css'
-import {Items} from "./Items";
+import {Items} from "./items/Items";
 
 function SideMenu() {
     return <aside className="Aside">
