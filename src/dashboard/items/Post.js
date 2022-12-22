@@ -24,7 +24,6 @@ Post.propTypes = {v: PropTypes.any};
 function PostButtons(props) {
     return <>
          <div className={"PostButtons"}>
-            <button type={"button"} className={"PostCommentsButton"}>👾</button>
             <button className={"PostLikeButton"} type={"button"}
                     onClick={props.onClick}>{props.liked ? <>🌒</> : <>🌍</>}</button>
         </div>
