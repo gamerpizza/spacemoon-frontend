@@ -21,6 +21,7 @@
       border-radius: 4px;
       &:before{
         content: "@";
+        margin-right: 2px;
       }
     }
     span.PostCaption{

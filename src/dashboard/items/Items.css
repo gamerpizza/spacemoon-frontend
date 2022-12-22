@@ -17,11 +17,12 @@
   border: none;
   background-color: #eee;
   padding: 3px 7px;
-  color: rgb(170, 100, 170);
+  color: #888;
   border-radius: 4px;
 }
 .Items li .PostAuthor:before {
   content: "@";
+  margin-right: 2px;
 }
 .Items li span.PostCaption {
   margin-bottom: 7px;

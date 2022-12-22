@@ -1,4 +1,3 @@
-@charset "UTF-8";
 .Dashboard {
   display: grid;
   grid-template-columns: 1fr 3fr;
@@ -26,10 +25,6 @@
   font-weight: bolder;
   border: none;
   background-color: rgba(0, 0, 0, 0);
-}
-.Dashboard .Aside .AsideButtonHome:before {
-  content: "🌎";
-  margin-right: 3px;
 }
 
 .Main {

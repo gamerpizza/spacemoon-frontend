@@ -4,7 +4,7 @@ body {
 
 .Button {
   border: none;
-  background-color: rgb(190, 130, 190);
+  background-color: #aaa;
   color: rgb(255, 255, 255);
   border-radius: 4px;
   padding: 6px 8px;
@@ -15,7 +15,7 @@ body {
   text-align: center;
 }
 .Button:hover {
-  background-color: rgb(170, 100, 170);
+  background-color: #888;
 }
 .Button:active {
   background-color: black;
@@ -60,7 +60,7 @@ body {
 }
 
 .WrongInput {
-  border: 1px solid rgb(170, 100, 170);
+  border: 1px solid #888;
 }
 
 .Disappear {
