@@ -25,7 +25,7 @@ function PostButtons(props) {
     return <>
          <div className={"PostButtons"}>
             <button className={"PostLikeButton"} type={"button"}
-                    onClick={props.onClick}>{props.liked ? <>🌕</> : <>🌑</>}</button>
+                    onClick={props.onClick}>{props.liked ? <>🚀</> : <>🌑</>}</button>
         </div>
     </>
 }
