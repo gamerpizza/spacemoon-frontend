@@ -1,0 +1,29 @@
+.Items li {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  border-bottom: dotted 2px #ccc;
+  padding: 1em;
+}
+.Items li .PostAuthor {
+  font-weight: bolder;
+  margin-bottom: 10px;
+  align-self: flex-start;
+  font-size: 1em;
+  border: none;
+  background-color: #eee;
+  padding: 3px 7px;
+  color: rgb(50, 70, 170);
+  border-radius: 4px;
+}
+.Items li .PostAuthor:before {
+  content: "@";
+}
+.Items li span.PostCaption {
+  margin-bottom: 7px;
+  font-size: 1.2em;
+  text-align: left;
+}
+
+/*# sourceMappingURL=Items.css.map */

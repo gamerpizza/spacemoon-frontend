@@ -1,3 +1,4 @@
+@import "./Items.css";
 .PostList .PostButtons {
   margin-top: 10px;
   align-self: flex-end;

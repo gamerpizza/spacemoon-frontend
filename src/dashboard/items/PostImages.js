@@ -7,11 +7,11 @@ export function PostImages({urls}) {
     let imageUrls = Object.entries(urls)
 
     function next() {
-        if (shown + 1 >= imageUrls.length) {
+        /*if (shown + 1 >= imageUrls.length) {
             setShown(0)
         } else {
             setShown(shown + 1)
-        }
+        }*/
     }
 
     for (const [url,] of imageUrls) {
