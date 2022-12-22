@@ -38,12 +38,25 @@ function Post({item}) {
 Post.propTypes = {v: PropTypes.any};
 
 function PostImages({urls}) {
+    const [shown, setShown] = useState(0)
     const images = []
-    console.dir(urls)
-    for(const [url, ] of Object.entries(urls)){
-        images.push(<img src={bucketAddress + url} alt={""}/>)
+
+    let imageUrls =  Object.entries(urls)
+    function next(){
+        if (shown + 1 >= imageUrls.length){
+            setShown(0)
+        } else {
+            setShown(shown+1)
+        }
     }
-    return images;
+
+    for(const [url, ] of imageUrls){
+        images.push(<img src={bucketAddress + url} alt={""} onClick={next}/>)
+    }
+    let totalImages = images.length
+
+
+    return <>{totalImages>0?images[shown]:<></>}</>;
 }
 
 const bucketAddress = "https://storage.cloud.google.com/spacemoon-posted-media/"
