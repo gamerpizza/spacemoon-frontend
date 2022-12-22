@@ -6,7 +6,7 @@
   justify-items: stretch;
   align-items: stretch;
   position: relative;
-  top: 4em;
+  top: 80px;
   max-width: 1150px;
   margin: auto;
   .Aside{
@@ -15,6 +15,7 @@
     grid-column-start: 1;
     grid-column-end: 2;
     width: available;
+    padding-top: 10px;
     li{
       display: block;
       button{

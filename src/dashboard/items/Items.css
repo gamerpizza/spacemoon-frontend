@@ -1,3 +1,6 @@
+.Items {
+  max-width: 700px;
+}
 .Items li {
   text-align: center;
   display: flex;
