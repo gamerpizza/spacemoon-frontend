@@ -3,7 +3,7 @@ import Header from './header/Header';
 import Dashboard from "./dashboard/Dashboard";
 import {useEffect, useState} from "react";
 import {Login} from "./login/Login";
-import {AddPost} from "./addPost/addPost";
+import {AddPost} from "./addPost/AddPost";
 
 const userStorageKey = "user";
 

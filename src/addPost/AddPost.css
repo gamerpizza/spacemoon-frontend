@@ -50,5 +50,19 @@
 .AddPost form button.Button {
   margin: 25px 0 0 0;
 }
+.AddPost .PostFilesList {
+  grid-column: 1/span 2;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.AddPost .PostFilesList li {
+  display: inline-block;
+  background-color: #888888;
+  color: white;
+  padding: 5px;
+  border-radius: 3px;
+}
 
-/*# sourceMappingURL=addPost.css.map */
+/*# sourceMappingURL=AddPost.css.map */
