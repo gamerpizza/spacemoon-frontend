@@ -25,9 +25,11 @@
 .SearchBar {
   border-radius: 20px;
   width: 25vw;
-  padding: 10px;
+  padding: 8px 16px;
   background-color: #ddd;
   border: 1px #ccc solid;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .SearchBar:focus {

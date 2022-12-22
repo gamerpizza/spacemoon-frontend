@@ -5,21 +5,21 @@ body{
 }
 
 .Button{
-  border: none;
-  background-color: $accent-color-brighter;
-  color: rgba(255, 255, 255, 1);
+  border: 1px solid $very-light-grey;
+  background-color: white;
+  color: black;
   border-radius: 4px;
-  padding: 6px 8px;
+  padding: 8px 10px;
   font-size: 16px;
   font-weight: 700;
   margin: 3px !important;
   min-width: 40px;
   text-align: center;
   &:hover{
-    background-color: $accent-color;
+    background-color: $almost-white;
   }
   &:active{
-    background-color: black;
+    background-color: $very-light-grey;
   }
 
   &:disabled{
