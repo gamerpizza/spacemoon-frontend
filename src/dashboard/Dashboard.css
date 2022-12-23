@@ -17,6 +17,9 @@
   max-width: 350px;
   padding-top: 10px;
 }
+.Dashboard .Aside ul {
+  padding-left: 10px;
+}
 .Dashboard .Aside li {
   display: block;
 }
