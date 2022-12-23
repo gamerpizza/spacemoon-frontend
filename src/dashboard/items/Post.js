@@ -13,9 +13,7 @@ export function Post({item}) {
         <button className={"PostAuthor"}>{item.author}</button>
         <PostMenu/>
         <span className={"PostCaption"}>{item.caption}</span>
-        <PostImages urls={item.urls}/>
         <PostButtons onClick={toggleLiked} liked={liked}/>
-
     </li>;
 }
 
