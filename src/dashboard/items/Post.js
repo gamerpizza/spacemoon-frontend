@@ -1,22 +1,44 @@
-import { useState} from "react";
+import {useState} from "react";
 import {Host} from "../../BackEnd";
 import * as PropTypes from "prop-types";
 
-export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = ""}) {
-    const isLiked = item.likes === null ? false : item.likes[item.author]
+export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = "", userName=""}) {
+    let startingLikes;
+    let isLiked;
 
+    if (item.likes !== null){
+        startingLikes = Object.entries(item.likes).length
+        isLiked = item.likes[userName]
+    } else {
+        isLiked = false;
+        startingLikes = 0;
+    }
+
+    const [likes, setLikes] = useState(startingLikes)
+
+    function addOrRemoveLike(action = ""){
+        switch (action){
+            case "add":
+                setLikes(likes+1)
+                break
+            case "remove":
+                setLikes(likes-1)
+                break
+            default:
+        }
+    }
 
     return <li>
         <button className={"PostAuthor"}>{item.author}</button>
         <PostMenu/>
         <span className={"PostCaption"}>{item.caption}</span>
-        <PostButtons userToken={userToken} id={item.id} isLiked={isLiked}/>
+        <PostButtons userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/> <span className={"PostLikes"}>{likes} likes</span>
     </li>;
 }
 
 Post.propTypes = {v: PropTypes.any};
 
-function PostButtons({isLiked =  false, id = "", userToken = ""}) {
+function PostButtons({isLiked =  false, id = "", userToken = "", updateLikes = (action) => {}}) {
     const [liked, setLiked] = useState(isLiked);
     let bearerToken = "Bearer " + userToken
     let putLike = () => {
@@ -26,6 +48,11 @@ function PostButtons({isLiked =  false, id = "", userToken = ""}) {
         }).then(r => {
             return r.json();
         }).then(r => {
+            if (r) {
+                updateLikes("add")
+            } else {
+                updateLikes("remove")
+            }
             setLiked(r)
         });
     };

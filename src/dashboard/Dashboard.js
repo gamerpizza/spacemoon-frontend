@@ -12,10 +12,10 @@ function SideMenu() {
     </aside>;
 }
 
-function Dashboard({filterString = "", userToken=""}) {
+function Dashboard({filterString = "", userToken="", userName=""}) {
     return <div className="Dashboard">
             <SideMenu/>
-            <Items filterString={filterString} userToken={userToken}/>
+            <Items filterString={filterString} userToken={userToken} userName={userName}/>
     </div>;
 }
 

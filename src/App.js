@@ -19,7 +19,6 @@ function App() {
     }
 
     function loginUser(user, t){
-        console.log(user+":"+t)
         setUser(user)
         setToken(t)
         localStorage.setItem(userStorageKey, JSON.stringify({user: user, token: t}))
@@ -56,7 +55,7 @@ function App() {
             <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut}
                     handleNewPost={toggleNewPost} onSearch={filterBySearch}
             />
-            <Dashboard filterString={filter} userToken={token}/>
+            <Dashboard filterString={filter} userToken={token} userName={user}/>
         </div>
     );
 }

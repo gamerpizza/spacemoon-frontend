@@ -13,6 +13,9 @@
   background-color: rgba(0, 0, 0, 0);
   border: none;
 }
+.PostList .PostLikes {
+  align-self: flex-end;
+}
 .PostList .PostMenu {
   width: 30px;
   align-self: flex-end;

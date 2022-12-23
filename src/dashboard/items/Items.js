@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Host} from "../../BackEnd";
 import {PostList} from "./PostList";
 
-export function Items({filterString = "", userToken = ""}) {
+export function Items({filterString = "", userToken = "", userName=""}) {
     const [items, setItems] = useState({});
 
     //Constantly reloading, should limit?
@@ -24,7 +24,7 @@ export function Items({filterString = "", userToken = ""}) {
     }, [items, filterString]);
 
     return <main className="Main">
-        <PostList items={items} filterString={filterString} userToken={userToken}/>
+        <PostList items={items} filterString={filterString} userToken={userToken} userName={userName}/>
     </main>;
 }
 
