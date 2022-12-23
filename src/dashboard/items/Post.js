@@ -16,14 +16,10 @@ Post.propTypes = {v: PropTypes.any};
 function PostButtons({isLiked =  false, id = "", userToken = ""}) {
     const [liked, setLiked] = useState(isLiked);
 
-    function toggleLiked() {
-        putLike()
-    }
+    let putLike = () => {};
 
-    let bearerToken = "Bearer " + userToken
-    useEffect(putLike, [bearerToken, id]);
-
-    function putLike() {
+    if (userToken !== ""){
+        putLike = function (){
             fetch(Host + "/posts?id=" + id, {
                 method: "PUT",
                 headers: {"Authorization": bearerToken},
@@ -32,13 +28,22 @@ function PostButtons({isLiked =  false, id = "", userToken = ""}) {
             }).then(r => {
                 setLiked(r)
             });
+        }
+    }
+    function toggleLiked() {
+        putLike()
     }
 
-    return <>
+    let bearerToken = "Bearer " + userToken
+    useEffect(putLike, [bearerToken, id]);
+
+
+
+    return <>{userToken!==""?
         <div className={"PostButtons"}>
             <button className={"PostLikeButton"} type={"button"}
                     onClick={toggleLiked}>{liked ? <>🚀</> : <>✨</>}</button>
-        </div>
+        </div>:""}
     </>;
 }
 
