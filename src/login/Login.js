@@ -9,6 +9,7 @@ function LoginForm({onClose, onLoggedIn}) {
     const [userInputIsWrong, setUserInputIsWrong] = useState(false)
     const [passInputIsWrong, setPassInputIsWrong] = useState(false)
     const [invalidCredentials, setInvalidCredentials] = useState(false)
+    const [userExists, setUserExists] = useState(false)
     const [isSignUp, setIsSignup] = useState(false)
 
     const loginOrSignup = () => {
@@ -49,7 +50,7 @@ function LoginForm({onClose, onLoggedIn}) {
                 headers: {"Authorization": "Basic " + window.btoa(username + ":" + password)}
             })
                 .then(response => {
-                    if (response.status === 401) {
+                    if (response.status < 200 || response.status > 299) {
                         setInvalidCredentials(true)
                         return ""
                     }
@@ -68,11 +69,15 @@ function LoginForm({onClose, onLoggedIn}) {
                 method: "POST",
                 body: JSON.stringify(user),
             }).then(response => {
+                console.log(response)
                 if (response.status < 200 && response.status > 299) {
                     alert("could not create user" + response.status);
+                    setUserExists(true)
                     return;
+                } else {
+                    login();
                 }
-                login();
+
             })
         }
     }

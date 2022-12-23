@@ -7,7 +7,7 @@ export function Items({filterString}) {
 
     //Constantly reloading, should limit?
     useEffect(function fetchPosts(){
-        if (Object.entries(items).length === 0) {
+        if (items === {} || items === null || items === undefined || Object.entries(items).length === 0) {
             performFetch();
         } else {
             setTimeout(performFetch, 20000)
