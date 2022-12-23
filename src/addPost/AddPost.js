@@ -3,11 +3,15 @@ import * as PropTypes from "prop-types";
 import {useState} from "react";
 import {Host} from "../BackEnd";
 
-export function AddPost({shown = false, userToken = "", onClose = () => {}}) {
+export function AddPost({
+                            shown = false, userToken = "", onClose = () => {
+    }
+                        }) {
     const [isReady, setIsReady] = useState(false);
     const [caption, setCaption] = useState("");
     const [files, setFiles] = useState([])
-    function post(e){
+
+    function post(e) {
         e.preventDefault()
         console.dir(e.target)
         const data = new FormData(e.target);
@@ -27,16 +31,18 @@ export function AddPost({shown = false, userToken = "", onClose = () => {}}) {
         })
         return false
     }
-    function changeCaption(e){
+
+    function changeCaption(e) {
         let newCaption = e.target.value;
-        if (newCaption.trim() !== ""){
+        if (newCaption.trim() !== "") {
             setIsReady(true)
         } else {
             setIsReady(false)
         }
         setCaption(newCaption);
     }
-    function updateFiles(e){
+
+    function updateFiles(e) {
         let fileList = e.target.files;
         setFiles(fileList)
     }
@@ -50,9 +56,8 @@ export function AddPost({shown = false, userToken = "", onClose = () => {}}) {
                         <input type="text" id="post-caption" name="caption"
                                placeholder={"write a caption for your post"} value={caption} onChange={changeCaption}/>
                     </fieldset>
-                    <FileLoader onChange={updateFiles} files={files}/>
                     <button type={"button"} className="Button Big White" onClick={onClose}>Discard</button>
-                    <button type={"submit"} className="Button Big" disabled={!isReady} >Post</button>
+                    <button type={"submit"} className="Button Big" disabled={!isReady}>Post</button>
                 </form>
             </div>
             : <></>
@@ -69,18 +74,17 @@ AddPost.propTypes = {
 function FileLoader({onChange, files}) {
 
     let fileList = []
-    for (let i = 0; i < files.length; i++){
+    for (let i = 0; i < files.length; i++) {
         fileList.push(<li key={files[i].name}>{files[i].name}</li>)
     }
     return (<>
         <label htmlFor="product-image" className="Button">Select files</label>
         <input type="file" id="product-image" className={"Disappear"} name="media"
-                  accept={"image/*"} multiple={false} onChange={onChange}/>
-        {files.length>0
-            ?<ul className={"PostFilesList"}>{fileList}</ul>
-            :<></>}
+               accept={"image/*"} multiple={false} onChange={onChange}/>
+        {files.length > 0
+            ? <ul className={"PostFilesList"}>{fileList}</ul>
+            : <></>}
     </>);
 }
 
-
-        FileLoader.propTypes = {onChange: PropTypes.func};
+FileLoader.propTypes = {onChange: PropTypes.func};
