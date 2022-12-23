@@ -9,15 +9,11 @@ export function AddPost({
                         }) {
     const [isReady, setIsReady] = useState(false);
     const [caption, setCaption] = useState("");
-    const [files, setFiles] = useState([])
 
     function post(e) {
         e.preventDefault()
-        console.dir(e.target)
         const data = new FormData(e.target);
-        console.log(data)
         let bearerToken = "Bearer " + userToken
-        console.log(bearerToken)
         fetch(Host + "/posts", {
             method: "POST",
             headers: {"Authorization": bearerToken},
@@ -40,11 +36,6 @@ export function AddPost({
             setIsReady(false)
         }
         setCaption(newCaption);
-    }
-
-    function updateFiles(e) {
-        let fileList = e.target.files;
-        setFiles(fileList)
     }
 
     return (<>

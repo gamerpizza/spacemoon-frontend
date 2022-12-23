@@ -56,7 +56,7 @@ function App() {
             <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut}
                     handleNewPost={toggleNewPost} onSearch={filterBySearch}
             />
-            <Dashboard filterString={filter}/>
+            <Dashboard filterString={filter} userToken={token}/>
         </div>
     );
 }

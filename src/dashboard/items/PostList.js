@@ -2,14 +2,14 @@ import "./PostList.css"
 import * as PropTypes from "prop-types";
 import {Post} from "./Post";
 
-export function PostList({items = {}, filterString = ""}) {
+export function PostList({items = {}, filterString = "", userToken= ""}) {
     const hide = items === {} || items === null || items === undefined
     return <ul className="Items PostList">
         {!hide?Object.entries(items)
             .filter(filterByString)
             .sort(CompareByDateDescending)
             .map(([k, item]) => {
-                return <Post item={item} key={item.id}/>
+                return <Post item={item} key={item.id} userToken={userToken}/>
             }):<></>
         }
     </ul>;
