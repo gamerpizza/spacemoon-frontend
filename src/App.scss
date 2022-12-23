@@ -1,5 +1,7 @@
 @import "./Colors.scss";
 
+@import "./dashboard/Dashboard";
+
 body{
   font-size: small;
 }
@@ -71,4 +73,43 @@ body{
 
 .Disappear{
   display: none;
+}
+
+@media screen and (max-width: 1280px){
+  .Header .Container{
+    width: 80vw;
+  }
+}
+
+@media screen and (max-width: 540px){
+  .Header .Container{
+    flex-direction: column;
+    * {
+      margin-bottom: 5px;
+    }
+    .Search{
+      display: inline-block;
+      width: 80vw;
+      align-self:flex-start;
+    }
+    .SearchBar{
+      width: 100%;
+      font-size: 12px;
+      line-height: 16px;
+    }
+  }
+  .Button{
+    padding: 5px;
+  }
+  .Dashboard{
+    top: 160px;
+    .Main{
+      max-width: 70vw;
+    }
+    .Aside{
+      max-width: 25vw;
+    }
+    ul{padding: 0}
+  }
+
 }

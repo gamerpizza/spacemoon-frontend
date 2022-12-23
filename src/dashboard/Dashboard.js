@@ -1,4 +1,3 @@
-import './Dashboard.css'
 import {Items} from "./items/Items";
 
 function SideMenu() {
