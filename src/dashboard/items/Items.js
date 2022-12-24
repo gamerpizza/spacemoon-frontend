@@ -10,7 +10,7 @@ export function Items({filterString = "", userToken = "", userName=""}) {
         if (items === {} || items === null || items === undefined || Object.entries(items).length === 0) {
             performFetch();
         } else {
-            setTimeout(performFetch, 20000)
+            setTimeout(performFetch, 500)
         }
         function performFetch() {
             fetch(Host + "/posts", {
