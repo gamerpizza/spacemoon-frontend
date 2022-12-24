@@ -30,7 +30,7 @@ body{
 
   &.White{
     background-color: white;
-    border: black 1px solid;
+    border: $almost-white 3px solid;
     color: black;
     &:hover{
       background-color: #ccc;
@@ -113,4 +113,28 @@ body{
     ul{padding: 0}
   }
 
+}
+
+@media screen and (max-width: 420px){
+  .HeaderButtons{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    .Button{
+      flex-grow: 1;
+      height: 2.5em;
+    }
+  }
+  .Dashboard{
+    display: flex;
+    flex-direction: column;
+    .Main{
+      max-width: 95vw;
+      margin: auto;
+    }
+    .Aside{
+      display: none;
+    }
+
+  }
 }
