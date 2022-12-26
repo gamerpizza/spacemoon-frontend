@@ -30,7 +30,7 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
 
     return <li>
         <button className={"PostAuthor"}>{item.author}</button>
-        <PostMenu/>
+        <PostMenu userToken={userToken}/>
         <span className={"PostCaption"}>{item.caption}</span>
         <PostButtons userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/> <span className={"PostLikes"}>{likes} likes</span>
     </li>;
@@ -74,6 +74,6 @@ PostButtons.propTypes = {
     liked: PropTypes.bool
 };
 
-function PostMenu() {
-    return <button className={"PostMenu"}>...</button>;
+function PostMenu({userToken = ""}) {
+    return <>{userToken.trim() !== ""?<button className={"PostMenu"}>...</button>:""}</>;
 }
