@@ -64,7 +64,7 @@ function PostButtons({isLiked =  false, id = "", userToken = "", updateLikes = (
     return <>{userToken!==""?
         <div className={"PostButtons"}>
             <button className={"PostLikeButton"} type={"button"}
-                    onClick={toggleLiked}>{liked ? <>🚀</> : <>✨</>}</button>
+                    onClick={toggleLiked}>{liked ? <>⭐</> : <>⚝</>}</button>
         </div>:""}
     </>;
 }

@@ -15,7 +15,7 @@ function Header({user = "", token = "", handleLogin = ()=>{}, handleLogout = ()=
 }) {
     return <header className="Header">
         <div className="Container">
-            <p className={"HeaderLogo"}>SPACEMOON</p>
+            <p className={"HeaderLogo"}>bubblegum</p>
             <SearchBar onChange={onSearch}/>
             {user&&token?
                 <UserMenu handleLogout={handleLogout} handleNewPost={handleNewPost}/>:
