@@ -75,5 +75,13 @@ PostButtons.propTypes = {
 };
 
 function PostMenu({userToken = ""}) {
-    return <>{userToken.trim() !== ""?<button className={"PostMenu"}>...</button>:""}</>;
-}
+    const [showPostMenu, setShowPostMenu] = useState(false);
+    function toggle(){
+        setShowPostMenu(!showPostMenu)
+    }
+    return <>
+        {userToken.trim() !== ""
+            ?<div className={"PostMenu"}><button className={"Button White"} onClick={toggle}>...</button>
+            {showPostMenu === true?<div><button className={"Button White"}>EDIT</button><button className={"Button White"}>DELETE</button></div>:""}</div>
+        :""}
+    </>;}

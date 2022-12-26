@@ -1,34 +1,4 @@
 @import "./Items.css";
 
-.PostList {
-  .PostButtons {
-    margin-top: 10px;
-    align-self: flex-end;
 
-    .PostLikeButton {
-      font-size: 1.2em;
-      background-color: rgba(0, 0, 0, 0);
-      border: none;
-    }
-
-    .PostCommentsButton {
-      font-size: 1.2em;
-      background-color: rgba(0, 0, 0, 0);
-      border: none;
-    }
-  }
-
-  .PostLikes{
-    align-self: flex-end;
-  }
-
-  .PostMenu {
-    width: 30px;
-    align-self: flex-end;
-    background-color: rgba(0, 0, 0, 0);
-    border: none;
-    font-weight: bolder;
-    font-size: 1.5em;
-  }
-}
 
