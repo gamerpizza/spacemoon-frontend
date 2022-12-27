@@ -2,7 +2,7 @@ import {useState} from "react";
 import {Host} from "../../BackEnd";
 import * as PropTypes from "prop-types";
 
-export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = "", userName=""}) {
+export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = "", userName="", onDelete = () => {}}) {
     let startingLikes;
     let isLiked;
 
@@ -30,7 +30,7 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
 
     return <li>
         <button className={"PostAuthor"}>{item.author}</button>
-        <PostMenu userToken={userToken} id={item.id} show={item.author === userName}/>
+        <PostMenu userToken={userToken} id={item.id} show={item.author === userName} onDelete={onDelete}/>
         <span className={"PostCaption"}>{item.caption}</span>
         <PostButtons
             userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/>
@@ -66,7 +66,7 @@ function PostButtons({isLiked =  false, id = "", userToken = "", updateLikes = (
     return <>{userToken!==""?
         <div className={"PostButtons"}>
             <button className={"PostLikeButton"} type={"button"}
-                    onClick={toggleLiked}>{liked ? <>⭐</> : <>⚝</>}</button>
+                    onClick={toggleLiked}>{liked ? <>🦄</> : <>🫧</>}</button>
         </div>:""}
     </>;
 }
@@ -76,7 +76,7 @@ PostButtons.propTypes = {
     liked: PropTypes.bool
 };
 
-function PostMenu({userToken = "", id = "", show = false}) {
+function PostMenu({userToken = "", id = "", show = false, onDelete = () => {}}) {
     const [showPostMenu, setShowPostMenu] = useState(false);
     function toggle(){
         setShowPostMenu(!showPostMenu)
@@ -86,7 +86,7 @@ function PostMenu({userToken = "", id = "", show = false}) {
         fetch(Host + "/posts?id=" + id, {
             method: "DELETE",
             headers: {"Authorization": bearerToken},
-        }).then(r => {});
+        }).then(r => {onDelete()});
     }
     return <>
         {userToken.trim() !== "" && show

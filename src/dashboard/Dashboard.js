@@ -1,9 +1,9 @@
 import {Items} from "./items/Items";
 
 
-function Dashboard({filterString = "", userToken="", userName=""}) {
+function Dashboard({filterString = "", user = {name:"", token:""}, items = {}, onDelete =()=>{}}) {
     return <div className="Dashboard">
-            <Items filterString={filterString} userToken={userToken} userName={userName}/>
+            <Items filterString={filterString} user={user} items={items} onDelete={onDelete}/>
     </div>;
 }
 
