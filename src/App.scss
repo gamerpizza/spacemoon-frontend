@@ -7,7 +7,7 @@ body{
 }
 
 .Button{
-  border: 1px solid $very-light-grey;
+  border: none;
   background-color: white;
   color: black;
   border-radius: 4px;
@@ -30,7 +30,7 @@ body{
 
   &.White{
     background-color: white;
-    border: $almost-white 3px solid;
+    border: none;
     color: black;
     &:hover{
       background-color: #ccc;
