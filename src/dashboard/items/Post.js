@@ -30,7 +30,7 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
 
     return <li>
         <button className={"PostAuthor"}>{item.author}</button>
-        <PostMenu userToken={userToken}/>
+        <PostMenu userToken={userToken} id={item.id}/>
         <span className={"PostCaption"}>{item.caption}</span>
         <PostButtons userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/> <span className={"PostLikes"}>{likes} likes</span>
     </li>;
@@ -74,14 +74,19 @@ PostButtons.propTypes = {
     liked: PropTypes.bool
 };
 
-function PostMenu({userToken = ""}) {
+function PostMenu({userToken = "", id = ""}) {
     const [showPostMenu, setShowPostMenu] = useState(false);
     function toggle(){
         setShowPostMenu(!showPostMenu)
     }
+    function erase(){
+        fetch(Host + "/posts?id=" + id, {
+            method: "DELETE",
+        }).then(r => {});
+    }
     return <>
         {userToken.trim() !== ""
             ?<div className={"PostMenu"}><button className={"Button White"} onClick={toggle}>...</button>
-            {showPostMenu === true?<div><button className={"Button White"}>EDIT</button><button className={"Button White"}>DELETE</button></div>:""}</div>
+            {showPostMenu === true?<div><button className={"Button White"} onClick={erase}>DELETE</button></div>:""}</div>
         :""}
     </>;}
