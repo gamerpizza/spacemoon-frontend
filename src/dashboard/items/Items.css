@@ -1,3 +1,7 @@
+.Items {
+  max-width: 1150px;
+  padding: 0;
+}
 .Items li {
   text-align: center;
   display: grid;

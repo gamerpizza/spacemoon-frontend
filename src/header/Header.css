@@ -5,6 +5,7 @@
   z-index: 9;
   border-bottom: 1px #ccc solid;
   padding: 5px;
+  top: 0;
 }
 .Header .Container {
   width: 100%;
