@@ -79,6 +79,10 @@ body{
   .Header .Container{
     width: 80vw;
   }
+  .Main{
+    max-width: 95vw;
+    margin: auto;
+  }
 }
 
 @media screen and (max-width: 540px){
@@ -104,9 +108,7 @@ body{
   }
   .Dashboard{
     top: 160px;
-    .Main{
-      max-width: 70vw;
-    }
+
     .Aside{
       max-width: 25vw;
     }

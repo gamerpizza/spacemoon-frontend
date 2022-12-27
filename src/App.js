@@ -12,7 +12,7 @@ function App() {
     const [token, setToken] = useState('');
     const [loginIsShown, setLoginIsShown] = useState(false);
     const [newPostIsShown, setNewPostIsShown] = useState(false);
-    const [filter, setFilter] = useState("")
+    const [filter, setFilter] = useState("");
 
     function toggleLogin (){
         setLoginIsShown(!loginIsShown);
@@ -36,13 +36,12 @@ function App() {
     }
 
     useEffect(() => {
-        let usr = localStorage.getItem(userStorageKey)
+        let usr = localStorage.getItem(userStorageKey);
         if (usr !== null){
-            console.log(filter)
-            setUser(JSON.parse(localStorage.getItem(userStorageKey)).user)
-            setToken(JSON.parse(localStorage.getItem(userStorageKey)).token)
+            setUser(JSON.parse(localStorage.getItem(userStorageKey)).user);
+            setToken(JSON.parse(localStorage.getItem(userStorageKey)).token);
         }
-    }, [filter])
+    }, [filter]);
 
     function filterBySearch({target}) {
         setFilter(target.value)

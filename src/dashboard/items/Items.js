@@ -23,6 +23,8 @@ export function Items({filterString = "", userToken = "", userName=""}) {
         }
     }, [items, filterString]);
 
+    //TODO: Filter HERE
+
     return <main className="Main">
         <PostList items={items} filterString={filterString} userToken={userToken} userName={userName}/>
     </main>;
