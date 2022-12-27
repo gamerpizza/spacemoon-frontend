@@ -1,45 +1,54 @@
 import './App.css';
-import Header from './header/Header';
 import Dashboard from "./dashboard/Dashboard";
 import {useEffect, useState} from "react";
-import {Login} from "./login/Login";
-import {AddPost} from "./addPost/AddPost";
+import * as PropTypes from "prop-types";
+import {emptyUser, HeaderAndModals} from "./HeaderAndModals";
+import {Host} from "./BackEnd";
 
 const userStorageKey = "user";
 
+HeaderAndModals.propTypes = {
+    onLogin: PropTypes.func,
+    user: PropTypes.shape({name: PropTypes.string, token: PropTypes.string}),
+    handleLogout: PropTypes.func,
+    onSearch: PropTypes.func
+};
+
 function App() {
-    const [user, setUser] = useState('');
-    const [token, setToken] = useState('');
-    const [loginIsShown, setLoginIsShown] = useState(false);
-    const [newPostIsShown, setNewPostIsShown] = useState(false);
+    const [user, setUser] = useState(emptyUser);
     const [filter, setFilter] = useState("");
+    const [items, setItems] = useState({});
 
-    function toggleLogin (){
-        setLoginIsShown(!loginIsShown);
+    useEffect(function fetchPosts(){
+        performFetch();
+    }, [filter]);
+
+    function performFetch() {
+        fetch(Host + "/posts", {
+            method: "GET",
+        }).then(r => {
+            return r.json();
+        }).then(r => {
+            setItems(r);
+        });
     }
 
-    function loginUser(user, t){
-        setUser(user)
-        setToken(t)
-        localStorage.setItem(userStorageKey, JSON.stringify({user: user, token: t}))
-        toggleLogin()
+    function logIn(u, t) {
+        setUser({name: u, token: t});
+        localStorage.setItem(userStorageKey, JSON.stringify({user: u, token: t}));
     }
-
-    function logOut(){
+    function logOut() {
         localStorage.removeItem(userStorageKey)
-        setUser("")
-        setToken("")
-    }
-
-    function toggleNewPost(){
-        setNewPostIsShown(!newPostIsShown)
+        setUser(emptyUser)
     }
 
     useEffect(() => {
         let usr = localStorage.getItem(userStorageKey);
-        if (usr !== null){
-            setUser(JSON.parse(localStorage.getItem(userStorageKey)).user);
-            setToken(JSON.parse(localStorage.getItem(userStorageKey)).token);
+        if (usr !== null) {
+            let userName = JSON.parse(localStorage.getItem(userStorageKey)).user;
+            let token = JSON.parse(localStorage.getItem(userStorageKey)).token;
+            setUser({name: userName, token: token});
+
         }
     }, [filter]);
 
@@ -49,14 +58,12 @@ function App() {
 
     return (
         <div className="App">
-            <Login shown={loginIsShown} closeFunction={toggleLogin} onLogin={loginUser}/>
-            <AddPost  shown={newPostIsShown} onClose={toggleNewPost} userToken={token}/>
-            <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut}
-                    handleNewPost={toggleNewPost} onSearch={filterBySearch}
-            />
-            <Dashboard filterString={filter} userToken={token} userName={user}/>
+            <HeaderAndModals onLogin={logIn} user={user} handleLogout={logOut} onSearch={filterBySearch} onPost={performFetch}/>
+            <Dashboard filterString={filter} user={user} items={items} onDelete={performFetch}/>
         </div>
     );
 }
 
 export default App;
+
+

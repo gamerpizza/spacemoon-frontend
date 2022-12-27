@@ -1,33 +1,24 @@
-import {useEffect, useState} from "react";
-import {Host} from "../../BackEnd";
 import {PostList} from "./PostList";
 
-export function Items({filterString = "", userToken = "", userName=""}) {
-    const [items, setItems] = useState({});
-
-    //Constantly reloading, should limit?
-    useEffect(function fetchPosts(){
-        if (items === {} || items === null || items === undefined || Object.entries(items).length === 0) {
-            performFetch();
-        } else {
-            setTimeout(performFetch, 500)
-        }
-        function performFetch() {
-            fetch(Host + "/posts", {
-                method: "GET",
-            }).then(r => {
-                return r.json();
-            }).then(r => {
-                setItems(r);
-            });
-        }
-    }, [items, filterString]);
-
-    //TODO: Filter HERE
+export function Items({filterString = "", user = {name: "", token: ""}, items = {}, onDelete = () =>{}}) {
+    let sortedFilteredItems = Object.entries(items).filter(filterByString).sort(CompareByDateDescending)
 
     return <main className="Main">
-        <PostList items={items} filterString={filterString} userToken={userToken} userName={userName}/>
+        <PostList items={sortedFilteredItems} user={user} onDelete={onDelete}/>
     </main>;
+
+    function filterByString([k, item]) {
+        return item.author.toLowerCase().includes(filterString.toLowerCase())
+            || item.caption.toLowerCase().includes(filterString.toLowerCase())
+    }
+    function CompareByDateDescending([k1, item1 = {created:""}], [k2, item2= {created:""}]) {
+        let createdA = Date.parse(item1.created);
+        let createdB = Date.parse(item2.created);
+        if (createdA > createdB) return -1
+        if (createdA < createdB) return 1
+        return 0
+    }
 }
+
 
 
