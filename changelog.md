@@ -1,5 +1,10 @@
 ## [Unreleased]
+### Refactor
+* Update post list immediately on every change
 
+##  [v1.0.1] - _2022 12 23_
+### Fixed
+* `Liked` state saved
 
 ##  [v1.0.0] - _2022 12 23_
 ### Added

@@ -3,7 +3,7 @@ import {SearchBar} from "./SearchBar";
 import * as PropTypes from "prop-types";
 
 function UserMenu({handleLogout = () => {}, handleNewPost = () => {}}) {
-    return <div>
+    return <div className={"HeaderButtons"}>
         <button className="Button White" onClick={handleNewPost}>+</button>
         <button className="Button White" onClick={handleLogout}>Logout</button>
     </div>;
@@ -15,11 +15,11 @@ function Header({user = "", token = "", handleLogin = ()=>{}, handleLogout = ()=
 }) {
     return <header className="Header">
         <div className="Container">
-            <p className={"HeaderLogo"}>SPACEMOON</p>
+            <p className={"HeaderLogo"}>bubblegum</p>
             <SearchBar onChange={onSearch}/>
             {user&&token?
                 <UserMenu handleLogout={handleLogout} handleNewPost={handleNewPost}/>:
-                <div>
+                <div className={"HeaderButtons"}>
                     <button className="LoginButton Button" onClick={handleLogin}>Login</button>
                 </div>}
         </div>
