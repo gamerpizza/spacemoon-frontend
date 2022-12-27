@@ -30,9 +30,11 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
 
     return <li>
         <button className={"PostAuthor"}>{item.author}</button>
-        <PostMenu userToken={userToken} id={item.id}/>
+        <PostMenu userToken={userToken} id={item.id} show={item.author === userName}/>
         <span className={"PostCaption"}>{item.caption}</span>
-        <PostButtons userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/> <span className={"PostLikes"}>{likes} likes</span>
+        <PostButtons
+            userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/>
+        <span className={"PostLikes"}>{likes} likes</span>
     </li>;
 }
 
@@ -74,18 +76,20 @@ PostButtons.propTypes = {
     liked: PropTypes.bool
 };
 
-function PostMenu({userToken = "", id = ""}) {
+function PostMenu({userToken = "", id = "", show = false}) {
     const [showPostMenu, setShowPostMenu] = useState(false);
     function toggle(){
         setShowPostMenu(!showPostMenu)
     }
     function erase(){
+        let bearerToken = "Bearer " + userToken
         fetch(Host + "/posts?id=" + id, {
             method: "DELETE",
+            headers: {"Authorization": bearerToken},
         }).then(r => {});
     }
     return <>
-        {userToken.trim() !== ""
+        {userToken.trim() !== "" && show
             ?<div className={"PostMenu"}><button className={"Button White"} onClick={toggle}>...</button>
             {showPostMenu === true?<div><button className={"Button White"} onClick={erase}>DELETE</button></div>:""}</div>
         :""}
