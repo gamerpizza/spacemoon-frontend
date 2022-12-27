@@ -12,14 +12,13 @@ function App() {
     const [token, setToken] = useState('');
     const [loginIsShown, setLoginIsShown] = useState(false);
     const [newPostIsShown, setNewPostIsShown] = useState(false);
-    const [filter, setFilter] = useState("")
+    const [filter, setFilter] = useState("");
 
     function toggleLogin (){
         setLoginIsShown(!loginIsShown);
     }
 
     function loginUser(user, t){
-        console.log(user+":"+t)
         setUser(user)
         setToken(t)
         localStorage.setItem(userStorageKey, JSON.stringify({user: user, token: t}))
@@ -37,13 +36,12 @@ function App() {
     }
 
     useEffect(() => {
-        let usr = localStorage.getItem(userStorageKey)
+        let usr = localStorage.getItem(userStorageKey);
         if (usr !== null){
-            console.log(filter)
-            setUser(JSON.parse(localStorage.getItem(userStorageKey)).user)
-            setToken(JSON.parse(localStorage.getItem(userStorageKey)).token)
+            setUser(JSON.parse(localStorage.getItem(userStorageKey)).user);
+            setToken(JSON.parse(localStorage.getItem(userStorageKey)).token);
         }
-    }, [filter])
+    }, [filter]);
 
     function filterBySearch({target}) {
         setFilter(target.value)
@@ -56,7 +54,7 @@ function App() {
             <Header user={user} token={token} handleLogin={toggleLogin} handleLogout={logOut}
                     handleNewPost={toggleNewPost} onSearch={filterBySearch}
             />
-            <Dashboard filterString={filter}/>
+            <Dashboard filterString={filter} userToken={token} userName={user}/>
         </div>
     );
 }

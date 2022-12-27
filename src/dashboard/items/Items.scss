@@ -1,11 +1,13 @@
 @import "../../Colors";
 
 .Items{
-  max-width: 700px;
-  li {
+  max-width: 1150px;
+  padding: 0;
+  li{
     text-align: center;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr ;
+    grid-row-gap: 10px;
     justify-content: space-evenly;
     border-bottom: dotted 2px #ccc;
     padding: 1em;
@@ -25,9 +27,48 @@
       }
     }
     span.PostCaption{
-      margin-bottom: 7px;
       font-size: 16px;
       text-align: left;
+      grid-column: 1 / span 3;
+    }
+    .PostMenu {
+      position: relative;
+      grid-column: 3/ span 1;
+      justify-self: end;
+      background-color: rgba(0, 0, 0, 0);
+      border: none;
+      font-weight: bolder;
+      display: flex;
+      flex-direction: column;
+      .Button{
+        font-size: 80%;
+        padding: 7px 5px;
+        border: none;
+      }
+    }
+    .PostLikes{
+      grid-column: 3;
+      align-self: flex-end;
+      text-align: right;
+    }
+    .PostButtons {
+      grid-column: 3;
+      align-self: flex-end;
+      display: flex;
+      justify-content: flex-end;
+      .PostLikeButton {
+        font-size: 1.2em;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+      }
+
+      .PostCommentsButton {
+        font-size: 1.2em;
+        background-color: rgba(0, 0, 0, 0);
+        border: none;
+      }
     }
   }
+
+
 }

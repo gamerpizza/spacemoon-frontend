@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {Host} from "../../BackEnd";
 import {PostList} from "./PostList";
 
-export function Items({filterString}) {
+export function Items({filterString = "", userToken = "", userName=""}) {
     const [items, setItems] = useState({});
 
     //Constantly reloading, should limit?
@@ -10,7 +10,7 @@ export function Items({filterString}) {
         if (items === {} || items === null || items === undefined || Object.entries(items).length === 0) {
             performFetch();
         } else {
-            setTimeout(performFetch, 20000)
+            setTimeout(performFetch, 500)
         }
         function performFetch() {
             fetch(Host + "/posts", {
@@ -23,8 +23,10 @@ export function Items({filterString}) {
         }
     }, [items, filterString]);
 
+    //TODO: Filter HERE
+
     return <main className="Main">
-        <PostList items={items} filterString={filterString} />
+        <PostList items={items} filterString={filterString} userToken={userToken} userName={userName}/>
     </main>;
 }
 

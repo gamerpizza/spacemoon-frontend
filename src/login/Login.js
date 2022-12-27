@@ -9,7 +9,6 @@ function LoginForm({onClose, onLoggedIn}) {
     const [userInputIsWrong, setUserInputIsWrong] = useState(false)
     const [passInputIsWrong, setPassInputIsWrong] = useState(false)
     const [invalidCredentials, setInvalidCredentials] = useState(false)
-    const [userExists, setUserExists] = useState(false)
     const [isSignUp, setIsSignup] = useState(false)
 
     const loginOrSignup = () => {
@@ -72,8 +71,6 @@ function LoginForm({onClose, onLoggedIn}) {
                 console.log(response)
                 if (response.status < 200 && response.status > 299) {
                     alert("could not create user" + response.status);
-                    setUserExists(true)
-                    return;
                 } else {
                     login();
                 }

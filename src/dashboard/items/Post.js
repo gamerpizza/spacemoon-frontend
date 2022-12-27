@@ -1,39 +1,96 @@
 import {useState} from "react";
-import {PostImages} from "./PostImages";
+import {Host} from "../../BackEnd";
 import * as PropTypes from "prop-types";
 
-export function Post({item}) {
-    const [liked, setLiked] = useState(false)
+export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = "", userName=""}) {
+    let startingLikes;
+    let isLiked;
 
-    function toggleLiked() {
-        setLiked(!liked)
+    if (item.likes !== null){
+        startingLikes = Object.entries(item.likes).length
+        isLiked = item.likes[userName]
+    } else {
+        isLiked = false;
+        startingLikes = 0;
+    }
+
+    const [likes, setLikes] = useState(startingLikes)
+
+    function addOrRemoveLike(action = ""){
+        switch (action){
+            case "add":
+                setLikes(likes+1)
+                break
+            case "remove":
+                setLikes(likes-1)
+                break
+            default:
+        }
     }
 
     return <li>
         <button className={"PostAuthor"}>{item.author}</button>
-        <PostMenu/>
+        <PostMenu userToken={userToken} id={item.id} show={item.author === userName}/>
         <span className={"PostCaption"}>{item.caption}</span>
-        <PostButtons onClick={toggleLiked} liked={liked}/>
+        <PostButtons
+            userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/>
+        <span className={"PostLikes"}>{likes} likes</span>
     </li>;
 }
 
 Post.propTypes = {v: PropTypes.any};
 
-function PostButtons(props) {
-    return <>
-         <div className={"PostButtons"}>
-            <button className={"PostLikeButton"} type={"button"}
-                    onClick={props.onClick}>{props.liked ? <>🚀</> : <>✨</>}</button>
-        </div>
-    </>
-}
+function PostButtons({isLiked =  false, id = "", userToken = "", updateLikes = (action) => {}}) {
+    const [liked, setLiked] = useState(isLiked);
+    let bearerToken = "Bearer " + userToken
+    let putLike = () => {
+        fetch(Host + "/posts?id=" + id, {
+            method: "PUT",
+            headers: {"Authorization": bearerToken},
+        }).then(r => {
+            return r.json();
+        }).then(r => {
+            if (r) {
+                updateLikes("add")
+            } else {
+                updateLikes("remove")
+            }
+            setLiked(r)
+        });
+    };
 
+    function toggleLiked() {
+        putLike()
+    }
+
+    return <>{userToken!==""?
+        <div className={"PostButtons"}>
+            <button className={"PostLikeButton"} type={"button"}
+                    onClick={toggleLiked}>{liked ? <>⭐</> : <>⚝</>}</button>
+        </div>:""}
+    </>;
+}
 
 PostButtons.propTypes = {
     onClick: PropTypes.func,
     liked: PropTypes.bool
 };
 
-function PostMenu() {
-    return <button className={"PostMenu"}>...</button>;
-}
+function PostMenu({userToken = "", id = "", show = false}) {
+    const [showPostMenu, setShowPostMenu] = useState(false);
+    function toggle(){
+        setShowPostMenu(!showPostMenu)
+    }
+    function erase(){
+        let bearerToken = "Bearer " + userToken
+        fetch(Host + "/posts?id=" + id, {
+            method: "DELETE",
+            headers: {"Authorization": bearerToken},
+        }).then(r => {});
+    }
+    return <>
+        {userToken.trim() !== "" && show
+            ?<div className={"PostMenu"}><button className={"Button White"} onClick={toggle}>...</button>
+            {showPostMenu === true?<div><button className={"Button White"} onClick={erase}>DELETE</button></div>:""}</div>
+        :""}
+    </>;}
