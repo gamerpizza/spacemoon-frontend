@@ -152,8 +152,9 @@ body{
 }
 
 @media screen and (max-width: 1280px){
-  .Header .Container{
-    width: 80vw;
+  header.Header .Container{
+    justify-content: space-between;
+    width: 95vw;
     .Search{
       width: 60vw;
     }
@@ -176,7 +177,7 @@ body{
 }
 
 @media screen and (max-width: 920px){
-  .Header .Container{
+  header.Header .Container{
     .Search{
       position: relative;
       right: 12px;
@@ -186,7 +187,7 @@ body{
 }
 
 @media screen and (max-width: 540px){
-  .Header .Container{
+  header.Header .Container{
     .Search{
       width: 25vw;
     }

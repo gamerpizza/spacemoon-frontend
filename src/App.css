@@ -192,16 +192,17 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
-  .Header .Container {
-    width: 80vw;
+  header.Header .Container {
+    justify-content: space-between;
+    width: 95vw;
   }
-  .Header .Container .Search {
+  header.Header .Container .Search {
     width: 60vw;
   }
-  .Header .Container .SearchBar {
+  header.Header .Container .SearchBar {
     width: 100%;
   }
-  .Header .Container .HeaderButtons {
+  header.Header .Container .HeaderButtons {
     position: relative;
     right: 10px;
   }
@@ -215,14 +216,14 @@ body {
   }
 }
 @media screen and (max-width: 920px) {
-  .Header .Container .Search {
+  header.Header .Container .Search {
     position: relative;
     right: 12px;
     width: 42vw;
   }
 }
 @media screen and (max-width: 540px) {
-  .Header .Container .Search {
+  header.Header .Container .Search {
     width: 25vw;
   }
   .Button {
