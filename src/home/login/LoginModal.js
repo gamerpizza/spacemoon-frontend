@@ -1,9 +1,9 @@
 import "./Login.css"
 import * as PropTypes from "prop-types";
 import {useState} from "react";
-import {Host} from "../BackEnd";
+import {Host} from "../../BackEnd";
 
-function LoginForm({onClose, onLoggedIn}) {
+function LoginForm({onClose, onLoggedIn = (username, token) => {}}) {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [userInputIsWrong, setUserInputIsWrong] = useState(false)
@@ -112,10 +112,10 @@ function LoginForm({onClose, onLoggedIn}) {
     );
 }
 
-export function Login({shown, closeFunction, onLogin}) {
+export function LoginModal({shown, closeFunction, onLogin = (username, token) => {}}) {
     return (
         <>{shown ? <LoginForm onClose={closeFunction} onLoggedIn={onLogin}/> : <></>}</>
     );
 }
 
-Login.propTypes = {shown: PropTypes.bool};
+LoginModal.propTypes = {shown: PropTypes.bool};

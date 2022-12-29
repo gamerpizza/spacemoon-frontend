@@ -1,11 +1,10 @@
 import "./AddPost.css"
 import * as PropTypes from "prop-types";
 import {useState} from "react";
-import {Host} from "../BackEnd";
+import {Host} from "../../BackEnd";
 
-export function AddPost({
-                            shown = false, userToken = "", onClose = () => {
-    }
+export function AddPostModal({
+                            shown = false, userToken = "", onClose = () => {}, onPost = () => {}
                         }) {
     const [isReady, setIsReady] = useState(false);
     const [caption, setCaption] = useState("");
@@ -21,8 +20,9 @@ export function AddPost({
         }).then(r => {
             return r.text();
         }).then(r => {
-            setCaption("")
-            setIsReady(false)
+            setCaption("");
+            setIsReady(false);
+            onPost();
             onClose();
         })
         return false
@@ -57,7 +57,7 @@ export function AddPost({
 }
 
 
-AddPost.propTypes = {
+AddPostModal.propTypes = {
     shown: PropTypes.bool
 };
 
