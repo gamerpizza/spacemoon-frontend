@@ -198,6 +198,10 @@ body {
     max-width: 95vw;
     margin: auto;
   }
+  .Profile {
+    max-width: 80vw;
+    margin: auto;
+  }
 }
 @media screen and (max-width: 540px) {
   .Header .Container {
@@ -228,6 +232,10 @@ body {
   }
   .Dashboard ul {
     padding: 0;
+  }
+  .UserProfile {
+    position: relative;
+    top: 160px;
   }
 }
 @media screen and (max-width: 420px) {
