@@ -1,4 +1,4 @@
-@import "../Colors.scss";
+@import "../../Colors";
 
 .Header {
   position: fixed;
@@ -24,6 +24,9 @@
     font-size: 1.8em;
     font-family: serif;
     margin: 10px 10px;
+    border: none;
+    background-color: white;
+    text-decoration: none;
   }
 }
 

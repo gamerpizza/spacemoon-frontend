@@ -1,7 +1,8 @@
 import {useState} from "react";
-import {LoginModal} from "./login/LoginModal";
-import {AddPostModal} from "./addPost/AddPostModal";
-import Header from "./header/Header";
+import {LoginModal} from "../../home/login/LoginModal";
+import {AddPostModal} from "../../home/addPost/AddPostModal";
+import Header from "./Header";
+import * as PropTypes from "prop-types";
 
 export function HeaderAndModals({
                                     onLogin = (user, token) => {}, user = emptyUser,
@@ -37,3 +38,10 @@ export function HeaderAndModals({
 const emptyUserName = "";
 const emptyUserToken = "";
 export const emptyUser = {name: emptyUserName, token: emptyUserToken};
+
+HeaderAndModals.propTypes = {
+    onLogin: PropTypes.func,
+    user: PropTypes.shape({name: PropTypes.string, token: PropTypes.string}),
+    handleLogout: PropTypes.func,
+    onSearch: PropTypes.func
+};
