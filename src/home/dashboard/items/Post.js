@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Host} from "../../BackEnd";
+import {Host} from "../../../BackEnd";
 import * as PropTypes from "prop-types";
 
 export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = "", userName="", onDelete = () => {}}) {

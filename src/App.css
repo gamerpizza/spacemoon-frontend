@@ -13,6 +13,48 @@
   max-width: 90vw;
 }
 
+.Header {
+  position: fixed;
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  z-index: 9;
+  border-bottom: 1px #ccc solid;
+  padding: 5px;
+  top: 0;
+}
+.Header .Container {
+  width: 100%;
+  max-width: 1150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+.Header .HeaderLogo {
+  color: black;
+  font-weight: bolder;
+  font-size: 1.8em;
+  font-family: serif;
+  margin: 10px 10px;
+  border: none;
+  background-color: white;
+  text-decoration: none;
+}
+
+.SearchBar {
+  border-radius: 20px;
+  width: 25vw;
+  padding: 8px 16px;
+  background-color: #ddd;
+  border: 1px #ccc solid;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.SearchBar:focus {
+  border: none;
+}
+
 body {
   font-size: small;
 }
@@ -80,6 +122,72 @@ body {
 
 .Disappear {
   display: none;
+}
+
+.UserProfile {
+  max-width: 1150px;
+  margin: auto;
+  position: relative;
+  top: 5em;
+}
+.UserProfile h1, .UserProfile h2, .UserProfile h3 {
+  text-align: left;
+}
+.UserProfile hr {
+  clear: both;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: #ccc 1px dotted;
+}
+.UserProfile .Avatar {
+  height: 120px;
+  width: 120px;
+  background-color: #666666;
+  grid-column: 1/span 1;
+  grid-row: span 3;
+}
+.UserProfile div.Avatar {
+  display: flex;
+  justify-content: center;
+}
+.UserProfile div.Avatar p {
+  height: 2em;
+  line-height: 2em;
+  align-self: center;
+  vertical-align: center;
+}
+.UserProfile .Profile {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.UserProfile .Profile h1, .UserProfile .Profile h2, .UserProfile .Profile h3 {
+  margin: 0;
+}
+.UserProfile .EditProfile {
+  clear: both;
+}
+.UserProfile .ProfileEditForm {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.UserProfile .ProfileEditForm input {
+  max-width: 30%;
+  grid-column: 2/span 1;
+}
+.UserProfile .ProfileEditForm button {
+  grid-column: 1/span 1;
+}
+.UserProfile .ProfileEditForm input, .UserProfile .ProfileEditForm button {
+  font-weight: bolder;
+}
+.UserProfile .ProfileEditForm input#ProfileUserName, .UserProfile .ProfileEditForm button#ProfileUserName {
+  font-size: 2em;
+}
+.UserProfile .ProfileEditForm input#ProfileMotto, .UserProfile .ProfileEditForm button#ProfileMotto {
+  font-size: 1.17em;
 }
 
 @media screen and (max-width: 1280px) {

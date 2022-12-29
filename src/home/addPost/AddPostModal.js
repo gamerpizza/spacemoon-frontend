@@ -1,7 +1,7 @@
 import "./AddPost.css"
 import * as PropTypes from "prop-types";
 import {useState} from "react";
-import {Host} from "../BackEnd";
+import {Host} from "../../BackEnd";
 
 export function AddPostModal({
                             shown = false, userToken = "", onClose = () => {}, onPost = () => {}

@@ -1,7 +1,7 @@
 import "./Login.css"
 import * as PropTypes from "prop-types";
 import {useState} from "react";
-import {Host} from "../BackEnd";
+import {Host} from "../../BackEnd";
 
 function LoginForm({onClose, onLoggedIn = (username, token) => {}}) {
     const [username, setUsername] = useState("")
