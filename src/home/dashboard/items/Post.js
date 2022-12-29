@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Host, Self} from "../../../BackEnd";
+import {Host} from "../../../BackEnd";
 import * as PropTypes from "prop-types";
 
 export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = "", userName="", onDelete = () => {}}) {
@@ -29,7 +29,7 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
     }
 
     return <li>
-        <a className={"PostAuthor"} href={Self + "/user?id="+item.author}>{item.author}</a>
+        <a className={"PostAuthor"} href={"/user?id="+item.author}>{item.author}</a>
         <PostMenu userToken={userToken} id={item.id} show={item.author === userName} onDelete={onDelete}/>
         <span className={"PostCaption"}>{item.caption}</span>
         <PostButtons
