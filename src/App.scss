@@ -5,6 +5,7 @@
 
 body{
   font-size: small;
+  min-width: 200px;
 }
 
 .Button{
@@ -153,6 +154,16 @@ body{
 @media screen and (max-width: 1280px){
   .Header .Container{
     width: 80vw;
+    .Search{
+      width: 60vw;
+    }
+    .SearchBar{
+      width: 100%;
+    }
+    .HeaderButtons{
+      position: relative;
+      right: 10px;
+    }
   }
   .Main{
     max-width: 95vw;
@@ -164,29 +175,25 @@ body{
   }
 }
 
+@media screen and (max-width: 920px){
+  .Header .Container{
+    .Search{
+      width: 42vw;
+    }
+  }
+}
+
 @media screen and (max-width: 540px){
   .Header .Container{
-    flex-direction: column;
-    * {
-      margin-bottom: 5px;
-    }
     .Search{
-      display: inline-block;
-      width: 80vw;
-      align-self:flex-start;
-    }
-    .SearchBar{
-      width: 100%;
-      font-size: 12px;
-      line-height: 16px;
-      margin-left: 12px;
+      width: 25vw;
     }
   }
   .Button{
     padding: 5px;
   }
   .Dashboard{
-    top: 160px;
+    top: 80px;
 
     .Aside{
       max-width: 25vw;
@@ -199,10 +206,13 @@ body{
   }
 }
 
+
+
 @media screen and (max-width: 420px){
+  .Search{
+    display: none;
+  }
   .HeaderButtons{
-    width: 80%;
-    margin: auto;
     display: flex;
     .Button{
       flex-grow: 1;
