@@ -216,6 +216,8 @@ body {
 }
 @media screen and (max-width: 920px) {
   .Header .Container .Search {
+    position: relative;
+    right: 12px;
     width: 42vw;
   }
 }
