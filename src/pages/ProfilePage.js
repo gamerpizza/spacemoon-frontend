@@ -1,9 +1,9 @@
 import {useSearchParams} from "react-router-dom";
 import {useCallback, useEffect, useState} from "react";
-import {Host} from "./BackEnd";
-import Header from "./components/header/Header";
-import {Profile} from "./profile/Profile";
-import {emptyUser} from "./components/header/HeaderAndModals";
+import {Host} from "../BackEnd";
+import Header from "../components/header/Header";
+import {Profile} from "../profile/Profile";
+import {emptyUser} from "../components/header/HeaderAndModals";
 
 export function ProfilePage() {
     const [querySearchParams] = useSearchParams();

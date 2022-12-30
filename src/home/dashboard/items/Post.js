@@ -6,6 +6,7 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
     let startingLikes;
     let isLiked;
 
+    console.log(userName)
     if (item.likes !== null){
         startingLikes = Object.entries(item.likes).length
         isLiked = item.likes[userName]

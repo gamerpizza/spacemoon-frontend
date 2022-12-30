@@ -35,7 +35,6 @@ export function Profile({
         }).then(r => {
             return r.json();
         }).then(r => {
-            console.log(r)
             const newItems = {};
                 Object.entries(r).forEach(([k,element])=>{
                     if(element.author === id){
@@ -56,7 +55,7 @@ export function Profile({
                         <button className={"Button EditProfile"} onClick={toggleEdit}>Edit Profile</button> : ""}
                 </div>
                 <hr/>
-                <Items items={items}/>
+                <Items items={items} user={{name:currentUser, token: userToken}}/>
             </>
             : <div>
                 <form className={"ProfileEditForm"} onSubmit={updateProfile}>

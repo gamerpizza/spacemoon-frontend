@@ -1,6 +1,6 @@
-import {emptyUser, HeaderAndModals} from "./components/header/HeaderAndModals";
-import Dashboard from "./home/dashboard/Dashboard";
-import {Host} from "./BackEnd";
+import {emptyUser, HeaderAndModals} from "../components/header/HeaderAndModals";
+import Dashboard from "../home/dashboard/Dashboard";
+import {Host} from "../BackEnd";
 import {useEffect, useState} from "react";
 
 export function HomePage() {
