@@ -40,7 +40,7 @@ export function ProfilePage() {
         <Header user={user.name} token={user.token} hidePostButton={true} handleLogout={logOut}></Header>
         <div className={"UserProfile"}>
             {profile.id === undefined || profile.id.trim() === ""
-                ? <></>
+                ? <p>Profile not loaded (yet?)</p>
                 : <Profile id={profile.id} userName={profile.user_name} motto={profile.motto} url={profile.avatar.url}
                            currentUser={user.name} userToken={user.token} onUpdate={getProfile}/>
             }
