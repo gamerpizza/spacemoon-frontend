@@ -1,5 +1,8 @@
 ## [Unreleased]
 
+##  [v1.1.1] - _2022 12 30_
+### Fixed
+* Better responsive design for phones
 
 ##  [v1.1.0] - _2022 12 29_
 ### Added
