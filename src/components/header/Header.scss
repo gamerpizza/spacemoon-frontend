@@ -8,12 +8,11 @@
   border-bottom: 1px #ccc solid;
   padding: 5px;
   top: 0;
-
   & .Container {
     width: 100%;
     max-width: 1150px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: auto;
   }

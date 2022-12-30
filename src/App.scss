@@ -166,7 +166,7 @@ body {
       font-weight: bolder;
 
       &#ProfileUserName {
-        font-size: 2em;
+        font-size: 1.5em;
       }
 
       &#ProfileMotto {
@@ -178,7 +178,6 @@ body {
 
 @media screen and (max-width: 1280px) {
   header.Header .Container {
-    justify-content: space-between;
     width: 95vw;
 
     .Search {

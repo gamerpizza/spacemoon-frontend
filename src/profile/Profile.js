@@ -57,9 +57,8 @@ export function Profile({
         {!edit
             ? <>
                 <div className={"Profile"}>
-                    <h1>{userName}</h1>
-                    <h2>@{id}</h2>
-                    <h3>{motto}</h3>
+                    <h1>@{id}</h1>
+                    <h2>{userName}</h2>
                     {currentUser === id ?
                         <button className={"Button EditProfile"} onClick={toggleEdit}>Edit Profile</button> : ""}
                 </div>
@@ -68,9 +67,8 @@ export function Profile({
             </>
             : <div>
                 <form className={"ProfileEditForm"} onSubmit={updateProfile}>
+                    <h1>@{id}</h1>
                     <input type="text" defaultValue={userName} id={"ProfileUserName"} name={"user_name"}/>
-                    <h2>@{id}</h2>
-                    <input type="text" defaultValue={motto} id={"ProfileMotto"} name={"motto"}/>
                     <button className={"Button EditProfile"} type={"submit"}>Save</button>
                 </form>
             </div>}</>;
