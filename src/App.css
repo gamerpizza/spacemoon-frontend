@@ -140,6 +140,14 @@ body {
   margin-bottom: 10px;
   border: #ccc 1px dotted;
 }
+.UserProfile input {
+  border-radius: 4px;
+  border: 3px dotted #eee;
+  padding: 3px 12px;
+}
+.UserProfile input:focus {
+  outline: none;
+}
 .UserProfile .Avatar {
   height: 120px;
   width: 120px;
@@ -210,6 +218,9 @@ body {
     max-width: 95vw;
     margin: auto;
   }
+  .UserProfile {
+    max-width: 90vw;
+  }
   .Profile {
     max-width: 80vw;
     margin: auto;
@@ -241,6 +252,9 @@ body {
   .UserProfile {
     position: relative;
     top: 80px;
+  }
+  .UserProfile .ProfileEditForm input {
+    max-width: 90%;
   }
 }
 @media screen and (max-width: 420px) {
