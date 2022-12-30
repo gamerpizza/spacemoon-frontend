@@ -129,7 +129,7 @@ body {
   max-width: 1150px;
   margin: auto;
   position: relative;
-  top: 5em;
+  top: 90px;
 }
 .UserProfile h1, .UserProfile h2, .UserProfile h3 {
   text-align: left;
@@ -169,6 +169,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-left: 13px;
 }
 .UserProfile .Profile h1, .UserProfile .Profile h2, .UserProfile .Profile h3 {
   margin: 0;

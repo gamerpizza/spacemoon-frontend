@@ -86,7 +86,7 @@ body {
   max-width: 1150px;
   margin: auto;
   position: relative;
-  top: 5em;
+  top: 90px;
 
   h1, h2, h3 {
     text-align: left;
@@ -136,7 +136,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 12px;
-
+    margin-left: 13px;
     h1, h2, h3 {
       margin: 0;
     }
