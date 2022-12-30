@@ -12,6 +12,7 @@
   padding: 1em;
 }
 .Items li .PostAuthor {
+  text-decoration: none;
   font-weight: bolder;
   margin-bottom: 10px;
   align-self: flex-start;

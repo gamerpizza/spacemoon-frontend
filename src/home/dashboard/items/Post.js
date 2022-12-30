@@ -29,7 +29,7 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
     }
 
     return <li>
-        <button className={"PostAuthor"}>{item.author}</button>
+        <a className={"PostAuthor"} href={"/user?id="+item.author}>{item.author}</a>
         <PostMenu userToken={userToken} id={item.id} show={item.author === userName} onDelete={onDelete}/>
         <span className={"PostCaption"}>{item.caption}</span>
         <PostButtons

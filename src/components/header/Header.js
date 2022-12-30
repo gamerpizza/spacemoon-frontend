@@ -1,6 +1,7 @@
 import './Header.css'
 import {SearchBar} from "./SearchBar";
 import * as PropTypes from "prop-types";
+import {Self} from "../../BackEnd";
 
 function UserMenu({handleLogout = () => {}, handleNewPost = () => {}, hidePostButton = false}) {
     return <div className={"HeaderButtons"}>
@@ -16,7 +17,7 @@ function Header({user = "", token = "", handleLogin = ()=>{}, handleLogout = ()=
 }) {
     return <header className="Header">
         <div className="Container">
-            <a className={"HeaderLogo"} href={"https://bubblegum.ooo"}>bubblegum</a>
+            <a className={"HeaderLogo"} href={Self}>bubblegum</a>
             <SearchBar onChange={onSearch}/>
             {user&&token?
                 <UserMenu handleLogout={handleLogout} handleNewPost={handleNewPost} hidePostButton={hidePostButton}/>:
