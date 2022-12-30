@@ -2,13 +2,6 @@ import {useEffect, useState} from "react";
 import {Host} from "../BackEnd";
 import {Items} from "../home/dashboard/items/Items";
 
-// function Avatar({url}) {
-//     return <>{url === undefined || url.trim() === ""
-//         ? <div className={"Avatar"}><p>Profile Avatar</p></div>
-//         : <img src={url} alt="Profile Avatar"/>
-//     }</>;
-// }
-
 export function Profile({
                             id = "", userName = "", motto = "", url = " ",
                             currentUser = "", userToken = "", onUpdate = () => {
