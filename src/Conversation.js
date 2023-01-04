@@ -94,7 +94,7 @@ function ConversationsList({
                                className
                            }) {
 
-    const [showNewMessageModal, setShowNewMessageModal] = useState(true)
+    const [showNewMessageModal, setShowNewMessageModal] = useState(false)
 
     function flipNewMessageModal() {
         setShowNewMessageModal(!showNewMessageModal)
