@@ -1,54 +1,54 @@
 .Dashboard {
-  justify-items: stretch;
   align-items: stretch;
+  justify-items: stretch;
+  margin: auto;
+  max-width: 1150px;
   position: relative;
   top: 80px;
-  max-width: 1150px;
-  margin: auto;
 }
 
 .Main {
-  grid-column-start: 2;
   grid-column-end: 3;
+  grid-column-start: 2;
   max-width: 90vw;
 }
 
 .Header {
-  position: fixed;
   background-color: rgb(255, 255, 255);
-  width: 100%;
-  z-index: 9;
   border-bottom: 1px #ccc solid;
   padding: 5px;
+  position: fixed;
   top: 0;
+  width: 100%;
+  z-index: 9;
 }
 .Header .Container {
-  width: 100%;
-  max-width: 1150px;
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   margin: auto;
+  max-width: 1150px;
+  width: 100%;
 }
 .Header .HeaderLogo {
-  color: black;
-  font-weight: bolder;
-  font-size: 1.8em;
-  font-family: serif;
-  margin: 10px 10px;
-  border: none;
   background-color: white;
+  border: none;
+  color: black;
+  font-family: serif;
+  font-size: 1.8em;
+  font-weight: bolder;
+  margin: 10px 10px;
   text-decoration: none;
 }
 
 .SearchBar {
-  border-radius: 20px;
-  width: 25vw;
-  padding: 8px 16px;
   background-color: #ddd;
   border: 1px #ccc solid;
+  border-radius: 20px;
   font-size: 16px;
   line-height: 22px;
+  padding: 8px 16px;
+  width: 25vw;
 }
 
 .SearchBar:focus {
@@ -61,16 +61,17 @@ body {
 }
 
 .Button {
-  border: none;
   background-color: white;
-  color: black;
+  border: none;
   border-radius: 4px;
-  padding: 8px 10px;
+  color: black;
   font-size: 16px;
   font-weight: 700;
   margin: 3px !important;
   min-width: 40px;
+  padding: 8px 10px;
   text-align: center;
+  text-decoration: none;
 }
 .Button:hover {
   background-color: #eee;
@@ -98,17 +99,17 @@ body {
 }
 
 .CloseButton {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: 0.6em;
-  right: 0.8em;
   background-color: #fff;
-  color: #888888;
   border: none;
-  font-weight: 700;
+  color: #888888;
   font-size: 1.2em;
+  font-weight: 700;
+  height: 20px;
   margin: 0;
+  position: absolute;
+  right: 0.8em;
+  top: 0.6em;
+  width: 20px;
 }
 .CloseButton:hover {
   color: #444;
@@ -126,8 +127,8 @@ body {
 }
 
 .UserProfile {
-  max-width: 1150px;
   margin: auto;
+  max-width: 1150px;
   position: relative;
   top: 90px;
 }
@@ -135,34 +136,34 @@ body {
   text-align: left;
 }
 .UserProfile hr {
-  clear: both;
-  margin-top: 10px;
-  margin-bottom: 10px;
   border: #ccc 1px dotted;
+  clear: both;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 .UserProfile input {
-  border-radius: 4px;
   border: 3px dotted #eee;
+  border-radius: 4px;
   padding: 3px 12px;
 }
 .UserProfile input:focus {
   outline: none;
 }
 .UserProfile .Avatar {
-  height: 120px;
-  width: 120px;
   background-color: #666666;
   grid-column: 1/span 1;
   grid-row: span 3;
+  height: 120px;
+  width: 120px;
 }
 .UserProfile div.Avatar {
   display: flex;
   justify-content: center;
 }
 .UserProfile div.Avatar p {
+  align-self: center;
   height: 2em;
   line-height: 2em;
-  align-self: center;
   vertical-align: center;
 }
 .UserProfile .Profile {
@@ -178,14 +179,14 @@ body {
   clear: both;
 }
 .UserProfile .ProfileEditForm {
-  margin-top: 1em;
   display: flex;
   flex-direction: column;
   gap: 12px;
+  margin-top: 1em;
 }
 .UserProfile .ProfileEditForm input {
-  max-width: 30%;
   grid-column: 2/span 1;
+  max-width: 30%;
 }
 .UserProfile .ProfileEditForm button {
   grid-column: 1/span 1;
@@ -198,6 +199,11 @@ body {
 }
 .UserProfile .ProfileEditForm input#ProfileMotto, .UserProfile .ProfileEditForm button#ProfileMotto {
   font-size: 1.17em;
+}
+
+.ConversationsList {
+  position: relative;
+  top: 80px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -215,15 +221,15 @@ body {
     right: 10px;
   }
   .Main {
-    max-width: 95vw;
     margin: auto;
+    max-width: 95vw;
   }
   .UserProfile {
     max-width: 90vw;
   }
   .Profile {
-    max-width: 80vw;
     margin: auto;
+    max-width: 80vw;
   }
 }
 @media screen and (max-width: 920px) {
@@ -273,8 +279,8 @@ body {
     flex-direction: column;
   }
   .Dashboard .Main {
-    max-width: 95vw;
     margin: auto;
+    max-width: 95vw;
   }
   .Dashboard .Aside {
     display: none;

@@ -1,31 +1,32 @@
 @import "../../Colors";
 
 .Header {
-  position: fixed;
   background-color: rgba(255, 255, 255, 100%);
-  width: 100%;
-  z-index: 9;
   border-bottom: 1px #ccc solid;
   padding: 5px;
+  position: fixed;
   top: 0;
+  width: 100%;
+  z-index: 9;
+
   & .Container {
-    width: 100%;
-    max-width: 1150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	margin: auto;
+	max-width: 1150px;
+	width: 100%;
   }
 
-  .HeaderLogo{
-    color: black;
-    font-weight: bolder;
-    font-size: 1.8em;
-    font-family: serif;
-    margin: 10px 10px;
-    border: none;
-    background-color: white;
-    text-decoration: none;
+  .HeaderLogo {
+	background-color: white;
+	border: none;
+	color: black;
+	font-family: serif;
+	font-size: 1.8em;
+	font-weight: bolder;
+	margin: 10px 10px;
+	text-decoration: none;
   }
 }
 
@@ -33,13 +34,13 @@
 }
 
 .SearchBar {
-  border-radius: 20px;
-  width: 25vw;
-  padding: 8px 16px;
   background-color: #ddd;
   border: 1px #ccc solid;
+  border-radius: 20px;
   font-size: 16px;
   line-height: 22px;
+  padding: 8px 16px;
+  width: 25vw;
 }
 
 .SearchBar:focus {

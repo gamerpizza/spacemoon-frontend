@@ -1,4 +1,7 @@
 ## [Unreleased]
+### Fixed
+* Show search bar on smaller phones
+* Check if session is active when reloading
 
 ##  [v1.1.1] - _2022 12 30_
 ### Fixed

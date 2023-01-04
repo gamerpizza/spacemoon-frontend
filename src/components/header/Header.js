@@ -4,6 +4,7 @@ import * as PropTypes from "prop-types";
 function UserMenu({handleLogout = () => {}, handleNewPost = () => {}, hidePostButton = false}) {
     return <div className={"HeaderButtons"}>
         {hidePostButton?<></>:<button className="Button White" onClick={handleNewPost}>+</button>}
+        <a className={"Button White"} href={"/dm"}>#</a>
         <button className="Button White" onClick={handleLogout}>Logout</button>
     </div>;
 }
