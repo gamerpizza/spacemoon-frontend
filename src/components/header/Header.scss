@@ -28,9 +28,12 @@
 	margin: 10px 10px;
 	text-decoration: none;
   }
+
+
 }
 
 .Search {
+  width: 32vw;
 }
 
 .SearchBar {
@@ -40,7 +43,7 @@
   font-size: 16px;
   line-height: 22px;
   padding: 8px 16px;
-  width: 25vw;
+  width: calc(100% - 32px);
 }
 
 .SearchBar:focus {

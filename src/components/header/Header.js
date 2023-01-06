@@ -24,11 +24,11 @@ function UserMenu({children}) {
 
     return  <div className={"HeaderButtons"}>
         {isLoggedIn
-        ? <>
+        ? <div className={"HeaderUserButtons"}>
             {children}
             <a className={"Button White"} href={"/dm"}>#</a>
             <button className="Button White" onClick={logOut}>Logout</button>
-        </>
+        </div>
         : <button className="LoginButton Button" onClick={openLogin}>Login</button>
         }
     </div>;

@@ -41,6 +41,10 @@
   text-decoration: none;
 }
 
+.Search {
+  width: 32vw;
+}
+
 .SearchBar {
   background-color: #ddd;
   border: 1px #ccc solid;
@@ -48,7 +52,7 @@
   font-size: 16px;
   line-height: 22px;
   padding: 8px 16px;
-  width: 25vw;
+  width: calc(100% - 32px);
 }
 
 .SearchBar:focus {
@@ -232,11 +236,15 @@ body {
   header.Header .Container .Search {
     position: relative;
     right: 12px;
+    width: 25vw;
   }
 }
 @media screen and (max-width: 540px) {
   header.Header .Container .Search {
-    width: 25vw;
+    display: inline-block;
+  }
+  header.Header .Container .Search .SearchBar {
+    font-size: 12px;
   }
   .Button {
     padding: 5px;
@@ -259,14 +267,23 @@ body {
   }
 }
 @media screen and (max-width: 420px) {
-  .Search {
-    display: none;
+  header.Header .HeaderLogo {
+    font-size: 1.2em;
   }
-  .HeaderButtons {
-    display: flex;
+  header.Header .HeaderButtons {
+    display: inline-block;
   }
-  .HeaderButtons .Button {
+  header.Header .HeaderButtons .Button {
     flex-grow: 1;
+    font-size: 12px;
+    line-height: 35px;
+    height: 35px;
+  }
+  header.Header .Container .Search {
+    width: 22vw;
+  }
+  header.Header .Container .Search .SearchBar {
+    font-size: 11px;
   }
   .Dashboard {
     display: flex;

@@ -213,7 +213,7 @@ body {
 	.Search {
 	  position: relative;
 	  right: 12px;
-
+	  width: 25vw;
 	}
   }
 }
@@ -221,7 +221,10 @@ body {
 @media screen and (max-width: 540px) {
   header.Header .Container {
 	.Search {
-	  width: 25vw;
+	  display: inline-block;
+	  .SearchBar{
+		font-size: 12px;
+	  }
 	}
   }
   .Button {
@@ -251,16 +254,34 @@ body {
 }
 
 @media screen and (max-width: 420px) {
-  .Search {
-	display: none;
-  }
-  .HeaderButtons {
-	display: flex;
-
-	.Button {
-	  flex-grow: 1;
+  header.Header {
+	.HeaderLogo{
+	  font-size: 1.2em;
 	}
+	.HeaderButtons {
+	  display: inline-block;
+
+
+	  .Button {
+		flex-grow: 1;
+		font-size: 12px;
+		line-height: 35px;
+		height: 35px;
+	  }
+	}
+
+	.Container{
+	  .Search {
+		width: 22vw;
+		.SearchBar{
+		  font-size: 11px;
+		}
+	  }
+	}
+
   }
+
+
   .Dashboard {
 	display: flex;
 	flex-direction: column;
