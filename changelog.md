@@ -19,7 +19,7 @@
 * generalized header `+` button
 * update header immediately on login with context
 * update DM list on new DM
-* update post list on new post //WIP
+* update post list on new post
 
 ---
 
