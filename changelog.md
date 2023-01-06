@@ -6,6 +6,11 @@
 ### Refactor
 * optimist `like` User Interface
 
+---
+
+##  [v1.2.1] - _2023 01 06_
+* small design fixes for small screens
+
 ##  [v1.2.0] - _2023 01 06_
 ### Added
 * direct messaging
