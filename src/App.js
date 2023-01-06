@@ -2,8 +2,8 @@ import './App.css';
 import {Route, Routes} from "react-router-dom";
 import {HomePage} from "./pages/HomePage";
 import {ProfilePage} from "./pages/ProfilePage";
-import {DirectMessagesPage} from "./Conversation";
 import {AppContext} from "./AppContext";
+import {DirectMessagesPage} from "./pages/DirectMessagesPage";
 
 
 function App() {

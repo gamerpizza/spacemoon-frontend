@@ -4,9 +4,16 @@
 * Check if session is active when reloading
 * Smaller search on Desktop
 
-##  [v1.1.2] - _2023 00 00_
 ### Refactor
-* moved user to context
+* generalized header `+` button
+
+##  [v1.2.0] - _2023 01 06_
+### Added
+* direct messaging
+### Refactor
+* moved user and login to context
+
+---
 
 ##  [v1.1.1] - _2022 12 30_
 ### Fixed
@@ -19,6 +26,8 @@
 * Update post list immediately on every change
 ### Fixed
 * Removed border from buttons
+
+---
 
 ##  [v1.0.1] - _2022 12 23_
 ### Fixed

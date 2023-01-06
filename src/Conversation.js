@@ -1,8 +1,8 @@
 import "./Conversation.css"
-import Header from "./components/header/Header";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Host} from "./BackEnd";
 import * as PropTypes from "prop-types";
+import {UserContext} from "./AppContext";
 
 export function Conversation({
                                  messages = [{recipient: "", author: "", content: "", posting_time: ""}],
@@ -39,11 +39,11 @@ function NewMessageModal({
     const [disabled, setDisabled] = useState(true)
     const [recipient, setRecipient] = useState("")
     const [content, setContent] = useState("")
+    const {user} = useContext(UserContext)
 
     function sendMessage(e) {
         e.preventDefault()
-        let userToken = JSON.parse(localStorage.getItem("user")).token;
-        let bearerToken = "Bearer " + userToken
+        let bearerToken = "Bearer " + user.token
         const data = new FormData(e.target);
         const message = Object.fromEntries(data.entries())
         fetch(Host + "/dm", {
@@ -115,12 +115,12 @@ function ConversationsList({
     </div>;
 }
 
-function Conversations() {
+export function Conversations() {
     const [conversations, setConversations] = useState(new Map())
+    const {user} = useContext(UserContext)
 
     useEffect(() => {
-        let userToken = JSON.parse(localStorage.getItem("user")).token;
-        let bearerToken = "Bearer " + userToken
+        let bearerToken = "Bearer " + user.token
         fetch(Host + "/dm", {
             method: "GET",
             headers: {"Authorization": bearerToken},
@@ -141,12 +141,3 @@ function Conversations() {
     </div>;
 }
 
-export function DirectMessagesPage() {
-    let userToken = JSON.parse(localStorage.getItem("user")).token;
-    let userName = JSON.parse(localStorage.getItem("user")).user;
-
-    return <>
-        <Header user={userName} token={userToken}/>
-        <Conversations/>
-    </>;
-}

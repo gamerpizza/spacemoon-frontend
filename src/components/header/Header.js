@@ -6,13 +6,14 @@ import {UserContext} from "../../AppContext";
 function UserMenu({
                       handleLogin = () => {}, handleNewPost = () => {}, hidePostButton = false
                   }) {
-    const {user, logOut} = useContext(UserContext)
+    const context = useContext(UserContext)
+    const {user} = context
     return  <div className={"HeaderButtons"}>
         {user.user && user.token
         ? <>
             {hidePostButton ? "" : <button className="Button White" onClick={handleNewPost}>+</button>}
             <a className={"Button White"} href={"/dm"}>#</a>
-            <button className="Button White" onClick={logOut}>Logout</button>
+            <button className="Button White" onClick={context.logOut}>Logout</button>
         </>
         : <button className="LoginButton Button" onClick={handleLogin}>Login</button>
         }
