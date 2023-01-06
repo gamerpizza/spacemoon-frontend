@@ -1,6 +1,32 @@
-# Getting Started with Create React App
+# Bubblegum front-end
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This Front-End was built using React and SCSS.
+
+# Changelog
+
+## [Unreleased]
+
+##  [v1.1.1] - _2022 12 30_
+### Fixed
+* Better responsive design for phones
+
+##  [v1.1.0] - _2022 12 29_
+### Added
+* User Profile
+### Refactor
+* Update post list immediately on every change
+### Fixed
+* Removed border from buttons
+
+##  [v1.0.1] - _2022 12 23_
+### Fixed
+* `Liked` state saved
+
+##  [v1.0.0] - _2022 12 23_
+### Added
+* Basic Social Network
+
+# Quick reference for developers
 
 ## Available Scripts
 

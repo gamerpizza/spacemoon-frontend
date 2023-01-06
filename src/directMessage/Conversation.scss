@@ -1,0 +1,117 @@
+@import "../Colors";
+
+.NewMessage {
+  background-color: rgba(0, 0, 0, 0.65);
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 99;
+
+  & > div {
+	grid-column: 2;
+	grid-row: 2;
+  }
+
+  form {
+	background-color: white;
+	border-radius: 4px;
+	display: grid;
+	grid-column-gap: 10px;
+	grid-row-gap: 10px;
+	grid-template-columns: 1fr 2fr;
+	padding: 17px;
+
+	textarea {
+	  border: solid 1px $very-light-grey;
+	  border-radius: 4px;
+	  grid-column: span 2;
+	  padding: 5px;
+	}
+
+	input {
+	  border: solid 1px $very-light-grey;
+	  border-radius: 4px;
+	  padding: 5px;
+	}
+
+	label {
+	  line-height: 28px;
+	  text-align: right;
+	}
+	.DirectMessagesAlertMessage{
+	  grid-column: span 2;
+	  color: $alert;
+	  font-weight: bolder;
+	  &:before{
+		content: "⚠️";
+		margin-right: 5px;
+	  }
+	}
+  }
+}
+
+.DirectMessages {
+  margin: auto;
+  max-width: 1150px;
+  position: relative;
+}
+
+
+
+.ConversationOtherPerson{
+  display: inline-block;
+  font-size: 2em;
+}
+
+.ConversationsList{
+  padding: 0 20px;
+  ul{
+	padding: 0;
+  }
+}
+
+li.Conversation{
+  border-bottom: 1px $very-light-grey solid;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-column-gap: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  ul{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	li{
+	  list-style-type: none;
+	}
+	.Me{
+	  grid-column: 1 / span 2;
+	  background-color: $almost-white;
+	}
+	.Them{
+	  grid-column: 2 / span 2;
+	}
+  }
+
+}
+
+.ConversationMessage{
+  border: 1px $very-light-grey solid;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  padding: 10px;
+  blockquote{
+	border: 1px $very-light-grey solid;
+	border-radius: 4px;
+	padding: 10px;
+	margin: 0;
+	background-color: white;
+  }
+  p{
+	text-align: right;
+  }
+}

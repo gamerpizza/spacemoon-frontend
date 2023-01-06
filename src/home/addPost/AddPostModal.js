@@ -1,18 +1,18 @@
 import "./AddPost.css"
 import * as PropTypes from "prop-types";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {Host} from "../../BackEnd";
+import {UserContext} from "../../AppContext";
 
 export function AddPostModal({
-                            shown = false, userToken = "", onClose = () => {}, onPost = () => {}
-                        }) {
+                            shown = false, onClose = () => {}}) {
     const [isReady, setIsReady] = useState(false);
     const [caption, setCaption] = useState("");
-
+    const {user} = useContext(UserContext)
     function post(e) {
         e.preventDefault()
         const data = new FormData(e.target);
-        let bearerToken = "Bearer " + userToken
+        let bearerToken = "Bearer " + user.token
         fetch(Host + "/posts", {
             method: "POST",
             headers: {"Authorization": bearerToken},
@@ -22,7 +22,6 @@ export function AddPostModal({
         }).then(r => {
             setCaption("");
             setIsReady(false);
-            onPost();
             onClose();
         })
         return false

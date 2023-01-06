@@ -1,19 +1,12 @@
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {Host} from "../BackEnd";
 import {Items} from "../home/dashboard/items/Items";
-
-// function Avatar({url}) {
-//     return <>{url === undefined || url.trim() === ""
-//         ? <div className={"Avatar"}><p>Profile Avatar</p></div>
-//         : <img src={url} alt="Profile Avatar"/>
-//     }</>;
-// }
+import {UserContext} from "../AppContext";
 
 export function Profile({
-                            id = "", userName = "", motto = "", url = " ",
-                            currentUser = "", userToken = "", onUpdate = () => {
-    }
+                            id = "", userName = "", motto = "", url = " ", onUpdate = () => {}
                         }) {
+    const {user} = useContext(UserContext)
     const [edit, setEdit] = useState(false)
     const [items, setItems] = useState({});
     function toggleEdit() {
@@ -23,7 +16,7 @@ export function Profile({
     function updateProfile(e) {
         e.preventDefault()
         const data = JSON.stringify(Object.fromEntries(new FormData(e.target)))
-        let bearerToken = "Bearer " + userToken
+        let bearerToken = "Bearer " + user.token
         fetch(Host + "/profile?id=" + id, {
             method: "PUT",
             headers: {"Authorization": bearerToken},
@@ -42,7 +35,6 @@ export function Profile({
         }).then(r => {
             return r.json();
         }).then(r => {
-            console.log(r)
             const newItems = {};
                 Object.entries(r).forEach(([k,element])=>{
                     if(element.author === id){
@@ -57,10 +49,9 @@ export function Profile({
         {!edit
             ? <>
                 <div className={"Profile"}>
-                    <h1>{userName}</h1>
-                    <h2>@{id}</h2>
-                    <h3>{motto}</h3>
-                    {currentUser === id ?
+                    <h1>@{id}</h1>
+                    <h2>{userName}</h2>
+                    {user.user === id ?
                         <button className={"Button EditProfile"} onClick={toggleEdit}>Edit Profile</button> : ""}
                 </div>
                 <hr/>
@@ -68,9 +59,8 @@ export function Profile({
             </>
             : <div>
                 <form className={"ProfileEditForm"} onSubmit={updateProfile}>
+                    <h1>@{id}</h1>
                     <input type="text" defaultValue={userName} id={"ProfileUserName"} name={"user_name"}/>
-                    <h2>@{id}</h2>
-                    <input type="text" defaultValue={motto} id={"ProfileMotto"} name={"motto"}/>
                     <button className={"Button EditProfile"} type={"submit"}>Save</button>
                 </form>
             </div>}</>;

@@ -3,233 +3,297 @@
 @import "home/dashboard/Dashboard";
 @import "components/header/Header";
 
-body{
+body {
   font-size: small;
   min-width: 200px;
 }
 
-.Button{
-  border: none;
+.Button {
   background-color: white;
-  color: black;
+  border: none;
   border-radius: 4px;
-  padding: 8px 10px;
+  color: black;
   font-size: 16px;
   font-weight: 700;
   margin: 3px !important;
   min-width: 40px;
+  padding: 8px 10px;
   text-align: center;
-  &:hover{
-    background-color: $almost-white;
-  }
-  &:active{
-    background-color: $very-light-grey;
+  text-decoration: none;
+  line-height: 40px;
+  height: 40px;
+
+  &:hover {
+	background-color: $almost-white;
   }
 
-  &:disabled{
-    background-color: $light-gray;
+  &:active {
+	background-color: $very-light-grey;
   }
 
-  &.White{
-    background-color: white;
-    border: none;
-    color: black;
-    &:hover{
-      background-color: #ccc;
-    }
-    &:active{
-      background-color: black;
-      color: white;
-    }
+  &:disabled {
+	background-color: $light-gray;
   }
 
-  &.Big{
-    height: 48px;
+  &.White {
+	background-color: white;
+	border: none;
+	color: black;
+
+	&:hover {
+	  background-color: #ccc;
+	}
+
+	&:active {
+	  background-color: black;
+	  color: white;
+	}
+  }
+
+  &.Big {
+	height: 48px;
   }
 }
 
-.CloseButton{
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: .6em;
-  right: .8em;
+.CloseButton {
   background-color: #fff;
-  color:$light-gray;
   border: none;
-  font-weight: 700;
+  color: $light-gray;
   font-size: 1.2em;
+  font-weight: 700;
+  height: 20px;
   margin: 0;
-  &:hover{
-    color: #444;
+  position: absolute;
+  right: .8em;
+  top: .6em;
+  width: 20px;
+
+  &:hover {
+	color: #444;
   }
-  &:active{
-    color: black;
+
+  &:active {
+	color: black;
   }
 }
 
-.WrongInput{
+.WrongInput {
   border: 1px solid $accent-color;
 }
 
-.Disappear{
+.Disappear {
   display: none;
 }
 
-.UserProfile{
-  max-width: 1150px;
+.UserProfile {
   margin: auto;
+  max-width: 1150px;
   position: relative;
-  top: 5em;
-  h1, h2, h3{
-    text-align: left;
-  }
-  hr{
-    clear: both;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: $very-light-grey 1px dotted;
+  top: 90px;
+
+  h1, h2, h3 {
+	text-align: left;
   }
 
-  .Avatar{
-    height: 120px;
-    width: 120px;
-    background-color: #666666;
-    grid-column: 1 / span 1;
-    grid-row: span 3;
+  hr {
+	border: $very-light-grey 1px dotted;
+	clear: both;
+	margin-bottom: 10px;
+	margin-top: 10px;
   }
 
-  img.Avatar{
+  input {
+	border: 3px dotted $almost-white;
+	border-radius: 4px;
+	padding: 3px 12px;
 
-  }
-  div.Avatar{
-    display: flex;
-    justify-content: center;
-    p{
-      height: 2em;
-      line-height: 2em;
-      align-self: center;
-      vertical-align: center;
-    }
+	&:focus {
+	  outline: none;
+	}
   }
 
-  .Profile{
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    h1, h2, h3 {
-      margin: 0;
-    }
+  .Avatar {
+	background-color: #666666;
+	grid-column: 1 / span 1;
+	grid-row: span 3;
+	height: 120px;
+	width: 120px;
   }
 
-  .EditProfile{
-    clear: both;
+  img.Avatar {
+
   }
-  .ProfileEditForm{
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
 
-    input{
-      max-width: 30%;
-      grid-column: 2 /span 1;
-    }
-    button{
-      grid-column: 1 /span 1;
-    }
-    input, button {
+  div.Avatar {
+	display: flex;
+	justify-content: center;
 
-      font-weight: bolder;
-      &#ProfileUserName{
-        font-size: 2em;
-      }
-      &#ProfileMotto{
-        font-size: 1.17em;
-      }
-    }
+	p {
+	  align-self: center;
+	  height: 2em;
+	  line-height: 2em;
+	  vertical-align: center;
+	}
+  }
+
+  .Profile {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-left: 13px;
+
+	h1, h2, h3 {
+	  margin: 0;
+	}
+  }
+
+  .EditProfile {
+	clear: both;
+  }
+
+  .ProfileEditForm {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 1em;
+
+	input {
+	  grid-column: 2 /span 1;
+	  max-width: 30%;
+	}
+
+	button {
+	  grid-column: 1 /span 1;
+	}
+
+	input, button {
+
+	  font-weight: bolder;
+
+	  &#ProfileUserName {
+		font-size: 1.5em;
+	  }
+
+	  &#ProfileMotto {
+		font-size: 1.17em;
+	  }
+	}
   }
 }
 
-@media screen and (max-width: 1280px){
-  header.Header .Container{
-    justify-content: space-between;
-    width: 95vw;
-    .Search{
-      width: 60vw;
-    }
-    .SearchBar{
-      width: 100%;
-    }
-    .HeaderButtons{
-      position: relative;
-      right: 10px;
-    }
+.ConversationsList {
+  position: relative;
+  top: 80px;
+}
+
+@media screen and (max-width: 1280px) {
+  header.Header .Container {
+	width: 95vw;
+
+	.HeaderButtons {
+	  position: relative;
+	  right: 10px;
+	}
   }
-  .Main{
-    max-width: 95vw;
-    margin: auto;
+  .Main {
+	margin: auto;
+	max-width: 95vw;
   }
-  .Profile{
-    max-width: 80vw;
-    margin: auto;
+  .UserProfile {
+	max-width: 90vw;
+  }
+  .Profile {
+	margin: auto;
+	max-width: 80vw;
   }
 }
 
-@media screen and (max-width: 920px){
-  header.Header .Container{
-    .Search{
-      position: relative;
-      right: 12px;
-      width: 42vw;
-    }
+@media screen and (max-width: 920px) {
+  header.Header .Container {
+	.Search {
+	  position: relative;
+	  right: 12px;
+	  width: 25vw;
+	}
   }
 }
 
-@media screen and (max-width: 540px){
-  header.Header .Container{
-    .Search{
-      width: 25vw;
-    }
+@media screen and (max-width: 540px) {
+  header.Header .Container {
+	.Search {
+	  display: inline-block;
+	  .SearchBar{
+		font-size: 12px;
+	  }
+	}
   }
-  .Button{
-    padding: 5px;
+  .Button {
+	padding: 5px;
   }
-  .Dashboard{
-    top: 80px;
+  .Dashboard {
+	top: 80px;
 
-    .Aside{
-      max-width: 25vw;
-    }
-    ul{padding: 0}
+	.Aside {
+	  max-width: 25vw;
+	}
+
+	ul {
+	  padding: 0
+	}
   }
-  .UserProfile{
-    position: relative;
-    top: 80px;
+  .UserProfile {
+	position: relative;
+	top: 80px;
+
+	.ProfileEditForm {
+	  input {
+		max-width: 90%;
+	  }
+	}
   }
 }
 
-@media screen and (max-width: 420px){
-  .Search{
-    display: none;
+@media screen and (max-width: 420px) {
+  header.Header {
+	.HeaderLogo{
+	  font-size: 1.2em;
+	}
+	.HeaderButtons {
+	  display: inline-block;
+
+
+	  .Button {
+		flex-grow: 1;
+		font-size: 12px;
+		line-height: 35px;
+		height: 35px;
+	  }
+	}
+
+	.Container{
+	  .Search {
+		width: 22vw;
+		.SearchBar{
+		  font-size: 11px;
+		}
+	  }
+	}
+
   }
-  .HeaderButtons{
-    display: flex;
-    .Button{
-      flex-grow: 1;
-      height: 2.5em;
-    }
-  }
-  .Dashboard{
-    display: flex;
-    flex-direction: column;
-    .Main{
-      max-width: 95vw;
-      margin: auto;
-    }
-    .Aside{
-      display: none;
-    }
+
+
+  .Dashboard {
+	display: flex;
+	flex-direction: column;
+
+	.Main {
+	  margin: auto;
+	  max-width: 95vw;
+	}
+
+	.Aside {
+	  display: none;
+	}
 
   }
 }

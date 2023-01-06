@@ -1,15 +1,20 @@
 import "./Login.css"
 import * as PropTypes from "prop-types";
-import {useState} from "react";
-import {Host} from "../../BackEnd";
+import {useContext, useState} from "react";
+import {Host} from "../../../BackEnd";
+import {UserContext} from "../../../AppContext";
+import {LoginContext} from "../HeaderContext";
 
-function LoginForm({onClose, onLoggedIn = (username, token) => {}}) {
+function LoginForm() {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [userInputIsWrong, setUserInputIsWrong] = useState(false)
     const [passInputIsWrong, setPassInputIsWrong] = useState(false)
     const [invalidCredentials, setInvalidCredentials] = useState(false)
     const [isSignUp, setIsSignup] = useState(false)
+    const userContext = useContext(UserContext)
+    const loginContext = useContext(LoginContext)
+
 
     const loginOrSignup = () => {
         let stop = false
@@ -57,7 +62,8 @@ function LoginForm({onClose, onLoggedIn = (username, token) => {}}) {
                 }).then(r => {
                 let token = r.replace("token: ", "")
                 if (token.trim() !== "") {
-                    onLoggedIn(username, token)
+                    userContext.logIn(username, token)
+                    close()
                 }
             });
         }
@@ -83,10 +89,14 @@ function LoginForm({onClose, onLoggedIn = (username, token) => {}}) {
         setIsSignup(!isSignUp)
     }
 
+    function close(){
+        loginContext.setLoginIsShown(false)
+    }
+
     return (
         <div className="LoginModal">
             <form>
-                <button type="button" className="CloseButton" onClick={onClose}>X</button>
+                <button type="button" className="CloseButton" onClick={close}>X</button>
                 <label htmlFor="UserName">User Name: </label>
                 <input value={username} type="text" name="UserName" id="UserName" placeholder="Your Username"
                        onChange={(event) => {
@@ -112,9 +122,10 @@ function LoginForm({onClose, onLoggedIn = (username, token) => {}}) {
     );
 }
 
-export function LoginModal({shown, closeFunction, onLogin = (username, token) => {}}) {
+export function LoginModal() {
+    const {loginIsShown} = useContext(LoginContext)
     return (
-        <>{shown ? <LoginForm onClose={closeFunction} onLoggedIn={onLogin}/> : <></>}</>
+        <>{loginIsShown ? <LoginForm/> : <></>}</>
     );
 }
 
