@@ -1,11 +1,9 @@
 ## [Unreleased]
 ### Fixed
-* Show search bar on smaller phones
-* Check if session is active when reloading
-* Smaller search on Desktop
+* check if session is active when reloading
+* limit to 1 user per login
 
 ### Refactor
-
 * optimist `like` User Interface
 
 ##  [v1.2.0] - _2023 01 06_
@@ -13,12 +11,15 @@
 * direct messaging
   * order messages from new to old
 * search conversations
+* ### Fixed
+* show search bar on smaller phones
+* smaller search on Desktop
 ### Refactor
 * moved user and login to context
 * generalized header `+` button
 * update header immediately on login with context
 * update DM list on new DM
-* update post list on new post
+* update post list on new post //WIP
 
 ---
 

@@ -11,7 +11,7 @@ export function HomePage() {
 
     useEffect(function fetchPosts(){
         performFetch();
-    }, [filter]);
+    }, [filter, newPostIsShown]);
 
     function performFetch() {
         fetch(Host + "/posts", {
