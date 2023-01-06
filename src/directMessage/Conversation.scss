@@ -1,4 +1,4 @@
-@import "Colors";
+@import "../Colors";
 
 .NewMessage {
   background-color: rgba(0, 0, 0, 0.65);
@@ -49,4 +49,15 @@
   margin: auto;
   max-width: 1150px;
   position: relative;
+}
+
+.ConversationOtherPerson{
+  display: inline-block;
+  font-size: 2em;
+}
+
+.ConversationsList{
+  li{
+	display: block;
+  }
 }

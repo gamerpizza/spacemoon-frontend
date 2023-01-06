@@ -1,5 +1,5 @@
 import Header from "../components/header/Header";
-import {Conversations} from "../Conversation";
+import {Conversations} from "../directMessage/Conversation";
 
 export function DirectMessagesPage() {
     return <>

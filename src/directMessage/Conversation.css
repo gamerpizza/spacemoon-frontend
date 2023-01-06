@@ -44,4 +44,13 @@
   position: relative;
 }
 
+.ConversationOtherPerson {
+  display: inline-block;
+  font-size: 2em;
+}
+
+.ConversationsList li {
+  display: block;
+}
+
 /*# sourceMappingURL=Conversation.css.map */
