@@ -89,6 +89,9 @@ li.Conversation ul .Me {
 li.Conversation ul .Them {
   grid-column: 2/span 2;
 }
+li.Conversation button.Button.ConversationOtherPerson {
+  height: 100%;
+}
 
 .ConversationMessage {
   border: 1px #ccc solid;

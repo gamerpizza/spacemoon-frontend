@@ -5,7 +5,7 @@
 
 body {
   font-size: small;
-  min-width: 200px;
+  min-width: 320px;
 }
 
 .Button {
@@ -216,6 +216,11 @@ body {
 	  width: 25vw;
 	}
   }
+
+  .Button.ConversationOtherPerson{
+	font-size: 1em;
+	line-height: 1em;
+  }
 }
 
 @media screen and (max-width: 540px) {
@@ -251,6 +256,9 @@ body {
 	  }
 	}
   }
+  .Button.ConversationOtherPerson{
+	font-size: .8em;
+  }
 }
 
 @media screen and (max-width: 420px) {
@@ -281,7 +289,6 @@ body {
 
   }
 
-
   .Dashboard {
 	display: flex;
 	flex-direction: column;
@@ -296,4 +303,11 @@ body {
 	}
 
   }
+
+  .ConversationsList{
+	li.Conversation{
+	  grid-template-columns: 1fr 2fr;
+	}
+  }
+
 }

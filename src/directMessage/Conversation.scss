@@ -61,8 +61,6 @@
   position: relative;
 }
 
-
-
 .ConversationOtherPerson{
   display: inline-block;
   font-size: 2em;
@@ -96,7 +94,9 @@ li.Conversation{
 	  grid-column: 2 / span 2;
 	}
   }
-
+  button.Button.ConversationOtherPerson{
+	height: 100%;
+  }
 }
 
 .ConversationMessage{
