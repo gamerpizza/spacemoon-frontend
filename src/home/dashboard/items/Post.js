@@ -1,15 +1,16 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {Host} from "../../../BackEnd";
 import * as PropTypes from "prop-types";
+import {UserContext} from "../../../AppContext";
 
-export function Post({item = {author: "", caption: "", id: "", likes:[]}, userToken = "", userName="", onDelete = () => {}}) {
+export function Post({item = {author: "", caption: "", id: "", likes:[]}, onDelete = () => {}}) {
     let startingLikes;
     let isLiked;
+    const {user} = useContext(UserContext)
 
-    console.log(userName)
     if (item.likes !== null){
         startingLikes = Object.entries(item.likes).length
-        isLiked = item.likes[userName]
+        isLiked = item.likes[user.user]
     } else {
         isLiked = false;
         startingLikes = 0;
@@ -31,10 +32,10 @@ export function Post({item = {author: "", caption: "", id: "", likes:[]}, userTo
 
     return <li>
         <a className={"PostAuthor"} href={"/user?id="+item.author}>{item.author}</a>
-        <PostMenu userToken={userToken} id={item.id} show={item.author === userName} onDelete={onDelete}/>
+        <PostMenu userToken={user.token} id={item.id} show={item.author === user.user} onDelete={onDelete}/>
         <span className={"PostCaption"}>{item.caption}</span>
         <PostButtons
-            userToken={userToken} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/>
+            userToken={user.token} id={item.id} isLiked={isLiked} updateLikes={addOrRemoveLike}/>
         <span className={"PostLikes"}>{likes} likes</span>
     </li>;
 }

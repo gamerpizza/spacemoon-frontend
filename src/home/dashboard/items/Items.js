@@ -1,10 +1,10 @@
 import {PostList} from "./PostList";
 
-export function Items({filterString = "", user = {name: "", token: ""}, items = {}, onDelete = () =>{}}) {
+export function Items({filterString = "", items = {}, onDelete = () =>{}}) {
     let sortedFilteredItems = Object.entries(items).filter(filterByString).sort(CompareByDateDescending)
 
     return <main className="Main">
-        <PostList items={sortedFilteredItems} user={user} onDelete={onDelete}/>
+        <PostList items={sortedFilteredItems} onDelete={onDelete}/>
     </main>;
 
     function filterByString([k, item]) {

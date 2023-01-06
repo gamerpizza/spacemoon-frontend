@@ -1,4 +1,26 @@
 ## [Unreleased]
+### Fixed
+* Show search bar on smaller phones
+* Check if session is active when reloading
+* Smaller search on Desktop
+
+### Refactor
+
+* optimist `like` User Interface
+
+##  [v1.2.0] - _2023 01 06_
+### Added
+* direct messaging
+  * order messages from new to old
+* search conversations
+### Refactor
+* moved user and login to context
+* generalized header `+` button
+* update header immediately on login with context
+* update DM list on new DM
+* update post list on new post
+
+---
 
 ##  [v1.1.1] - _2022 12 30_
 ### Fixed
@@ -11,6 +33,8 @@
 * Update post list immediately on every change
 ### Fixed
 * Removed border from buttons
+
+---
 
 ##  [v1.0.1] - _2022 12 23_
 ### Fixed

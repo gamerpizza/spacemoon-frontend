@@ -9,68 +9,71 @@ body {
 }
 
 .Button {
-  border: none;
   background-color: white;
-  color: black;
+  border: none;
   border-radius: 4px;
-  padding: 8px 10px;
+  color: black;
   font-size: 16px;
   font-weight: 700;
   margin: 3px !important;
   min-width: 40px;
+  padding: 8px 10px;
   text-align: center;
+  text-decoration: none;
+  line-height: 40px;
+  height: 40px;
 
   &:hover {
-    background-color: $almost-white;
+	background-color: $almost-white;
   }
 
   &:active {
-    background-color: $very-light-grey;
+	background-color: $very-light-grey;
   }
 
   &:disabled {
-    background-color: $light-gray;
+	background-color: $light-gray;
   }
 
   &.White {
-    background-color: white;
-    border: none;
-    color: black;
+	background-color: white;
+	border: none;
+	color: black;
 
-    &:hover {
-      background-color: #ccc;
-    }
+	&:hover {
+	  background-color: #ccc;
+	}
 
-    &:active {
-      background-color: black;
-      color: white;
-    }
+	&:active {
+	  background-color: black;
+	  color: white;
+	}
   }
 
   &.Big {
-    height: 48px;
+	height: 48px;
   }
 }
 
 .CloseButton {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  top: .6em;
-  right: .8em;
   background-color: #fff;
-  color: $light-gray;
   border: none;
-  font-weight: 700;
+  color: $light-gray;
   font-size: 1.2em;
+  font-weight: 700;
+  height: 20px;
   margin: 0;
+  position: absolute;
+  right: .8em;
+  top: .6em;
+  width: 20px;
 
   &:hover {
-    color: #444;
+	color: #444;
   }
 
   &:active {
-    color: black;
+	color: black;
   }
 }
 
@@ -83,37 +86,38 @@ body {
 }
 
 .UserProfile {
-  max-width: 1150px;
   margin: auto;
+  max-width: 1150px;
   position: relative;
   top: 90px;
 
   h1, h2, h3 {
-    text-align: left;
+	text-align: left;
   }
 
   hr {
-    clear: both;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    border: $very-light-grey 1px dotted;
+	border: $very-light-grey 1px dotted;
+	clear: both;
+	margin-bottom: 10px;
+	margin-top: 10px;
   }
 
   input {
-    border-radius: 4px;
-    border: 3px dotted $almost-white;
-    padding: 3px 12px;
-    &:focus{
-      outline: none;
-    }
+	border: 3px dotted $almost-white;
+	border-radius: 4px;
+	padding: 3px 12px;
+
+	&:focus {
+	  outline: none;
+	}
   }
 
   .Avatar {
-    height: 120px;
-    width: 120px;
-    background-color: #666666;
-    grid-column: 1 / span 1;
-    grid-row: span 3;
+	background-color: #666666;
+	grid-column: 1 / span 1;
+	grid-row: span 3;
+	height: 120px;
+	width: 120px;
   }
 
   img.Avatar {
@@ -121,157 +125,175 @@ body {
   }
 
   div.Avatar {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 
-    p {
-      height: 2em;
-      line-height: 2em;
-      align-self: center;
-      vertical-align: center;
-    }
+	p {
+	  align-self: center;
+	  height: 2em;
+	  line-height: 2em;
+	  vertical-align: center;
+	}
   }
 
   .Profile {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    margin-left: 13px;
-    h1, h2, h3 {
-      margin: 0;
-    }
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-left: 13px;
+
+	h1, h2, h3 {
+	  margin: 0;
+	}
   }
 
   .EditProfile {
-    clear: both;
+	clear: both;
   }
 
   .ProfileEditForm {
-    margin-top: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	margin-top: 1em;
 
-    input {
-      max-width: 30%;
-      grid-column: 2 /span 1;
-    }
+	input {
+	  grid-column: 2 /span 1;
+	  max-width: 30%;
+	}
 
-    button {
-      grid-column: 1 /span 1;
-    }
+	button {
+	  grid-column: 1 /span 1;
+	}
 
-    input, button {
+	input, button {
 
-      font-weight: bolder;
+	  font-weight: bolder;
 
-      &#ProfileUserName {
-        font-size: 1.5em;
-      }
+	  &#ProfileUserName {
+		font-size: 1.5em;
+	  }
 
-      &#ProfileMotto {
-        font-size: 1.17em;
-      }
-    }
+	  &#ProfileMotto {
+		font-size: 1.17em;
+	  }
+	}
   }
+}
+
+.ConversationsList {
+  position: relative;
+  top: 80px;
 }
 
 @media screen and (max-width: 1280px) {
   header.Header .Container {
-    width: 95vw;
+	width: 95vw;
 
-    .Search {
-      width: 60vw;
-    }
-
-    .SearchBar {
-      width: 100%;
-    }
-
-    .HeaderButtons {
-      position: relative;
-      right: 10px;
-    }
+	.HeaderButtons {
+	  position: relative;
+	  right: 10px;
+	}
   }
   .Main {
-    max-width: 95vw;
-    margin: auto;
+	margin: auto;
+	max-width: 95vw;
   }
   .UserProfile {
-    max-width: 90vw;
+	max-width: 90vw;
   }
   .Profile {
-    max-width: 80vw;
-    margin: auto;
+	margin: auto;
+	max-width: 80vw;
   }
 }
 
 @media screen and (max-width: 920px) {
   header.Header .Container {
-    .Search {
-      position: relative;
-      right: 12px;
-      width: 42vw;
-    }
+	.Search {
+	  position: relative;
+	  right: 12px;
+	  width: 25vw;
+	}
   }
 }
 
 @media screen and (max-width: 540px) {
   header.Header .Container {
-    .Search {
-      width: 25vw;
-    }
+	.Search {
+	  display: inline-block;
+	  .SearchBar{
+		font-size: 12px;
+	  }
+	}
   }
   .Button {
-    padding: 5px;
+	padding: 5px;
   }
   .Dashboard {
-    top: 80px;
+	top: 80px;
 
-    .Aside {
-      max-width: 25vw;
-    }
+	.Aside {
+	  max-width: 25vw;
+	}
 
-    ul {
-      padding: 0
-    }
+	ul {
+	  padding: 0
+	}
   }
   .UserProfile {
-    position: relative;
-    top: 80px;
+	position: relative;
+	top: 80px;
 
-    .ProfileEditForm {
-      input {
-        max-width: 90%;
-      }
-    }
+	.ProfileEditForm {
+	  input {
+		max-width: 90%;
+	  }
+	}
   }
 }
 
 @media screen and (max-width: 420px) {
-  .Search {
-    display: none;
-  }
-  .HeaderButtons {
-    display: flex;
+  header.Header {
+	.HeaderLogo{
+	  font-size: 1.2em;
+	}
+	.HeaderButtons {
+	  display: inline-block;
 
-    .Button {
-      flex-grow: 1;
-      height: 2.5em;
-    }
+
+	  .Button {
+		flex-grow: 1;
+		font-size: 12px;
+		line-height: 35px;
+		height: 35px;
+	  }
+	}
+
+	.Container{
+	  .Search {
+		width: 22vw;
+		.SearchBar{
+		  font-size: 11px;
+		}
+	  }
+	}
+
   }
+
+
   .Dashboard {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 
-    .Main {
-      max-width: 95vw;
-      margin: auto;
-    }
+	.Main {
+	  margin: auto;
+	  max-width: 95vw;
+	}
 
-    .Aside {
-      display: none;
-    }
+	.Aside {
+	  display: none;
+	}
 
   }
 }
