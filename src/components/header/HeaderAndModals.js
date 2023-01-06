@@ -1,17 +1,16 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {LoginModal} from "../../home/login/LoginModal";
 import {AddPostModal} from "../../home/addPost/AddPostModal";
 import Header from "./Header";
 import * as PropTypes from "prop-types";
+import {UserContext} from "../../AppContext";
 
-export function HeaderAndModals({
-                                    onLogin = (user, token) => {}, user = emptyUser,
-                                    onSearch = ({target}) => {}, handleLogout = () => {}, onPost = () => {}
-                                }) {
+export function HeaderAndModals({onSearch = ({target}) => {}, onPost = () => {}}) {
+    const context = useContext(UserContext)
     const [loginIsShown, setLoginIsShown] = useState(false);
     const [newPostIsShown, setNewPostIsShown] = useState(false);
 
-    function toggleLogin() {
+    function toggleLoginModal() {
         setLoginIsShown(!loginIsShown);
     }
 
@@ -20,17 +19,15 @@ export function HeaderAndModals({
     }
 
     function logIn(u, t) {
-        onLogin(u, t);
-        toggleLogin();
+        context.logIn(u, t);
+        toggleLoginModal();
     }
 
 
     return <>
-        <LoginModal shown={loginIsShown} closeFunction={toggleLogin} onLogin={logIn}/>
-        <AddPostModal shown={newPostIsShown} onClose={toggleNewPost} onPost={onPost} userToken={user.token}/>
-        <Header user={user.name} token={user.token} handleLogin={toggleLogin}
-                handleLogout={handleLogout}
-                handleNewPost={toggleNewPost} onSearch={onSearch}
+        <LoginModal shown={loginIsShown} closeFunction={toggleLoginModal} onLogin={logIn}/>
+        <AddPostModal shown={newPostIsShown} onClose={toggleNewPost} onPost={onPost} userToken={context.user.token}/>
+        <Header handleLogin={toggleLoginModal} handleNewPost={toggleNewPost} onSearch={onSearch}
         />
     </>;
 }
