@@ -5,13 +5,19 @@
 * Smaller search on Desktop
 
 ### Refactor
-* generalized header `+` button
+
+* optimist `like` UI
 
 ##  [v1.2.0] - _2023 01 06_
 ### Added
 * direct messaging
+* search conversations
 ### Refactor
 * moved user and login to context
+* generalized header `+` button
+* update header immediately on login with context
+* update DM list on new DM
+* update post list on new post
 
 ---
 

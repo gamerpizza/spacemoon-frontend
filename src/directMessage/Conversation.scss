@@ -10,6 +10,7 @@
   position: fixed;
   right: 0;
   top: 0;
+  z-index: 99;
 
   & > div {
 	grid-column: 2;
@@ -42,6 +43,15 @@
 	  line-height: 28px;
 	  text-align: right;
 	}
+	.DirectMessagesAlertMessage{
+	  grid-column: span 2;
+	  color: $alert;
+	  font-weight: bolder;
+	  &:before{
+		content: "⚠️";
+		margin-right: 5px;
+	  }
+	}
   }
 }
 
@@ -50,6 +60,8 @@
   max-width: 1150px;
   position: relative;
 }
+
+
 
 .ConversationOtherPerson{
   display: inline-block;

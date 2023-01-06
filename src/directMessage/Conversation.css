@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .NewMessage {
   background-color: rgba(0, 0, 0, 0.65);
   bottom: 0;
@@ -8,6 +9,7 @@
   position: fixed;
   right: 0;
   top: 0;
+  z-index: 99;
 }
 .NewMessage > div {
   grid-column: 2;
@@ -36,6 +38,15 @@
 .NewMessage form label {
   line-height: 28px;
   text-align: right;
+}
+.NewMessage form .DirectMessagesAlertMessage {
+  grid-column: span 2;
+  color: rgb(170, 10, 10);
+  font-weight: bolder;
+}
+.NewMessage form .DirectMessagesAlertMessage:before {
+  content: "⚠️";
+  margin-right: 5px;
 }
 
 .DirectMessages {

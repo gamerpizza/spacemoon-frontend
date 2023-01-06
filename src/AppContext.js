@@ -1,5 +1,4 @@
 import {createContext, useEffect, useState} from "react";
-import {emptyUser} from "./components/header/HeaderAndModals";
 
 export const UserContext = createContext()
 
@@ -31,4 +30,7 @@ export function AppContext({children}) {
     </UserContext.Provider>;
 }
 
+const emptyUserName = "";
+const emptyUserToken = "";
+export const emptyUser = {name: emptyUserName, token: emptyUserToken};
 const userStorageKey = "user";

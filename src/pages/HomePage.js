@@ -2,10 +2,12 @@ import {HeaderAndModals} from "../components/header/HeaderAndModals";
 import Dashboard from "../home/dashboard/Dashboard";
 import {Host} from "../BackEnd";
 import {useEffect, useState} from "react";
+import {AddPostModal} from "../home/addPost/AddPostModal";
 
 export function HomePage() {
     const [filter, setFilter] = useState("");
     const [items, setItems] = useState({});
+    const [newPostIsShown, setNewPostIsShown] = useState(false);
 
     useEffect(function fetchPosts(){
         performFetch();
@@ -24,8 +26,16 @@ export function HomePage() {
     function filterBySearch({target}) {
         setFilter(target.value)
     }
+
+    function toggleNewPost() {
+        setNewPostIsShown(!newPostIsShown)
+    }
+
     return <>
-        <HeaderAndModals onSearch={filterBySearch} onPost={performFetch}/>
+        <AddPostModal shown={newPostIsShown} onClose={toggleNewPost}/>
+        <HeaderAndModals onSearch={filterBySearch} onPost={performFetch}>
+            <button className="Button White" onClick={toggleNewPost}>+</button>
+        </HeaderAndModals>
         <Dashboard filterString={filter} items={items} onDelete={performFetch}/>
     </>;
 }

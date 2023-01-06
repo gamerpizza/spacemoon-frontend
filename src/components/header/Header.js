@@ -1,33 +1,51 @@
 import {SearchBar} from "./SearchBar";
 import * as PropTypes from "prop-types";
-import {useContext} from "react";
+import {useContext, useEffect, useState} from "react";
 import {UserContext} from "../../AppContext";
+import {LoginContext} from "./HeaderContext";
 
-function UserMenu({
-                      handleLogin = () => {}, handleNewPost = () => {}, hidePostButton = false
-                  }) {
-    const context = useContext(UserContext)
-    const {user} = context
+function UserMenu({children}) {
+    const userContext = useContext(UserContext)
+
+    const loginContext = useContext(LoginContext)
+    function openLogin() {
+        loginContext.setLoginIsShown(true);
+    }
+
+    function logOut(){
+        userContext.logOut()
+    }
+
+    const [isLoggedIn,setIsLoggedIn] = useState(isNotEmpty(userContext.user.token))
+
+    useEffect(()=>{
+        setIsLoggedIn(isNotEmpty(userContext.user.token))
+    }, [userContext])
+
     return  <div className={"HeaderButtons"}>
-        {user.user && user.token
+        {isLoggedIn
         ? <>
-            {hidePostButton ? "" : <button className="Button White" onClick={handleNewPost}>+</button>}
+            {children}
             <a className={"Button White"} href={"/dm"}>#</a>
-            <button className="Button White" onClick={context.logOut}>Logout</button>
+            <button className="Button White" onClick={logOut}>Logout</button>
         </>
-        : <button className="LoginButton Button" onClick={handleLogin}>Login</button>
+        : <button className="LoginButton Button" onClick={openLogin}>Login</button>
         }
     </div>;
+
+    function isNotEmpty(stringToBeChecked) {
+        return stringToBeChecked !== undefined && stringToBeChecked !== null && stringToBeChecked.trim() !== "";
+    }
 }
 
 function Header({
-                    handleLogin = () => {}, handleNewPost = () => {}, onSearch = (filter) => {}, hidePostButton = false
+                    onSearch = (filter) => {}, children
                 }) {
     return <header className="Header">
         <div className="Container">
             <a className={"HeaderLogo"} href={"/"}>bubblegum</a>
             <SearchBar onChange={onSearch}/>
-            <UserMenu handleLogin={handleLogin} handleNewPost={handleNewPost} hidePostButton={hidePostButton}/>
+            <UserMenu>{children}</UserMenu>
         </div>
     </header>;
 }
