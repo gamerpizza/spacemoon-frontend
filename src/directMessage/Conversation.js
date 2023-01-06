@@ -1,6 +1,7 @@
 import "./Conversation.css";
-import {useState} from "react";
+import {useContext, useState} from "react";
 import * as PropTypes from "prop-types";
+import {UserContext} from "../AppContext";
 
 export function Conversation({
 								 messages = [{recipient: "", author: "", content: "", posting_time: ""}],
@@ -12,6 +13,8 @@ export function Conversation({
 		setShowConversation(!showConversation);
 	}
 
+	const {user} = useContext(UserContext);
+
 	return <>
 		<button className={"ConversationOtherPerson Button White"} onClick={toggleShowDetails}>{conversation}</button>
 		{showConversation ? <ul>
@@ -21,10 +24,13 @@ export function Conversation({
 				return 0
 			})
 				.map(message => {
-				return <li key={Date.parse(message.posting_time)}>
-					<p>from <strong>{message.author}</strong> to <strong>{message.recipient}</strong> : {new Date(message.posting_time).toUTCString()}
-					</p>
+
+					const isMe = message.author ===  user.user
+				return <li key={Date.parse(message.posting_time)} className={isMe?"ConversationMessage Me":"ConversationMessage Them"}>
 					<blockquote>{message.content}</blockquote>
+					<p>from <strong>{message.author} </strong>
+						to <strong>{message.recipient}</strong> @ {new Date(message.posting_time).toUTCString()}
+					</p>
 				</li>;
 			})}
 		</ul> : ""}</>;
@@ -44,7 +50,7 @@ function ConversationsList({
 		<ul>
 			{conversationProfiles.map(conversation => {
 				const messages = conversationsMap.get(conversation);
-				return <li key={conversation}>
+				return <li key={conversation} className={"Conversation"}>
 					<Conversation messages={messages} conversation={conversation}/>
 				</li>;
 			})}</ul>
