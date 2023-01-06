@@ -72,6 +72,8 @@ body {
   padding: 8px 10px;
   text-align: center;
   text-decoration: none;
+  line-height: 40px;
+  height: 40px;
 }
 .Button:hover {
   background-color: #eee;
@@ -210,12 +212,6 @@ body {
   header.Header .Container {
     width: 95vw;
   }
-  header.Header .Container .Search {
-    width: 60vw;
-  }
-  header.Header .Container .SearchBar {
-    width: 100%;
-  }
   header.Header .Container .HeaderButtons {
     position: relative;
     right: 10px;
@@ -236,7 +232,6 @@ body {
   header.Header .Container .Search {
     position: relative;
     right: 12px;
-    width: 42vw;
   }
 }
 @media screen and (max-width: 540px) {
@@ -272,7 +267,6 @@ body {
   }
   .HeaderButtons .Button {
     flex-grow: 1;
-    height: 2.5em;
   }
   .Dashboard {
     display: flex;

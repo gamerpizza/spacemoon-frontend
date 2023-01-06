@@ -20,6 +20,8 @@ body {
   padding: 8px 10px;
   text-align: center;
   text-decoration: none;
+  line-height: 40px;
+  height: 40px;
 
   &:hover {
 	background-color: $almost-white;
@@ -188,14 +190,6 @@ body {
   header.Header .Container {
 	width: 95vw;
 
-	.Search {
-	  width: 60vw;
-	}
-
-	.SearchBar {
-	  width: 100%;
-	}
-
 	.HeaderButtons {
 	  position: relative;
 	  right: 10px;
@@ -219,7 +213,7 @@ body {
 	.Search {
 	  position: relative;
 	  right: 12px;
-	  width: 42vw;
+
 	}
   }
 }
@@ -265,7 +259,6 @@ body {
 
 	.Button {
 	  flex-grow: 1;
-	  height: 2.5em;
 	}
   }
   .Dashboard {
