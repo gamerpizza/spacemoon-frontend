@@ -6,6 +6,11 @@
 ### Refactor
 * optimist `like` User Interface
 
+---
+
+##  [v1.2.1] - _2023 01 06_
+* small design fixes for small screens
+
 ##  [v1.2.0] - _2023 01 06_
 ### Added
 * direct messaging
@@ -19,7 +24,7 @@
 * generalized header `+` button
 * update header immediately on login with context
 * update DM list on new DM
-* update post list on new post //WIP
+* update post list on new post
 
 ---
 
