@@ -15,9 +15,14 @@ export function Conversation({
 	return <>
 		<button className={"ConversationOtherPerson Button White"} onClick={toggleShowDetails}>{conversation}</button>
 		{showConversation ? <ul>
-			{messages.map(message => {
-				return <li key={message.posting_time}>
-					<p>from <strong>{message.author}</strong> to <strong>{message.recipient}</strong> : {message.posting_time}
+			{messages.sort((m1, m2) =>{
+				if (Date.parse(m1.posting_time)>Date.parse(m2.posting_time)) return -1
+				if (Date.parse(m1.posting_time)<Date.parse(m2.posting_time)) return 1
+				return 0
+			})
+				.map(message => {
+				return <li key={Date.parse(message.posting_time)}>
+					<p>from <strong>{message.author}</strong> to <strong>{message.recipient}</strong> : {new Date(message.posting_time).toUTCString()}
 					</p>
 					<blockquote>{message.content}</blockquote>
 				</li>;

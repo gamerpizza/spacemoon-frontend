@@ -6,11 +6,12 @@
 
 ### Refactor
 
-* optimist `like` UI
+* optimist `like` User Interface
 
 ##  [v1.2.0] - _2023 01 06_
 ### Added
 * direct messaging
+  * order messages from new to old
 * search conversations
 ### Refactor
 * moved user and login to context
