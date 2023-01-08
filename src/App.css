@@ -21,6 +21,7 @@
   top: 0;
   width: 100%;
   z-index: 9;
+  min-width: 320px;
 }
 .Header .Container {
   align-items: center;
