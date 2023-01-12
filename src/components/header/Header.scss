@@ -8,7 +8,7 @@
   top: 0;
   width: 100%;
   z-index: 9;
-
+  min-width: 320px;
   & .Container {
 	align-items: center;
 	display: flex;

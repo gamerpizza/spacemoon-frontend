@@ -1,75 +1,134 @@
 @import "../../../Colors";
 
-.Items{
+.Items {
   max-width: 1150px;
   padding: 0;
-  li{
-    text-align: center;
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr ;
-    grid-row-gap: 10px;
-    justify-content: space-evenly;
-    border-bottom: solid 1px $almost-white;
-    padding: 1em;
-    .PostAuthor{
-      text-decoration: none;
-      font-weight: bolder;
-      margin-bottom: 10px;
-      align-self: flex-start;
-      font-size: 1em;
-      border: none;
-      background-color: $almost-white;
-      padding: 3px 7px;
-      color: black;
-      border-radius: 4px;
-      &:before{
-        content: "@";
-        margin-right: 2px;
-      }
-    }
-    span.PostCaption{
-      font-size: 16px;
-      text-align: left;
-      grid-column: 1 / span 3;
-    }
-    .PostMenu {
-      position: relative;
-      grid-column: 3/ span 1;
-      justify-self: end;
-      background-color: rgba(0, 0, 0, 0);
-      border: none;
-      font-weight: bolder;
-      display: flex;
-      flex-direction: column;
-      .Button{
-        font-size: 80%;
-        padding: 7px 5px;
-        border: none;
-      }
-    }
-    .PostLikes{
-      grid-column: 3;
-      align-self: flex-end;
-      text-align: right;
-    }
-    .PostButtons {
-      grid-column: 3;
-      align-self: flex-end;
-      display: flex;
-      justify-content: flex-end;
-      .PostLikeButton {
-        font-size: 1.2em;
-        background-color: rgba(0, 0, 0, 0);
-        border: none;
-      }
 
-      .PostCommentsButton {
-        font-size: 1.2em;
-        background-color: rgba(0, 0, 0, 0);
-        border: none;
-      }
-    }
+  li {
+	border-bottom: solid 1px $almost-white;
+	display: grid;
+	grid-row-gap: 10px;
+	grid-template-columns: 1fr 3fr 1fr;
+	justify-content: space-evenly;
+	padding: 1em;
+	text-align: center;
+
+	.PostAuthor {
+	  align-self: flex-start;
+	  background-color: $almost-white;
+	  border: none;
+	  border-radius: 4px;
+	  color: black;
+	  font-size: 1em;
+	  font-weight: bolder;
+	  margin-bottom: 10px;
+	  padding: 3px 7px;
+	  text-decoration: none;
+
+	  &:before {
+		content: "@";
+		margin-right: 2px;
+	  }
+	}
+
+	span.PostCaption {
+	  font-size: 16px;
+	  grid-column: 1 / span 3;
+	  text-align: left;
+	}
+
+	.PostMenu {
+	  background-color: rgba(0, 0, 0, 0);
+	  border: none;
+	  display: flex;
+	  flex-direction: column;
+	  font-weight: bolder;
+	  grid-column: 3/ span 1;
+	  justify-self: end;
+	  position: relative;
+
+	  .Button {
+		border: none;
+		font-size: 80%;
+		padding: 7px 5px;
+	  }
+	}
+
+	.PostLikes {
+	  align-self: flex-end;
+	  grid-column: 3;
+	  text-align: right;
+	}
+
+	.PostButtons {
+	  align-self: flex-end;
+	  display: flex;
+	  grid-column: 3;
+	  justify-content: flex-end;
+
+	  .PostLikeButton {
+		background-color: rgba(0, 0, 0, 0);
+		border: none;
+		font-size: 1.2em;
+	  }
+
+	  .PostCommentsButton {
+		background-color: rgba(0, 0, 0, 0);
+		border: none;
+		font-size: 1.2em;
+	  }
+	}
+
+	.PostCommentList {
+	  grid-column: span 2;
+
+	  .PostCommentAuthor {
+		font-weight: bolder;
+	  }
+	}
+
   }
 
+  .NewCommentModal {
+	position: fixed;
+	top:0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  background-color: rgba(0,0,0,.65);
+	z-index: 99;
+	form{
+	  position: relative;
+	  background-color: white;
+	  padding: 10px 20px;
+	  border-radius: 4px;
+	  width: fit-content;
+	  margin: auto;
+	  text-align: left;
+	  display: flex;
+	  flex-direction: column;
+	  fieldset{
+		display: flex;
+		border: none;
+		padding: 0;
+		margin: 20px 0 10px;
+	  }
+	  textarea{
+		border: none;
+		padding: 5px;
+		width: 100%;
+		&:focus{
+		  outline: none;
+		}
+	  }
+	  label{
+		margin-top: 5px;
+	  }
+	}
 
+  }
 }
+
