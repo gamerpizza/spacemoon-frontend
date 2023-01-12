@@ -105,6 +105,13 @@ body {
   height: 48px;
 }
 
+button.Button {
+  vertical-align: center;
+  text-align: center;
+  font-size: 16px;
+  line-height: 16px;
+}
+
 .CloseButton {
   background-color: #fff;
   border: none;
@@ -211,6 +218,52 @@ body {
 .ConversationsList {
   position: relative;
   top: 80px;
+}
+
+.Post {
+  position: relative;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  font-size: 24px;
+  max-width: 1150px;
+  margin: auto;
+  border: 1px #eee solid;
+  padding-top: 40px;
+}
+.Post p {
+  padding: 0 15px;
+}
+.Post .PostAuthor {
+  font-size: 65%;
+  font-weight: bolder;
+}
+.Post .PostDate {
+  font-size: 65%;
+}
+.Post .PostCommentList {
+  padding: 0 15px;
+}
+.Post .PostCommentList .PostComment {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px #eee solid;
+}
+.Post .PostCommentInput {
+  border-left: none;
+  border-right: none;
+  border-top: 1px #eee solid;
+  border-bottom: 1px #eee solid;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.Post .PostCommentInput input {
+  border: none;
+  padding: 10px;
+  font-size: 24px;
+}
+.Post .PostCommentInput input:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 1280px) {

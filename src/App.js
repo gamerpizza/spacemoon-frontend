@@ -4,6 +4,7 @@ import {HomePage} from "./pages/HomePage";
 import {ProfilePage} from "./pages/ProfilePage";
 import {AppContext} from "./AppContext";
 import {DirectMessagesPage} from "./pages/DirectMessagesPage";
+import {PostPage} from "./PostPage";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
                     <Route exact path={"/"} element={<HomePage/>}></Route>
                     <Route path={"user"} element={<ProfilePage/>}/>
                     <Route path={"dm"} element={<DirectMessagesPage/>}/>
+                    <Route path={"post"} element={<PostPage/>}/>
                 </Routes>
             </AppContext>
 
