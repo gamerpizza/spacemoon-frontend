@@ -5,6 +5,7 @@ This Front-End was built using React and SCSS.
 # Changelog
 
 ## [Unreleased]
+* Comments
 
 ##  [v1.1.1] - _2022 12 30_
 ### Fixed
