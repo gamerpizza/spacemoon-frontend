@@ -8,6 +8,12 @@
 
 ---
 
+##  [v1.3.0] - _2023 01 06_
+### Added
+* comments
+
+---
+
 ##  [v1.2.1] - _2023 01 06_
 * small design fixes for small screens
 
